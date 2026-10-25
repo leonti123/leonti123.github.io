@@ -1,345 +1,149 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>МастерРемонт — Ремонт квартир в Санкт-Петербурге</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Леонтий — сайты, Telegram-боты и парсеры</title>
+<meta name="description" content="Делаю лендинги, сайты на WordPress, Telegram-ботов для записи и заявок, парсеры с выгрузкой в Excel. Примеры работ и цены.">
+<meta property="og:title" content="Леонтий — сайты, Telegram-боты и парсеры">
+<meta property="og:description" content="Лендинги, WordPress, Telegram-боты, парсеры. Примеры работ и цены.">
+<meta property="og:image" content="landing-cover.jpg">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; color: #1a1a1a; background: #fff; }
-
-  /* NAV */
-  nav { position: sticky; top: 0; z-index: 100; background: #fff; border-bottom: 1px solid #e8e8e8; display: flex; justify-content: space-between; align-items: center; padding: 16px 40px; }
-  .nav-logo { font-size: 20px; font-weight: 600; }
-  .nav-logo span { color: #1a5fa8; }
-  .nav-links { display: flex; gap: 28px; list-style: none; }
-  .nav-links a { text-decoration: none; color: #444; font-size: 14px; }
-  .nav-links a:hover { color: #1a5fa8; }
-  .nav-cta { background: #1a5fa8; color: #fff; border: none; padding: 10px 22px; border-radius: 8px; font-size: 14px; font-weight: 500; cursor: pointer; transition: background 0.2s; }
-  .nav-cta:hover { background: #0d3f6e; }
-
-  /* HERO */
-  .hero { background: linear-gradient(135deg, #0d3f6e 0%, #1a5fa8 100%); color: #fff; padding: 80px 40px 70px; }
-  .hero-inner { max-width: 960px; margin: 0 auto; }
-  .hero-tag { font-size: 13px; letter-spacing: 1px; text-transform: uppercase; opacity: 0.65; margin-bottom: 20px; }
-  .hero h1 { font-size: 44px; font-weight: 700; line-height: 1.15; max-width: 580px; margin-bottom: 20px; }
-  .hero-sub { font-size: 18px; opacity: 0.85; max-width: 500px; line-height: 1.65; margin-bottom: 36px; }
-  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
-  .btn-white { background: #fff; color: #0d3f6e; border: none; padding: 15px 32px; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: transform 0.15s; }
-  .btn-white:hover { transform: translateY(-2px); }
-  .btn-ghost { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.45); padding: 15px 32px; border-radius: 8px; font-size: 16px; cursor: pointer; transition: border-color 0.2s; }
-  .btn-ghost:hover { border-color: #fff; }
-  .hero-stats { display: flex; gap: 48px; margin-top: 56px; flex-wrap: wrap; }
-  .stat-num { font-size: 32px; font-weight: 700; }
-  .stat-label { font-size: 13px; opacity: 0.6; margin-top: 4px; }
-
-  /* SECTIONS */
-  section { padding: 72px 40px; }
-  .inner { max-width: 960px; margin: 0 auto; }
-  .sec-title { font-size: 30px; font-weight: 700; margin-bottom: 10px; }
-  .sec-sub { font-size: 16px; color: #666; margin-bottom: 40px; }
-
-  /* SERVICES */
-  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; }
-  .svc-card { border: 1px solid #e8e8e8; border-radius: 14px; padding: 28px 24px; transition: box-shadow 0.2s, transform 0.2s; cursor: default; }
-  .svc-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.09); transform: translateY(-3px); }
-  .svc-icon { font-size: 36px; margin-bottom: 14px; }
-  .svc-title { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
-  .svc-desc { font-size: 14px; color: #666; line-height: 1.6; }
-  .svc-price { font-size: 14px; color: #1a5fa8; font-weight: 600; margin-top: 14px; }
-
-  /* WHY */
-  .why-bg { background: #f7f9fc; }
-  .why-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; }
-  .why-item { display: flex; gap: 18px; }
-  .why-num { font-size: 40px; font-weight: 800; color: #dde8f5; line-height: 1; min-width: 52px; }
-  .why-title { font-size: 15px; font-weight: 600; margin-bottom: 6px; }
-  .why-desc { font-size: 14px; color: #666; line-height: 1.6; }
-
-  /* WORKS */
-  .works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-  .work-card { border-radius: 14px; overflow: hidden; border: 1px solid #e8e8e8; transition: transform 0.2s; cursor: pointer; }
-  .work-card:hover { transform: translateY(-4px); }
-  .work-photo { height: 200px; display: flex; align-items: center; justify-content: center; font-size: 48px; }
-  .work-info { padding: 18px 20px; }
-  .work-type { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
-  .work-area { font-size: 13px; color: #888; }
-  .work-tag { display: inline-block; background: #eef4fc; color: #1a5fa8; font-size: 12px; font-weight: 500; padding: 3px 10px; border-radius: 20px; margin-top: 10px; }
-
-  /* REVIEWS */
-  .reviews-bg { background: #f7f9fc; }
-  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-  .review-card { background: #fff; border: 1px solid #e8e8e8; border-radius: 14px; padding: 24px; }
-  .review-stars { color: #f0a500; font-size: 16px; margin-bottom: 12px; }
-  .review-text { font-size: 14px; color: #444; line-height: 1.65; margin-bottom: 18px; font-style: italic; }
-  .review-author { font-size: 14px; font-weight: 600; }
-  .review-meta { font-size: 12px; color: #999; margin-top: 2px; }
-
-  /* FORM */
-  .form-bg { background: linear-gradient(135deg, #0d3f6e 0%, #1a5fa8 100%); color: #fff; padding: 80px 40px; text-align: center; }
-  .form-title { font-size: 32px; font-weight: 700; margin-bottom: 12px; }
-  .form-sub { font-size: 16px; opacity: 0.8; margin-bottom: 36px; }
-  .form-row { display: flex; gap: 12px; max-width: 480px; margin: 0 auto; flex-wrap: wrap; justify-content: center; }
-  .form-input { flex: 1; min-width: 220px; padding: 14px 18px; border-radius: 8px; border: none; font-size: 15px; outline: none; background: rgba(255,255,255,0.15); color: #fff; }
-  .form-input::placeholder { color: rgba(255,255,255,0.5); }
-  .form-input:focus { background: rgba(255,255,255,0.22); }
-  .form-btn { background: #fff; color: #0d3f6e; border: none; padding: 14px 28px; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: transform 0.15s; white-space: nowrap; }
-  .form-btn:hover { transform: translateY(-2px); }
-  .form-note { font-size: 12px; opacity: 0.55; margin-top: 14px; }
-
-  /* MODAL */
-  .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 999; align-items: center; justify-content: center; }
-  .modal-overlay.open { display: flex; }
-  .modal { background: #fff; border-radius: 16px; padding: 40px; max-width: 420px; width: 90%; text-align: center; }
-  .modal-icon { font-size: 52px; margin-bottom: 16px; }
-  .modal h3 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
-  .modal p { font-size: 15px; color: #666; line-height: 1.6; margin-bottom: 24px; }
-  .modal-close { background: #1a5fa8; color: #fff; border: none; padding: 12px 28px; border-radius: 8px; font-size: 15px; font-weight: 500; cursor: pointer; }
-
-  /* FOOTER */
-  footer { padding: 28px 40px; border-top: 1px solid #e8e8e8; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
-  .footer-logo { font-size: 16px; font-weight: 600; }
-  .footer-logo span { color: #1a5fa8; }
-  .footer-info { font-size: 13px; color: #999; }
-
-  @media (max-width: 600px) {
-    nav { padding: 14px 20px; }
-    .nav-links { display: none; }
-    .hero { padding: 52px 20px 44px; }
-    .hero h1 { font-size: 28px; }
-    section { padding: 52px 20px; }
-    .form-bg { padding: 52px 20px; }
-    footer { padding: 20px; }
-  }
+  :root{--bg:#0f1115;--card:#171a21;--line:#262b35;--ink:#eef1f6;--muted:#9aa3b2;--acc:#7c5cff;--acc2:#22d3a6}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Manrope,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1120px,100% - 32px);margin-inline:auto}
+  section{padding:84px 0}
+  h1,h2,h3{line-height:1.15;font-weight:800}
+  h2{font-size:clamp(28px,4vw,40px);margin-bottom:10px}
+  .muted{color:var(--muted)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:12px;font-weight:700;transition:.2s}
+  .btn-acc{background:var(--acc);color:#fff}.btn-acc:hover{filter:brightness(1.1)}
+  .btn-line{border:1px solid var(--line)}.btn-line:hover{border-color:var(--acc)}
+  header{position:sticky;top:0;z-index:10;background:rgba(15,17,21,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;justify-content:space-between;align-items:center;height:64px}
+  .logo{font-weight:800;font-size:18px}.logo span{color:var(--acc)}
+  .menu{display:flex;gap:26px;font-weight:500;color:var(--muted)}.menu a:hover{color:var(--ink)}
+  .hero{padding:90px 0 70px}
+  .hero .wrap{display:grid;grid-template-columns:1.4fr .8fr;gap:48px;align-items:center}
+  .hero h1{font-size:clamp(36px,5.5vw,60px);margin-bottom:18px}
+  .hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .hero p{font-size:18px;margin-bottom:28px;max-width:560px}
+  .hero .acts{display:flex;gap:12px;flex-wrap:wrap}
+  .me{justify-self:center;width:280px;aspect-ratio:1;border-radius:28px;background:url(me.jpg) center/cover;box-shadow:0 30px 60px rgba(0,0,0,.4);border:1px solid var(--line)}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
+  .chips span{border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:14px;color:var(--muted)}
+  .services{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
+  .svc{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column}
+  .svc .ic{font-size:28px;margin-bottom:12px}
+  .svc h3{font-size:19px;margin-bottom:8px}
+  .svc p{color:var(--muted);font-size:15px;flex:1}
+  .svc .pr{margin-top:16px;font-weight:800;color:var(--acc2)}
+  .works{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:34px}
+  .work{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.25s;display:flex;flex-direction:column}
+  .work:hover{transform:translateY(-4px);border-color:var(--acc)}
+  .work img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block;border-bottom:1px solid var(--line)}
+  .work .b{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+  .work h3{font-size:20px;margin-bottom:6px}
+  .work p{color:var(--muted);font-size:15px;flex:1}
+  .work .tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0 16px}
+  .work .tags span{font-size:12px;background:#222734;padding:4px 10px;border-radius:999px;color:#c3cad6}
+  .work .links{display:flex;gap:10px;flex-wrap:wrap}
+  .work .links a{font-weight:700;font-size:14px;padding:9px 14px;border-radius:10px;border:1px solid var(--line)}
+  .work .links a.main{background:var(--acc);border-color:var(--acc);color:#fff}
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
+  .step{border-top:3px solid var(--acc);padding-top:16px}
+  .step b{display:block;font-size:18px;margin-bottom:6px}
+  .contact{background:linear-gradient(135deg,#251c52,#0f3a35);border-radius:28px;padding:56px;text-align:center}
+  .contact p{max-width:560px;margin:12px auto 28px}
+  .contact .acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  footer{padding:30px 0;color:var(--muted);font-size:14px;text-align:center}
+  .note{font-size:13px;color:var(--muted);margin-top:14px}
+  @media(max-width:900px){.menu{display:none}.hero .wrap{grid-template-columns:1fr}.me{width:200px;order:-1;justify-self:start}
+    .services{grid-template-columns:1fr 1fr}.works{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}.contact{padding:32px 20px}section{padding:60px 0}}
+  @media(max-width:520px){.services,.steps{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
+<header><div class="wrap nav"><a class="logo" href="#">Леонтий<span>.</span>dev</a>
+<nav class="menu"><a href="#services">Услуги</a><a href="#works">Работы</a><a href="#process">Как работаю</a><a href="#contact">Связаться</a></nav></div></header>
 
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">Мастер<span>Ремонт</span></div>
-  <ul class="nav-links">
-    <li><a href="#services">Услуги</a></li>
-    <li><a href="#works">Работы</a></li>
-    <li><a href="#reviews">Отзывы</a></li>
-    <li><a href="#contact">Контакты</a></li>
-  </ul>
-  <button class="nav-cta" onclick="openModal()">Получить смету</button>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-inner">
-    <div class="hero-tag">Ремонт квартир в Санкт-Петербурге</div>
-    <h1>Ремонт под ключ — без стресса и переплат</h1>
-    <p class="hero-sub">Фиксированная смета до начала работ. Сдаём в срок — или платим неустойку.</p>
-    <div class="hero-actions">
-      <button class="btn-white" onclick="openModal()">Рассчитать стоимость</button>
-      <button class="btn-ghost" onclick="document.getElementById('works').scrollIntoView({behavior:'smooth'})">Посмотреть работы</button>
-    </div>
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num">8 лет</div>
-        <div class="stat-label">на рынке СПб</div>
-      </div>
-      <div>
-        <div class="stat-num">340+</div>
-        <div class="stat-label">квартир сдано</div>
-      </div>
-      <div>
-        <div class="stat-num">от 14 дней</div>
-        <div class="stat-label">косметический ремонт</div>
-      </div>
-      <div>
-        <div class="stat-num">5 лет</div>
-        <div class="stat-label">гарантия на работы</div>
-      </div>
-    </div>
+<section class="hero"><div class="wrap">
+  <div>
+    <h1>Делаю <em>сайты и Telegram-ботов</em>, которые приводят клиентов</h1>
+    <p class="muted">Лендинги, сайты на WordPress, боты для записи и заявок, парсеры с выгрузкой в Excel. Работаю быстро, показываю результат по этапам, правки — до результата.</p>
+    <div class="acts"><a class="btn btn-acc" href="#works">Смотреть работы</a><a class="btn btn-line" href="#contact">Обсудить задачу</a></div>
+    <div class="chips"><span>HTML / CSS / JS</span><span>WordPress</span><span>Tilda</span><span>Python</span><span>Telegram-боты</span><span>Парсинг</span></div>
   </div>
-</section>
+  <div class="me" role="img" aria-label="Фото Леонтия"></div>
+</div></section>
 
-<!-- SERVICES -->
-<section id="services">
-  <div class="inner">
-    <div class="sec-title">Виды ремонта</div>
-    <div class="sec-sub">Работаем с квартирами любой сложности и площади</div>
-    <div class="services-grid">
-      <div class="svc-card">
-        <div class="svc-icon">🎨</div>
-        <div class="svc-title">Косметический</div>
-        <div class="svc-desc">Покраска, обои, замена напольного покрытия, потолки. Быстро и аккуратно.</div>
-        <div class="svc-price">от 3 500 ₽/м²</div>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">🔨</div>
-        <div class="svc-title">Капитальный</div>
-        <div class="svc-desc">Полная переделка — стяжка, штукатурка, электрика, сантехника, отделка.</div>
-        <div class="svc-price">от 7 000 ₽/м²</div>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">✨</div>
-        <div class="svc-title">Под ключ</div>
-        <div class="svc-desc">Дизайн-проект, закупка материалов, мебель и декор. Заходите и живёте.</div>
-        <div class="svc-price">от 12 000 ₽/м²</div>
-      </div>
-      <div class="svc-card">
-        <div class="svc-icon">🏗️</div>
-        <div class="svc-title">В новостройке</div>
-        <div class="svc-desc">Чистовая или черновая отделка в новых домах. Опыт с ЖК по всему СПб.</div>
-        <div class="svc-price">от 5 500 ₽/м²</div>
-      </div>
-    </div>
+<section id="services" style="padding-top:20px"><div class="wrap">
+  <h2>Услуги</h2><p class="muted">Цены ориентировочные — точную назову после того, как посмотрю задачу.</p>
+  <div class="services">
+    <div class="svc"><div class="ic">🖥️</div><h3>Лендинг</h3><p>Одностраничный сайт с формой заявки, адаптив под телефон.</p><div class="pr">от 2 500 ₽ · 3 дня</div></div>
+    <div class="svc"><div class="ic">🤖</div><h3>Telegram-бот</h3><p>Запись на услуги, приём заявок, уведомления, выгрузка в Excel.</p><div class="pr">от 2 000 ₽ · 3 дня</div></div>
+    <div class="svc"><div class="ic">📊</div><h3>Парсер → Excel</h3><p>Сбор открытых данных с сайта в аккуратную таблицу.</p><div class="pr">от 1 500 ₽ · 2 дня</div></div>
+    <div class="svc"><div class="ic">🛠️</div><h3>Правки WordPress</h3><p>Исправить вёрстку, ошибки, плагины, мобильную версию.</p><div class="pr">от 1 000 ₽ · 1–2 дня</div></div>
   </div>
-</section>
+</div></section>
 
-<!-- WHY -->
-<section class="why-bg">
-  <div class="inner">
-    <div class="sec-title">Почему выбирают нас</div>
-    <div class="why-grid">
-      <div class="why-item">
-        <div class="why-num">01</div>
-        <div>
-          <div class="why-title">Фиксированная смета</div>
-          <div class="why-desc">Цена не меняется в процессе — всё прописываем в договоре до старта работ</div>
-        </div>
-      </div>
-      <div class="why-item">
-        <div class="why-num">02</div>
-        <div>
-          <div class="why-title">Сдача в срок</div>
-          <div class="why-desc">За каждый день просрочки по нашей вине — штраф 0,1% от суммы договора</div>
-        </div>
-      </div>
-      <div class="why-item">
-        <div class="why-num">03</div>
-        <div>
-          <div class="why-title">Фотоотчёт каждый день</div>
-          <div class="why-desc">Присылаем фото прогресса в WhatsApp — вы всегда знаете что происходит</div>
-        </div>
-      </div>
-      <div class="why-item">
-        <div class="why-num">04</div>
-        <div>
-          <div class="why-title">Гарантия 5 лет</div>
-          <div class="why-desc">Устраним любой дефект бесплатно в течение гарантийного срока</div>
-        </div>
-      </div>
-    </div>
+<section id="works"><div class="wrap">
+  <h2>Работы</h2><p class="muted">Демо-проекты: компании вымышленные, но всё работает — можно открыть и потрогать.</p>
+  <div class="works">
+    <article class="work"><img src="bot-cover.jpg" alt="Telegram-бот записи" loading="lazy"><div class="b">
+      <h3>Telegram-бот онлайн-записи</h3><p>Клиент сам выбирает услугу, день и свободное время, администратор сразу получает заявку. Занятые слоты скрываются, записи выгружаются в Excel.</p>
+      <div class="tags"><span>Python</span><span>aiogram 3</span><span>SQLite</span></div>
+      <div class="links"><a class="main" href="https://t.me/leonti_booking_demo_bot" target="_blank" rel="noopener">Открыть бота</a><a href="https://github.com/leonti123/tg-booking-bot" target="_blank" rel="noopener">Код</a></div></div></article>
+    <article class="work"><img src="landing-cover.jpg" alt="Лендинг кофейни" loading="lazy"><div class="b">
+      <h3>Лендинг кофейни</h3><p>Меню с вкладками, галерея, отзывы, карта и форма брони столика с маской телефона.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>JS</span><span>Адаптив</span></div>
+      <div class="links"><a class="main" href="https://leonti123.github.io/landing-coffee/" target="_blank" rel="noopener">Открыть сайт</a><a href="https://github.com/leonti123/landing-coffee" target="_blank" rel="noopener">Код</a></div></div></article>
+    <article class="work"><img src="fitness-cover.jpg" alt="Лендинг фитнес-студии" loading="lazy"><div class="b">
+      <h3>Лендинг фитнес-студии</h3><p>Тёмный дизайн, программы, расписание, абонементы и запись на пробную тренировку.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>Адаптив</span></div>
+      <div class="links"><a class="main" href="https://leonti123.github.io/landing-fitness/" target="_blank" rel="noopener">Открыть сайт</a></div></div></article>
+    <article class="work"><img src="auto-cover.jpg" alt="Лендинг автосервиса" loading="lazy"><div class="b">
+      <h3>Лендинг автосервиса с калькулятором</h3><p>Услуги с ценами и калькулятор стоимости ремонта по классу автомобиля.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>JS</span></div>
+      <div class="links"><a class="main" href="https://leonti123.github.io/landing-auto/" target="_blank" rel="noopener">Открыть сайт</a></div></div></article>
+    <article class="work"><img src="dental-cover.jpg" alt="Лендинг стоматологии" loading="lazy"><div class="b">
+      <h3>Лендинг стоматологии</h3><p>Светлый «медицинский» стиль, врачи, цены, вопросы-ответы и запись на консультацию.</p>
+      <div class="tags"><span>HTML</span><span>CSS</span><span>Адаптив</span></div>
+      <div class="links"><a class="main" href="https://leonti123.github.io/landing-dental/" target="_blank" rel="noopener">Открыть сайт</a></div></div></article>
+    <article class="work"><img src="wp-cover.jpg" alt="Сайт на WordPress" loading="lazy"><div class="b">
+      <h3>Сайт услуг на WordPress</h3><p>Сайт мастера на час на блоках Gutenberg: услуги, этапы, отзывы, контакты. Живое демо запускается прямо в браузере.</p>
+      <div class="tags"><span>WordPress</span><span>Gutenberg</span><span>PHP</span></div>
+      <div class="links"><a class="main" href="https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.com/leonti123/wp-site-demo/main/blueprint.json" target="_blank" rel="noopener">Открыть демо</a><a href="https://github.com/leonti123/wp-site-demo" target="_blank" rel="noopener">Код</a></div></div></article>
+    <article class="work"><img src="parser-cover.jpg" alt="Парсер в Excel" loading="lazy"><div class="b">
+      <h3>Парсер каталога → Excel</h3><p>Собирает 1000 товаров примерно за минуту и сохраняет отчёт с фильтрами, сводкой и диаграммой.</p>
+      <div class="tags"><span>Python</span><span>BeautifulSoup</span><span>openpyxl</span></div>
+      <div class="links"><a class="main" href="https://github.com/leonti123/parser-excel" target="_blank" rel="noopener">Код и пример файла</a></div></div></article>
   </div>
-</section>
+</div></section>
 
-<!-- WORKS -->
-<section id="works">
-  <div class="inner">
-    <div class="sec-title">Наши работы</div>
-    <div class="sec-sub">Последние проекты в Санкт-Петербурге</div>
-    <div class="works-grid">
-      <div class="work-card">
-        <div class="work-photo" style="background: #d4e6f5;">🛋️</div>
-        <div class="work-info">
-          <div class="work-type">Капитальный ремонт</div>
-          <div class="work-area">3-комнатная, 78 м² · Приморский р-н</div>
-          <div class="work-tag">Сдано за 45 дней</div>
-        </div>
-      </div>
-      <div class="work-card">
-        <div class="work-photo" style="background: #d4ede6;">🍳</div>
-        <div class="work-info">
-          <div class="work-type">Ремонт под ключ</div>
-          <div class="work-area">Студия, 35 м² · Московский р-н</div>
-          <div class="work-tag">Сдано за 21 день</div>
-        </div>
-      </div>
-      <div class="work-card">
-        <div class="work-photo" style="background: #ede0f5;">🛏️</div>
-        <div class="work-info">
-          <div class="work-type">Косметический</div>
-          <div class="work-area">2-комнатная, 54 м² · Василеостровский</div>
-          <div class="work-tag">Сдано за 14 дней</div>
-        </div>
-      </div>
-    </div>
+<section id="process" style="padding-top:20px"><div class="wrap">
+  <h2>Как работаю</h2>
+  <div class="steps">
+    <div class="step"><b>1. Задача</b><span class="muted">Уточняю, что нужно, и называю цену и срок до начала работы.</span></div>
+    <div class="step"><b>2. Первый результат</b><span class="muted">Показываю первую версию рано, чтобы не переделывать в конце.</span></div>
+    <div class="step"><b>3. Правки</b><span class="muted">Доделываю до результата, который вас устраивает.</span></div>
+    <div class="step"><b>4. Сдача</b><span class="muted">Передаю файлы, доступы и короткую инструкцию.</span></div>
   </div>
-</section>
+</div></section>
 
-<!-- REVIEWS -->
-<section class="reviews-bg" id="reviews">
-  <div class="inner">
-    <div class="sec-title">Отзывы клиентов</div>
-    <div class="sec-sub">Более 340 выполненных проектов в СПб</div>
-    <div class="reviews-grid">
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">«Делали ремонт в новостройке под ключ. Всё сделали строго по договору, никаких доплат в процессе. Очень довольна результатом, буду рекомендовать всем знакомым.»</div>
-        <div class="review-author">Анна Соколова</div>
-        <div class="review-meta">Мурино · капитальный ремонт · июнь 2024</div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">«Профессиональная бригада. Каждый день присылали фото прогресса — это очень удобно. Сдали на 2 дня раньше срока. Отдельное спасибо прорабу Сергею.»</div>
-        <div class="review-author">Игорь Васильев</div>
-        <div class="review-meta">Петроградская · косметический · апрель 2024</div>
-      </div>
-      <div class="review-card">
-        <div class="review-stars">★★★★★</div>
-        <div class="review-text">«Уже третий раз обращаюсь в эту компанию. Качество стабильное, цены честные. Делали и в старом фонде, и в новостройке — везде хорошо.»</div>
-        <div class="review-author">Марина Кузнецова</div>
-        <div class="review-meta">Купчино · ремонт под ключ · март 2024</div>
-      </div>
-    </div>
+<section id="contact"><div class="wrap"><div class="contact">
+  <h2>Обсудим вашу задачу?</h2>
+  <p>Напишите, что нужно сделать — отвечу в течение дня, назову цену и срок.</p>
+  <div class="acts">
+    <a class="btn btn-acc" href="https://kwork.ru/user/leontiq" target="_blank" rel="noopener">Заказать на Kwork</a>
   </div>
-</section>
+  <p class="note">Через Kwork оплата защищена: деньги поступают исполнителю только после того, как вы приняли работу.</p>
+</div></div></section>
 
-<!-- CONTACT FORM -->
-<section class="form-bg" id="contact">
-  <div class="form-title">Получите бесплатную смету за 24 часа</div>
-  <div class="form-sub">Оставьте номер — перезвоним, уточним детали и рассчитаем стоимость</div>
-  <div class="form-row">
-    <input class="form-input" type="tel" id="phone" placeholder="+7 (___) ___-__-__" />
-    <button class="form-btn" onclick="submitForm()">Получить смету</button>
-  </div>
-  <div class="form-note">Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности</div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-logo">Мастер<span>Ремонт</span></div>
-  <div class="footer-info">+7 (812) 555-01-23 · Санкт-Петербург · ИП Петров А.В.</div>
-  <div class="footer-info">© 2024 МастерРемонт</div>
-</footer>
-
-<!-- MODAL -->
-<div class="modal-overlay" id="modal" onclick="closeModal(event)">
-  <div class="modal">
-    <div class="modal-icon">✅</div>
-    <h3>Заявка принята!</h3>
-    <p>Перезвоним в течение 30 минут и рассчитаем стоимость ремонта именно вашей квартиры.</p>
-    <button class="modal-close" onclick="document.getElementById('modal').classList.remove('open')">Отлично, жду звонка</button>
-  </div>
-</div>
-
-<script>
-function openModal() {
-  document.getElementById('modal').classList.add('open');
-}
-function closeModal(e) {
-  if (e.target === document.getElementById('modal')) {
-    document.getElementById('modal').classList.remove('open');
-  }
-}
-function submitForm() {
-  const phone = document.getElementById('phone').value.trim();
-  if (!phone) {
-    document.getElementById('phone').style.border = '2px solid rgba(255,80,80,0.8)';
-    setTimeout(() => { document.getElementById('phone').style.border = 'none'; }, 1500);
-    return;
-  }
-  openModal();
-  document.getElementById('phone').value = '';
-}
-</script>
-
+<footer>© Леонтий, 2026</footer>
 </body>
 </html>
