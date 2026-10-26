@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LeTech Центр — реставрация кожи в Санкт-Петербурге</title>
+<meta name="description" content="Реставрация, ремонт и покраска кожи в СПб: салоны авто, мебель, сумки, обувь, куртки. Сертифицированный центр LeTech с 2014 года. Оценка по фото.">
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1a1411;--ink2:#241c18;--cog:#b8642c;--cog2:#d98a4e;--cream:#f5efe7;--paper:#fbf8f4;--muted:#7b6e64;--line:#e7ddd1}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Manrope,system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+  h1,h2,h3{line-height:1.1}
+  h2{font-family:"Cormorant Garamond",serif;font-size:clamp(34px,4.4vw,52px);font-weight:700;margin-bottom:10px}
+  .lead{color:var(--muted);max-width:640px}
+  section{padding:88px 0}
+  .btn{display:inline-flex;align-items:center;gap:10px;background:var(--cog);color:#fff;font-weight:700;padding:16px 26px;border-radius:12px;transition:.2s;border:0;cursor:pointer;font:700 16px Manrope}
+  .btn:hover{background:#a2551f}
+  .btn.ghost{background:transparent;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55);color:#fff}
+  .btn.ghost:hover{background:rgba(255,255,255,.08)}
+
+  /* top + header */
+  .top{background:var(--ink);color:#cbbfb4;font-size:14px}
+  .top .wrap{display:flex;justify-content:space-between;gap:16px;padding:8px 0;flex-wrap:wrap}
+  header{position:sticky;top:0;z-index:20;background:rgba(26,20,17,.96);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;color:#fff}
+  .logo img{height:44px;filter:invert(1)}
+  .menu{display:flex;gap:28px;font-weight:600;font-size:15px;color:#e9dfd5}
+  .menu a:hover{color:var(--cog2)}
+  .nav .phone{font-weight:800;white-space:nowrap}
+
+  /* hero */
+  .hero{position:relative;color:#fff;background:linear-gradient(90deg,rgba(20,15,12,.94) 0%,rgba(20,15,12,.78) 45%,rgba(20,15,12,.25) 100%),url("https://i0.wp.com/letechcenter.ru/wp-content/uploads/2025/02/%D0%93%D0%BB-scaled.jpg?w=1800") center/cover;padding:120px 0 110px}
+  .eyebrow{display:inline-block;color:var(--cog2);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:13px;margin-bottom:18px}
+  .hero h1{font-family:"Cormorant Garamond",serif;font-size:clamp(44px,6.4vw,82px);max-width:760px;margin-bottom:22px}
+  .hero p{max-width:560px;color:#e2d6cb;font-size:19px;margin-bottom:34px}
+  .hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+  .trust{display:flex;gap:40px;margin-top:56px;flex-wrap:wrap}
+  .trust b{display:block;font-family:"Cormorant Garamond",serif;font-size:40px;color:var(--cog2);line-height:1}
+  .trust span{color:#cbbfb4;font-size:14px}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+  .step{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px}
+  .step i{font-style:normal;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--cream);color:var(--cog);font-weight:800;margin-bottom:16px}
+  .step h3{font-size:19px;margin-bottom:6px}
+  .step p{color:var(--muted);font-size:15px}
+
+  /* directions */
+  .dirs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px}
+  .dir{position:relative;border-radius:22px;overflow:hidden;min-height:340px;color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;background-size:cover;background-position:center;transition:.25s}
+  .dir:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(20,15,12,.9))}
+  .dir>*{position:relative}
+  .dir:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(26,20,17,.25)}
+  .dir h3{font-size:22px;margin-bottom:4px}
+  .dir p{font-size:14px;color:#e2d6cb}
+  .dir .from{margin-top:12px;font-weight:800;color:var(--cog2)}
+
+  /* before / after */
+  .dark{background:var(--ink);color:#fff}
+  .dark .lead{color:#b9aca1}
+  .ba-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:36px;align-items:center;margin-top:40px}
+  .ba{position:relative;border-radius:22px;overflow:hidden;aspect-ratio:1/1;user-select:none;touch-action:none;cursor:ew-resize}
+  .ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .ba .after{clip-path:inset(0 0 0 50%)}
+  .ba .bar{position:absolute;top:0;bottom:0;left:50%;width:3px;background:#fff;transform:translateX(-50%)}
+  .ba .bar:after{content:"⟷";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;font-weight:800;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+  .ba .tag{position:absolute;top:16px;padding:6px 12px;border-radius:999px;background:rgba(0,0,0,.6);font-size:13px;font-weight:700}
+  .ba .tag.l{left:16px}.ba .tag.r{right:16px;background:var(--cog)}
+  .case h3{font-family:"Cormorant Garamond",serif;font-size:34px;margin-bottom:10px}
+  .case p{color:#cbbfb4;margin-bottom:14px}
+  .case ul{list-style:none;color:#e2d6cb;margin-bottom:26px}
+  .case li{padding:6px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+  .case li:before{content:"— ";color:var(--cog2)}
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+  .gallery img{border-radius:16px;aspect-ratio:4/3;object-fit:cover;width:100%}
+
+  /* prices */
+  .tabs{display:flex;gap:8px;flex-wrap:wrap;margin:34px 0 22px}
+  .tabs button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 18px;font:600 15px Manrope;cursor:pointer;color:var(--ink)}
+  .tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .price{display:none;grid-template-columns:1fr 1fr;gap:20px}
+  .price.on{display:grid}
+  .pcard{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px}
+  .pcard h3{font-size:17px;margin-bottom:12px;color:var(--cog)}
+  .row{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px}
+  .row:last-child{border:0}
+  .row b{white-space:nowrap}
+  .note{color:var(--muted);font-size:14px;margin-top:16px}
+
+  /* about */
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .about img{border-radius:24px;aspect-ratio:4/3;object-fit:cover;width:100%}
+  .timeline{margin-top:26px;border-left:2px solid var(--cog);padding-left:22px}
+  .timeline div{margin-bottom:18px}
+  .timeline b{display:block;color:var(--cog)}
+
+  /* contacts */
+  .contact{display:grid;grid-template-columns:1fr 1.1fr;gap:28px}
+  .info{background:var(--ink);color:#fff;border-radius:24px;padding:36px}
+  .info h3{font-family:"Cormorant Garamond",serif;font-size:32px;margin-bottom:18px}
+  .info .it{padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+  .info .it small{display:block;color:#a99b8f;font-size:13px}
+  .info .it a{font-weight:700}
+  .msgr{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+  .msgr a{padding:12px 18px;border-radius:12px;background:rgba(255,255,255,.08);font-weight:700}
+  .msgr a:hover{background:var(--cog)}
+  form.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:36px}
+  form.card h3{font-size:24px;margin-bottom:6px}
+  form.card p{color:var(--muted);margin-bottom:18px}
+  .f{display:grid;gap:12px}
+  .f input,.f select,.f textarea{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:12px;font:inherit;background:var(--paper)}
+  .f textarea{min-height:90px;resize:vertical}
+  .drop{border:1.5px dashed #d2c3b3;border-radius:12px;padding:16px;text-align:center;color:var(--muted);cursor:pointer;background:var(--paper)}
+  .drop input{display:none}
+
+  footer{background:var(--ink);color:#a99b8f;padding:40px 0;font-size:14px}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+  footer a{color:#e2d6cb}
+  .demo{background:#fff3e6;color:#7a4a22;text-align:center;font-size:13px;padding:8px 16px}
+
+  .float{position:fixed;right:18px;bottom:18px;z-index:30;background:var(--cog);color:#fff;font-weight:800;border-radius:999px;padding:14px 20px;box-shadow:0 10px 30px rgba(184,100,44,.45)}
+
+  @media(max-width:980px){
+    .menu{display:none}
+    .dirs{grid-template-columns:1fr 1fr}
+    .ba-grid,.about,.contact,.price{grid-template-columns:1fr}
+    .gallery{grid-template-columns:1fr 1fr}
+    section{padding:64px 0}
+  }
+  @media(max-width:600px){
+    .steps,.dirs{grid-template-columns:1fr}
+    .nav .phone{display:none}
+    .hero{padding:80px 0;background:linear-gradient(180deg,rgba(20,15,12,.82),rgba(20,15,12,.92)),url("https://i0.wp.com/letechcenter.ru/wp-content/uploads/2025/02/%D0%93%D0%BB-scaled.jpg?w=900") center/cover}
+    .trust{gap:24px}
+    .top .wrap span:last-child{display:none}
+    .info,form.card{padding:24px}
+  }
+</style>
+</head>
+<body>
+
+<div class="demo">Макет главной страницы для LeTech Центр — демо, заявки с формы не отправляются</div>
+<div class="top"><div class="wrap"><span>📍 В.О., 13 линия, 72 (Артмуза)</span><span>Пн–Пт 11:00–18:00</span></div></div>
+
+<header><div class="wrap nav">
+  <a class="logo" href="#"><img src="https://i0.wp.com/letechcenter.ru/wp-content/uploads/2026/06/LeLogo-2026.png?w=400" alt="LeTech Центр"></a>
+  <nav class="menu"><a href="#services">Услуги</a><a href="#works">Работы</a><a href="#prices">Цены</a><a href="#about">О центре</a><a href="#contacts">Контакты</a></nav>
+  <a class="phone" href="tel:+79215531514">+7 (921) 553-15-14</a>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <span class="eyebrow">Сертифицированный центр LeTech · с 2014 года</span>
+  <h1>Реставрация кожи в Санкт-Петербурге</h1>
+  <p>Возвращаем вид кожаным салонам автомобилей, мебели, сумкам, обуви и курткам. Чистка, ремонт, покраска и защита — по технологии и материалам LeTech.</p>
+  <div class="cta">
+    <a class="btn" href="#contacts">📷 Оценить по фото</a>
+    <a class="btn ghost" href="#prices">Смотреть цены</a>
+  </div>
+  <div class="trust">
+    <div><b>12 лет</b><span>работаем с кожей</span></div>
+    <div><b>5</b><span>направлений: авто, мебель,<br>сумки, обувь, куртки</span></div>
+    <div><b>LeTech</b><span>сертифицированные мастера<br>и материалы Expert Line</span></div>
+  </div>
+</div></section>
+
+<section><div class="wrap">
+  <h2>Как узнать цену за 3 шага</h2>
+  <p class="lead">Не нужно никуда ехать: мастер оценит повреждения по фотографиям и назовёт стоимость и срок.</p>
+  <div class="steps">
+    <div class="step"><i>1</i><h3>Сфотографируйте</h3><p>Общий вид изделия и повреждения крупно, при дневном свете.</p></div>
+    <div class="step"><i>2</i><h3>Отправьте нам</h3><p>В Telegram, WhatsApp или через форму на сайте — как удобнее.</p></div>
+    <div class="step"><i>3</i><h3>Получите расчёт</h3><p>Мастер ответит с ценой и сроком. Договоримся — привозите или вызывайте выезд.</p></div>
+  </div>
+</div></section>
+
+<section id="services" style="padding-top:0"><div class="wrap">
+  <h2>Что мы восстанавливаем</h2>
+  <p class="lead">Чистка, ремонт, покраска и защитное покрытие — для любых кожаных изделий.</p>
+  <div class="dirs">
+    <a class="dir" href="#prices" data-tab="auto" style="background-image:url('https://i0.wp.com/letechcenter.ru/wp-content/uploads/2020/06/bmw-e9212.jpg?w=700')"><h3>Салоны авто</h3><p>Сиденья, руль, торпедо, подлокотники, потолок</p><div class="from">чистка от 1 000 ₽</div></a>
+    <a class="dir" href="#prices" data-tab="furniture" style="background-image:url('https://i0.wp.com/letechcenter.ru/wp-content/uploads/2020/10/collage.jpg?w=700')"><h3>Мебель</h3><p>Диваны, кресла, стулья — чистка и реставрация, выезд</p><div class="from">чистка от 3 000 ₽</div></a>
+    <a class="dir" href="#prices" data-tab="bags" style="background-image:url('https://i0.wp.com/letechcenter.ru/wp-content/uploads/2020/05/%D0%9A%D0%BE%D0%B6%D0%B3%D0%B0%D0%BB-%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81.jpg?w=700')"><h3>Сумки и обувь</h3><p>Покраска, урезы, уголки, восстановление цвета</p><div class="from">чистка от 1 000 ₽</div></a>
+    <a class="dir" href="#contacts" data-tab="auto" style="background-image:url('https://i0.wp.com/letechcenter.ru/wp-content/uploads/2020/05/%D0%AF%D1%85%D1%82%D1%8B-%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81.jpg?w=700')"><h3>Яхты и катера</h3><p>Чистка, ремонт и защита кожаного интерьера на борту</p><div class="from">расчёт по фото</div></a>
+  </div>
+</div></section>
+
+<section id="works" class="dark"><div class="wrap">
+  <h2>До и после</h2>
+  <p class="lead">Потяните ползунок — так выглядит работа наших мастеров.</p>
+  <div class="ba-grid">
+    <div class="ba" id="ba">
+      <img src="https://i0.wp.com/letechcenter.ru/wp-content/uploads/2022/10/42-scaled.jpg?w=1000" alt="Сиденье Audi A8L до реставрации">
+      <img class="after" src="https://i0.wp.com/letechcenter.ru/wp-content/uploads/2022/10/43-scaled.jpg?w=1000" alt="Сиденье Audi A8L после реставрации">
+      <span class="tag l">До</span><span class="tag r">После</span>
+      <div class="bar"></div>
+    </div>
+    <div class="case">
+      <span class="eyebrow">Кейс</span>
+      <h3>Полное восстановление салона Audi A8L</h3>
+      <p>Клиент пришёл с передними сиденьями, а при осмотре оказалось, что повреждения по всему салону. Сняли всё, что снимается, и восстановили каждый элемент.</p>
+      <ul><li>Передние и задние сиденья</li><li>Рулевое колесо и центральная консоль</li><li>Перфорированная кожа без потери перфорации</li></ul>
+      <a class="btn" href="#contacts">Хочу так же — оценить по фото</a>
+    </div>
+  </div>
+  <div class="gallery">
+    <img src="https://i0.wp.com/letechcenter.ru/wp-content/uploads/2020/10/s500.jpg?w=600" alt="Руль Mercedes S500 до и после">
+    <img src="https://i0.wp.com/letechcenter.ru/wp-content/uploads/2020/08/BMW-530-gt11.jpg?w=600" alt="Химчистка сиденья BMW до и после">
+    <img src="https://i0.wp.com/letechcenter.ru/wp-content/uploads/2021/05/%D0%93%D0%BB%D0%B0%D0%B2%D0%BD-scaled.jpg?w=600" alt="Бежевые сиденья после реставрации">
+    <img src="https://i0.wp.com/letechcenter.ru/wp-content/uploads/2021/11/%D0%93%D0%BB%D0%B0%D0%B2%D0%BD%D0%B0%D1%8F.jpg?w=600" alt="Салон Range Rover">
+  </div>
+</div></section>
+
+<section id="prices"><div class="wrap">
+  <h2>Цены на услуги</h2>
+  <p class="lead">Цены из прайс-листа 2026 года. Точную стоимость мастер назовёт после оценки по фото.</p>
+  <div class="tabs" id="tabs">
+    <button class="on" data-t="auto">Автомобили</button>
+    <button data-t="furniture">Мебель</button>
+    <button data-t="bags">Сумки</button>
+    <button data-t="shoes">Обувь</button>
+    <button data-t="jackets">Куртки</button>
+  </div>
+
+  <div class="price on" data-p="auto">
+    <div class="pcard"><h3>Чистка + защитный крем</h3>
+      <div class="row"><span>Сиденье (1 место)</span><b>3 000–4 000 ₽</b></div>
+      <div class="row"><span>Руль + ручка КПП + ручник</span><b>4 000–5 000 ₽</b></div>
+      <div class="row"><span>Центральный подлокотник</span><b>1 000–2 000 ₽</b></div>
+      <div class="row"><span>Торпедо</span><b>3 000–4 000 ₽</b></div>
+      <div class="row"><span>Все кожаные элементы салона</span><b>16 000–20 000 ₽</b></div>
+    </div>
+    <div class="pcard"><h3>Реставрация и покраска</h3>
+      <div class="row"><span>Лицевая поверхность сиденья</span><b>18 000 ₽</b></div>
+      <div class="row"><span>Сиденье целиком</span><b>25 000 ₽</b></div>
+      <div class="row"><span>Боковая поддержка</span><b>8 000 ₽</b></div>
+      <div class="row"><span>Рулевое колесо</span><b>15 000 ₽</b></div>
+      <div class="row"><span>Подлокотник двери</span><b>8 000 ₽</b></div>
+    </div>
+  </div>
+
+  <div class="price" data-p="furniture">
+    <div class="pcard"><h3>Чистка + защитный крем</h3>
+      <div class="row"><span>Стул</span><b>3 000 ₽</b></div>
+      <div class="row"><span>Кресло</span><b>5 000 ₽</b></div>
+      <div class="row"><span>Диван 2-местный</span><b>11 000 ₽</b></div>
+      <div class="row"><span>Диван 3-местный</span><b>13 000 ₽</b></div>
+      <div class="row"><span>Диван 5-местный</span><b>19 000 ₽</b></div>
+    </div>
+    <div class="pcard"><h3>Реставрация и покраска</h3>
+      <div class="row"><span>Стул</span><b>5 000 ₽</b></div>
+      <div class="row"><span>Кресло</span><b>20 000–30 000 ₽</b></div>
+      <div class="row"><span>Диван 2-местный</span><b>30 000–45 000 ₽</b></div>
+      <div class="row"><span>Диван 3-местный</span><b>45 000–60 000 ₽</b></div>
+      <div class="row"><span>Покраска 1 м² кожи</span><b>10 000 ₽</b></div>
+    </div>
+  </div>
+
+  <div class="price" data-p="bags">
+    <div class="pcard"><h3>Чистка + защитный крем</h3>
+      <div class="row"><span>Кошелёк / клатч</span><b>1 000 ₽</b></div>
+      <div class="row"><span>Сумка стандартная</span><b>2 000 ₽</b></div>
+      <div class="row"><span>Сумка большая</span><b>2 500 ₽</b></div>
+      <div class="row"><span>Чистка сумки изнутри</span><b>2 000–2 500 ₽</b></div>
+    </div>
+    <div class="pcard"><h3>Реставрация и покраска</h3>
+      <div class="row"><span>Кошелёк</span><b>3 000 ₽</b></div>
+      <div class="row"><span>Клатч</span><b>4 000 ₽</b></div>
+      <div class="row"><span>Стандартная сумка</span><b>8 000 ₽</b></div>
+      <div class="row"><span>Сумка большого размера</span><b>10 000 ₽</b></div>
+      <div class="row"><span>Дорожная сумка / саквояж</span><b>12 000 ₽</b></div>
+    </div>
+  </div>
+
+  <div class="price" data-p="shoes">
+    <div class="pcard"><h3>Чистка + защитный крем</h3>
+      <div class="row"><span>Балетки</span><b>1 000 ₽</b></div>
+      <div class="row"><span>Туфли</span><b>1 500 ₽</b></div>
+      <div class="row"><span>Ботинки</span><b>2 000 ₽</b></div>
+      <div class="row"><span>Сапоги</span><b>3 000 ₽</b></div>
+    </div>
+    <div class="pcard"><h3>Реставрация и покраска</h3>
+      <div class="row"><span>Балетки</span><b>4 000 ₽</b></div>
+      <div class="row"><span>Туфли</span><b>5 000 ₽</b></div>
+      <div class="row"><span>Ботинки</span><b>6 000 ₽</b></div>
+      <div class="row"><span>Сапоги</span><b>7 000 ₽</b></div>
+    </div>
+  </div>
+
+  <div class="price" data-p="jackets">
+    <div class="pcard"><h3>Чистка + защитный крем</h3>
+      <div class="row"><span>Куртка до пояса</span><b>3 000 ₽</b></div>
+      <div class="row"><span>Куртка до колена</span><b>4 000 ₽</b></div>
+      <div class="row"><span>Пуховик до пояса</span><b>5 000 ₽</b></div>
+      <div class="row"><span>Плащ</span><b>6 000 ₽</b></div>
+    </div>
+    <div class="pcard"><h3>Реставрация и покраска</h3>
+      <div class="row"><span>Куртка до пояса</span><b>12 000 ₽</b></div>
+      <div class="row"><span>Куртка до колена</span><b>15 000 ₽</b></div>
+      <div class="row"><span>Пуховик до колена</span><b>17 000 ₽</b></div>
+      <div class="row"><span>Воротник</span><b>6 000 ₽</b></div>
+    </div>
+  </div>
+  <p class="note">Выезд для работы с мебелью — от 10 000 ₽. Полный прайс-лист — <a href="https://letechcenter.ru/wp-content/uploads/2026/06/price-list-2026.pdf" style="color:var(--cog);font-weight:700">скачать PDF</a>.</p>
+</div></section>
+
+<section id="about" style="background:var(--cream)"><div class="wrap about">
+  <img src="https://i0.wp.com/letechcenter.ru/wp-content/uploads/2020/08/%D0%A6%D0%B5%D0%BD%D1%82%D1%80.jpg?w=900" alt="Сертификат LeTech">
+  <div>
+    <span class="eyebrow">О центре</span>
+    <h2>От названия к статусу</h2>
+    <p class="lead">Своя реставрационная мастерская на Васильевском острове: оборудованное помещение, профессиональные материалы и инструменты. Работаем только по проверенной технологии LeTech.</p>
+    <div class="timeline">
+      <div><b>2014</b>Основной авторский курс по ремонту и реставрации кожи LeTech</div>
+      <div><b>2017</b>Продвинутый курс и доступ к материалам LeTech Expert Line — только для сертифицированных центров</div>
+      <div><b>2018</b>Аттестация по программе LeTech: практический экзамен и теория</div>
+      <div><b>Сегодня</b>Салоны премиальных авто, антикварная мебель, яхты и катера</div>
+    </div>
+  </div>
+</div></section>
+
+<section id="contacts"><div class="wrap">
+  <h2>Оценка по фото</h2>
+  <p class="lead" style="margin-bottom:36px">Пришлите фото — мастер назовёт цену и срок. Или приезжайте в мастерскую.</p>
+  <div class="contact">
+    <div class="info">
+      <h3>LeTech Центр</h3>
+      <div class="it"><small>Адрес</small>Санкт-Петербург, В.О., 13 линия, 72А (Артмуза)</div>
+      <div class="it"><small>Режим работы</small>Пн–Пт 11:00–18:00</div>
+      <div class="it"><small>Телефон и Telegram</small><a href="tel:+79215531514">+7 (921) 553-15-14</a></div>
+      <div class="it"><small>Почта</small><a href="mailto:letechcenterspb@gmail.com">letechcenterspb@gmail.com</a></div>
+      <div class="msgr">
+        <a href="https://t.me/letechspb" target="_blank" rel="noopener">Telegram</a>
+        <a href="https://vk.com/club114112205" target="_blank" rel="noopener">ВКонтакте</a>
+        <a href="https://yandex.ru/maps/?text=%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3%2C%2013-%D1%8F%20%D0%BB%D0%B8%D0%BD%D0%B8%D1%8F%20%D0%92.%D0%9E.%2C%2072" target="_blank" rel="noopener">Как добраться</a>
+      </div>
+    </div>
+    <form class="card" id="form">
+      <h3>Заявка на оценку</h3>
+      <p>Ответим в рабочее время в течение дня.</p>
+      <div class="f">
+        <input placeholder="Ваше имя" required>
+        <input placeholder="Телефон или @telegram" required>
+        <select><option>Салон автомобиля</option><option>Мебель</option><option>Сумка / кожгалантерея</option><option>Обувь</option><option>Куртка / одежда</option><option>Другое</option></select>
+        <label class="drop">📷 Прикрепить фото повреждений<input type="file" accept="image/*" multiple></label>
+        <textarea placeholder="Что случилось? Например: потёртости на водительском сиденье"></textarea>
+        <button class="btn" style="justify-content:center">Отправить на оценку</button>
+      </div>
+    </form>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <span>© LeTech Центр, Санкт-Петербург · <a href="https://letechcenter.ru/store/">Магазин</a> · <a href="https://letechcenter.ru/training/">Обучение</a></span>
+  <span>Макет: Леонтий · фото и цены с letechcenter.ru</span>
+</div></footer>
+
+<a class="float" href="https://t.me/letechspb" target="_blank" rel="noopener">📷 Фото на оценку</a>
+
+<script>
+  // ползунок до/после
+  const ba=document.getElementById('ba'),after=ba.querySelector('.after'),bar=ba.querySelector('.bar');
+  const set=x=>{const r=ba.getBoundingClientRect();let p=Math.min(100,Math.max(0,(x-r.left)/r.width*100));after.style.clipPath=`inset(0 0 0 ${p}%)`;bar.style.left=p+'%'};
+  let drag=false;
+  ba.addEventListener('pointerdown',e=>{drag=true;ba.setPointerCapture(e.pointerId);set(e.clientX)});
+  ba.addEventListener('pointermove',e=>{if(drag)set(e.clientX)});
+  ba.addEventListener('pointerup',()=>drag=false);
+
+  // вкладки цен
+  const show=t=>{document.querySelectorAll('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));document.querySelectorAll('.price').forEach(p=>p.classList.toggle('on',p.dataset.p===t))};
+  document.querySelectorAll('#tabs button').forEach(b=>b.onclick=()=>show(b.dataset.t));
+  document.querySelectorAll('.dir').forEach(d=>d.addEventListener('click',()=>show(d.dataset.tab)));
+
+  // фото в форме
+  const fi=document.querySelector('.drop input');
+  fi.onchange=()=>{fi.parentElement.firstChild.textContent=fi.files.length?`📷 Выбрано фото: ${fi.files.length}`:'📷 Прикрепить фото повреждений'};
+
+  document.getElementById('form').onsubmit=e=>{e.preventDefault();e.target.innerHTML='<h3>Спасибо! Заявка принята.</h3><p style="margin-top:8px">Это демо-макет — на рабочем сайте фото сразу придут мастеру в Telegram.</p>'};
+</script>
+</body>
+</html>
