@@ -6,7 +6,7 @@
 <title>«Новые Кухни» — кухни на заказ в Санкт-Петербурге от мебельной фабрики</title>
 <meta name="description" content="Мебельная фабрика «Новые Кухни»: кухни на заказ по вашим размерам в Санкт-Петербурге. Замер, проект, изготовление и монтаж под ключ. Каталог проектов от 72 000 ₽.">
 <meta name="robots" content="noindex">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -26,16 +26,12 @@
     <p class="lead">Сделаем замер и проект, подберём материалы и цвет, изготовим и установим кухню под ключ. Готовые проекты в каталоге — от 72 000 ₽.</p>
     <div class="cta"><a class="btn btn-oak" href="#catalog">Смотреть каталог</a><a class="btn btn-line" href="#price">Рассчитать стоимость бесплатно</a></div>
     <div class="trust2">
-      <div><b><em>4,9</em> ★</b><span>122 отзыва во ВКонтакте</span></div>
+      <div><b>Под ключ</b><span>замер, проект, монтаж</span></div>
       <div><b>30+</b><span>проектов в каталоге</span></div>
       <div><b>5 300</b><span>подписчиков группы</span></div>
     </div>
   </div>
-  <div class="col3">
-    <img src="img/h1.jpg" alt="Кухня графит и дерево">
-    <img src="img/h3.jpg" alt="Кухня с мраморным фартуком">
-    <img src="img/h2.jpg" alt="Матовые графитовые фасады">
-  </div>
+  <div class="hero-ph"><img src="img/h1.jpg" alt="Кухня «Новые Кухни»: графит и дерево"><div class="hbadge"><b>4,9 ★</b><span>122 отзыва<br>во ВКонтакте</span></div><div class="hbadge2"><b>от 72 000 ₽</b><span>готовые проекты</span></div></div>
 </div></section>
 
 <section style="padding-top:0"><div class="wrap">
@@ -137,11 +133,12 @@
 
 <script>
 const K=[[0,'Серый Мрамор',72100],[1,'Мэри',75200],[2,'Чикаго 2',115200],[3,'Блэк Найт',78800],[4,'Белая Эстетика',151200],[5,'Застенчивая Невеста',78200],[6,'Кашемир',73500],[9,'Флоренция',98000],[10,'Глянцевый Сканди',119800],[11,'Лайт',77000],[12,'Альпийское Озеро',75000],[13,'Сканди-П',103000],[14,'Нео',161300],[15,'Муссон',142700],[16,'Black and White',212100],[17,'Сильвер',158000],[18,'Венеция',195300],[19,'Изумруд',197200],[20,'Графит-2',119900],[21,'Жёлтый Ламборгини',158000],[23,'Лувр',227500],[24,'Графит',89000],[25,'Уайт',128800],[26,'Какао',77000],[27,'Сканди',118200],[28,'Икеа',157000],[29,'Чикаго',118800]];
+const M={0: "До потолка · МДФ в плёнке · BOYARD", 1: "Без ручек · МДФ AGT · профиль Schuco", 2: "Минимализм · белый глянец и тёмный камень", 3: "Без ручек · графит · гранитная мойка", 4: "Без ручек · МДФ Белый Софт · петли Blum", 9: "Белый верх, тёмно-синий низ, дерево", 10: "Белый глянец и канадский дуб · Hettich", 11: "Небольшая · МДФ · фурнитура Hettich", 12: "Маленькая кухня в стиле сканди · Hettich", 13: "Сканди с барной стойкой вместо стола", 14: "Профиль Gola · сложное помещение", 15: "Просторная, светло-зелёная · Hettich", 16: "Белый глянец и чёрный · классика", 17: "Холодные тона · огромная рабочая зона", 18: "Классика для дома · витрины с подсветкой", 19: "Глянцевая эмаль · Blum · искусственный камень", 20: "Графит и светлое дерево · подсветка", 21: "Яркая жёлтая кухня · Hettich", 23: "Глянцевая эмаль · Blum · натуральный камень", 24: "Радиусные фасады · графит · Hettich", 25: "Сканди с полуостровом · Hettich", 26: "Современный сканди · Hettich", 27: "Сканди с островом · Hettich", 28: "Угловая · стеклянные фасады · Hettich", 29: "МДФ + HPL-пластик · столешница 38 мм"};
 const fmt=n=>n.toLocaleString('ru-RU')+' ₽';
 const band=p=>p<90000?'a':(p<150000?'b':'c');
 let f='all',shown=8;
 const cat=document.getElementById('cat'),more=document.getElementById('more');
-function render(){const list=K.filter(k=>f==='all'||band(k[2])===f);cat.innerHTML=list.slice(0,shown).map(k=>`<div class="kc"><div class="im"><img src="img/k${String(k[0]).padStart(2,'0')}.jpg" alt="Кухня «${k[1]}»" loading="lazy"></div><div class="b"><h3>Кухня «${k[1]}»</h3><div class="pr">${fmt(k[2])}</div><button data-n="${k[1]}">Хочу такую</button></div></div>`).join('');more.style.display=list.length>shown?'':'none'}
+function render(){const list=K.filter(k=>f==='all'||band(k[2])===f);cat.innerHTML=list.slice(0,shown).map(k=>`<div class="kc"><div class="im"><img src="img/k${String(k[0]).padStart(2,'0')}.jpg" alt="Кухня «${k[1]}»" loading="lazy"></div><div class="b"><h3>Кухня «${k[1]}»</h3><div class="mt">${M[k[0]]||""}</div><div class="pr">${fmt(k[2])}</div><button data-n="${k[1]}">Хочу такую</button></div></div>`).join('');more.style.display=list.length>shown?'':'none'}
 document.querySelectorAll('#pf button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#pf button').forEach(x=>x.classList.toggle('on',x===b));f=b.dataset.f;shown=8;render()});
 more.onclick=()=>{shown+=8;render()};
 cat.addEventListener('click',e=>{const b=e.target.closest('button[data-n]');if(!b)return;document.getElementById('what').value='Кухня «'+b.dataset.n+'»';document.getElementById('price').scrollIntoView({behavior:'smooth'})});
