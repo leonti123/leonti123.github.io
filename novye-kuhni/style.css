@@ -287,3 +287,18 @@ footer a:hover{color:#9fd3bf}
 .kc .mt{font-size:13px;color:var(--muted);line-height:1.45}
 @media(max-width:1050px){.hero-ph{height:440px}.hbadge{left:12px}.hbadge2{right:12px}}
 @media(max-width:620px){.hero-ph{height:340px}.hbadge,.hbadge2{padding:10px 12px}.hbadge b,.hbadge2 b{font-size:18px}.kc .mt{font-size:12px}}
+
+.calc2{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;background:#fff;border:1px solid var(--line);border-radius:28px;padding:44px;align-items:center}
+.shapes{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 26px}
+.shapes button{font:600 14px Inter;padding:11px 16px;border-radius:12px;border:1.5px solid var(--line);background:#fff;cursor:pointer;color:var(--ink)}
+.shapes button.on{border-color:var(--oak);background:#eef6f2;color:var(--oak2)}
+.lbl{display:block;font-weight:600;margin-bottom:10px}
+.hint{font-size:13.5px;color:var(--muted);margin-top:8px}
+.cres{background:var(--graph);color:#fff;border-radius:22px;padding:32px}
+.cres small{color:#b8c4bf}
+.cres .sum{font-family:Manrope;font-weight:800;font-size:46px;line-height:1.1;margin:6px 0}
+.cres p{color:#9fd3bf;font-weight:600}
+.cres ul{list-style:none;margin:20px 0 24px;border-top:1px solid rgba(255,255,255,.12)}
+.cres li{padding:9px 0;border-bottom:1px solid rgba(255,255,255,.08);color:#d5ddda;font-size:14.5px}
+@media(max-width:1050px){.calc2{grid-template-columns:1fr}}
+@media(max-width:620px){.calc2{padding:26px 20px}.cres .sum{font-size:36px}}
