@@ -97,6 +97,16 @@
   .f p{font-size:13.5px;color:var(--muted);line-height:1.5}
   .f .hit{position:absolute;top:14px;right:14px;background:var(--mint);color:var(--mint-ink);font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px}
 
+  .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+  .about>*{min-width:0}
+  .about-pic{position:relative}
+  .about-pic img{width:100%;height:auto;aspect-ratio:9/10;object-fit:cover;border-radius:24px 24px 220px 24px;box-shadow:var(--shadow)}
+  .about-pic figcaption{position:absolute;left:14px;top:14px;right:14px;max-width:290px;background:rgba(255,255,255,.94);border-radius:12px;padding:9px 13px;font-size:13px;line-height:1.4;color:var(--ink)}
+  blockquote{font:italic 500 clamp(22px,2.4vw,28px)/1.3 "Cormorant Garamond",Georgia,serif;border-left:3px solid var(--accent);padding-left:20px;margin:24px 0 10px}
+  .about-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+  .about-facts b{display:block;font-size:15px}
+  .about-facts span{font-size:13.5px;color:var(--muted);line-height:1.45;display:block}
+
   .calc-in{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:center}
   .calc{background:var(--surface);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow);display:grid;gap:20px}
   .calc label{font-size:14px;font-weight:600;display:grid;gap:8px}
@@ -179,7 +189,8 @@
     .menu.open{display:flex}
     .burger{display:block}
     .nav .btn{display:none}
-    .hero-in,.calc-in,.order-in{grid-template-columns:1fr;gap:34px}
+    .hero-in,.calc-in,.order-in,.about{grid-template-columns:1fr;gap:34px}
+    .about-pic img{aspect-ratio:4/3;border-radius:20px}
     .hero{padding:32px 0 48px}
     .hero-pic{max-width:420px;margin-inline:auto;width:100%}
     .hero-pic img{aspect-ratio:1;border-radius:160px 160px 20px 20px}
@@ -205,6 +216,7 @@
     .steps{grid-template-columns:1fr}
     .perks .wrap{grid-template-columns:1fr}
     .row{grid-template-columns:1fr}
+    .about-facts{grid-template-columns:1fr}
     .stats{gap:22px}
     .tag{padding:9px 12px;font-size:12px}
     .tag b{font-size:13.5px}
@@ -233,6 +245,7 @@
     <nav class="menu" id="menu">
       <a href="#catalog">Каталог</a>
       <a href="#fillings">Начинки</a>
+      <a href="#about">О кондитере</a>
       <a href="#calc">Калькулятор</a>
       <a href="#how">Как заказать</a>
       <a href="#faq">Вопросы</a>
@@ -293,6 +306,27 @@
     <h2 class="reveal">Восемь начинок, которые мы печём чаще всего</h2>
     <p class="lead reveal">Не можете выбрать? К торту от 2 кг бесплатно привезём сет дегустации из трёх вкусов.</p>
     <div class="fills" id="fills"></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about">
+    <figure class="about-pic reveal">
+      <img src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=900&h=1000&fit=crop&q=65" alt="Домашний стол с выпечкой" loading="lazy" width="900" height="1000">
+      <figcaption>Здесь будет ваше фото: вы на кухне или за работой над тортом</figcaption>
+    </figure>
+    <div>
+      <span class="kicker">О кондитере</span>
+      <h2 class="reveal">Торт покупают у человека</h2>
+      <p class="lead reveal">Этот блок на рабочем сайте расскажет о вас. Ниже пример того, как он может звучать, текст мы напишем вместе по вашей истории.</p>
+      <blockquote class="reveal">Меня зовут Анна, и я пеку торты дома уже шесть лет. Начинала с тортов для своих детей, потом стали просить друзья. Каждый торт делаю сама от начала до конца, поэтому беру не больше пяти заказов в неделю.</blockquote>
+      <p class="note reveal">Пример текста, Анна вымышленная</p>
+      <div class="about-facts">
+        <div class="reveal"><b>Ваш опыт</b><span>сколько лет печёте и как начинали</span></div>
+        <div class="reveal"><b>Ваша кухня</b><span>условия, продукты, медкнижка</span></div>
+        <div class="reveal"><b>Ваши правила</b><span>сколько заказов берёте и что не делаете</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
