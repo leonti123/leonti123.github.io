@@ -1,4 +1,4 @@
-const U=(id,w=1200)=>`https://images.unsplash.com/${id}?w=${w}&q=75&auto=format&fit=crop`;
+const U=(id,w=1200)=>`img/${id}-${w>=1400?1400:800}.jpg`;
 const PHONE='+7 (812) 000-00-00',TEL='+78120000000';
 const fmt=n=>Math.round(n).toLocaleString('ru-RU')+' ₽';
 
