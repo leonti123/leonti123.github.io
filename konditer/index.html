@@ -282,7 +282,7 @@
       </div>
     </div>
     <div class="hero-pic">
-      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=900&h=1100&fit=crop&q=70" alt="Шоколадный торт с кремом" width="900" height="1100">
+      <img src="img/hero.jpg" alt="Шоколадный торт с кремом" width="900" height="1100">
       <div class="tag a"><b>Шоколад 70%</b>бельгийский, в креме и ганаше</div>
       <div class="tag b"><b>Заберите сами</b>или привезём к двери</div>
     </div>
@@ -320,7 +320,7 @@
 <section id="about">
   <div class="wrap about">
     <figure class="about-pic reveal">
-      <img src="https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?w=900&h=1000&fit=crop&q=65" alt="Домашний стол с выпечкой" loading="lazy" width="900" height="1000">
+      <img src="img/about.jpg" alt="Домашний стол с выпечкой" loading="lazy" width="900" height="1000">
       <figcaption>Здесь будет ваше фото: вы на кухне или за работой над тортом</figcaption>
     </figure>
     <div>
@@ -344,7 +344,7 @@
       <span class="kicker">Калькулятор</span>
       <h2 class="reveal">Сколько торта нужно на ваш праздник</h2>
       <p class="lead reveal">Самый частый вопрос кондитеру. Здесь ответ за 10 секунд: передвиньте ползунок, и сразу видно вес и примерную цену.</p>
-      <img class="calc-pic" src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?w=800&h=800&fit=crop&q=65" alt="Шоколадный торт с вишней" loading="lazy" width="800" height="800">
+      <img class="calc-pic" src="img/calc.jpg" alt="Шоколадный торт с вишней" loading="lazy" width="800" height="800">
     </div>
     <div class="calc">
       <label><span class="val"><span>Гостей</span><b id="g-val">10</b></span><input type="range" id="guests" min="2" max="60" value="10"></label>
@@ -496,7 +496,7 @@
 <script>
   const WA_PHONE = "79119496835";
   const VK_CHAT = "https://vk.me/ileonti";
-  const img = (id, w = 500) => `https://images.unsplash.com/photo-${id}?w=${w}&h=${w}&fit=crop&q=62`;
+  const img = id => `img/${id}.jpg`;
 
   // [name, description, price, weight, photo, categories]
   const CAKES = [
