@@ -604,7 +604,7 @@
     try { document.execCommand("copy"); } catch (e) {}
     copybox.classList.remove("show"); window.open(VK_CHAT, "_blank");
   };
-  const LEAD_URL = "https://lead-form.leonti-naumov.workers.dev/";
+  const LEAD_URL = "https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec";
   const orderText = () => {
     const date = new Date(form.date.value + "T12:00").toLocaleDateString("ru-RU", {day: "numeric", month: "long"});
     return {details: [`Торт: ${form.cake.value}`, `Начинка: ${form.fill.value}`, `Дата: ${date}`, `Гостей: ${form.guests.value}`, `Получение: ${form.how.value}`].join(", "),
@@ -623,9 +623,9 @@
     submitBtn.disabled = true; submitBtn.textContent = "Отправляем...";
     let ok = false;
     try {
-      const res = await fetch(LEAD_URL, {method: "POST", headers: {"Content-Type": "application/json"}, signal: AbortSignal.timeout(10000),
+      const res = await fetch(LEAD_URL, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, signal: AbortSignal.timeout(20000),
         body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: orderText().details, comment: form.comment.value.trim(), website: form.website.value})});
-      ok = res.ok;
+      ok = (await res.json()).ok === true;
     } catch (e) {}
     submitBtn.disabled = false; submitBtn.textContent = "Отправить заявку";
     if (ok) { submitBtn.hidden = true; sentBox.hidden = false; }
