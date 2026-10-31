@@ -197,6 +197,13 @@
   .send .btn{padding:14px 10px}
   .err{color:#b3261e;font-size:13.5px;font-weight:600}
   .err:empty{display:none}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+  .consent{display:flex!important;gap:9px;align-items:flex-start;font-weight:500!important;font-size:13px!important;line-height:1.4;color:var(--muted)}
+  .consent input{width:18px!important;height:18px;flex:none;margin-top:1px;accent-color:var(--teal)}
+  .consent a{text-decoration:underline}
+  .sent,.fallback{display:grid;gap:10px;background:var(--sky-soft);border-radius:14px;padding:16px;font-size:14px}
+  .fallback{background:#fff2ea}
+  .sent[hidden],.fallback[hidden]{display:none}
 
   .site-footer{background:var(--teal-dark);color:#bfdde1;padding:24px 0;font-size:13.5px}
   .site-footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
@@ -488,12 +495,23 @@
       </div>
       <label>Получение<select name="how"><option>Самовывоз</option><option>Доставка по Невскому району</option><option>Доставка в другой район</option></select></label>
       <label>Пожелания<textarea name="comment" rows="3" placeholder="Повод, цвета, надпись, ссылка на картинку"></textarea></label>
+      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="consent"><input type="checkbox" name="consent"><span>Согласен на обработку имени и телефона для ответа на заявку, <a href="privacy.html" target="_blank" rel="noopener">политика</a></span></label>
       <p class="err" id="err"></p>
-      <div class="send">
-        <button class="btn btn-vk" type="submit">Отправить ВКонтакте</button>
-        <a class="btn btn-line" href="tel:+79119401540">Позвонить</a>
+      <button class="btn btn-primary" type="submit" id="submit">Отправить заявку</button>
+      <div class="sent" id="sent" hidden>
+        <b>Спасибо, заявка принята!</b>
+        <span>Я отвечу и рассчитаю стоимость. Хотите приложить картинку с идеей? Напишите мне:</span>
+        <a class="btn btn-vk" href="https://vk.me/club224930087" target="_blank" rel="noopener">Написать ВКонтакте</a>
       </div>
-      <p class="note">Текст заявки скопируется автоматически: откроется чат с группой, останется вставить его и отправить.</p>
+      <div class="fallback" id="fallback" hidden>
+        <b>Не получилось отправить заявку автоматически</b>
+        <span>Текст уже готов, отправьте его в сообщения группы или позвоните:</span>
+        <div class="send">
+          <button class="btn btn-vk" type="button" id="send-vk">ВКонтакте</button>
+          <a class="btn btn-line" href="tel:+79119401540">Позвонить</a>
+        </div>
+      </div>
     </form>
   </div>
 </section>
@@ -521,6 +539,7 @@
 
 <script>
   const VK_CHAT = "https://vk.me/club224930087";
+  const LEAD_URL = "https://script.google.com/macros/s/AKfycbzyCKNUHTCwVBxdwFVfWC3I6rpbHf6Yn5v3YYU9iX2aYqK08KG4-V5jyRASnMD6XXgWMw/exec";
 
   // [name, description, price, unit, photo, categories]
   const CAKES = [
@@ -634,7 +653,7 @@
   });
   calc();
 
-  // Order form: the text goes to the group chat, nothing is stored on the site
+  // Order form: the lead goes to VK through Apps Script, the group chat is the fallback
   $("f-cake").innerHTML = "<option>По моей идее</option>" + CAKES.map(c => `<option>${c[0]}</option>`).join("");
   $("f-fill").innerHTML = "<option>Посоветуйте</option>" + FILLS.map(f => `<option>${f[0]}</option>`).join("");
   $("to-order").onclick = () => {
@@ -665,20 +684,36 @@
     try { document.execCommand("copy"); } catch (e) {}
     copybox.classList.remove("show"); window.open(VK_CHAT, "_blank");
   };
-  form.addEventListener("submit", e => {
+  const orderDetails = () => {
+    const date = new Date(form.date.value + "T12:00").toLocaleDateString("ru-RU", {day: "numeric", month: "long"});
+    return [`Что: ${form.cake.value}`, `Начинка: ${form.fill.value}`, `Дата: ${date}`, `Гостей: ${form.guests.value}`, `Получение: ${form.how.value}`];
+  };
+  const submitBtn = $("submit"), sentBox = $("sent"), fallbackBox = $("fallback");
+  form.addEventListener("submit", async e => {
     e.preventDefault();
     const err = $("err");
     if (!form.date.value) return err.textContent = "Укажите дату праздника";
     if (form.name.value.trim().length < 2) return err.textContent = "Укажите имя";
     if (form.phone.value.replace(/\D/g, "").length !== 11) return err.textContent = "Проверьте номер телефона";
-    err.textContent = "";
-    const date = new Date(form.date.value + "T12:00").toLocaleDateString("ru-RU", {day: "numeric", month: "long"});
-    const text = ["Здравствуйте! Хочу сделать заказ.", `Что: ${form.cake.value}`, `Начинка: ${form.fill.value}`, `Дата: ${date}`, `Гостей: ${form.guests.value}`, `Получение: ${form.how.value}`,
-      `Имя: ${form.name.value.trim()}, тел. ${form.phone.value}`, form.comment.value.trim() && `Пожелания: ${form.comment.value.trim()}`].filter(Boolean).join("\n");
+    if (!form.consent.checked) return err.textContent = "Отметьте согласие на обработку данных";
+    err.textContent = ""; fallbackBox.hidden = true;
+    submitBtn.disabled = true; submitBtn.textContent = "Отправляем...";
+    let ok = false;
+    try {
+      const res = await fetch(LEAD_URL, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, signal: AbortSignal.timeout(20000),
+        body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: orderDetails().join(", "), comment: form.comment.value.trim(), website: form.website.value})});
+      ok = (await res.json()).ok === true;
+    } catch (e) {}
+    submitBtn.disabled = false; submitBtn.textContent = "Отправить заявку";
+    if (ok) { submitBtn.hidden = true; sentBox.hidden = false; }
+    else fallbackBox.hidden = false;
+  });
+  $("send-vk").onclick = () => {
+    const text = ["Здравствуйте! Хочу сделать заказ.", ...orderDetails(), `Имя: ${form.name.value.trim()}, тел. ${form.phone.value}`, form.comment.value.trim() && `Пожелания: ${form.comment.value.trim()}`].filter(Boolean).join("\n");
     // VK can't prefill a message: copy while the page still has focus, then open the chat
     if (copyNow(text)) { toast("Заявка скопирована, вставьте её в чат ВКонтакте"); window.open(VK_CHAT, "_blank"); return; }
     copybox.querySelector("textarea").value = text; copybox.classList.add("show"); copybox.querySelector("textarea").select();
-  });
+  };
 
   // Menu and scroll reveal
   $("burger").onclick = () => $("menu").classList.toggle("open");
