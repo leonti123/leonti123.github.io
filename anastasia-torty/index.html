@@ -238,8 +238,8 @@
     .burger{display:block}
     .nav .btn{display:none}
     .hero-in{grid-template-columns:1fr;min-height:0}
-    .hero-txt{padding:38px 0 12px}
-    .hero-pic{height:340px;min-height:0;margin-inline:-16px;overflow:hidden}
+    .hero-txt{padding:22px 0 42px}
+    .hero-pic{order:-1;height:340px;min-height:0;margin-inline:-16px;overflow:hidden}
     .hero-pic img{object-position:42% 22%;-webkit-mask-image:none;mask-image:none}
     .dot{display:none}
     .sticker{right:12px;top:10px;width:104px;height:104px;font-size:11px}
@@ -271,13 +271,27 @@
     .send{grid-template-columns:1fr}
     .seg{grid-template-columns:1fr}
     .facts{grid-template-columns:1fr}
-    .stats{gap:18px}
-    .stats>div{flex:1 1 26%}
+    .hero-txt{display:flex;flex-direction:column;gap:14px;padding-top:16px}
+    .hero h1{order:1;margin:0}
+    .hero h1 .hand{font-size:clamp(19px,6.3vw,27px);white-space:nowrap}
+    .hero-txt .stats{order:2;margin:0;flex-wrap:nowrap;gap:12px}
+    .hero-txt .actions{order:3;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .hero-txt .actions .btn{padding:13px 6px;font-size:13.5px}
+    .hero-txt p{order:4;margin:0;font-size:15.5px}
+    .hero-pic{height:230px}
+    .hero-pic img{object-position:42% 12%}
+    .sticker{width:88px;height:88px;font-size:10px;padding:6px;top:8px;right:8px}
+    .sticker b{font-size:11px;margin:1px 0}
+    .stats>div{flex:1 1 0;min-width:0}
     .stats b{font-size:21px}
     form{padding:20px}
     .calc{padding:20px}
     .logo small{display:none}
     .about-pic span{font-size:20px;bottom:16px}
+  }
+  @media (max-width:340px){
+    .hero-pic{height:170px}
+    .hero h1{font-size:26px}
   }
 </style>
 </head>
