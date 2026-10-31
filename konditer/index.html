@@ -90,6 +90,9 @@
   .pick{border:0;background:var(--soft);color:var(--accent-dark);border-radius:999px;padding:8px 14px;font-weight:600;font-size:13.5px;cursor:pointer}
   .pick:hover{background:var(--accent);color:#fff}
 
+  .more{margin-top:24px;text-align:center}
+  .more[hidden]{display:none}
+
   .fill{background:var(--surface)}
   .fills{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
   .f{border:1px solid var(--line);border-radius:16px;padding:20px;position:relative}
@@ -199,8 +202,8 @@
     .nav .btn{display:none}
     .hero-in,.calc-in,.order-in,.about{grid-template-columns:1fr;gap:34px}
     .about-pic img{aspect-ratio:4/3;border-radius:20px}
-    .hero{padding:32px 0 48px}
-    .hero-pic{max-width:420px;margin-inline:auto;width:100%}
+    .hero{padding:14px 0 48px}
+    .hero-pic{order:-1;max-width:420px;margin-inline:auto;width:100%}
     .hero-pic img{aspect-ratio:1;border-radius:160px 160px 20px 20px}
     .tag.a{left:6px;bottom:18px}
     .tag.b{display:none}
@@ -210,7 +213,7 @@
     body{padding-bottom:72px}
     .bar{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:grid;grid-template-columns:1fr 1fr;gap:8px}
     .bar .btn{padding:12px 8px;font-size:14.5px;box-shadow:0 10px 26px rgba(0,0,0,.2)}
-    .bar .btn-line{background:var(--surface)}
+    .bar .btn-line,.bar .btn-line:hover{background:var(--surface);color:var(--ink)}
     .toast{bottom:84px}
   }
   @media (max-width:560px){
@@ -225,10 +228,35 @@
     .perks .wrap{grid-template-columns:1fr}
     .row{grid-template-columns:1fr}
     .about-facts{grid-template-columns:1fr}
-    .stats{gap:22px}
+    .hero-in{gap:16px}
+    .hero-pic{max-width:none}
+    .hero-pic img{aspect-ratio:auto;height:230px;object-position:center 35%;border-radius:20px}
+    .tag.a{left:8px;bottom:8px}
+    .hero-txt{display:flex;flex-direction:column;gap:14px}
+    .hero h1{order:1;margin:0;font-size:36px}
+    .hero-txt .stats{order:2;margin:0;gap:12px;flex-wrap:nowrap}
+    .hero-txt .stats>div{flex:1 1 0;min-width:0}
+    .hero-txt .stats b{font-size:23px}
+    .hero-txt .stats small{display:block;line-height:1.25}
+    .hero-txt .actions{order:3;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+    .hero-txt .actions .btn{padding:13px 6px;font-size:14px;text-align:center}
+    .hero-txt p{order:4;margin:0}
     .tag{padding:9px 12px;font-size:12px}
     .tag b{font-size:13.5px}
     form{padding:20px}
+  }
+  @media (max-width:380px){
+    .hero-pic img{height:190px}
+    .hero h1{font-size:32px}
+    .hero-txt .stats b{font-size:20px;white-space:nowrap}
+    .hero-txt .stats small{font-size:12px}
+    .hero-txt .actions .btn{padding:12px 4px;font-size:13.5px}
+  }
+  @media (max-width:340px){
+    .hero-pic img{height:140px}
+    .hero h1{font-size:28px}
+    .hero-txt .stats{gap:8px}
+    .hero-txt .stats b{font-size:18px}
   }
 </style>
 </head>
@@ -268,7 +296,7 @@
 
 <section class="hero">
   <div class="wrap hero-in">
-    <div>
+    <div class="hero-txt">
       <h1>Торт, который <em>доедают</em> до последней крошки</h1>
       <p>Домашняя кондитерская в Петербурге. Печём на сливочном масле и настоящем шоколаде, без растительных кремов. Цена понятна сразу: выбираете торт, начинку и вес.</p>
       <div class="actions">
@@ -305,6 +333,7 @@
     <p class="lead reveal">Цена указана за весь торт в указанном весе. Любой можно сделать с другой начинкой или больше.</p>
     <div class="chips" id="chips"></div>
     <div class="grid" id="grid"></div>
+    <div class="more"><button class="btn btn-line" id="show-more" type="button">Показать ещё</button></div>
   </div>
 </section>
 
@@ -531,16 +560,21 @@
 
   const rub = n => n.toLocaleString("ru-RU") + " ₽";
   const grid = document.getElementById("grid"), chips = document.getElementById("chips");
-  let cat = "all";
+  let cat = "all", open = false;
+  const FIRST = 8;
+  const more = document.getElementById("show-more");
   function renderChips(){ chips.innerHTML = CATS.map(([k, n]) => `<button class="chip ${k === cat ? "on" : ""}" data-c="${k}">${n}</button>`).join(""); }
   function renderGrid(){
-    grid.innerHTML = CAKES.filter(c => cat === "all" || c[5].includes(cat)).map(c =>
+    const list = CAKES.filter(c => cat === "all" || c[5].includes(cat));
+    more.parentElement.hidden = open || list.length <= FIRST;
+    grid.innerHTML = list.slice(0, open ? list.length : FIRST).map(c =>
       `<article class="item"><img src="${img(c[4])}" alt="${c[0]}" loading="lazy" width="500" height="500">
         <div class="b"><h3>${c[0]}</h3><p>${c[1]}</p>
           <div class="buy"><span class="price">${rub(c[2])} <small>${c[3]}</small></span><button class="pick" data-n="${c[0]}">Выбрать</button></div>
         </div></article>`).join("");
   }
-  chips.addEventListener("click", e => { const b = e.target.closest(".chip"); if (!b) return; cat = b.dataset.c; renderChips(); renderGrid(); });
+  chips.addEventListener("click", e => { const b = e.target.closest(".chip"); if (!b) return; cat = b.dataset.c; open = false; renderChips(); renderGrid(); });
+  more.onclick = () => { open = true; renderGrid(); };
   grid.addEventListener("click", e => {
     const b = e.target.closest(".pick"); if (!b) return;
     document.getElementById("f-cake").value = b.dataset.n;
