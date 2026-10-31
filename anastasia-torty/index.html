@@ -85,7 +85,11 @@
   .chip{padding:9px 18px;border:2px solid var(--line);border-radius:999px;background:#fff;cursor:pointer;font-weight:700;font-size:14px;transition:.15s}
   .chip:hover{border-color:var(--sky)}
   .chip.on{background:var(--teal);color:#fff;border-color:var(--teal)}
-  .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .grid{display:grid;grid-template-columns:repeat(8,1fr);gap:20px}
+  .item{grid-column:span 2}
+  .item:nth-last-child(2):nth-child(4n+1){grid-column:3/span 2}
+  .grid.three{grid-template-columns:repeat(3,1fr);max-width:870px;margin-inline:auto}
+  .grid.three .item{grid-column:auto}
   .item{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:.25s;position:relative}
   .item:hover{transform:translateY(-6px) rotate(-.7deg)}
   .item:nth-child(even):hover{transform:translateY(-6px) rotate(.7deg)}
@@ -226,8 +230,7 @@
   }
 
   @media (max-width:1060px){
-    .grid,.steps,.revs{grid-template-columns:repeat(2,1fr)}
-    .grid{grid-template-columns:repeat(3,1fr)}
+    .steps,.revs{grid-template-columns:repeat(2,1fr)}
     .nav-phone{display:none}
     .slicer{grid-template-columns:1fr}
   }
@@ -247,7 +250,8 @@
     .deliv{grid-template-columns:1fr}
     section{padding:58px 0}
     .calc-photos{display:none}
-    .grid{grid-template-columns:repeat(2,1fr)}
+    .grid,.grid.three{grid-template-columns:repeat(2,1fr);max-width:none}
+    .grid .item,.grid .item:nth-last-child(2):nth-child(4n+1){grid-column:auto}
     body{padding-bottom:72px}
     .bar{position:fixed;left:12px;right:12px;bottom:12px;z-index:60;display:grid;grid-template-columns:1fr 1fr;gap:8px}
     .bar .btn{padding:12px 8px;font-size:14.5px;box-shadow:0 10px 26px rgba(0,0,0,.22)}
@@ -340,7 +344,7 @@
   <div class="wrap hero-in">
     <div class="hero-txt">
       <h1>Торты на заказ <span class="sub">Санкт-Петербург, Невский район</span></h1>
-      <p>Я Анастасия Васильева, дипломированный кондитер из Санкт-Петербурга, Невский район. Воплощу вашу задумку в торте или десерте: от бенто на двоих до большого торта на юбилей. Расчёт в течение часа, срочные заказы без доплат.</p>
+      <p>Я, Васильева Анастасия, дипломированный кондитер из Санкт-Петербурга, Невский район. Воплощу вашу задумку в торте или десерте: от бенто на двоих до большого торта на юбилей. Расчёт в течение часа, срочные заказы без доплат.</p>
       <div class="actions">
         <a class="btn btn-primary" href="#catalog">Выбрать торт</a>
         <a class="btn btn-line" href="#calc">Рассчитать на гостей</a>
@@ -572,20 +576,20 @@
 
   // [name, description, price, unit, photo, categories, true when the price is only a minimum]
   const CAKES = [
-    ["Торт с вишней и клубникой", "Шоколадные подтёки и ягоды, начинка на выбор", 2500, "/кг", "w-vishnya", ["her"], true],
+    ["Торт с ягодами и подтёками", "Шоколадные подтёки и ягоды, начинка на выбор", 2500, "/кг", "w-vishnya", ["her"]],
     ["Торт Ящик с ягодами", "Оформление включено, начинка на выбор", 3000, "/кг", "d-yashchik", ["d3"]],
     ["Торт для рыбака", "Оформление включено, начинка на выбор", 2500, "/кг", "m-rybak", ["him"]],
     ["Торт детский с динозавром", "Цифра, динозавр и листики из мастики, всё съедобно", 2400, "/кг", "k-dino", ["kids"]],
     ["Бенто торт с мишками", "Вес 550-600 г, начинки в ассортименте", 1700, "", "b-mishki", ["bento"]],
     ["Пирожное картошка эскимо", "Наборы по 5 штук", 180, "/шт", "s-eskimo", ["dess"]],
     ["Торт для девушки", "Цветы из мастики, акриловый топпер, живая гипсофила", 2700, "/кг", "w-golub", ["her"]],
-    ["Торт на юбилей 75 лет", "Декор съедобный, из мастики. Оформление в цену не входит", 2200, "/кг", "m-lyzhnik", ["him"]],
+    ["Торт на юбилей 75 лет", "Декор съедобный, из мастики. Цена без мастичных фигурок", 2200, "/кг", "m-lyzhnik", ["him"], true],
     ["Торт сердце", "Антигравитационный торт, оформление кремом. Минимальный вес 3 кг", 4000, "/кг", "d-serdce-nozh", ["d3"]],
-    ["Торт на день рождения сафари", "Покрытие крем-чиз, декор из мастики. Фигурки в цену не входят", 2200, "/кг", "k-lvy", ["kids"]],
+    ["Торт на день рождения сафари", "Покрытие крем-чиз, декор из мастики. Цена без мастичных фигурок", 2200, "/кг", "k-lvy", ["kids"], true],
     ["Бенто торт на 4 месяца", "Вес 550-600 г, начинки в ассортименте", 1700, "", "b-zhiraf", ["bento"]],
     ["Капкейки", "Наборы 4, 6, 8 и 12 штук", 350, "/шт", "s-kapkeyki", ["dess"]],
     ["Торт с серебряной короной", "Рюши, бантики, топпер, свечи и корона в серебряном цвете", 3000, "/кг", "w-korona", ["her"]],
-    ["Торт на 16 лет для мальчика", "Оформление включено, начинка на выбор", 2600, "/кг", "m-bomba", ["him"]],
+    ["Торт на 16 лет для мальчика", "Начинка на выбор, цена без мастичных фигурок", 2600, "/кг", "m-bomba", ["him"], true],
     ["Торт крокодил", "Лапки из пирожного картошка, покрытие крем. Оформление включено", 3000, "/кг", "d-krokodil", ["d3"]],
     ["Торт с короной", "Рюши, цветы из крема, декоративная корона, атласные бантики", 3050, "/кг", "k-korona", ["kids"]],
     ["Бенто торт парню", "Вес 550-600 г, оформление сахарной картинкой", 1900, "", "b-levelup", ["bento"]],
@@ -596,23 +600,34 @@
     ["Торт с боксёрскими перчатками", "Начинка на выбор", 2400, "/кг", "k-boks", ["kids"], true],
     ["Бенто торт с котиком", "Надпись и сахарная картинка, начинка на выбор", 1900, "", "b-kot", ["bento"]],
     ["Пирожное картошка", "Наборы 4 и 6 штук", 200, "/шт", "s-kartoshka", ["dess"]],
+    ["Меренговый рулет", "Нежный рулет со свежей клубникой", 2100, "", "s-rulet", ["dess"]],
     ["Торт с кремовыми цветами", "Надпись и цветы из крема, начинки на выбор", 2400, "/кг", "w-pioni", ["her"]],
     ["Торт для папы", "Кремовая надпись, свежая малина и листики мяты", 2300, "/кг", "m-malina", ["him"]],
-    ["Торт сердце на юбилей", "Оформление кремом, начинка на выбор", 3200, "/кг", "d-serdce-60", ["d3"], true],
+    ["Торт с ягодами", "Сезонные ягоды, свежая мята и топпер. Цена без топпера", 2500, "/кг", "m-navy", ["him"]],
+    ["Торт для мужчины", "Оформление включено, начинка на выбор", 3100, "/кг", "m-geroy", ["him"]],
+    ["Торт на футбольную тему", "Рюши и картинка на сахарной бумаге, начинки на выбор", 2600, "/кг", "m-fcb", ["him"]],
+    ["Торт Мангал", "Оформление включено, начинка на выбор", 3200, "/кг", "d-mangal", ["d3"]],
     ["Торт роблокс", "2D-картинки, леденцы, звёзды и детали лего из шоколадной глазури", 3200, "/кг", "k-roblox", ["kids"]],
     ["Бенто торт голубой", "Вес 550-600 г, начинки в ассортименте", 1600, "", "b-limited", ["bento"]],
+    ["Бенто торт с трактором", "Вес 550-600 г, начинки в ассортименте", 1900, "", "b-traktor", ["bento"]],
     ["Картошка с начинкой", "Наборы 4 и 6 штук", 250, "/шт", "s-nachinka", ["dess"]],
     ["Торт с рюшами и ромашками", "Оформление включено, начинка на выбор", 2500, "/кг", "w-zheltyy", ["her"]],
     ["Торт на день рождения с прикольной надписью", "Надпись и рисунок выполнены кремом", 2400, "/кг", "m-mercedes", ["him"]],
     ["Торт машинка", "Покрытие мастика, оформление включено", 3000, "/кг", "d-tachki", ["d3"]],
     ["Торт для девочки Аниме", "Картинки на сахарной бумаге, голубика, зефир и цветы из мастики", 2500, "/кг", "k-anime", ["kids"]],
+    ["Торт на детский день рождения", "Оформление включено, начинка на выбор", 2700, "/кг", "k-poezd", ["kids"]],
+    ["Лисичка", "Начинка на выбор", 2500, "/кг", "k-lisichka", ["kids"]],
     ["Бенто торт на день отца", "Надпись кремом, начинки на выбор", 1600, "", "b-pape", ["bento"]],
     ["Торт на юбилей для бабушки", "Свежая малина, сахарные картинки, мята и цифры из глазури", 2600, "/кг", "w-babushka", ["her"]],
+    ["Торт на юбилей 30 лет Русский стиль", "Оформление включено, начинка на выбор", 2700, "/кг", "w-russkiy", ["her"]],
+    ["Торт сердце с рюшами", "Оформление включено, начинка на выбор", 2700, "/кг", "w-rozy-serdce", ["her"]],
+    ["Торт на день рождения Вселенная", "Оформление включено, начинка на выбор", 2800, "/кг", "w-prints", ["her"]],
+    ["Торт на юбилей с короной 35 лет", "Корона и топпер входят в цену, начинка на выбор", 2700, "/кг", "w-korona35", ["her"]],
     ["Торт с логотипом", "Прямоугольный торт с фотопечатью. Минимальный вес 2 кг", 2200, "/кг", "m-chernyy", ["him"]],
     ["Торт на военную тематику", "Оформление включено, начинка на выбор", 3000, "/кг", "d-mina", ["d3"]],
     ["Торт с миньонами", "2D-картинки и леденцы, начинки на выбор", 2500, "/кг", "k-minony", ["kids"]],
     ["Бенто торт с надписью", "Вес 550-600 г, начинки в ассортименте", 1500, "", "b-poltora", ["bento"]],
-    ["Торт сиреневый с цветами", "Кремовые цветы и жемчуг, начинка на выбор", 2500, "/кг", "w-sirenevyy", ["her"], true],
+    ["Торт с кремовыми розами", "Цветы из крема, бусинки и топпер. Начинка на выбор", 2500, "/кг", "w-rozovyy", ["her"]],
     ["Торт на день рождения с фигуркой", "Фигурка из шоколада и цветочки из мастики", 2500, "/кг", "k-zayka", ["kids"]],
     ["Торт для девочки Хэллоу Китти", "Торт в форме клубники, фигурка из мастики, покрытие крем", 2400, "/кг", "d-klubnichka", ["d3"]],
   ];
@@ -648,6 +663,7 @@
   function renderGrid(){
     const list = CAKES.filter(c => cat === "all" || c[5].includes(cat));
     $("show-more").hidden = open || list.length <= FIRST;
+    grid.classList.toggle("three", list.length === 6);
     grid.innerHTML = list.slice(0, open ? list.length : FIRST).map(c =>
       `<article class="item"><img src="img/${c[4]}.jpg" alt="${c[0]}" loading="lazy" width="540" height="675">
         <span class="tagp">${c[6] ? "от " : ""}${rub(c[2])}<small>${c[3]}</small></span>
@@ -758,6 +774,11 @@
     if (copyNow(text)) { toast("Заявка скопирована, вставьте её в чат ВКонтакте"); window.open(VK_CHAT, "_blank"); return; }
     copybox.querySelector("textarea").value = text; copybox.classList.add("show"); copybox.querySelector("textarea").select();
   };
+
+  // The bottom bar would cover form fields above the phone keyboard
+  const bar = document.querySelector(".bar");
+  form.addEventListener("focusin", e => { if (e.target.matches("input, textarea")) bar.style.display = "none"; });
+  form.addEventListener("focusout", () => { bar.style.display = ""; });
 
   // Menu and scroll reveal
   $("burger").onclick = () => $("menu").classList.toggle("open");
