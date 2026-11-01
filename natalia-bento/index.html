@@ -344,6 +344,11 @@
   .revs.quotes .rev p{font-size:15.5px;margin:0}
   .mock{background:var(--teal-dark);color:#fff;text-align:center;font-size:13px;font-weight:600;padding:7px 12px}
   .seg.four{grid-template-columns:1fr 1fr}
+  .btn[hidden]{display:none}
+  .bar{transition:transform .2s}
+  .bar.off{transform:translateY(140%);pointer-events:none}
+  .fallback{background:var(--sky-pale)}
+  .copybox{background:rgba(58,20,48,.6)}
   .taste{grid-template-columns:minmax(0,1fr)}
   .taste>*{min-width:0}
   .taste .fnames{flex-wrap:wrap!important;overflow:visible!important}
@@ -581,12 +586,22 @@
         <label>Телефон<input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required></label>
       </div>
       <label>Пожелания<textarea name="comment" rows="3" placeholder="Повод, цвета, надпись, ссылка на картинку"></textarea></label>
+      <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="consent"><input type="checkbox" name="consent"><span>Согласен на обработку имени и телефона для ответа на заявку, <a href="privacy.html" target="_blank" rel="noopener">политика</a></span></label>
       <p class="err" id="err"></p>
       <button class="btn btn-primary" type="submit" id="submit">Отправить заявку</button>
       <div class="sent" id="sent" hidden>
-        <b>Заявка скопирована</b>
-        <span>Вставьте её в чат ВКонтакте, который сейчас откроется. На готовом сайте заявки будут приходить сразу мне в сообщения.</span>
-        <a class="btn btn-vk" href="https://vk.me/bento_vip" target="_blank" rel="noopener">Открыть чат ВКонтакте</a>
+        <b>Спасибо, заявка принята!</b>
+        <span>Я отвечу и рассчитаю стоимость. Хотите приложить картинку с идеей? Напишите мне:</span>
+        <a class="btn btn-vk" href="https://vk.me/bento_vip" target="_blank" rel="noopener">Написать ВКонтакте</a>
+      </div>
+      <div class="fallback" id="fallback" hidden>
+        <b id="fb-title">Заявка готова</b>
+        <span>Отправьте её в сообщения группы или позвоните:</span>
+        <div class="send">
+          <button class="btn btn-vk" type="button" id="send-vk">ВКонтакте</button>
+          <a class="btn btn-line" href="tel:+79811734966">Позвонить</a>
+        </div>
       </div>
     </form>
   </div>
@@ -605,9 +620,18 @@
   <a class="btn btn-primary" href="#order">Заказать</a>
 </div>
 <div class="toast" id="toast" role="status"></div>
+<div class="copybox" id="copybox">
+  <div class="in">
+    <b>Скопируйте текст заявки</b>
+    <textarea rows="7" readonly></textarea>
+    <div class="send"><button class="btn btn-primary" id="copy-open" type="button">Открыть чат</button><button class="btn btn-line" id="copy-close" type="button">Закрыть</button></div>
+  </div>
+</div>
 
 <script>
   const VK_CHAT = "https://vk.me/bento_vip";
+  // Apps Script /exec URL of this site. Until it is set, the form offers the group chat
+  const LEAD_URL = "";
   // [name, description, price, unit, photo, categories, true when the price is only a minimum]
   const CAKES = [["Бенто торт от 500 г", "Подарок в красивой коробке с лентой, открыткой, свечкой и ложечкой. 500 г, 1 кг или 1,5 кг", 1700, "", "b-500", ["bento"], true], ["Бенто торт простая надпись", "Ваша надпись и простой рисунок бесплатно", 1700, "", "b-nadpis", ["bento"], true], ["Бенто-торт с рисунком", "Простой рисунок бесплатно, сложный +200 ₽. 500 г, 1 кг или 1,5 кг", 1700, "", "b-risunok", ["bento"], true], ["Бенто Сердце", "Нестандартная форма: 500 г, 1 кг, 1,5 кг или 2 кг", 1700, "", "b-serdce", ["bento"], true], ["Бенто Ламбет", "В стиле Ламбет с объёмным кремовым декором: 600 г, 1,1 кг или 1,6 кг", 1800, "", "b-lambet", ["bento"], true], ["Бенто для самой любимой", "Чтобы подсластить, удивить, вызвать улыбку или просто для хорошего настроения", 1700, "", "b-lyubimoy", ["bento"], false], ["Бенто-признания", "Сладкий подарок с вашими словами в красивой коробке", 1700, "", "b-priznanie", ["bento"], false], ["Бенто подруге", "Самый вкусный торт по мнению моих клиентов", 1700, "", "b-podruge", ["bento"], false], ["Бенто папе, мужу", "Самый вкусный торт по мнению моих клиентов", 1700, "", "b-pape", ["bento"], false], ["Бенто торт на 1 сентября", "Самый вкусный торт по мнению моих клиентов", 1700, "", "b-1sent", ["bento"], false], ["Торт с декором", "Вес от 2 кг, 200 г на человека. Декор считаем отдельно, от 500 ₽", 2500, "/кг", "t-dekor", ["cakes"], false], ["Торт с декором вафельным, мастикой, с велюром", "Вес от 2 кг, покрытие шоколадный ганаш. Декор от 1 000 ₽", 3000, "/кг", "t-vafli", ["cakes"], false], ["Торт Роза", "Торт в виде цветка, лепестки из сахарной мастики, начинка любая", 3500, "", "t-roza", ["cakes"], false], ["3Д торт", "В форме милых зверушек или по вашей идее: 1 кг 3 500 ₽, 1,5 кг 5 000 ₽", 3500, "", "t-3d", ["cakes", "kids"], true], ["Детский торт", "Вес от 2 кг. Простое украшение кремом, посыпкой и надписью входит в цену", 2500, "/кг", "t-detskiy", ["cakes", "kids"], false], ["Свадебный торт", "Два яруса и более, вес от 3 кг. На 15 человек 7 500 ₽, на 25 человек 12 500 ₽", 2500, "/кг", "t-svadba", ["cakes"], false], ["Торт «Особенный Наполеон»", "Нежный, тает во рту. Два крема: заварной и карамельный", 3000, "/кг", "t-napoleon", ["cakes"], false], ["Капкейки", "От 3 штук: 4 шт 1 700 ₽, 6 шт 2 200 ₽, 9 шт 3 000 ₽, 12 шт 4 200 ₽", 1400, "", "c-kapkeyki", ["sets"], true], ["Капкейки животные", "Мини-пирожные: 6 шт 2 000 ₽, 9 шт 3 000 ₽, 12 шт 3 500 ₽", 2000, "", "c-zhivotnye", ["sets", "kids"], true], ["Бенто + капкейки", "Бенто 600 г и капкейки: 2 шт 2 200 ₽, 5 шт 3 000 ₽, 8 шт 3 500 ₽", 2200, "", "s-kapkeyki", ["sets"], true], ["Моти", "Японские пирожные от 4 штук: 6 шт 2 000 ₽, 9 шт 2 700 ₽", 1600, "", "c-moti", ["sets"], true], ["Бенто + моти", "Бенто и 2 моти 1 800 ₽, бенто и 5 моти 2 500 ₽", 1800, "", "s-moti", ["sets"], true], ["Эко-леденцы", "Без сахара, с посыпкой. Украсят торт, капкейк и любой праздник. Цена за 1 шт", 100, "", "c-ledency", ["sets", "kids"], false]];
   const CATS = [["all", "Все"], ["bento", "Бенто"], ["cakes", "Торты"], ["kids", "Детям"], ["sets", "Капкейки, моти, наборы"]];
@@ -671,7 +695,7 @@
   });
   calc();
 
-  // Order form: on the mockup the lead is copied for the group chat
+  // Order form: the lead goes to VK through Apps Script, the group chat is the fallback
   $("f-cake").innerHTML = "<option>По моей идее</option><option>Мастер-класс</option>" + CAKES.map(c => `<option>${c[0]}</option>`).join("");
   $("f-fill").innerHTML = "<option>Посоветуйте</option>" + FILL.map(f => `<option>${f}</option>`).join("");
   document.querySelectorAll("[data-cake]").forEach(a => a.addEventListener("click", () => { $("f-cake").value = a.dataset.cake; }));
@@ -688,6 +712,7 @@
     d = d.slice(0, 11); const p = [d.slice(1, 4), d.slice(4, 7), d.slice(7, 9), d.slice(9, 11)];
     e.target.value = d ? `+7 (${p[0]}${p[0].length === 3 ? ") " : ""}${p[1]}${p[1].length === 3 ? "-" : ""}${p[2]}${p[2].length === 2 ? "-" : ""}${p[3]}` : "";
   });
+  const toast = msg => { const t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), 4500); };
   function copyNow(text){
     const ta = document.createElement("textarea");
     ta.value = text; ta.setAttribute("readonly", ""); ta.style.cssText = "position:fixed;top:0;left:0;opacity:0";
@@ -695,23 +720,55 @@
     let ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
     ta.remove(); return ok;
   }
-  form.addEventListener("submit", e => {
+  const copybox = $("copybox");
+  $("copy-close").onclick = () => copybox.classList.remove("show");
+  $("copy-open").onclick = () => {
+    copybox.querySelector("textarea").select();
+    try { document.execCommand("copy"); } catch (e) {}
+    copybox.classList.remove("show"); window.open(VK_CHAT, "_blank");
+  };
+  const orderDetails = () => {
+    const date = new Date(form.date.value + "T12:00").toLocaleDateString("ru-RU", {day: "numeric", month: "long"});
+    return [`Что: ${form.cake.value}`, `Начинка: ${form.fill.value}`, `Дата: ${date}`, `Гостей: ${form.guests.value}`];
+  };
+  const submitBtn = $("submit"), sentBox = $("sent"), fallbackBox = $("fallback");
+  form.addEventListener("submit", async e => {
     e.preventDefault();
     const err = $("err");
     if (!form.date.value) return err.textContent = "Укажите дату праздника";
     if (form.name.value.trim().length < 2) return err.textContent = "Укажите имя";
     if (form.phone.value.replace(/\D/g, "").length !== 11) return err.textContent = "Проверьте номер телефона";
-    err.textContent = "";
-    const date = new Date(form.date.value + "T12:00").toLocaleDateString("ru-RU", {day: "numeric", month: "long"});
-    copyNow(["Здравствуйте! Хочу сделать заказ.", `Что: ${form.cake.value}`, `Начинка: ${form.fill.value}`, `Дата: ${date}`, `Гостей: ${form.guests.value}`, `Имя: ${form.name.value.trim()}, тел. ${form.phone.value}`, form.comment.value.trim() && `Пожелания: ${form.comment.value.trim()}`].filter(Boolean).join("\n"));
-    $("submit").hidden = true; $("sent").hidden = false;
-    window.open(VK_CHAT, "_blank");
+    if (!form.consent.checked) return err.textContent = "Отметьте согласие на обработку данных";
+    err.textContent = ""; fallbackBox.hidden = true;
+    let ok = false;
+    if (LEAD_URL) {
+      submitBtn.disabled = true; submitBtn.textContent = "Отправляем...";
+      try {
+        const res = await fetch(LEAD_URL, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, signal: AbortSignal.timeout(20000),
+          body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: orderDetails().join(", "), comment: form.comment.value.trim(), website: form.website.value})});
+        ok = (await res.json()).ok === true;
+      } catch (e) {}
+      submitBtn.disabled = false; submitBtn.textContent = "Отправить заявку";
+      $("fb-title").textContent = "Не получилось отправить заявку автоматически";
+    }
+    if (ok) { submitBtn.hidden = true; sentBox.hidden = false; }
+    else { fallbackBox.hidden = false; fallbackBox.scrollIntoView({block: "center"}); }
   });
+  $("send-vk").onclick = () => {
+    const text = ["Здравствуйте! Хочу сделать заказ.", ...orderDetails(), `Имя: ${form.name.value.trim()}, тел. ${form.phone.value}`, form.comment.value.trim() && `Пожелания: ${form.comment.value.trim()}`].filter(Boolean).join("\n");
+    // VK can't prefill a message: copy while the page still has focus, then open the chat
+    if (copyNow(text)) { toast("Заявка скопирована, вставьте её в чат ВКонтакте"); window.open(VK_CHAT, "_blank"); return; }
+    copybox.querySelector("textarea").value = text; copybox.classList.add("show"); copybox.querySelector("textarea").select();
+  };
 
   // The bottom bar would cover form fields above the phone keyboard
   const bar = document.querySelector(".bar");
   form.addEventListener("focusin", e => { if (e.target.matches("input, textarea")) bar.style.display = "none"; });
   form.addEventListener("focusout", () => { bar.style.display = ""; });
+  // Nor should it cover the first-screen buttons or the form
+  const barSeen = new Set();
+  const barIO = new IntersectionObserver(es => { es.forEach(x => x.isIntersecting ? barSeen.add(x.target) : barSeen.delete(x.target)); bar.classList.toggle("off", barSeen.size > 0); });
+  [document.querySelector(".hero .actions"), $("order"), document.querySelector(".site-footer")].forEach(el => barIO.observe(el));
 
   // Menu and scroll reveal
   $("burger").onclick = () => $("menu").classList.toggle("open");
