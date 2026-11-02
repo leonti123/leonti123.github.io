@@ -595,8 +595,8 @@
 
 <script>
   const VK_CHAT = "https://vk.me/nyhakisasweets";
-  // For now the leads go to the demo script (to Leonti); give the site its own script at launch
-  const LEAD_URL = "https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec";
+  // Her own Apps Script (lead-form-anyuta): leads go to her personal VK from club242882614
+  const LEAD_URL = "https://script.google.com/macros/s/AKfycbx3vLqZqWpIObOnphVzUK2QublAQ9oJF7Ob6SCl4wCaAabmEbAddldsrt0Mg6SEU7oG/exec";
   // [name, description, price text, photo, category]
   const CAKES = [["Бенто-торт", "500-600 г за 1 500 ₽. Мини-тортик 900 г - 1 кг за 1 800 ₽", "от 1 500 ₽", "bn05", "bento"], ["Бенто торт «3 шоколада»", "Три вида шоколада. Цену подскажу при заказе", "цена уточняется", "av04", "bento"], ["Бенто с вашей надписью", "Поздравление, признание или шутка на торте", "от 1 500 ₽", "bn07", "bento"], ["Нежное бенто", "В подарочной коробке с окошком", "от 1 500 ₽", "bn09", "bento"], ["Капкейки «Sweet kiss»", "Ванильные, шоколадные, морковные, кокосовые. Декор, кроме ягод и живых цветов, входит в цену", "150 ₽/шт", "m-kap", "dess"], ["Кейкпопсы", "Ванильные, шоколадные, кокосовые, морковные, красный бархат", "130 ₽/шт", "m-popsy", "dess"], ["Французская меренга", "На палочке. Можно собрать букет из меренги, отличный подарок", "70 ₽/шт", "m-merenga", "dess"], ["Леденцы на палочке", "Сахарные и без сахара, из изомальта", "60 ₽/шт", "m-ledency", "dess"], ["Шоколадные ёлочки", "Цена из каталога группы", "500 ₽", "m-elochki", "dess"], ["Имбирные пряники", "На медовом или козульном тесте без мёда, с картинкой или ручной росписью", "200 ₽", "m-pryaniki", "dess"], ["Печать на сахарной бумаге", "Ваше фото или картинка: А4 400 ₽, А5 200 ₽, на вафельной бумаге А4 250 ₽", "от 200 ₽", "m-pechat", "dess"]];
   // [caption, photo, category]
@@ -711,7 +711,7 @@
     let ok = false;
     try {
       const res = await fetch(LEAD_URL, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, signal: AbortSignal.timeout(20000),
-        body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: ["Макет anyutiny", ...orderDetails()].join(", "), comment: form.comment.value.trim(), website: form.website.value})});
+        body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: [...orderDetails()].join(", "), comment: form.comment.value.trim(), website: form.website.value})});
       ok = (await res.json()).ok === true;
     } catch (e) {}
     submitBtn.disabled = false; submitBtn.textContent = "Отправить заявку";
