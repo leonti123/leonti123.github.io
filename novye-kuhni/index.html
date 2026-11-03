@@ -205,7 +205,7 @@ more.onclick=()=>{shown+=8;render()};
 cat.addEventListener('click',e=>{const b=e.target.closest('button[data-n]');if(!b)return;document.getElementById('what').value='Кухня «'+b.dataset.n+'»';document.getElementById('price').scrollIntoView({behavior:'smooth'})});
 render();
 // ссылка на чат в MAX для кнопок «Написать»
-const MAX_URL='';
+const MAX_URL='https://web.max.ru/531801257';
 document.querySelectorAll('.maxlink').forEach(a=>{if(MAX_URL){a.href=MAX_URL}else{a.href='#price';a.removeAttribute('target')}});
 // калькулятор
 const RATE=20000;
