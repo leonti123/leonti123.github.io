@@ -357,7 +357,7 @@ footer a:hover{color:#e9d2b3}
 @media(max-width:760px){
  .furn{grid-template-columns:1fr 1fr;gap:12px}.fcard .b{padding:14px 14px 16px}.fcard h3{font-size:16px}.fcard p{font-size:13.5px}
  .brands{grid-template-columns:1fr}.brands b{font-size:20px}
- .also{grid-template-columns:1fr}.also .txt{padding:26px}.also .txt h3{font-size:24px}
+ .also{grid-template-columns:1fr}.also .agal img{height:auto;aspect-ratio:1/1;display:block}.also .txt{padding:26px}.also .txt h3{font-size:24px}
  .ktypes{grid-template-columns:repeat(2,1fr);gap:10px}.ktype{font-size:13.5px;padding:10px 8px 12px}
  .fab{display:none!important}
  .mbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(245,242,237,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);transition:transform .25s}
