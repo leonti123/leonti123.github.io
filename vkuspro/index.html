@@ -136,7 +136,8 @@
   .step{display:flex;align-items:center;justify-content:space-between;min-height:46px;border-radius:12px;background:var(--ink);color:#fff;padding:0 6px}
   .step button{width:38px;height:38px;border-radius:10px;color:#fff;font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center}
   .step button:hover{background:rgba(255,255,255,.12)}
-  .step span{font-weight:600;font-size:15px}
+  .step span{font-weight:600;font-size:15px;white-space:nowrap}
+  .step span i{font-style:normal}
   .more-row{text-align:center;margin-top:28px}
 
   /* Calculator */
@@ -359,6 +360,7 @@
     .ticket s{display:none}
     .add{min-height:42px;font-size:14px}
     .step{min-height:42px}
+    .step span i{display:none}
     .step button{width:34px;height:34px}
     .panel{padding:22px 18px}
     .seg{grid-template-columns:1fr}
@@ -752,7 +754,7 @@
   function card(i){
     const [id, name, , price, old, meta, tastes, text] = i, q = cart[id] || 0;
     const act = q
-      ? `<div class="step"><button type="button" data-d="-1" data-id="${id}" aria-label="Убрать один">−</button><span>${q} в заказе</span><button type="button" data-d="1" data-id="${id}" aria-label="Добавить ещё">+</button></div>`
+      ? `<div class="step"><button type="button" data-d="-1" data-id="${id}" aria-label="Убрать один">−</button><span>${q}<i> в заказе</i></span><button type="button" data-d="1" data-id="${id}" aria-label="Добавить ещё">+</button></div>`
       : `<button class="add" type="button" data-d="1" data-id="${id}">+ В заказ</button>`;
     return `<article class="card">
       <div class="ph"><img src="img/${id}.jpg" alt="${name}" loading="lazy" width="600" height="600">
