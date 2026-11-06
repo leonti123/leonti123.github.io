@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
 <title>Домашние торты и десерты на заказ, Шушары, Санкт-Петербург</title>
-<meta name="description" content="Домашние торты, бенто, капкейки, трайфлы и кейк-попсы на заказ в Шушарах. Торты от 2 300 ₽ за 1 кг, бенто от 1 700 ₽, доставка по Санкт-Петербургу.">
+<meta name="description" content="Домашние торты, бенто, капкейки, трайфлы и кейк-попсы на заказ в Шушарах. Торты от 2 300 ₽ за 1 кг, бенто от 1 700 ₽, доставка по Санкт-Петербургу и самовывоз.">
 <meta name="theme-color" content="#f3e8db">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -481,7 +481,7 @@
         <div><small>примерный вес и цена</small><b><span id="r-w"></span>, <span id="r-p"></span></b><small>особые украшения считаем отдельно</small></div>
         <button class="btn" id="to-order" type="button">Заказать</button>
       </div>
-      <p class="note">Считаем примерно по 150 г на человека, от 1 кг.</p>
+      <p class="note">Считаем примерно по 200 г на человека, от 1 кг.</p>
     </div>
   </div>
 </section>
@@ -528,7 +528,7 @@
       <details open><summary>Как считается цена торта?</summary><p>Умножаем вес на цену за 1 кг: 2 300 ₽. Особые украшения, например шоколадные фигурки и топперы, оплачиваются отдельно.</p></details>
       <details><summary>Есть ли ограничения по весу?</summary><p>Нет. Торты от 1 кг, для маленькой компании подойдёт бенто.</p></details>
       <details><summary>Как оплатить?</summary><p>Переводом на карту или наличными.</p></details>
-      <details><summary>Куда доставляете?</summary><p>Доставка по Санкт-Петербургу. Подробности уточним при заказе.</p></details>
+      <details><summary>Куда доставляете?</summary><p>Доставка по Санкт-Петербургу: до метро 500 ₽, до адреса 800 ₽. Можно забрать самовывозом из ЖК «Ол Инклюзив» в Шушарах.</p></details>
       <details><summary>Какие десерты ещё можно заказать?</summary><p>Капкейки, трайфлы, кейк-попсы (1 200 ₽ за 10 штук), эскимо (300 ₽ за штуку) и картошку (350 ₽ за штуку).</p></details>
     </div>
   </div>
@@ -652,10 +652,10 @@
   showTaste();
   $("ticker").innerHTML = [...FILL, ...FILL, ...FILL].map(f => `<span>${f}</span><i>♥</i>`).join("");
 
-  // Calculator: about 150 g per guest, 1 kg minimum, rounded up to 0.5 kg
+  // Calculator: about 200 g per guest, 1 kg minimum, rounded up to 0.5 kg
   const guests = $("guests");
   function calc(){
-    const g = +guests.value, w = Math.max(1, Math.ceil(g * .15 * 2) / 2);
+    const g = +guests.value, w = Math.max(1, Math.ceil(g * .2 * 2) / 2);
     $("g-val").textContent = g;
     $("r-w").textContent = w.toLocaleString("ru-RU") + " кг";
     $("r-p").textContent = rub(w * 2300);
