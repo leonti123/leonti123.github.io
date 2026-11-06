@@ -1,0 +1,951 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Вкус Про фуршет: фуршетные боксы с доставкой по Санкт-Петербургу</title>
+<meta name="description" content="Фуршетные боксы, канапе, тарталетки, горячее и детские боксы. Корпоративный кейтеринг, дни рождения и праздники в Санкт-Петербурге">
+<meta name="theme-color" content="#24184f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Prata&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fbf9f4; --paper:#fff;
+    --lav:#b9a9f7; --lav-2:#dcd3ff; --lav-3:#f2eeff;
+    --ink:#24184f; --ink-2:#463a78; --muted:#6c6590;
+    --coral:#e9552f; --line:#e6e0f6;
+    --r:18px; --shadow:0 18px 40px -22px rgba(36,24,79,.45);
+    --serif:"Prata", Georgia, serif; --sans:"Onest", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  [hidden]{display:none!important}
+  html{scroll-behavior:smooth;scroll-padding-top:76px}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%;height:auto}
+  a{color:inherit}
+  a[href^="tel:"]{white-space:nowrap}
+  button,input,select,textarea{font:inherit;color:inherit}
+  button{cursor:pointer;border:0;background:none}
+  .wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+  .serif{font-family:var(--serif);font-weight:400}
+  .caps{text-transform:uppercase;letter-spacing:.06em}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2)}
+  .eyebrow::before{content:"";width:22px;height:2px;background:var(--coral);border-radius:2px}
+  h2.title{font-family:var(--serif);font-weight:400;text-transform:uppercase;letter-spacing:.05em;font-size:clamp(28px,4.4vw,44px);line-height:1.12;margin-top:10px}
+  .lead{color:var(--muted);font-size:17px;max-width:620px;margin-top:12px}
+  section{padding:84px 0}
+  .head{margin-bottom:34px}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font-weight:600;font-size:16px;text-decoration:none;transition:transform .15s, background .2s, box-shadow .2s;white-space:nowrap}
+  .btn:active{transform:scale(.98)}
+  .btn-ink{background:var(--ink);color:#fff;box-shadow:0 10px 24px -12px rgba(36,24,79,.8)}
+  .btn-ink:hover{background:#352673}
+  .btn-line{border:1.5px solid var(--ink);color:var(--ink);background:transparent}
+  .btn-line:hover{background:var(--ink);color:#fff}
+  .btn-lav{background:var(--lav);color:var(--ink)}
+  .btn-lav:hover{background:#a996f2}
+  .btn-white{background:#fff;color:var(--ink)}
+  .btn svg{width:18px;height:18px;flex:none}
+
+  /* Mockup strip */
+  .mock{background:var(--ink);color:#fff;text-align:center;font-size:13px;font-weight:500;padding:8px 16px;letter-spacing:.01em}
+
+  /* Header */
+  .top{position:sticky;top:0;z-index:40;background:rgba(251,249,244,.88);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+  .top.scrolled{border-color:var(--line)}
+  .top .wrap{display:flex;align-items:center;gap:24px;height:68px}
+  .logo{display:flex;flex-direction:column;line-height:1;text-decoration:none}
+  .logo b{font-family:var(--serif);font-weight:400;font-size:23px;letter-spacing:.02em}
+  .logo b i{font-style:normal;color:var(--coral)}
+  .logo span{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+  .nav{display:flex;gap:26px;margin-left:auto}
+  .nav a{text-decoration:none;font-weight:500;font-size:15px;color:var(--ink-2)}
+  .nav a:hover{color:var(--ink)}
+  .top .phone{font-weight:600;text-decoration:none;font-size:15px;padding:10px 18px;border-radius:999px;background:var(--lav-3);white-space:nowrap}
+  .top .phone:hover{background:var(--lav-2)}
+  .burger{display:none;width:44px;height:44px;border-radius:12px;background:var(--lav-3);margin-left:auto;align-items:center;justify-content:center}
+  .burger span,.burger span::before,.burger span::after{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;position:relative;transition:.2s}
+  .burger span::before,.burger span::after{content:"";position:absolute;left:0}
+  .burger span::before{top:-6px}.burger span::after{top:6px}
+  .menu-open .burger span{background:transparent}
+  .menu-open .burger span::before{top:0;transform:rotate(45deg)}
+  .menu-open .burger span::after{top:0;transform:rotate(-45deg)}
+
+  /* Hero */
+  .hero{padding:56px 0 72px;position:relative}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(38px,5.6vw,66px);line-height:1.06;margin:18px 0 20px;letter-spacing:-.005em}
+  .hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--lav-2) 62%);padding:0 .08em}
+  .hero p.sub{font-size:18px;color:var(--ink-2);max-width:520px}
+  .hero .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .facts{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:34px;padding-top:24px;border-top:1px dashed var(--lav)}
+  .facts div{display:flex;flex-direction:column}
+  .facts b{font-weight:700;font-size:24px;line-height:1.15;letter-spacing:-.01em}
+  .facts span{font-size:13.5px;color:var(--muted)}
+  .stage{position:relative;padding:0 0 40px 40px}
+  .stage::before{content:"";position:absolute;inset:40px -24px 0 0;background:var(--lav);border-radius:28px;z-index:-1}
+  .stage .photo{border-radius:22px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:4/4.6;border:8px solid #fff;background:#fff}
+  .stage .photo img{width:100%;height:100%;object-fit:cover}
+  .menucard{position:absolute;left:0;bottom:0;width:min(300px,78%);background:#fff;border-radius:16px;padding:18px 20px 16px;box-shadow:var(--shadow)}
+  .menucard h3{font-family:var(--serif);font-weight:400;text-transform:uppercase;letter-spacing:.08em;font-size:15px;text-align:center;padding-bottom:10px;border-bottom:1px solid var(--line);margin-bottom:8px}
+  .menucard li{list-style:none;display:flex;align-items:baseline;gap:6px;font-size:14px;padding:5px 0}
+  .menucard li span{white-space:nowrap}
+  .menucard li i{flex:1;border-bottom:1.5px dotted var(--lav);transform:translateY(-4px)}
+  .menucard li b{font-weight:600;white-space:nowrap}
+  .menucard a{display:block;text-align:center;font-size:13.5px;font-weight:600;color:var(--coral);margin-top:8px;text-decoration:none}
+
+  /* Occasions */
+  .occasions{background:var(--lav);padding:72px 0}
+  .occasions .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .occ{background:rgba(255,255,255,.55);border-radius:var(--r);padding:22px 22px 24px;display:flex;gap:16px;align-items:flex-start;border:1px solid rgba(255,255,255,.7)}
+  .occ .n{font-weight:700;font-size:22px;line-height:1.2;color:var(--ink);opacity:.45;min-width:34px}
+  .occ h3{font-size:18px;font-weight:600;line-height:1.3}
+  .occ p{font-size:14.5px;color:var(--ink-2);margin-top:4px}
+  .occasions .lead{color:var(--ink-2)}
+
+  /* Catalog */
+  .chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:26px;scrollbar-width:none}
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:none;padding:10px 18px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font-weight:500;font-size:15px;color:var(--ink-2);transition:.15s}
+  .chip:hover{border-color:var(--lav)}
+  .chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+  .chip small{opacity:.6;margin-left:4px}
+  .grid-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+  .card{background:#fff;border-radius:22px;overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--line);transition:box-shadow .2s, transform .2s}
+  .card:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+  .card .ph{position:relative;aspect-ratio:1/1;background:var(--lav-3)}
+  .card .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:21px 21px 0 0}
+  .ticket{position:absolute;left:14px;bottom:-16px;background:var(--ink);color:#fff;border-radius:10px;padding:7px 13px;font-weight:700;font-size:17px;line-height:1.1;letter-spacing:-.01em;box-shadow:0 10px 20px -10px rgba(36,24,79,.9)}
+  .ticket s{font-weight:500;font-size:12.5px;opacity:.6;margin-left:6px}
+  .badge{position:absolute;right:12px;top:12px;background:var(--coral);color:#fff;font-size:12px;font-weight:600;padding:5px 10px;border-radius:999px}
+  .card .b{padding:30px 18px 18px;display:flex;flex-direction:column;flex:1}
+  .card h3{font-family:var(--serif);font-weight:400;text-transform:uppercase;letter-spacing:.05em;font-size:17px;line-height:1.25}
+  .card .meta{font-size:13.5px;color:var(--muted);margin-top:6px}
+  .card .tastes{margin:12px 0 0;font-size:14px;color:var(--ink-2)}
+  .card .tastes b{display:block;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:4px}
+  .card .tastes li{list-style:none;position:relative;padding-left:16px;margin:2px 0}
+  .card .tastes li::before{content:"";position:absolute;left:2px;top:.62em;width:6px;height:6px;border-radius:50%;background:var(--lav)}
+  .card .desc{font-size:14px;color:var(--ink-2);margin-top:12px}
+  .card .tastes li.m{display:none;color:var(--muted)}
+  .card .tastes li.m::before{display:none}
+  .card .act{margin-top:auto;padding-top:16px}
+  .add{width:100%;min-height:46px;border-radius:12px;background:var(--lav-3);color:var(--ink);font-weight:600;font-size:15px;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .15s}
+  .add:hover{background:var(--lav-2)}
+  .step{display:flex;align-items:center;justify-content:space-between;min-height:46px;border-radius:12px;background:var(--ink);color:#fff;padding:0 6px}
+  .step button{width:38px;height:38px;border-radius:10px;color:#fff;font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center}
+  .step button:hover{background:rgba(255,255,255,.12)}
+  .step span{font-weight:600;font-size:15px}
+  .more-row{text-align:center;margin-top:28px}
+
+  /* Calculator */
+  .calc-sec{background:var(--lav-3)}
+  .calc{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start}
+  .panel{background:#fff;border-radius:24px;padding:30px;border:1px solid var(--line)}
+  .panel label.l{display:block;font-weight:600;font-size:15px;margin-bottom:12px}
+  .seg{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:28px}
+  .seg button{border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;text-align:left;background:#fff;transition:.15s}
+  .seg button b{display:block;font-size:15px}
+  .seg button span{font-size:13px;color:var(--muted)}
+  .seg button.on{border-color:var(--ink);background:var(--ink);color:#fff}
+  .seg button.on span{color:rgba(255,255,255,.7)}
+  .guests-row{display:flex;align-items:baseline;justify-content:space-between}
+  .guests-row output{font-weight:700;font-size:36px;line-height:1;letter-spacing:-.02em}
+  input[type=range]{width:100%;margin:14px 0 6px;accent-color:var(--ink);height:28px}
+  .scale{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted)}
+  .receipt{background:var(--ink);color:#fff;border-radius:22px 22px 0 0;padding:28px 26px 26px;position:relative;filter:drop-shadow(0 22px 30px rgba(36,24,79,.25))}
+  .receipt::after{content:"";position:absolute;left:0;right:0;bottom:-10px;height:10px;background:radial-gradient(circle at 10px 0,var(--ink) 0 9.5px,transparent 10px) 0 0/20px 14px repeat-x}
+  .receipt h3{font-family:var(--serif);font-weight:400;text-transform:uppercase;letter-spacing:.08em;font-size:16px;text-align:center}
+  .receipt .need{text-align:center;color:rgba(255,255,255,.72);font-size:14px;margin-top:6px}
+  .receipt ul{margin:18px 0;padding:16px 0;border-top:1px dashed rgba(255,255,255,.3);border-bottom:1px dashed rgba(255,255,255,.3)}
+  .receipt li{list-style:none;display:flex;gap:8px;align-items:baseline;font-size:14.5px;padding:4px 0}
+  .receipt li i{flex:1;border-bottom:1.5px dotted rgba(255,255,255,.3);transform:translateY(-4px)}
+  .receipt li b{font-weight:600;white-space:nowrap}
+  .receipt .sum{display:flex;justify-content:space-between;align-items:baseline}
+  .receipt .sum span{font-size:14px;color:rgba(255,255,255,.72)}
+  .receipt .sum b{font-weight:700;font-size:28px;letter-spacing:-.01em}
+  .receipt .btn{width:100%;margin-top:20px}
+  .receipt small{display:block;text-align:center;color:rgba(255,255,255,.6);font-size:12.5px;margin-top:12px}
+
+  /* Values */
+  .values{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .val{padding:28px 22px;border-left:1px solid var(--line)}
+  .val:first-child{border-left:0}
+  .val .ic{width:46px;height:46px;border-radius:14px;background:var(--lav-3);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .val .ic svg{width:24px;height:24px;stroke:var(--ink);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .val h3{font-size:17px;font-weight:600}
+  .val p{font-size:14px;color:var(--muted);margin-top:6px}
+
+  /* Corporate */
+  .corp{background:var(--ink);color:#fff;border-radius:32px;overflow:hidden;display:grid;grid-template-columns:1.1fr .9fr}
+  .corp .txt{padding:56px}
+  .corp .eyebrow{color:var(--lav-2)}
+  .corp h2.title{color:#fff}
+  .corp p{color:rgba(255,255,255,.78);margin-top:16px;max-width:520px}
+  .corp ul{margin-top:22px;display:grid;gap:10px}
+  .corp li{list-style:none;display:flex;gap:12px;align-items:flex-start;color:rgba(255,255,255,.9)}
+  .corp li::before{content:"";flex:none;width:20px;height:20px;border-radius:50%;margin-top:3px;background:var(--lav) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M5.5 10.5l3 3 6-6.5' fill='none' stroke='%2324184f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+  .corp .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .corp .pic{position:relative;min-height:420px}
+  .corp .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+  /* Gallery */
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:250px;gap:16px}
+  .gallery button{display:block;border-radius:18px;overflow:hidden;background:var(--lav-3)}
+  .gallery .w{grid-column:span 2}
+  .gallery .t{grid-row:span 2}
+  .gallery img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+  .gallery button:hover img{transform:scale(1.03)}
+
+  /* Steps */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+  .stp{position:relative;padding-top:58px}
+  .stp::before{counter-increment:s;content:counter(s);position:absolute;top:0;left:0;width:44px;height:44px;border-radius:50%;background:var(--lav);font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center}
+  .stp::after{content:"";position:absolute;top:22px;left:56px;right:-8px;border-top:1.5px dashed var(--lav)}
+  .stp:last-child::after{display:none}
+  .stp h3{font-size:17px;font-weight:600}
+  .stp p{font-size:14.5px;color:var(--muted);margin-top:6px}
+
+  /* FAQ */
+  .faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:48px;align-items:start}
+  details{border-bottom:1px solid var(--line);padding:18px 0}
+  summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-weight:600;font-size:17px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-family:var(--serif);font-size:24px;line-height:1;color:var(--ink-2);transition:transform .2s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{color:var(--ink-2);font-size:15px;margin-top:10px;max-width:640px}
+
+  /* Order */
+  .order-sec{background:var(--lav)}
+  .order{display:grid;grid-template-columns:.9fr 1.1fr;gap:28px;align-items:start}
+  .cart{background:#fff;border-radius:24px;padding:26px;position:sticky;top:88px}
+  .cart h3{font-family:var(--serif);font-weight:400;text-transform:uppercase;letter-spacing:.06em;font-size:18px}
+  .cart .empty{color:var(--muted);font-size:15px;margin-top:12px}
+  .cart .empty a{color:var(--ink);font-weight:600}
+  .cart ul{margin-top:14px}
+  .cart li{list-style:none;display:grid;grid-template-columns:52px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line)}
+  .cart li img{width:52px;height:52px;border-radius:12px;object-fit:cover}
+  .cart li b{font-size:14.5px;font-weight:600;display:block;line-height:1.3}
+  .cart li small{color:var(--muted);font-size:13px}
+  .mini{display:flex;align-items:center;gap:2px;background:var(--lav-3);border-radius:10px}
+  .mini button{width:32px;height:32px;border-radius:9px;font-size:18px;line-height:1}
+  .mini button:hover{background:var(--lav-2)}
+  .mini span{min-width:18px;text-align:center;font-weight:600;font-size:14px}
+  .cart .total{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px}
+  .cart .total span{color:var(--muted)}
+  .cart .total b{font-weight:700;font-size:26px;letter-spacing:-.01em}
+  .cart .note{font-size:13px;color:var(--muted);margin-top:8px}
+  form.f{background:#fff;border-radius:24px;padding:30px}
+  .f h3{font-family:var(--serif);font-weight:400;text-transform:uppercase;letter-spacing:.06em;font-size:18px;margin-bottom:18px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .fld{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+  .fld>span{font-size:13.5px;font-weight:600;color:var(--ink-2)}
+  .fld input,.fld select,.fld textarea{width:100%;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;background:#fff;font-size:16px;min-height:50px;outline:none;transition:border-color .15s}
+  .fld textarea{min-height:92px;resize:vertical}
+  .fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--ink)}
+  .tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+  .tabs label{position:relative}
+  .tabs input{position:absolute;opacity:0;inset:0}
+  .tabs span{display:flex;align-items:center;justify-content:center;min-height:48px;border:1.5px solid var(--line);border-radius:12px;font-weight:600;font-size:15px;cursor:pointer}
+  .tabs input:checked+span{border-color:var(--ink);background:var(--ink);color:#fff}
+  .tabs input:focus-visible+span{outline:2px solid var(--coral);outline-offset:2px}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--muted);margin:4px 0 16px}
+  .consent input{width:20px;height:20px;flex:none;margin-top:1px;accent-color:var(--ink)}
+  .consent a{color:var(--ink)}
+  .hp{position:absolute;left:-5000px;width:1px;height:1px;overflow:hidden}
+  .err{color:var(--coral);font-size:14px;font-weight:600;min-height:20px;margin-bottom:8px}
+  #submit{width:100%}
+  .sent{background:var(--lav-3);border-radius:16px;padding:18px;text-align:center}
+  .sent b{display:block;font-family:var(--serif);font-weight:400;font-size:22px}
+  .sent p{color:var(--ink-2);font-size:14.5px;margin-top:4px}
+  .fallback{background:#fff4ef;border:1px solid #f6c9b8;border-radius:16px;padding:16px;margin-top:14px;font-size:14.5px}
+  .fallback .btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .fallback .btn{min-height:44px;padding:0 18px;font-size:15px}
+  .direct{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;font-size:14px;color:var(--muted);align-items:center}
+  .direct a{font-weight:600;color:var(--ink)}
+
+  /* Footer */
+  .foot{background:var(--ink);color:#fff;padding:56px 0 110px}
+  .foot .wrap{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:32px}
+  .foot .logo{display:flex}
+  .foot .logo span{color:rgba(255,255,255,.6)}
+  .foot p{color:rgba(255,255,255,.7);font-size:14.5px;margin-top:14px;max-width:340px}
+  .foot h4{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.55);font-weight:600;margin-bottom:12px}
+  .foot a{display:block;text-decoration:none;color:#fff;margin-bottom:8px;font-weight:500}
+  .foot a:hover{color:var(--lav-2)}
+  .foot .copy{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.14);padding-top:20px;font-size:13px;color:rgba(255,255,255,.5);display:flex;flex-wrap:wrap;gap:8px 24px}
+  .foot .copy a{display:inline;color:rgba(255,255,255,.7);font-weight:400;margin:0}
+
+  /* Order bar */
+  .bar{position:fixed;left:50%;bottom:16px;transform:translate(-50%,140%);z-index:50;width:min(560px,100% - 24px);background:var(--ink);color:#fff;border-radius:20px;padding:10px 10px 10px 20px;display:flex;align-items:center;gap:12px;box-shadow:0 20px 40px -16px rgba(36,24,79,.7);transition:transform .3s}
+  .bar.show{transform:translate(-50%,0)}
+  .bar .info{flex:1;min-width:0;line-height:1.25}
+  .bar .info b{display:block;font-size:15px}
+  .bar .info span{font-size:13px;color:rgba(255,255,255,.7)}
+  .bar .btn{min-height:46px;padding:0 20px;font-size:15px}
+  .bar.contact{padding:10px;gap:8px}
+  .bar.contact .info{display:none}
+  .bar.contact .btn{flex:1}
+  .bar .cbtn{display:none}
+  .bar.contact .cbtn{display:inline-flex}
+  .bar.contact .obtn{display:none}
+
+  .toast{position:fixed;left:50%;top:84px;transform:translate(-50%,-20px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:14px;font-size:14.5px;font-weight:500;opacity:0;pointer-events:none;transition:.25s;z-index:70;width:max-content;max-width:calc(100% - 32px);text-align:center}
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+  .lb{position:fixed;inset:0;background:rgba(20,13,45,.9);z-index:80;display:none;align-items:center;justify-content:center;padding:20px}
+  .lb.show{display:flex}
+  .lb img{max-height:90vh;max-width:100%;border-radius:14px}
+  .lb-x{position:absolute;top:14px;right:14px;width:46px;height:46px;border-radius:50%;background:#fff;color:var(--ink);font-size:26px;line-height:1}
+  .copybox{position:fixed;inset:0;background:rgba(20,13,45,.6);z-index:90;display:none;align-items:center;justify-content:center;padding:16px}
+  .copybox.show{display:flex}
+  .copybox>div{background:#fff;border-radius:20px;padding:20px;width:min(440px,100%)}
+  .copybox textarea{width:100%;margin:12px 0;border:1.5px solid var(--line);border-radius:12px;padding:10px;font-size:14px}
+  .copybox .send{display:flex;gap:8px}
+  .copybox .btn{flex:1;min-height:46px}
+
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s, transform .6s}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}*{transition:none!important}}
+
+  @media (max-width:1020px){
+    .hero .wrap{grid-template-columns:1fr;gap:40px}
+    .stage{max-width:560px}
+    .values{grid-template-columns:repeat(2,1fr)}
+    .val{border-left:0;border-top:1px solid var(--line)}
+    .val:nth-child(-n+2){border-top:0}
+    .val:nth-child(even){border-left:1px solid var(--line)}
+    .val:last-child{grid-column:1/-1;border-left:0}
+    .corp{grid-template-columns:1fr}
+    .corp .pic{min-height:300px;order:-1}
+    .calc,.order,.faq{grid-template-columns:1fr}
+    .faq{gap:0}
+    .cart{position:static}
+    .steps{grid-template-columns:repeat(2,1fr);row-gap:32px}
+    .stp:nth-child(2)::after{display:none}
+    .occasions .grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:860px){
+    .nav{position:fixed;inset:68px 0 auto 0;background:var(--bg);flex-direction:column;gap:0;padding:8px 16px 18px;border-bottom:1px solid var(--line);opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .2s, transform .2s, visibility .2s;box-shadow:0 20px 30px -20px rgba(36,24,79,.3)}
+    .nav a{padding:14px 4px;border-bottom:1px solid var(--line);font-size:17px}
+    .menu-open .nav{opacity:1;visibility:visible;transform:none}
+    .top .phone{display:none}
+    .burger{display:flex}
+  }
+  @media (max-width:640px){
+    section{padding:60px 0}
+    .hero{padding:28px 0 48px}
+    .hero p.sub{font-size:16.5px}
+    .hero .actions .btn{flex:1 1 100%}
+    .facts{gap:10px 22px}
+    .facts b{font-size:20px}
+    .stage{padding:0 0 64px 16px}
+    .stage::before{inset:28px -8px 0 0}
+    .menucard{width:86%}
+    .occasions{padding:56px 0}
+    .occasions .grid{grid-template-columns:1fr}
+    .grid-cards{grid-template-columns:1fr 1fr;gap:12px}
+    .card{border-radius:18px}
+    .card .b{padding:24px 12px 12px}
+    .card h3{font-size:14.5px;letter-spacing:.03em}
+    .card .meta{font-size:12.5px}
+    .card .tastes{font-size:13px}
+    .card .tastes li{padding-left:13px}
+    .card .tastes li::before{width:5px;height:5px;left:1px}
+    .card .desc{font-size:13px}
+    .card .tastes li.x{display:none}
+    .card .tastes li.m{display:block;padding-left:13px}
+    .ticket{font-size:15px;left:10px;padding:6px 10px}
+    .ticket s{display:none}
+    .add{min-height:42px;font-size:14px}
+    .step{min-height:42px}
+    .step button{width:34px;height:34px}
+    .panel{padding:22px 18px}
+    .seg{grid-template-columns:1fr}
+    .values{grid-template-columns:1fr}
+    .val,.val:nth-child(even){border-left:0;border-top:1px solid var(--line)}
+    .val:first-child{border-top:0}
+    .val{display:grid;grid-template-columns:46px 1fr;column-gap:14px;padding:18px 0}
+    .val .ic{grid-row:1/3;margin:0}
+    .val p{margin-top:2px}
+    .corp{border-radius:24px}
+    .corp .txt{padding:32px 22px}
+    .steps{grid-template-columns:1fr}
+    .stp{padding:0 0 0 60px;min-height:44px}
+    .stp::after{display:none}
+    .row{grid-template-columns:1fr;gap:0}
+    form.f,.cart{padding:22px 18px}
+    .foot .wrap{grid-template-columns:1fr}
+    .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:150px;gap:10px}
+    .gallery button{border-radius:14px}
+  }
+  @media (max-width:370px){
+    .grid-cards{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="mock">Макет сайта. После согласования подключим имя сайта и заявки вам в сообщения</div>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Вкус Про фуршет, на главную"><b>Вкус <i>Про</i> фуршет</b><span>кейтеринг · Санкт-Петербург</span></a>
+    <nav class="nav" id="nav">
+      <a href="#menu">Меню</a>
+      <a href="#calc">Сколько заказать</a>
+      <a href="#corp">Компаниям</a>
+      <a href="#how">Как заказать</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <a class="phone" href="tel:+79313970228">+7 931 397-02-28</a>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Фуршеты и кейтеринг</span>
+      <h1>Фуршетные боксы <em>к&nbsp;празднику</em> и&nbsp;в&nbsp;офис</h1>
+      <p class="sub">Канапе, тарталетки, брускетты, горячее и детские боксы. Соберём меню под ваше событие и привезём по Петербургу</p>
+      <div class="actions">
+        <a class="btn btn-ink" href="#menu">Выбрать боксы</a>
+        <a class="btn btn-line" href="#calc">Посчитать на гостей</a>
+      </div>
+      <div class="facts">
+        <div><b>25 боксов</b><span>в меню</span></div>
+        <div><b>от 1 100 ₽</b><span>детский бокс</span></div>
+        <div><b>Доставка</b><span>по СПб и самовывоз</span></div>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="photo"><img src="img/hero.jpg" alt="Тарталетки с красной икрой, сельдью и мидиями в боксе" width="1100" height="1467" fetchpriority="high"></div>
+      <div class="menucard">
+        <h3>Меню боксы</h3>
+        <ul>
+          <li><span>Сет брускетт</span><i></i><b>4 300 ₽</b></li>
+          <li><span>Тарталетки Океан</span><i></i><b>5 500 ₽</b></li>
+          <li><span>Горячий бокс</span><i></i><b>4 800 ₽</b></li>
+          <li><span>Канапе микс</span><i></i><b>3 000 ₽</b></li>
+        </ul>
+        <a href="#menu">Всё меню →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="occasions" id="events">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Для каких событий</span>
+      <h2 class="title">Накроем стол<br>на любой повод</h2>
+      <p class="lead">Привезём готовые боксы: открыли крышку и стол накрыт. Не нужно ничего резать и раскладывать</p>
+    </div>
+    <div class="grid">
+      <div class="occ reveal"><span class="n">01</span><div><h3>Корпоративный кейтеринг</h3><p>Обед для команды, праздник в офисе, встреча с партнёрами</p></div></div>
+      <div class="occ reveal"><span class="n">02</span><div><h3>Фуршеты</h3><p>Закуски на шпажках и в тарталетках, которые удобно брать рукой</p></div></div>
+      <div class="occ reveal"><span class="n">03</span><div><h3>Презентации</h3><p>Аккуратные закуски к кофе-брейку и открытию</p></div></div>
+      <div class="occ reveal"><span class="n">04</span><div><h3>Дни рождения</h3><p>Для взрослых и детей: от закусок до горячего и сладкого</p></div></div>
+      <div class="occ reveal"><span class="n">05</span><div><h3>Праздники</h3><p>Новый год, 8 Марта, выпускные и семейные даты</p></div></div>
+      <div class="occ reveal"><span class="n">06</span><div><h3>Частные события</h3><p>Девичник, встреча друзей, пикник или вечер дома</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Меню</span>
+      <h2 class="title">Меню боксы</h2>
+      <p class="lead">Добавьте в заказ несколько боксов: внизу экрана появится сумма. Состав можно поменять под ваших гостей</p>
+    </div>
+    <div class="chips" id="chips" aria-label="Разделы меню"></div>
+    <div class="grid-cards" id="grid"></div>
+    <div class="more-row"><button class="btn btn-line" id="more" type="button" hidden>Показать ещё</button></div>
+  </div>
+</section>
+
+<section class="calc-sec" id="calc">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Калькулятор</span>
+      <h2 class="title">Сколько заказать</h2>
+      <p class="lead">Выберите формат и число гостей, подскажем набор боксов и примерную сумму</p>
+    </div>
+    <div class="calc">
+      <div class="panel">
+        <label class="l" id="fmt-l">Формат</label>
+        <div class="seg" id="fmt" role="group" aria-labelledby="fmt-l">
+          <button type="button" data-f="drinks"><b>Закуски к напиткам</b><span>около 250 г на гостя</span></button>
+          <button type="button" data-f="buffet" class="on"><b>Фуршет</b><span>около 400 г на гостя</span></button>
+          <button type="button" data-f="dinner"><b>Вместо ужина</b><span>около 600 г, с горячим</span></button>
+          <button type="button" data-f="kids"><b>Детский праздник</b><span>боксы для детей</span></button>
+        </div>
+        <div class="guests-row"><label class="l" for="guests" id="g-label">Гостей</label><output id="g-out" for="guests">15</output></div>
+        <input type="range" id="guests" min="4" max="80" value="15" step="1">
+        <div class="scale"><span>4</span><span>20</span><span>40</span><span>60</span><span>80</span></div>
+      </div>
+      <div class="receipt" aria-live="polite">
+        <h3>Ваш набор</h3>
+        <p class="need" id="need"></p>
+        <ul id="set"></ul>
+        <div class="sum"><span>Примерно</span><b id="set-sum"></b></div>
+        <button class="btn btn-lav" id="set-add" type="button">Добавить набор в заказ</button>
+        <small>Это ориентир. Точный состав подберём под ваше событие</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Почему мы</span>
+      <h2 class="title">Что для нас важно</h2>
+    </div>
+    <div class="values reveal">
+      <div class="val"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg></div><h3>Внимание к деталям</h3><p>Каждая закуска украшена: зелень, икра, ягоды и аккуратные шпажки</p></div>
+      <div class="val"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 7h16v12H4z"/><path d="M4 7l2-3h12l2 3"/><path d="M9 12h6"/></svg></div><h3>Чистота подачи</h3><p>Ровные ряды в боксе: можно ставить на стол без перекладывания</p></div>
+      <div class="val"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3c3 4 6 6 6 10a6 6 0 0 1-12 0c0-4 3-6 6-10z"/></svg></div><h3>Лёгкость вкуса</h3><p>Небольшие порции на один укус: гостям легко попробовать всё</p></div>
+      <div class="val"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg></div><h3>Индивидуальное меню</h3><p>Соберём бокс под ваш повод, вкусы гостей и бюджет</p></div>
+      <div class="val"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.4 5.9.8-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.8z"/></svg></div><h3>Вкус и качество</h3><p>Креветки, форель, икра, сыры: продукты, которые хочется есть</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="corp" style="padding-top:0">
+  <div class="wrap">
+    <div class="corp reveal">
+      <div class="txt">
+        <span class="eyebrow">Компаниям</span>
+        <h2 class="title">Корпоративный кейтеринг</h2>
+        <p>Накормим команду и гостей на празднике в офисе, презентации или встрече. Пришлите дату, время и число гостей, предложим меню и сумму</p>
+        <ul>
+          <li>Холодные закуски, горячее, салаты и сладкое в одном заказе</li>
+          <li>Меню под формат: кофе-брейк, фуршет или полноценный обед</li>
+          <li>Доставка по Санкт-Петербургу к нужному времени</li>
+        </ul>
+        <div class="btns">
+          <a class="btn btn-lav" href="#order" id="corp-btn">Запросить меню для компании</a>
+          <a class="btn btn-line" style="border-color:rgba(255,255,255,.5);color:#fff" href="tel:+79313970228">Позвонить</a>
+        </div>
+      </div>
+      <div class="pic"><img src="img/nabor-2.jpg" alt="Боксы с тарталетками и канапе на праздничном столе" width="720" height="960" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Фото</span>
+      <h2 class="title">Как выглядят боксы</h2>
+      <p class="lead">Настоящие фото наших заказов</p>
+    </div>
+    <div class="gallery" id="gallery">
+      <button type="button" class="w" data-full="img/brusket-2.jpg"><img src="img/brusket-2.jpg" alt="Сет брускетт с бри, ветчиной и икрой тобико" width="1000" height="750" loading="lazy"></button>
+      <button type="button" class="t" data-full="img/tart-set-2.jpg"><img src="img/tart-set-2.jpg" alt="Сет тарталеток с крабовым муссом и перепелиными яйцами" width="720" height="960" loading="lazy"></button>
+      <button type="button" class="t" data-full="img/myasnoy-2.jpg"><img src="img/myasnoy-2.jpg" alt="Закусочный бокс с колбасками, сырами и виноградом" width="720" height="960" loading="lazy"></button>
+      <button type="button" data-full="img/filo-2.jpg"><img src="img/filo-2.jpg" alt="Корзиночки фило с крем-чиз и фисташкой" width="720" height="960" loading="lazy"></button>
+      <button type="button" data-full="img/kish.jpg"><img src="img/kish.jpg" alt="Мини-киш с креветкой и беконом" width="720" height="956" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<section id="how" style="padding-top:0">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Как заказать</span>
+      <h2 class="title">Четыре шага</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="stp"><h3>Выберите боксы</h3><p>В меню на сайте или просто напишите повод и число гостей</p></div>
+      <div class="stp"><h3>Согласуем меню</h3><p>Уточним состав, дату, время и адрес</p></div>
+      <div class="stp"><h3>Соберём заказ</h3><p>Подготовим боксы к нужному часу</p></div>
+      <div class="stp"><h3>Привезём</h3><p>Доставим по Петербургу или отдадим самовывозом</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="padding-top:0">
+  <div class="wrap faq">
+    <div class="head reveal">
+      <span class="eyebrow">Вопросы</span>
+      <h2 class="title">Частые вопросы</h2>
+      <p class="lead">Не нашли ответ? Напишите нам <a href="https://vk.me/club236367385" target="_blank" rel="noopener">ВКонтакте</a> или позвоните <a href="tel:+79313970228">+7 931 397-02-28</a></p>
+    </div>
+    <div>
+      <details open><summary>Сколько гостей накормит один бокс?</summary><p>Зависит от формата. Например, бокс Сытный блин рассчитан на 5-6 человек, а детский бокс на 12 детей. Прикинуть заказ поможет <a href="#calc">калькулятор</a>, точный состав подскажем в сообщениях.</p></details>
+      <details><summary>Можно поменять состав бокса?</summary><p>Да, меню индивидуальное: уберём то, что не едят ваши гости, или соберём бокс под ваш повод.</p></details>
+      <details><summary>Как получить заказ?</summary><p>Доставим по Санкт-Петербургу или отдадим самовывозом. Есть бесплатная доставка: условия и время подскажем при заказе.</p></details>
+      <details><summary>За сколько дней заказывать?</summary><p>Лучше заранее, чтобы дата точно была свободна. На корпоративы и большие события напишите как можно раньше.</p></details>
+      <details><summary>Делаете меню для компаний?</summary><p>Да: корпоративный кейтеринг, презентации и фуршеты. Пришлите число гостей, дату и формат, предложим меню и сумму.</p></details>
+      <details><summary>Есть что-то для детей?</summary><p>Детский порционный бокс на одного ребёнка за 1 100 ₽: бургер с котлетой из индейки, картофель фри, наггетсы, творожные шарики, овощи и фрукты. И детский бокс на 12 детей за 4 500 ₽: мини-бургеры, мини-пицца и сосиски в тесте.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="order-sec" id="order">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Заказ</span>
+      <h2 class="title">Оформить заказ</h2>
+      <p class="lead" style="color:var(--ink-2)">Оставьте заявку, перезвоним или напишем, чтобы подтвердить меню и время</p>
+    </div>
+    <div class="order">
+      <div class="cart" id="cart">
+        <h3>Ваш заказ</h3>
+        <p class="empty" id="cart-empty">Пока пусто. Выберите боксы в <a href="#menu">меню</a> или опишите событие в комментарии, предложим состав</p>
+        <ul id="cart-list"></ul>
+        <div class="total" id="cart-total" hidden><span>Итого</span><b id="cart-sum"></b></div>
+        <p class="note" id="cart-note" hidden>Сумма без доставки, точную подтвердим при заказе</p>
+      </div>
+      <form class="f" id="form" novalidate>
+        <h3>Детали</h3>
+        <div class="row">
+          <label class="fld"><span>Повод</span>
+            <select name="occasion" id="f-occ">
+              <option>День рождения</option><option>Корпоратив</option><option>Презентация</option><option>Фуршет</option><option>Детский праздник</option><option>Другое</option>
+            </select></label>
+          <label class="fld"><span>Гостей</span><input name="guests" type="number" min="1" max="500" inputmode="numeric" placeholder="Например, 15"></label>
+        </div>
+        <div class="row">
+          <label class="fld"><span>Дата</span><input name="date" type="date" required></label>
+          <label class="fld"><span>Время</span><input name="time" type="time" value="18:00"></label>
+        </div>
+        <div class="tabs" role="radiogroup" aria-label="Как получить">
+          <label><input type="radio" name="get" value="Доставка" checked><span>Доставка</span></label>
+          <label><input type="radio" name="get" value="Самовывоз"><span>Самовывоз</span></label>
+        </div>
+        <label class="fld" id="addr-fld"><span>Адрес доставки</span><input name="address" autocomplete="street-address" placeholder="Улица, дом, офис или квартира"></label>
+        <div class="row">
+          <label class="fld"><span>Имя</span><input name="name" autocomplete="name" required></label>
+          <label class="fld"><span>Телефон</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required></label>
+        </div>
+        <label class="fld"><span>Комментарий</span><textarea name="comment" placeholder="Пожелания по меню, аллергии, что не едят гости"></textarea></label>
+        <div class="hp" aria-hidden="true"><input name="website" tabindex="-1" autocomplete="off"></div>
+        <label class="consent"><input type="checkbox" name="consent"><span>Согласен на обработку персональных данных по <a href="privacy.html" target="_blank">политике</a></span></label>
+        <p class="err" id="err" role="alert"></p>
+        <button class="btn btn-ink" id="submit" type="submit">Отправить заявку</button>
+        <div class="sent" id="sent" hidden><b>Спасибо, заявка принята!</b><p>Скоро свяжемся, чтобы подтвердить меню и время</p></div>
+        <div class="fallback" id="fallback" hidden>
+          Не получилось отправить заявку. Отправьте её нам в сообщения ВКонтакте или позвоните
+          <div class="btns">
+            <button class="btn btn-ink" id="send-vk" type="button">Отправить ВКонтакте</button>
+            <a class="btn btn-line" href="tel:+79313970228">Позвонить</a>
+          </div>
+        </div>
+        <div class="direct">Или сразу: <a href="tel:+79313970228">+7 931 397-02-28</a> · <a href="https://vk.me/club236367385" target="_blank" rel="noopener">написать ВКонтакте</a></div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="logo" href="#"><b>Вкус <i>Про</i> фуршет</b><span>кейтеринг · Санкт-Петербург</span></a>
+      <p>Фуршетные боксы для праздников, офисов и презентаций. Доставка по Санкт-Петербургу и самовывоз</p>
+    </div>
+    <div>
+      <h4>Связаться</h4>
+      <a href="tel:+79313970228">+7 931 397-02-28</a>
+      <a href="https://vk.me/club236367385" target="_blank" rel="noopener">Написать ВКонтакте</a>
+      <a href="https://vk.ru/club236367385" target="_blank" rel="noopener">Группа ВКонтакте</a>
+    </div>
+    <div>
+      <h4>Разделы</h4>
+      <a href="#menu">Меню боксов</a>
+      <a href="#calc">Сколько заказать</a>
+      <a href="#corp">Компаниям</a>
+      <a href="#order">Оформить заказ</a>
+    </div>
+    <div class="copy"><span>© 2026 Вкус Про фуршет</span><a href="privacy.html">Политика обработки данных</a></div>
+  </div>
+</footer>
+
+<div class="bar contact" id="bar">
+  <div class="info"><b id="bar-count"></b><span id="bar-sum"></span></div>
+  <a class="btn btn-lav obtn" href="#order">Оформить</a>
+  <a class="btn btn-white cbtn" href="tel:+79313970228"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Позвонить</a>
+  <a class="btn btn-lav cbtn" href="#menu">Выбрать боксы</a>
+</div>
+
+<div class="toast" id="toast" role="status"></div>
+<div class="lb" id="lb"><button class="lb-x" type="button" aria-label="Закрыть">×</button><img alt=""></div>
+<div class="copybox" id="copybox">
+  <div>
+    <b>Скопируйте текст заявки</b>
+    <textarea rows="8" readonly></textarea>
+    <div class="send"><button class="btn btn-ink" id="copy-open" type="button">Открыть чат</button><button class="btn btn-line" id="copy-close" type="button">Закрыть</button></div>
+  </div>
+</div>
+
+<script>
+  const VK_CHAT = "https://vk.me/club236367385";
+  // For now the leads go to the demo script (to Leonti); give the site its own script at launch
+  const LEAD_URL = "https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec";
+
+  // id, name, category, price, old price, meta line, tastes, short text, weight in kg (null when unknown)
+  const ITEMS = [
+    ["brusket", "Сет брускетт", "cold", 4300, 4500, "20 шт · 1,3 кг", ["крабовый мусс с авокадо и икрой тобико", "брускетта цезарь", "брускетта с ветчиной", "бри, груша и фисташка"], "", 1.3],
+    ["tart-set", "Сет тарталеток", "tart", 4700, 4900, "4 вкуса · 56 шт", ["крабовый мусс с перепелиным яйцом и икрой тобико", "сырные шарики", "творожный сыр, песто и вяленый томат", "колбаска с творожным сыром"], "", null],
+    ["okean", "Тарталетки Океан", "tart", 5500, 0, "3 вида по 12 шт · 1,4 кг", ["красная икра", "форель", "креветка"], "", 1.4],
+    ["goryachiy", "Горячий бокс", "hot", 4800, 0, "3 кг", ["крылья терияки", "картофель айдахо", "шашлычок из индейки", "люля из свинины"], "Подаём с лавашом, маринованным луком, зеленью и соусами", 3],
+    ["kanape", "Канапе микс", "tart", 3000, 0, "канапе на шпажках", [], "Несколько вкусов в одном боксе: оливки, томаты черри, салями, креветки и сыр", null],
+    ["more", "Морское изобилие", "cold", 5500, 0, "1,5 кг", ["салат капрезе", "тарталетки с крабовым муссом", "кростини с форелью и цитрусом", "кростини с тунцом и паприкой", "хрустящая креветка с соусом чили-манго"], "", 1.5],
+    ["takos", "Бокс такос на компанию", "hot", 4800, 0, "24 шт · 2 кг", ["такос с креветкой", "такос с мини-шашлычком", "такос аля биг тейсти"], "", 2],
+    ["fantaziya", "Бокс Фантазия", "cold", 4500, 0, "1,5 кг", ["мини-бургер на сырной вафле с куриной котлеткой", "сырные шарики", "пельмени из колбаски", "брускетта с креветкой"], "", 1.5],
+    ["tart5", "Тарталетки 5 вкусов", "tart", 4300, 0, "5 вкусов", ["икра", "мидии", "яичный паштет", "сельдь", "креветка"], "", null],
+    ["krostini", "Бокс с кростини", "cold", 4450, 0, "5 видов", ["креветка", "индейка", "форель", "цезарь", "печёночный паштет"], "", null],
+    ["rulety", "Бокс рулетов", "cold", 3300, 0, "1,4 кг", ["баклажан с грецким орехом", "рулет с крем-чиз и форелью", "рулетики из ветчины"], "", 1.4],
+    ["zakusochny", "Закусочный бокс", "cold", 4000, 4500, "колбаски и сыры", [], "Несколько видов колбасок и сыров, виноград и орехи. Хорошая закуска на праздник", null],
+    ["blin", "Бокс Сытный блин", "hot", 4550, 0, "на 5-6 человек", ["икра", "сыр и ветчина", "жюльен", "лосось"], "", null],
+    ["shashlychki", "Шашлычки куриные в лаваше", "hot", 3800, 0, "21 шт", [], "Куриные шашлычки, завёрнутые в лаваш с зеленью", null],
+    ["kish", "Мини-киш", "hot", 2800, 0, "2 вкуса · 1,4 кг", ["креветка", "бекон и томат"], "", 1.4],
+    ["salaty", "Салаты порционно", "salad", 4300, 0, "16 порций · 2,6 кг", ["греческий", "оливье с курочкой", "цезарь", "сельдь под шубой"], "", 2.6],
+    ["salat-mix", "Микс салатов", "salad", 4200, 0, "порционно в стаканчиках", ["охотничий", "с ананасом", "гранатовый браслет", "тиффани"], "", null],
+    ["myafli", "Бокс Мяфли", "tart", 2700, 0, "мини-вафли, по 10 шт", ["клубничное маскарпоне", "аля бургер"], "", null],
+    ["filo", "Закусочные корзиночки фило", "tart", 3800, 0, "хрустящее тесто фило", [], "Хрустящие корзиночки с разными начинками: креветка, гранат, сыр", null],
+    ["sytny", "Бокс Сытный", "cold", 3200, 0, "3 вкуса", ["блинчики цезарь", "кростини с салями", "куриный рулет с грибами"], "", null],
+    ["mini-tako", "Мини-тако с овощами и курицей", "hot", 1900, 0, "мини-тако", [], "Хрустящие мини-тако с курицей, кукурузой, морковью и луком", null],
+    ["hachapuri", "Хачапури", "hot", 1200, 0, "3 шт по 300 г", [], "Домашние хачапури с сыром и яйцом", null],
+    ["detskiy", "Детский порционный бокс", "kids", 1100, 0, "на одного ребёнка", ["бургер с котлетой из индейки", "картофель фри", "овощные палочки", "творожные шарики", "наггетсы", "фруктовый стаканчик"], "", null],
+    ["deti12", "Детский бокс на 12 детей", "kids", 4500, 0, "на 12 детей", ["мини-бургеры", "мини-пицца", "сосиски в тесте"], "", null],
+    ["feeriya", "Бокс Сладкая феерия", "sweet", 3800, 0, "пирожные из теста фило", [], "Хрустящее тесто фило, нежный крем, ягоды и фрукты", null]
+  ];
+  const CATS = [["all", "Все"], ["cold", "Холодные закуски"], ["tart", "Тарталетки и канапе"], ["hot", "Горячее и выпечка"], ["salad", "Салаты"], ["kids", "Детям"], ["sweet", "Сладкое"]];
+  const BY = Object.fromEntries(ITEMS.map(i => [i[0], i]));
+
+  const $ = id => document.getElementById(id);
+  const rub = n => n.toLocaleString("ru-RU") + " ₽";
+  const plural = (n, a, b, c) => n % 10 === 1 && n % 100 !== 11 ? a : [2, 3, 4].includes(n % 10) && ![12, 13, 14].includes(n % 100) ? b : c;
+  const boxes = n => n + " " + plural(n, "бокс", "бокса", "боксов");
+  const toast = msg => { const t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), 3200); };
+
+  // Cart: id -> quantity; kept in this browser only
+  let cart = {};
+  try { cart = JSON.parse(localStorage.getItem("vkuspro-cart") || "{}") || {}; } catch (e) {}
+  Object.keys(cart).forEach(k => { if (!BY[k] || !(cart[k] > 0)) delete cart[k]; });
+  const save = () => { try { localStorage.setItem("vkuspro-cart", JSON.stringify(cart)); } catch (e) {} };
+  const cartCount = () => Object.values(cart).reduce((a, b) => a + b, 0);
+  const cartSum = () => Object.entries(cart).reduce((a, [k, q]) => a + BY[k][3] * q, 0);
+  function setQty(id, q){
+    q = Math.max(0, Math.min(50, q));
+    if (q) cart[id] = q; else delete cart[id];
+    save(); renderGrid(); renderCart(); renderBar();
+  }
+
+  // Catalog
+  const grid = $("grid"), chips = $("chips"), moreBtn = $("more");
+  let cat = "all", opened = false;
+  const LIMIT = 9;
+  function renderChips(){
+    chips.innerHTML = CATS.map(([k, n]) => {
+      const cnt = k === "all" ? ITEMS.length : ITEMS.filter(i => i[2] === k).length;
+      return `<button class="chip ${k === cat ? "on" : ""}" type="button" data-c="${k}" aria-pressed="${k === cat}">${n}<small>${cnt}</small></button>`;
+    }).join("");
+  }
+  function card(i){
+    const [id, name, , price, old, meta, tastes, text] = i, q = cart[id] || 0;
+    const act = q
+      ? `<div class="step"><button type="button" data-d="-1" data-id="${id}" aria-label="Убрать один">−</button><span>${q} в заказе</span><button type="button" data-d="1" data-id="${id}" aria-label="Добавить ещё">+</button></div>`
+      : `<button class="add" type="button" data-d="1" data-id="${id}">+ В заказ</button>`;
+    return `<article class="card">
+      <div class="ph"><img src="img/${id}.jpg" alt="${name}" loading="lazy" width="600" height="600">
+        ${old ? `<span class="badge">−${Math.round((1 - price / old) * 100)}%</span>` : ""}
+        <span class="ticket">${rub(price)}${old ? `<s>${rub(old)}</s>` : ""}</span></div>
+      <div class="b"><h3>${name}</h3><div class="meta">${meta}</div>
+        ${tastes.length ? `<div class="tastes"><b>Вкусы</b><ul>${tastes.map((t, k) => `<li${k > 2 ? ' class="x"' : ""}>${t}</li>`).join("")}${tastes.length > 3 ? `<li class="m">и ещё ${tastes.length - 3}</li>` : ""}</ul></div>` : ""}
+        ${text ? `<p class="desc">${text}</p>` : ""}
+        <div class="act">${act}</div></div></article>`;
+  }
+  function renderGrid(){
+    const list = ITEMS.filter(i => cat === "all" || i[2] === cat);
+    const shown = cat === "all" && !opened ? list.slice(0, LIMIT) : list;
+    grid.innerHTML = shown.map(card).join("");
+    const rest = list.length - shown.length;
+    moreBtn.hidden = rest <= 0;
+    moreBtn.textContent = `Показать ещё ${boxes(rest)}`;
+  }
+  chips.addEventListener("click", e => {
+    const b = e.target.closest(".chip"); if (!b) return;
+    cat = b.dataset.c; renderChips(); renderGrid();
+  });
+  grid.addEventListener("click", e => {
+    const b = e.target.closest("[data-d]"); if (!b) return;
+    const id = b.dataset.id, before = cart[id] || 0;
+    setQty(id, before + +b.dataset.d);
+    if (!before) toast(`${BY[id][1]} в заказе`);
+  });
+  moreBtn.onclick = () => { opened = true; renderGrid(); };
+
+  // Calculator: grams per guest by format, filled with boxes whose weight we know
+  const NORM = {drinks: .25, buffet: .4, dinner: .6};
+  const ORDER = {
+    drinks: ["fantaziya", "brusket", "okean", "rulety", "more", "kish"],
+    buffet: ["more", "brusket", "takos", "okean", "fantaziya", "rulety", "kish"],
+    dinner: ["goryachiy", "salaty", "takos", "more", "brusket", "okean", "fantaziya", "rulety"]
+  };
+  let fmt = "buffet", suggestion = {};
+  const guests = $("guests");
+  function suggest(){
+    const g = +guests.value, set = {};
+    if (fmt === "kids") {
+      let big = Math.floor(g / 12), rest = g % 12;
+      if (rest > 4) { big += 1; rest = 0; }
+      if (big) set.deti12 = big;
+      if (rest) set.detskiy = rest;
+      $("need").textContent = big ? `${big} ${plural(big, "бокс", "бокса", "боксов")} на 12 детей${rest ? ` и ${rest} порционных` : ""}` : "по порционному боксу на каждого ребёнка";
+      return set;
+    }
+    const need = g * NORM[fmt], list = ORDER[fmt];
+    let w = 0, i = 0;
+    while (w < need * .95 && i < 60) { const id = list[i % list.length]; set[id] = (set[id] || 0) + 1; w += BY[id][8]; i++; }
+    $("need").textContent = `Нужно около ${(Math.round(need * 10) / 10).toLocaleString("ru-RU")} кг, в наборе ${(Math.round(w * 10) / 10).toLocaleString("ru-RU")} кг`;
+    return set;
+  }
+  function calc(){
+    $("g-out").textContent = guests.value;
+    $("g-label").textContent = fmt === "kids" ? "Детей" : "Гостей";
+    suggestion = suggest();
+    const rows = Object.entries(suggestion);
+    $("set").innerHTML = rows.map(([id, q]) => `<li><span>${BY[id][1]}${q > 1 ? ` × ${q}` : ""}</span><i></i><b>${rub(BY[id][3] * q)}</b></li>`).join("");
+    $("set-sum").textContent = rub(rows.reduce((a, [id, q]) => a + BY[id][3] * q, 0));
+  }
+  $("fmt").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    fmt = b.dataset.f;
+    $("fmt").querySelectorAll("button").forEach(x => x.classList.toggle("on", x === b));
+    calc();
+  });
+  guests.addEventListener("input", calc);
+  $("set-add").onclick = () => {
+    Object.entries(suggestion).forEach(([id, q]) => { cart[id] = (cart[id] || 0) + q; });
+    save(); renderGrid(); renderCart(); renderBar();
+    const form = $("form");
+    if (!form.guests.value) form.guests.value = guests.value;
+    if (fmt === "kids") form.occasion.value = "Детский праздник";
+    toast("Набор добавлен в заказ");
+  };
+  calc();
+
+  // Cart in the order section
+  function renderCart(){
+    const rows = Object.entries(cart);
+    $("cart-empty").hidden = rows.length > 0;
+    $("cart-total").hidden = $("cart-note").hidden = !rows.length;
+    $("cart-list").innerHTML = rows.map(([id, q]) => `<li><img src="img/${id}.jpg" alt="" width="52" height="52" loading="lazy">
+      <div><b>${BY[id][1]}</b><small>${rub(BY[id][3])}${q > 1 ? ` × ${q} = ${rub(BY[id][3] * q)}` : ""}</small></div>
+      <div class="mini"><button type="button" data-d="-1" data-id="${id}" aria-label="Убрать один">−</button><span>${q}</span><button type="button" data-d="1" data-id="${id}" aria-label="Добавить ещё">+</button></div></li>`).join("");
+    $("cart-sum").textContent = rub(cartSum());
+  }
+  $("cart-list").addEventListener("click", e => {
+    const b = e.target.closest("[data-d]"); if (!b) return;
+    setQty(b.dataset.id, (cart[b.dataset.id] || 0) + +b.dataset.d);
+  });
+
+  // Bottom bar: the order total when something is chosen, else call and menu buttons on phones
+  const bar = $("bar");
+  const isPhone = () => matchMedia("(max-width:860px)").matches;
+  const barHidden = new Set();
+  function renderBar(){
+    const n = cartCount();
+    bar.classList.toggle("contact", !n);
+    $("bar-count").textContent = n ? `В заказе ${boxes(n)}` : "";
+    $("bar-sum").textContent = n ? rub(cartSum()) : "";
+    bar.classList.toggle("show", (n > 0 || isPhone()) && barHidden.size === 0);
+  }
+  const barIO = new IntersectionObserver(es => { es.forEach(x => x.isIntersecting ? barHidden.add(x.target) : barHidden.delete(x.target)); renderBar(); });
+  [document.querySelector(".hero .actions"), $("order"), document.querySelector(".foot")].forEach(el => barIO.observe(el));
+  addEventListener("resize", renderBar);
+
+  // Order form: the lead goes to VK through Apps Script, the group chat is the fallback
+  const form = $("form");
+  const today = new Date(); today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+  form.date.min = today.toISOString().slice(0, 10);
+  const addrFld = $("addr-fld");
+  form.addEventListener("change", e => { if (e.target.name === "get") addrFld.hidden = form.get.value !== "Доставка"; });
+  form.phone.addEventListener("input", e => {
+    let d = e.target.value.replace(/\D/g, "").replace(/^8/, "7"); if (d && d[0] !== "7") d = "7" + d;
+    d = d.slice(0, 11); const p = [d.slice(1, 4), d.slice(4, 7), d.slice(7, 9), d.slice(9, 11)];
+    e.target.value = d ? `+7 (${p[0]}${p[0].length === 3 ? ") " : ""}${p[1]}${p[1].length === 3 ? "-" : ""}${p[2]}${p[2].length === 2 ? "-" : ""}${p[3]}` : "";
+  });
+  $("corp-btn").addEventListener("click", () => { form.occasion.value = "Корпоратив"; });
+  const orderDetails = () => {
+    const date = form.date.value ? new Date(form.date.value + "T12:00").toLocaleDateString("ru-RU", {day: "numeric", month: "long"}) : "не указана";
+    const rows = Object.entries(cart).map(([id, q]) => `${BY[id][1]}${q > 1 ? ` × ${q}` : ""}`);
+    return [
+      `Повод: ${form.occasion.value}`,
+      `Дата: ${date}${form.time.value ? `, ${form.time.value}` : ""}`,
+      form.guests.value && `Гостей: ${form.guests.value}`,
+      `Получение: ${form.get.value}${form.get.value === "Доставка" && form.address.value.trim() ? `, ${form.address.value.trim()}` : ""}`,
+      rows.length ? `Боксы: ${rows.join("; ")}` : "Боксы: подобрать",
+      rows.length && `Сумма: ${rub(cartSum())}`
+    ].filter(Boolean);
+  };
+  const submitBtn = $("submit"), sentBox = $("sent"), fallbackBox = $("fallback");
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const err = $("err");
+    if (!form.date.value) return err.textContent = "Укажите дату";
+    if (form.name.value.trim().length < 2) return err.textContent = "Укажите имя";
+    if (form.phone.value.replace(/\D/g, "").length !== 11) return err.textContent = "Проверьте номер телефона";
+    if (!form.consent.checked) return err.textContent = "Отметьте согласие на обработку данных";
+    err.textContent = ""; fallbackBox.hidden = true;
+    submitBtn.disabled = true; submitBtn.textContent = "Отправляем...";
+    let ok = false;
+    try {
+      const res = await fetch(LEAD_URL, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, signal: AbortSignal.timeout(20000),
+        body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: ["Макет vkuspro", ...orderDetails()].join(", "), comment: form.comment.value.trim(), website: form.website.value})});
+      ok = (await res.json()).ok === true;
+    } catch (e) {}
+    submitBtn.disabled = false; submitBtn.textContent = "Отправить заявку";
+    if (ok) { submitBtn.hidden = true; sentBox.hidden = false; cart = {}; save(); renderGrid(); renderCart(); renderBar(); }
+    else { fallbackBox.hidden = false; fallbackBox.scrollIntoView({block: "center"}); }
+  });
+  function copyNow(text){
+    const ta = document.createElement("textarea");
+    ta.value = text; ta.setAttribute("readonly", ""); ta.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+    document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, text.length);
+    let ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+    ta.remove(); return ok;
+  }
+  const copybox = $("copybox");
+  $("copy-close").onclick = () => copybox.classList.remove("show");
+  $("copy-open").onclick = () => {
+    copybox.querySelector("textarea").select();
+    try { document.execCommand("copy"); } catch (e) {}
+    copybox.classList.remove("show"); window.open(VK_CHAT, "_blank");
+  };
+  $("send-vk").onclick = () => {
+    const text = ["Здравствуйте! Хочу сделать заказ.", ...orderDetails(), `Имя: ${form.name.value.trim()}, тел. ${form.phone.value}`, form.comment.value.trim() && `Пожелания: ${form.comment.value.trim()}`].filter(Boolean).join("\n");
+    // VK can't prefill a message: copy while the page still has focus, then open the chat
+    if (copyNow(text)) { toast("Заявка скопирована, вставьте её в чат"); window.open(VK_CHAT, "_blank"); return; }
+    copybox.querySelector("textarea").value = text; copybox.classList.add("show"); copybox.querySelector("textarea").select();
+  };
+  // The bar must not cover fields above the phone keyboard
+  form.addEventListener("focusin", e => { if (e.target.matches("input, textarea, select")) bar.style.display = "none"; });
+  form.addEventListener("focusout", () => { bar.style.display = ""; });
+
+  // Gallery lightbox
+  const lb = $("lb");
+  $("gallery").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; lb.querySelector("img").src = b.dataset.full; lb.querySelector("img").alt = b.querySelector("img").alt; lb.classList.add("show"); });
+  lb.addEventListener("click", e => { if (e.target === lb || e.target.closest(".lb-x")) lb.classList.remove("show"); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") { lb.classList.remove("show"); copybox.classList.remove("show"); } });
+
+  // Header, menu and scroll reveal
+  const header = $("top");
+  addEventListener("scroll", () => header.classList.toggle("scrolled", scrollY > 8), {passive: true});
+  $("burger").onclick = () => { const o = document.body.classList.toggle("menu-open"); $("burger").setAttribute("aria-expanded", o); };
+  $("nav").addEventListener("click", e => { if (e.target.tagName === "A") { document.body.classList.remove("menu-open"); $("burger").setAttribute("aria-expanded", false); } });
+  const io = new IntersectionObserver(es => es.forEach(x => { if (x.isIntersecting) { x.target.classList.add("in"); io.unobserve(x.target); } }), {threshold: .12});
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+  renderChips(); renderGrid(); renderCart(); renderBar();
+</script>
+</body>
+</html>
