@@ -714,7 +714,7 @@
 
 <script>
 (() => {
-  const LEAD_URL = "https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec";
+  const LEAD_URL = "https://script.google.com/macros/s/AKfycbyPKr-f0WVT4u10MpSusNuPBsb3D78DojzMpW6Rro7BbX84i20i_wjsWaS1jiFpF_46Ng/exec";
   const TG = "https://t.me/+79967893814", VK_CHAT = "https://vk.me/mikkitopt";
   // Her MAX invite link (MAX: Настройки → Пригласить друзей → Скопировать ссылку), format https://max.ru/u/...
   const MAX_URL = "https://max.ru/u/f9LHodD0cOJxTBpYFzOK585TrSPTNNNFxpi1P-uhc5eeyPkSlgwSgAKYGTE";
@@ -992,7 +992,7 @@
     let ok = false;
     try {
       const res = await fetch(LEAD_URL, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, signal: AbortSignal.timeout(20000),
-        body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: ["Макет mikkitopt", ...orderDetails()].join(", "), comment: form.comment.value.trim(), website: form.website.value})});
+        body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: orderDetails().join(", "), comment: form.comment.value.trim(), website: form.website.value})});
       ok = (await res.json()).ok === true;
     } catch (e) {}
     submitBtn.disabled = false; submitBtn.textContent = "Отправить заявку";
