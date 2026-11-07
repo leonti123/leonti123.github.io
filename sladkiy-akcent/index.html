@@ -901,7 +901,7 @@
 
 <script>
   // For now the leads go to the demo script (to Leonti); give the site its own script at launch
-  const LEAD_URL = "https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec";
+  const LEAD_URL = "https://script.google.com/macros/s/AKfycbyWo3W_9AQnHSAE5ouBfKx5nbLsWnVcVzbcfi17zdux62CWd9OdbLRhDyuRz5NKoxHp_A/exec";
   const VK_CHAT = "https://vk.me/sweet_accent_cake";
   const $ = id => document.getElementById(id);
   const rub = n => Math.round(n).toLocaleString("ru-RU") + " ₽";
@@ -1182,7 +1182,7 @@
     let ok = false;
     try {
       const res = await fetch(LEAD_URL, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, signal: AbortSignal.timeout(20000),
-        body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: ["Макет sladkiy-akcent", ...orderDetails()].join(", "), comment: form.comment.value.trim(), website: form.website.value})});
+        body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: orderDetails().join(", "), comment: form.comment.value.trim(), website: form.website.value})});
       ok = (await res.json()).ok === true;
     } catch (e) {}
     submitBtn.disabled = false; submitBtn.textContent = "Отправить заявку";
