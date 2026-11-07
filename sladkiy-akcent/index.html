@@ -953,12 +953,13 @@
 
   // Desserts the confectioner keeps (her list and prices, 07.11). p: null = price on request; v: box sizes; min: smallest order
   const DZ = [
-    {id: "korpus", n: "Корпусные пирожные", p: 460, u: "2 шт", d: "Тонкий хрустящий шоколадный корпус и нежный мусс: лимон, черника, кофе, манго, малина, банан", img: "korpusnye.jpg"},
+    {id: "korpus", n: "Корпусные пирожные", p: 460, u: "1 шт", d: "Ассорти: тонкий хрустящий шоколадный корпус и нежный мусс. Лимон, черника, кофе, манго, малина, банан", img: "korpusnye-assorti.jpg"},
     {id: "truffles", n: "Трюфели", d: "Ассорти вкусов ручной работы в коробке. Хороший подарок вместо привычных конфет", img: "tryufeli-nabory.jpg", v: [["5", 750], ["9", 1250], ["12", 1550]]},
     {id: "eskimo", n: "Эскимо-картошка", p: 300, u: "1 шт", min: 6, d: "Ванильная или шоколадная, в глазури с декором. Заказ от 6 шт", img: "eskimo.jpg"},
+    {id: "kartoshka", n: "Пирожные картошка", p: 350, u: "1 шт", d: "Пирожное картошка в шоколаде с декором", img: "kartoshka-pirozhnye.jpg"},
     {id: "trifle", n: "Трайфлы", p: 550, u: "1 шт", min: 2, d: "Торт в стакане: ванильный с ягодной начинкой, шоколад с карамелью и арахисом, красный бархат с клубникой, шоколадный трюфель. От 2 шт одного вкуса", img: "trifly.jpg"},
     {id: "cupcakes", n: "Капкейки", p: 350, u: "1 шт", min: 4, d: "Кремовая шапочка, свежие ягоды и декор. Заказ от 4 шт одного вкуса", img: "kapkeyki.jpg"},
-    {id: "ptiche", n: "Птичье молоко", p: 1000, d: "Сливочное шелковистое суфле с терпким какао в форме сердечек", img: "serdtsa.jpg"},
+    {id: "ptiche", n: "Птичье молоко", p: 200, from: true, u: "1 шт", d: "Нежное суфле в шоколаде. Цена зависит от формы: сердечки, квадраты и другие", img: "ptiche-moloko.jpg"},
     {id: "macaron", n: "Макарон", p: 250, u: "1 шт", min: 4, d: "Миндальное пирожное с хрустящей корочкой и нежной начинкой. Заказ от 4 шт", img: "makaron.jpg"},
     {id: "moti", n: "Моти", p: 220, u: "1 шт", min: 4, d: "Японское пирожное: воздушная начинка в тонком рисовом тесте. Заказ от 4 шт", img: "moti-box.jpg"}
   ];
@@ -1054,7 +1055,7 @@
   const qtyHtml = id => cart[id] ? `<div class="qty"><button type="button" data-dec="${id}" aria-label="Меньше">−</button><span>${cart[id]}</span><button type="button" data-inc="${id}" aria-label="Больше">+</button></div>` : `<button class="add" type="button" data-inc="${id}" aria-label="Добавить в заказ">+</button>`;
   const pick = {};  // chosen box size per set
   const dzPrice = x => x.v ? `<b>${rub(x.v.find(([k]) => k === (pick[x.id] || x.v[0][0]))[1])}</b><small>за ${pick[x.id] || x.v[0][0]} шт</small>`
-    : x.p == null ? `<b class="ask">по запросу</b>` : `<b>${rub(x.p)}</b>${x.u ? `<small>за ${x.u}${x.min ? `, от ${x.min} шт` : ""}</small>` : ""}`;
+    : x.p == null ? `<b class="ask">по запросу</b>` : `<b>${x.from ? "от " : ""}${rub(x.p)}</b>${x.u ? `<small>за ${x.u}${x.min ? `, от ${x.min} шт` : ""}</small>` : ""}`;
   function renderDz(){
     $("dz-grid").innerHTML = DZ.filter(x => !x.hide).map(x => {
       const id = x.v ? `${x.id}-${pick[x.id] || x.v[0][0]}` : x.id;
@@ -1110,7 +1111,7 @@
     if (t !== "none" && form.filling.value) lines.push([`Начинка: ${form.filling.value}`, ""]);
     const decor = t === "bento" || t === "none" ? [] : [...form.querySelectorAll("input[name=decor]:checked")].map(x => x.value);
     if (decor.length){ lines.push([decor.join(", "), "по эскизу"]); extra.push("декор"); }
-    Object.entries(cart).forEach(([id, q]) => { const x = DZBY[id]; if (x.p == null){ lines.push([`${x.n}${q > 1 ? ` × ${q}` : ""}`, "уточню"]); extra.push(x.n.toLowerCase()); return; } sum += x.p * q; lines.push([`${x.n}${q > 1 ? ` × ${q}` : ""}`, rub(x.p * q)]); });
+    Object.entries(cart).forEach(([id, q]) => { const x = DZBY[id]; if (x.p == null){ lines.push([`${x.n}${q > 1 ? ` × ${q}` : ""}`, "уточню"]); extra.push(x.n.toLowerCase()); return; } sum += x.p * q; lines.push([`${x.n}${q > 1 ? ` × ${q}` : ""}`, (x.from ? "от " : "") + rub(x.p * q)]); });
     const dd = daysTo(); let disc = 0;
     if (dd !== null && dd >= 30 && sum){ disc = Math.round(sum * .05); lines.push(["Ранняя бронь −5%", "−" + rub(disc)]); }
     const total = sum - disc;
@@ -1124,7 +1125,7 @@
     if (t === "cake"){ const w = +kg.value; $("kg-out").textContent = String(w).replace(".", ",") + " кг"; const lo = Math.floor(w * 5), hi = Math.ceil(w * 5); $("guests-out").textContent = `≈ ${lo === hi ? lo : lo + "–" + hi} порций`; }
     const {lines, total, extra} = calc();
     $("rlines").innerHTML = lines.map(([a, b]) => `<li class="${b === "в подарок" ? "gift" : b.startsWith("−") ? "minus" : ""}"><span>${esc(a)}</span><i></i><b>${esc(b)}</b></li>`).join("") || `<li><span>Пока пусто</span><i></i><b></b></li>`;
-    $("r-total").textContent = (t === "mini" || (t === "bento" && form.design.value === "complex") ? "от " : "") + rub(total);
+    $("r-total").textContent = (t === "mini" || Object.keys(cart).some(id => DZBY[id].from) || (t === "bento" && form.design.value === "complex") ? "от " : "") + rub(total);
     $("r-note").textContent = (extra.length ? `Плюс ${extra.join(" и ")}. ` : "") + "Точную сумму назову, когда согласуем дизайн. Предоплата 50% после согласования.";
     const dd = daysTo(), hint = $("date-hint");
     hint.className = "hint";
@@ -1135,7 +1136,7 @@
     else hint.textContent = "Хорошо, что заранее: дату за вами закреплю после предоплаты.";
     $("r-date").textContent = form.date.value ? new Date(form.date.value + "T12:00").toLocaleDateString("ru-RU", {day: "numeric", month: "long"}) : "дата не выбрана";
     const items = Object.entries(cart);
-    $("picked").innerHTML = items.length ? `<div class="picked">${items.map(([id, q]) => `<div class="ln"><span>${esc(DZBY[id].n)} <small>${DZBY[id].p == null ? "цена по запросу" : rub(DZBY[id].p)}</small></span><div class="qty"><button type="button" data-dec="${id}" aria-label="Меньше">−</button><span>${q}</span><button type="button" data-inc="${id}" aria-label="Больше">+</button></div></div>`).join("")}</div>` : `<p class="empty">Можно добавить трайфлы, эскимо-картошку, трюфели или моти. <a href="#desserts">Выбрать десерты</a></p>`;
+    $("picked").innerHTML = items.length ? `<div class="picked">${items.map(([id, q]) => `<div class="ln"><span>${esc(DZBY[id].n)} <small>${DZBY[id].p == null ? "цена по запросу" : (DZBY[id].from ? "от " : "") + rub(DZBY[id].p)}</small></span><div class="qty"><button type="button" data-dec="${id}" aria-label="Меньше">−</button><span>${q}</span><button type="button" data-inc="${id}" aria-label="Больше">+</button></div></div>`).join("")}</div>` : `<p class="empty">Можно добавить трайфлы, эскимо-картошку, трюфели или моти. <a href="#desserts">Выбрать десерты</a></p>`;
     $("addr-fld").hidden = form.get.value !== "delivery";
     // The bottom bar shows the sum only after the visitor has started an order
     $("mbar-go").textContent = (touched || items.length) && total ? `Заказ · ${rub(total)}` : "Заказать";
