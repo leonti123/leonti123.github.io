@@ -217,7 +217,7 @@ more.onclick=()=>{shown+=8;render()};
 cat.addEventListener('click',e=>{const b=e.target.closest('button[data-n]');if(!b)return;openLead('Кухня «'+b.dataset.n+'»')});
 render();
 // ссылка на чат в MAX для кнопок «Написать»
-const MAX_URL='';
+const MAX_URL='https://max.ru/u/f9LHodD0cOKF634jEacBohu5oTb0RtRBSD7U54378VISfTiLM4pGqCGB0H0';
 document.querySelectorAll('.maxlink').forEach(a=>{if(MAX_URL){a.href=MAX_URL}else if(a.textContent.trim()==='MAX'){a.remove()}else{a.href='#lead';a.removeAttribute('target')}});
 // калькулятор
 const RATE=20000;
