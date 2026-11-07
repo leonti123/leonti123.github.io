@@ -182,6 +182,10 @@
   .dz .row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:16px}
   .dz .row b{font:400 26px/1 var(--display);color:var(--berry)}
   .dz .row small{display:block;font-size:12.5px;color:var(--soft);margin-top:4px}
+  .dz .row b.ask{font:600 15px/1.2 var(--sans);text-transform:uppercase;letter-spacing:.06em}
+  .sizes{display:flex;gap:6px;margin-top:12px;flex-wrap:wrap}
+  .sizes button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;font:500 14px var(--sans);color:var(--ink);cursor:pointer}
+  .sizes button[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
   .add{width:46px;height:46px;border-radius:50%;border:0;background:var(--ink);color:#fff;font-size:24px;line-height:1;cursor:pointer;flex:none;transition:.2s}
   .add:hover{background:var(--berry)}
   .qty{display:flex;align-items:center;gap:2px;background:var(--cream);border-radius:999px;padding:3px}
@@ -530,14 +534,14 @@
           <div class="ph"><img src="img/w-cake-hero.jpg" alt="Праздничный торт от 1,5 кг" loading="lazy"><span class="tag">от 1,5 кг</span></div>
           <div class="body">
             <h3>Торт</h3>
-            <div class="meta"><span>1,5 кг ≈ 10 гостей</span><span>15+ начинок</span></div>
+            <div class="meta"><span>1,5 кг ≈ 7–8 порций</span><span>15+ начинок</span></div>
             <p>Юбилеи, свадьбы, дни рождения. Декор под ваш повод: надписи, ягоды, цветы, фигурки.</p>
             <div class="price"><b>3 000 ₽</b><small>за кг · торт 1,5 кг от 4 500 ₽</small></div>
             <button class="btn btn-berry btn-sm" type="button" data-type="cake">Собрать торт</button>
           </div>
         </article>
         <article class="fmt reveal">
-          <div class="ph"><img src="img/w-mini-hero.jpg" alt="Мини-торт на 5–6 порций" loading="lazy"><span class="tag">1,1–1,2 кг</span></div>
+          <div class="ph"><img src="img/w-mini-hero.jpg" alt="Светлый мини-торт с надписью на 5–6 порций" loading="lazy"><span class="tag">1,1–1,2 кг</span></div>
           <div class="body">
             <h3>Мини-торт</h3>
             <div class="meta"><span>5–6 порций</span><span>можно без крем-чиза</span></div>
@@ -550,7 +554,7 @@
           <div class="ph"><img src="img/w-bento-hero.jpg" alt="Бенто-торт с надписью" loading="lazy"><span class="tag">450 г</span></div>
           <div class="body">
             <h3>Бенто-торт</h3>
-            <div class="meta"><span>на 2–3 человек</span><span>можно на завтра</span></div>
+            <div class="meta"><span>2–3 порции</span><span>можно на завтра</span></div>
             <p>Маленький торт в коробочке с надписью. Простой дизайн: 2–3 слова, 1–2 цвета.</p>
             <div class="price"><b>2 000 ₽</b><small>сложный дизайн от 2 250 ₽</small></div>
             <button class="btn btn-berry btn-sm" type="button" data-type="bento">Собрать бенто</button>
@@ -622,7 +626,7 @@
             <div class="types">
               <label class="opt"><input type="radio" name="type" value="cake" checked><span>Торт<small>от 1,5 кг</small></span></label>
               <label class="opt"><input type="radio" name="type" value="mini"><span>Мини-торт<small>5–6 порций</small></span></label>
-              <label class="opt"><input type="radio" name="type" value="bento"><span>Бенто<small>2–3 человека</small></span></label>
+              <label class="opt"><input type="radio" name="type" value="bento"><span>Бенто<small>2–3 порции</small></span></label>
               <label class="opt"><input type="radio" name="type" value="none"><span>Только десерты<small>без торта</small></span></label>
             </div>
           </fieldset>
@@ -631,10 +635,10 @@
             <div class="step-t"><i>2</i>Размер и дизайн</div>
             <div id="sz-cake">
               <div class="range">
-                <div class="range-out"><b id="kg-out">2 кг</b><small id="guests-out">≈ 13 гостей</small></div>
+                <div class="range-out"><b id="kg-out">2 кг</b><small id="guests-out">≈ 10 порций</small></div>
                 <input type="range" id="kg" name="kg" min="1.5" max="6" step="0.5" value="2" aria-label="Вес торта, кг">
               </div>
-              <p class="hint">Ориентир: 1,5 кг примерно на 10 гостей. Перевес в подарок.</p>
+              <p class="hint">Считаю в среднем 200 г на порцию: торт 1,5 кг на 7–8 порций. Перевес в подарок.</p>
             </div>
             <div id="sz-mini" hidden><p class="hint" style="margin:0">Мини-торт весит 1,1–1,2 кг, хватает на 5–6 порций. Лаконичный дизайн входит в цену.</p></div>
             <div id="sz-bento" hidden>
@@ -833,7 +837,7 @@
       <div>
         <details class="qa"><summary>За сколько дней нужно заказывать?</summary><p>За 3–4 дня до даты. Если можете раньше, пишите раньше: дата может быть занята. За бронь за месяц и больше дарю скидку 5%.</p></details>
         <details class="qa"><summary>Можно заказать срочно?</summary><p>Да, срочные заказы без доплат, если есть свободное окно. Бенто-торты можно на завтра, а макарон всегда есть в наличии.</p></details>
-        <details class="qa"><summary>Сколько торта нужно на гостей?</summary><p>Ориентир такой: торт 1,5 кг примерно на 10 гостей, мини-торт на 5–6 порций, бенто на 2–3 человек. Перевес в подарок.</p></details>
+        <details class="qa"><summary>Сколько торта нужно на компанию?</summary><p>На порцию бисквитного торта обычно уходит 200–250 г, на корпоративе 150 г, поэтому считаю в среднем 200 г. Торт 1,5 кг на 7–8 порций, мини-торт на 5–6 порций, бенто на 2–3 порции. Перевес в подарок.</p></details>
         <details class="qa"><summary>Что входит в цену торта?</summary><p>Сам торт и мелкий декор. Свежие ягоды, фигурки из мастики и шоколада, печатные картинки и живые цветы оплачиваются отдельно, сумму назову при согласовании эскиза.</p></details>
         <details class="qa"><summary>Делаете торты без крем-чиза?</summary><p>Да, мини-торты на 1 кг можно сделать без крем-чиза. Расскажите, что любите, и подберу крем и начинку.</p></details>
         <details class="qa"><summary>Как устроена предоплата?</summary><p>После согласования вносите 50%. Если отменяете заранее, верну полностью. Если продукты уже куплены, верну часть. Если торт уже готов, предоплата не возвращается.</p></details>
@@ -944,28 +948,28 @@
   const NOTE = {
     cake: "Торты от 1,5 кг, 3 000 ₽ за кг. Состав можно менять: добавить ягоды, орехи, карамель или собрать начинку по вашим пожеланиям.",
     mini: "Мини-торт 1,1–1,2 кг на 5–6 порций, от 3 000 ₽ с простым лаконичным дизайном.",
-    bento: "Бенто 450 г на 2–3 человек. 2 000 ₽ с простым дизайном, сложный дизайн от 2 250 ₽."
+    bento: "Бенто 450 г на 2–3 порции. 2 000 ₽ с простым дизайном, сложный дизайн от 2 250 ₽."
   };
 
-  // Desserts and gift sets from the group's market
+  // Desserts the confectioner keeps (her list and prices, 07.11). p: null = price on request; v: box sizes; min: smallest order
   const DZ = [
-    {id: "fruits", n: "Ящик с фруктами", p: 8500, d: "Ящик из молочного шоколада, внутри торт и десерты-фрукты: яблоки, бананы, груши, мандарины, лимоны", img: "yashchik-frukty.jpg"},
     {id: "korpus", n: "Корпусные пирожные", p: 460, u: "2 шт", d: "Тонкий хрустящий шоколадный корпус и нежный мусс: лимон, черника, кофе, манго, малина, банан", img: "korpusnye.jpg"},
-    {id: "korpus-set", n: "Набор корпусных пирожных", p: 2750, d: "Нежные пирожные с минимумом сладости в тонком шоколадном корпусе", img: "korpusnye-nabor.jpg"},
-    {id: "teacup", n: "Торт в чайной паре", p: 2500, d: "Нежный тортик прямо в чашке: сладкое съедят, а из чашки ещё не раз выпьют чай", img: "chainaya-para.jpg"},
-    {id: "truffles", n: "Трюфели ручной работы", p: 1250, d: "Ассорти вкусов вместо привычной коробки конфет. Красивая упаковка и открытка", img: "tryufeli.jpg"},
-    {id: "box7", n: "Набор в круглой коробке", p: 1750, u: "7 шт", d: "Мадлен, картошка и макарон. Готовый подарок с открыткой", img: "nabor-7.jpg"},
-    {id: "hearts", n: "Набор «Птичка» сердца", p: 1000, d: "Сливочное шелковистое суфле с терпким какао", img: "serdtsa.jpg"},
-    {id: "kartoshka", n: "Беби-картошка", p: 1000, d: "Картошка в новом прочтении: ваниль, шоколад и фисташка в одном наборе", img: "kartoshka.jpg"},
-    {id: "cakebox", n: "Кейк-бокс", p: 800, d: "Малиновое тирамису в коробочке с крышкой. Топпер, лента и открытка в цене", img: "keik-boks.jpg"},
-    {id: "cup", n: "Торт в стакане", p: 850, d: "Ванильный бисквит, клубничная начинка, сливочный крем. Топпер, коробочка и открытка", img: "tort-v-stakane.jpg"},
-    {id: "moti", n: "Моти", p: 220, u: "1 шт", d: "Японское пирожное: воздушная начинка в тонком рисовом тесте", img: "moti.jpg"},
-    {id: "box6", n: "Набор десертов", p: 1500, u: "6 шт", d: "Макарон, картошка и мадлен с топпером и открыткой", img: "nabor-6.jpg"}
+    {id: "truffles", n: "Трюфели", d: "Ассорти вкусов ручной работы в коробке. Хороший подарок вместо привычных конфет", img: "tryufeli-nabory.jpg", v: [["5", 750], ["9", 1250], ["12", 1550]]},
+    {id: "eskimo", n: "Эскимо-картошка", p: 300, u: "1 шт", min: 6, d: "Ванильная или шоколадная, в глазури с декором. Заказ от 6 шт", img: "eskimo.jpg"},
+    {id: "trifle", n: "Трайфлы", p: 550, u: "1 шт", min: 2, d: "Торт в стакане: ванильный с ягодной начинкой, шоколад с карамелью и арахисом, красный бархат с клубникой, шоколадный трюфель. От 2 шт одного вкуса", img: "trifly.jpg"},
+    {id: "cupcakes", n: "Капкейки", p: 350, u: "1 шт", min: 4, d: "Кремовая шапочка, свежие ягоды и декор. Заказ от 4 шт одного вкуса", img: "kapkeyki.jpg"},
+    {id: "ptiche", n: "Птичье молоко", p: 1000, d: "Сливочное шелковистое суфле с терпким какао в форме сердечек", img: "serdtsa.jpg"},
+    {id: "macaron", n: "Макарон", p: 250, u: "1 шт", min: 4, d: "Миндальное пирожное с хрустящей корочкой и нежной начинкой. Заказ от 4 шт", img: "makaron.jpg"},
+    {id: "moti", n: "Моти", p: 220, u: "1 шт", min: 4, d: "Японское пирожное: воздушная начинка в тонком рисовом тесте. Заказ от 4 шт", img: "moti-box.jpg"}
   ];
+  // Each box size of a set is its own cart item: truffles-9 and so on
+  DZ.filter(x => x.v).forEach(x => x.v.forEach(([k, p]) => DZ.push({id: `${x.id}-${k}`, n: `${x.n}, ${k} шт`, p, of: x.id, hide: true})));
   const DZBY = Object.fromEntries(DZ.map(x => [x.id, x]));
 
   // Portfolio from the group's photo albums
   const WORKS = [
+    {"c": "mini", "f": "w-mini-hero.jpg", "a": "Светлый мини-торт с надписью", "w": 750, "h": 1000},
+    {"c": "mini", "f": "w-mini-chat1.jpg", "a": "Мини-торт с динозавриком и шарами", "w": 750, "h": 1000},
     {"c": "cake", "f": "w-cake-457244414.jpg", "a": "Торт с голубикой и золотым топпером", "w": 750, "h": 1000},
     {"c": "berry", "f": "w-berry-457243478.jpg", "a": "Белый торт с малиной и безе", "w": 750, "h": 1000},
     {"c": "bento", "f": "w-bento-457244383.jpg", "a": "Бенто «Ты всё сможешь»", "w": 750, "h": 1000},
@@ -1048,23 +1052,32 @@
   Object.keys(cart).forEach(k => { if (!DZBY[k] || !(cart[k] > 0)) delete cart[k]; });
   const save = () => { try { localStorage.setItem("sweet-accent-cart", JSON.stringify(cart)); } catch (e) {} };
   const qtyHtml = id => cart[id] ? `<div class="qty"><button type="button" data-dec="${id}" aria-label="Меньше">−</button><span>${cart[id]}</span><button type="button" data-inc="${id}" aria-label="Больше">+</button></div>` : `<button class="add" type="button" data-inc="${id}" aria-label="Добавить в заказ">+</button>`;
+  const pick = {};  // chosen box size per set
+  const dzPrice = x => x.v ? `<b>${rub(x.v.find(([k]) => k === (pick[x.id] || x.v[0][0]))[1])}</b><small>за ${pick[x.id] || x.v[0][0]} шт</small>`
+    : x.p == null ? `<b class="ask">по запросу</b>` : `<b>${rub(x.p)}</b>${x.u ? `<small>за ${x.u}${x.min ? `, от ${x.min} шт` : ""}</small>` : ""}`;
   function renderDz(){
-    $("dz-grid").innerHTML = DZ.map(x => `
+    $("dz-grid").innerHTML = DZ.filter(x => !x.hide).map(x => {
+      const id = x.v ? `${x.id}-${pick[x.id] || x.v[0][0]}` : x.id;
+      const sizes = x.v ? `<div class="sizes" role="group" aria-label="Сколько штук">${x.v.map(([k]) => `<button type="button" data-size="${x.id}:${k}" aria-pressed="${k === (pick[x.id] || x.v[0][0])}">${k} шт</button>`).join("")}</div>` : "";
+      return `
       <article class="dz">
         <div class="pic" data-full="img/${x.img}" data-cap="${esc(x.n)}"><img src="img/${x.img}" alt="${esc(x.n)}" loading="lazy"></div>
-        <div class="tx"><h3>${esc(x.n)}</h3><p>${esc(x.d)}</p>
-          <div class="row"><div><b>${rub(x.p)}</b>${x.u ? `<small>за ${x.u}</small>` : ""}</div>${qtyHtml(x.id)}</div>
+        <div class="tx"><h3>${esc(x.n)}</h3><p>${esc(x.d)}</p>${sizes}
+          <div class="row"><div>${dzPrice(x)}</div>${qtyHtml(id)}</div>
         </div>
-      </article>`).join("");
+      </article>`;
+    }).join("");
   }
   function changeQty(id, d){
-    const before = cart[id] || 0;
-    cart[id] = Math.max(0, before + d); if (!cart[id]) delete cart[id];
+    const before = cart[id] || 0, min = DZBY[id].min || 1;
+    cart[id] = d > 0 ? Math.max(min, before + d) : before + d < min ? 0 : before + d; if (!cart[id]) delete cart[id];
     save(); renderDz(); update();
     if (!before && d > 0) toast(`${DZBY[id].n} в заказе`);
   }
   document.addEventListener("click", e => {
     const inc = e.target.closest("[data-inc]"), dec = e.target.closest("[data-dec]");
+    const size = e.target.closest("[data-size]");
+    if (size){ const [k, v] = size.dataset.size.split(":"); pick[k] = v; renderDz(); return; }
     if (inc) changeQty(inc.dataset.inc, 1);
     if (dec) changeQty(dec.dataset.dec, -1);
   });
@@ -1097,7 +1110,7 @@
     if (t !== "none" && form.filling.value) lines.push([`Начинка: ${form.filling.value}`, ""]);
     const decor = t === "bento" || t === "none" ? [] : [...form.querySelectorAll("input[name=decor]:checked")].map(x => x.value);
     if (decor.length){ lines.push([decor.join(", "), "по эскизу"]); extra.push("декор"); }
-    Object.entries(cart).forEach(([id, q]) => { const x = DZBY[id]; sum += x.p * q; lines.push([`${x.n}${q > 1 ? ` × ${q}` : ""}`, rub(x.p * q)]); });
+    Object.entries(cart).forEach(([id, q]) => { const x = DZBY[id]; if (x.p == null){ lines.push([`${x.n}${q > 1 ? ` × ${q}` : ""}`, "уточню"]); extra.push(x.n.toLowerCase()); return; } sum += x.p * q; lines.push([`${x.n}${q > 1 ? ` × ${q}` : ""}`, rub(x.p * q)]); });
     const dd = daysTo(); let disc = 0;
     if (dd !== null && dd >= 30 && sum){ disc = Math.round(sum * .05); lines.push(["Ранняя бронь −5%", "−" + rub(disc)]); }
     const total = sum - disc;
@@ -1108,7 +1121,7 @@
   }
   function update(){
     const t = form.type.value;
-    if (t === "cake"){ const w = +kg.value; $("kg-out").textContent = String(w).replace(".", ",") + " кг"; $("guests-out").textContent = `≈ ${Math.round(w / .15)} гостей`; }
+    if (t === "cake"){ const w = +kg.value; $("kg-out").textContent = String(w).replace(".", ",") + " кг"; const lo = Math.floor(w * 5), hi = Math.ceil(w * 5); $("guests-out").textContent = `≈ ${lo === hi ? lo : lo + "–" + hi} порций`; }
     const {lines, total, extra} = calc();
     $("rlines").innerHTML = lines.map(([a, b]) => `<li class="${b === "в подарок" ? "gift" : b.startsWith("−") ? "minus" : ""}"><span>${esc(a)}</span><i></i><b>${esc(b)}</b></li>`).join("") || `<li><span>Пока пусто</span><i></i><b></b></li>`;
     $("r-total").textContent = (t === "mini" || (t === "bento" && form.design.value === "complex") ? "от " : "") + rub(total);
@@ -1122,7 +1135,7 @@
     else hint.textContent = "Хорошо, что заранее: дату за вами закреплю после предоплаты.";
     $("r-date").textContent = form.date.value ? new Date(form.date.value + "T12:00").toLocaleDateString("ru-RU", {day: "numeric", month: "long"}) : "дата не выбрана";
     const items = Object.entries(cart);
-    $("picked").innerHTML = items.length ? `<div class="picked">${items.map(([id, q]) => `<div class="ln"><span>${esc(DZBY[id].n)} <small>${rub(DZBY[id].p)}</small></span><div class="qty"><button type="button" data-dec="${id}" aria-label="Меньше">−</button><span>${q}</span><button type="button" data-inc="${id}" aria-label="Больше">+</button></div></div>`).join("")}</div>` : `<p class="empty">Можно добавить моти, трюфели, наборы пирожных. <a href="#desserts">Выбрать десерты</a></p>`;
+    $("picked").innerHTML = items.length ? `<div class="picked">${items.map(([id, q]) => `<div class="ln"><span>${esc(DZBY[id].n)} <small>${DZBY[id].p == null ? "цена по запросу" : rub(DZBY[id].p)}</small></span><div class="qty"><button type="button" data-dec="${id}" aria-label="Меньше">−</button><span>${q}</span><button type="button" data-inc="${id}" aria-label="Больше">+</button></div></div>`).join("")}</div>` : `<p class="empty">Можно добавить трайфлы, эскимо-картошку, трюфели или моти. <a href="#desserts">Выбрать десерты</a></p>`;
     $("addr-fld").hidden = form.get.value !== "delivery";
     // The bottom bar shows the sum only after the visitor has started an order
     $("mbar-go").textContent = (touched || items.length) && total ? `Заказ · ${rub(total)}` : "Заказать";
