@@ -1,0 +1,996 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Mikkitopt — торты, бенто и съедобные букеты на заказ в Невском районе</title>
+<meta name="description" content="Домашняя кондитерская в Невском районе Санкт-Петербурга: торты от 2 300 ₽ за кг, бенто с надписью за 2 000 ₽, букеты из клубники в шоколаде, мужские букеты и букеты с раками. Без маргарина и растительных сливок.">
+<meta name="theme-color" content="#F1EAFB">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M20 13c6.5 0 10.5 3.2 10.5 8 0 6.4-6 12.6-10.5 13.6C15.5 33.6 9.5 27.4 9.5 21c0-4.8 4-8 10.5-8z' fill='%23D3264D'/%3E%3Cpath d='M20 15.2c-1.4-2.6-4.4-4.1-7.4-3.6 1.6.8 2.8 1.8 3.5 2.9-2.4-.1-4.4.8-5.6 2.4 2.7-.4 5.3-.2 7.4.7-.9 1.1-1.2 2.6-1 4 1.6-.8 2.6-2.1 3.1-3.4.5 1.3 1.5 2.6 3.1 3.4.2-1.4-.1-2.9-1-4 2.1-.9 4.7-1.1 7.4-.7-1.2-1.6-3.2-2.5-5.6-2.4.7-1.1 1.9-2.1 3.5-2.9-3-.5-6 1-7.4 3.6z' fill='%233C8A57'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBF8FE;--wall:#F1EAFB;--lilac:#EAE0F8;--lilac-2:#CDB9EE;--violet:#7650B5;--violet-2:#56358F;
+    --ink:#26143A;--muted:#685A7C;--berry:#D3264D;--berry-2:#B01C3E;--leaf:#3C8A57;
+    --line:rgba(38,20,58,.12);--shadow:0 22px 46px -24px rgba(60,26,104,.5);
+    --disp:"Unbounded",system-ui,sans-serif;--hand:"Caveat","Segoe Print",cursive
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 "Golos Text",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden}
+  img{display:block;max-width:100%;height:auto}
+  a{color:inherit}
+  button,input,select,textarea{font:inherit;color:inherit}
+  h1,h2,h3{font-family:var(--disp);font-weight:600;letter-spacing:-.02em;line-height:1.14;margin:0}
+  :focus-visible{outline:2px solid var(--violet);outline-offset:2px}
+  [hidden]{display:none!important}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+  @media(min-width:720px){.wrap{padding:0 28px}}
+  .mock{background:var(--ink);color:#E9DFF8;text-align:center;font-size:13px;padding:8px 16px;line-height:1.4}
+
+  /* header */
+  .top{position:sticky;top:0;z-index:40;background:rgba(251,248,254,.88);-webkit-backdrop-filter:saturate(1.4) blur(12px);backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
+  .top.sc{border-bottom-color:var(--line)}
+  .top .wrap{display:flex;align-items:center;gap:18px;height:64px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
+  .logo svg{width:38px;height:38px;flex:none}
+  .logo b{display:block;font-family:var(--disp);font-weight:700;font-size:18px;letter-spacing:-.03em;line-height:1.1}
+  .logo small{display:block;font-size:12px;color:var(--muted);line-height:1.2;margin-top:2px}
+  .nav{display:none;gap:22px;margin-left:auto}
+  .nav a{text-decoration:none;font-weight:500;font-size:15px}
+  .nav a:hover{color:var(--violet)}
+  .top-tel{display:none;font-weight:600;text-decoration:none;white-space:nowrap}
+  .top .top-cta{display:none}
+  .burger{margin-left:auto;width:46px;height:46px;border:0;border-radius:14px;background:#fff;box-shadow:inset 0 0 0 1.5px var(--line);display:grid;place-items:center;cursor:pointer}
+  .burger span{display:block;width:18px;height:2px;background:var(--ink);border-radius:2px;box-shadow:0 -6px 0 var(--ink),0 6px 0 var(--ink)}
+  .menu{position:absolute;left:0;right:0;top:64px;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 30px 40px -30px rgba(40,20,70,.5);padding:8px 16px 18px}
+  .menu a{display:block;padding:13px 4px;text-decoration:none;font-weight:600;font-size:17px;border-bottom:1px solid var(--line)}
+  .menu a:last-child{border:0}
+  @media(min-width:1040px){.nav,.top-tel{display:flex}.top .top-cta{display:inline-flex}.burger,.menu{display:none!important}}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:15px 24px;font-weight:600;font-size:16px;line-height:1.2;text-decoration:none;cursor:pointer;transition:transform .15s,background .2s,box-shadow .2s;text-align:center}
+  .btn:active{transform:translateY(1px)}
+  .btn-berry{background:var(--berry);color:#fff;box-shadow:0 14px 26px -14px rgba(211,38,77,.9)}
+  .btn-berry:hover{background:var(--berry-2)}
+  .btn-ghost{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+  .btn-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--violet)}
+  .btn-sm{padding:11px 18px;font-size:15px}
+
+  /* hero */
+  .hero{position:relative;background:linear-gradient(180deg,var(--wall),#EADFF9);padding:38px 0 0;overflow:hidden}
+  .hero-in{position:relative;text-align:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;background:#fff;border-radius:999px;padding:7px 14px;font-size:13.5px;font-weight:500;color:var(--violet-2);box-shadow:0 8px 20px -12px rgba(60,26,104,.45);margin:0 0 18px}
+  .eyebrow i{width:8px;height:8px;border-radius:50%;background:var(--berry);flex:none}
+  .hero h1{font-size:clamp(30px,6.3vw,66px);max-width:960px;margin:0 auto}
+  .hero h1 em{font-style:normal;color:var(--berry)}
+  .note{display:inline-flex;align-items:center;gap:6px;font-family:var(--hand);font-weight:700;font-size:clamp(25px,3vw,31px);color:var(--violet);margin:6px 0 0;transform:rotate(-2deg)}
+  .note svg{width:46px;height:30px;flex:none}
+  .lead{max-width:640px;margin:12px auto 0;font-size:clamp(16px,1.7vw,18.5px);color:var(--muted)}
+  .cta{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:24px}
+  .trust{list-style:none;padding:0;margin:22px auto 0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 20px;font-size:14.5px;color:var(--muted)}
+  .trust li{display:flex;align-items:center;gap:6px}
+  .trust b{color:var(--ink)}
+  .trust .st{color:#E9A32B}
+  .shelf{position:relative;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:34px;padding-bottom:40px}
+  .shelf::before{content:"";position:absolute;left:-100vw;right:-100vw;top:40%;bottom:0;background:linear-gradient(180deg,#D5C2F0 0,#E3D6F6 55%,var(--bg) 100%);box-shadow:0 -1px 0 rgba(255,255,255,.7);z-index:0}
+  .item{position:relative;z-index:1;display:flex;flex-direction:column;background:#fff;border-radius:22px;padding:8px 8px 14px;text-decoration:none;box-shadow:var(--shadow);transition:transform .25s}
+  .item:hover{transform:translateY(-5px)}
+  .item img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:16px;background:var(--lilac)}
+  .item .nm{font-family:var(--disp);font-weight:600;font-size:13.5px;margin:12px 6px 3px;line-height:1.2;letter-spacing:-.01em}
+  .item .pr{display:flex;align-items:center;justify-content:space-between;margin:0 6px;font-weight:700;color:var(--berry);font-size:15px}
+  .item .pr i{font-style:normal;color:var(--ink);opacity:.45;font-weight:500}
+  @media(min-width:860px){.shelf{grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px;padding-bottom:56px}.item .nm{font-size:16px}.item .pr{font-size:16px}}
+
+  /* without */
+  .without{background:var(--ink);color:#fff;padding:56px 0}
+  .without h2{font-size:clamp(24px,3.4vw,38px)}
+  .strikes{display:flex;flex-wrap:wrap;gap:8px 26px;margin:24px 0 0;padding:0;list-style:none}
+  .strikes li{position:relative;font-family:var(--disp);font-weight:500;font-size:clamp(18px,2.2vw,26px);color:#CDB9EE;line-height:1.35;white-space:nowrap}
+  .strikes li::after{content:"";position:absolute;left:-4px;right:-4px;top:54%;height:3px;border-radius:3px;background:var(--berry);transform:rotate(-2deg) scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.6,0,.2,1) var(--d,0s)}
+  .strikes.on li::after{transform:rotate(-2deg) scaleX(1)}
+  .without .txt{color:#D9CDEA;max-width:600px;margin:22px 0 0;font-size:17px}
+  .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:30px}
+  .facts div{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:16px}
+  .facts b{display:block;font-family:var(--disp);font-weight:600;font-size:clamp(18px,2vw,24px);color:#fff;line-height:1.2;white-space:nowrap}
+  .facts span{display:block;font-size:14px;color:#CBBEDF;margin-top:4px;line-height:1.35}
+  @media(min-width:900px){.without{padding:72px 0}.without .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center}.facts{margin:0}}
+  @media (prefers-reduced-motion:reduce){.strikes li::after{transition:none}}
+
+  /* sections */
+  .sec{padding:60px 0}
+  main section[id]{scroll-margin-top:22px}
+  @media(min-width:860px){.sec{padding:88px 0}}
+  .head{max-width:740px;margin-bottom:26px}
+  .kick{display:inline-block;font-family:var(--hand);font-weight:700;font-size:28px;line-height:1;color:var(--violet);transform:rotate(-3deg);margin-bottom:8px}
+  .head h2{font-size:clamp(26px,4vw,44px)}
+  .head p{color:var(--muted);margin:12px 0 0;font-size:17px}
+
+  /* prices + tabs + gallery */
+  .prices{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:0 0 12px}
+  .price{background:#fff;border-radius:20px;padding:14px 16px;box-shadow:inset 0 0 0 1px var(--line)}
+  .price span{display:block;font-size:14px;color:var(--muted);line-height:1.3}
+  .price b{display:block;font-family:var(--disp);font-weight:600;font-size:clamp(16px,2vw,21px);margin-top:4px;white-space:nowrap}
+  .price.hot{background:var(--berry);color:#fff;box-shadow:none}
+  .price.hot span{color:#FFDDE4}
+  @media(min-width:860px){.prices{grid-template-columns:repeat(4,1fr);gap:14px}}
+  .pnote{font-size:14.5px;color:var(--muted);margin:0 0 28px}
+  .tabs{display:flex;gap:8px;overflow-x:auto;margin:0 -16px 18px;padding:2px 16px 8px;scrollbar-width:none}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:none;border:0;background:#fff;border-radius:999px;padding:10px 16px;font-weight:500;font-size:15px;cursor:pointer;box-shadow:inset 0 0 0 1.5px var(--line);white-space:nowrap}
+  .tab:hover{box-shadow:inset 0 0 0 1.5px var(--violet)}
+  .tab[aria-selected=true]{background:var(--ink);color:#fff;box-shadow:none}
+  @media(min-width:720px){.tabs{flex-wrap:wrap;overflow:visible;margin:0 0 22px;padding:2px 0 0}}
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px 12px;align-items:start}
+  @media(min-width:720px){.grid{grid-template-columns:repeat(3,1fr);gap:24px 18px}}
+  @media(min-width:1040px){.grid{grid-template-columns:repeat(4,1fr)}}
+  .card{position:relative;display:block;width:100%;border:0;padding:0;background:none;text-align:left;cursor:pointer}
+  .card .ph{display:block;border-radius:20px;overflow:hidden;background:var(--lilac)}
+  .card img{width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform .35s}
+  .card:hover img{transform:scale(1.035)}
+  .card .plus{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.94);display:grid;place-items:center;font-size:22px;line-height:1;color:var(--berry);box-shadow:0 6px 14px -8px rgba(0,0,0,.45)}
+  .card .cap{display:block;margin:9px 4px 0;font-size:14.5px;font-weight:500;line-height:1.3}
+  .more{display:flex;justify-content:center;margin-top:28px}
+
+  /* bento */
+  .bento{background:linear-gradient(180deg,var(--bg),#F2EBFB 40%,var(--bg))}
+  .bento-grid{display:grid;gap:24px}
+  .bento-grid .head{margin-bottom:0}
+  @media(min-width:920px){.bento-grid{grid-template-columns:1fr 1fr;grid-template-areas:"scene head" "scene ctl";grid-template-rows:auto 1fr;gap:22px 56px}.b-scene{grid-area:scene;align-self:center}.bento-grid .head{grid-area:head}.bento-grid .ctl{grid-area:ctl}}
+  .scene{position:relative;width:100%;max-width:440px;aspect-ratio:1;margin:0 auto;border-radius:34px;overflow:hidden;background:linear-gradient(165deg,#E6D9F8 0%,#D7C4F1 52%,#C9B1EC 52.2%,#BFA4E8 100%);box-shadow:var(--shadow)}
+  .box{position:absolute;left:12%;right:12%;top:8%;bottom:8%}
+  .lid{position:absolute;left:5%;right:5%;top:0;height:31%;border-radius:22px 22px 10px 10px;background:linear-gradient(180deg,#fff,#F1EDF4);box-shadow:inset 0 0 0 2px #fff,inset 0 -12px 18px -12px rgba(80,60,110,.3),0 10px 18px -12px rgba(40,20,70,.4);transform:perspective(520px) rotateX(36deg);transform-origin:bottom}
+  .lid::before{content:"";position:absolute;inset:14% 9%;border-radius:14px;box-shadow:inset 0 0 0 2px rgba(190,180,205,.55)}
+  .tray{position:absolute;left:0;right:0;top:28%;bottom:0;border-radius:18px 18px 28px 28px;background:linear-gradient(180deg,#FBFAFC,#EEEAF2);box-shadow:inset 0 0 0 8px #fff,inset 0 0 0 10px rgba(190,180,205,.5),0 24px 32px -20px rgba(40,20,70,.6)}
+  .paper{position:absolute;left:15%;right:15%;top:11%;bottom:11%;background:#CFA77A;opacity:.72;transform:rotate(10deg);border-radius:5px}
+  .paper.p2{transform:rotate(-14deg);opacity:.5}
+  .cake{position:absolute;left:50%;top:50%;width:67%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle at 34% 28%,rgba(255,255,255,.5),transparent 52%),var(--cc,#FFFDF8);box-shadow:inset 0 -12px 20px -10px rgba(60,30,40,.28),0 12px 20px -10px rgba(60,30,40,.55);display:grid;place-items:center;transition:background .3s}
+  .cake::before{content:"";position:absolute;inset:3.2%;border-radius:50%;border:7px dotted var(--pipe,#EDE3DA)}
+  .ins{position:relative;z-index:2;width:100%;margin:0;padding:0 17%;font-family:var(--hand);font-weight:700;line-height:1.02;text-align:center;color:var(--ic,#4A2A22);transform:rotate(-4deg);font-size:34px}
+  .ins.ph{opacity:.45}
+  .deco{position:absolute;inset:0;pointer-events:none;z-index:1}
+  .deco .h{position:absolute;transform:translate(-50%,-50%);font-size:clamp(12px,2.6vw,17px);line-height:1;color:var(--hc,#D3264D)}
+  .deco .b{position:absolute;width:12%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50% 50% 46% 46%/58% 58% 42% 42%;background:radial-gradient(circle at 35% 30%,#ff8a9f 0 12%,transparent 30%),radial-gradient(circle at 50% 55%,#E0294F,#A3122F);box-shadow:0 3px 5px -2px rgba(60,10,20,.5)}
+  .deco .b::after{content:"";position:absolute;left:28%;right:28%;top:-12%;height:26%;border-radius:50% 50% 30% 30%;background:#3C8A57}
+  .ctl{display:grid;gap:20px}
+  .fl{display:block;font-weight:600;font-size:15px;margin-bottom:8px}
+  .inp{width:100%;border:0;background:#fff;border-radius:16px;padding:14px 16px;box-shadow:inset 0 0 0 1.5px var(--line);font-size:16px}
+  .inp:focus{outline:none;box-shadow:inset 0 0 0 2px var(--violet)}
+  textarea.inp{min-height:96px;resize:vertical}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{border:0;background:#fff;border-radius:999px;padding:9px 14px;font-size:14.5px;cursor:pointer;box-shadow:inset 0 0 0 1.5px var(--line);display:inline-flex;align-items:center;gap:8px;line-height:1.2}
+  .chip:hover{box-shadow:inset 0 0 0 1.5px var(--violet)}
+  .chip[aria-pressed=true]{box-shadow:inset 0 0 0 2px var(--ink);font-weight:600}
+  .chip .sw{width:18px;height:18px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(0,0,0,.18);flex:none}
+  .quick .chip{font-family:var(--hand);font-weight:700;font-size:19px;padding:6px 14px}
+  .count{font-size:13px;color:var(--muted);margin-top:6px;text-align:right}
+  .buy{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;background:#fff;border-radius:22px;padding:16px 16px 16px 20px;box-shadow:var(--shadow)}
+  .buy b{display:block;font-family:var(--disp);font-weight:600;font-size:26px;line-height:1.1}
+  .buy span{font-size:14px;color:var(--muted)}
+  .rail-h{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:56px 0 16px}
+  .rail-h h3{font-size:clamp(18px,2.2vw,24px)}
+  .arrows{display:none;gap:8px}
+  .arrows button{width:46px;height:46px;border-radius:50%;border:0;background:#fff;box-shadow:inset 0 0 0 1.5px var(--line);cursor:pointer;font-size:18px}
+  .arrows button:hover{box-shadow:inset 0 0 0 1.5px var(--violet)}
+  .rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 10px;scrollbar-width:thin;scrollbar-color:var(--lilac-2) transparent}
+  .rail img{flex:none;width:190px;height:190px;object-fit:cover;border-radius:20px;scroll-snap-align:start;background:var(--lilac)}
+  @media(min-width:720px){.arrows{display:flex}.rail{margin:0;padding:0 0 10px}.rail img{width:232px;height:232px}}
+
+  /* bouquets */
+  .bq-top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 16px;margin:0 0 18px}
+  .bq-top p{margin:0;color:var(--muted);font-size:15px}
+  .bq-top b{font-family:var(--disp);font-weight:600;font-size:24px;color:var(--berry);white-space:nowrap}
+  .bq-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  @media(min-width:720px){.bq-grid{grid-template-columns:repeat(3,1fr);gap:18px}}
+  @media(min-width:1040px){.bq-grid{grid-template-columns:repeat(4,1fr)}}
+  .bq{display:flex;flex-direction:column;background:#fff;border-radius:22px;padding:8px 8px 14px;box-shadow:inset 0 0 0 1px var(--line)}
+  .bq img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:16px;background:var(--lilac)}
+  .bq h3{font-size:14.5px;font-weight:600;letter-spacing:-.01em;margin:12px 6px 5px;line-height:1.25}
+  .bq p{margin:0 6px;font-size:13.5px;color:var(--muted);line-height:1.4;flex:1}
+  .bq .sz{margin:8px 6px 0;font-size:13px;font-weight:600;color:var(--violet-2)}
+  .bq .add{margin:12px 6px 0;align-self:flex-start;border:0;background:var(--lilac);border-radius:999px;padding:9px 14px;font-weight:600;font-size:14px;cursor:pointer}
+  .bq .add:hover{background:var(--lilac-2)}
+  .bq .add.on{background:var(--ink);color:#fff}
+  .bq-note{margin:22px 0 0;font-size:15px;color:var(--muted)}
+
+  /* slice */
+  .fill-grid{display:grid;gap:28px}
+  @media(min-width:920px){.fill-grid{grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}.slice-card{position:sticky;top:90px}}
+  .slice-card{background:linear-gradient(165deg,#EEE5FB 0%,#DCCBF3 60%,#D0BCEF 100%);border-radius:34px;padding:30px 22px 22px;box-shadow:var(--shadow)}
+  .slice-wrap{position:relative;width:min(300px,80%);margin:48px auto 0}
+  .slice{position:relative;height:250px;display:flex;flex-direction:column;border-radius:6px 6px 2px 2px;overflow:hidden;box-shadow:12px 14px 26px -16px rgba(40,20,70,.55)}
+  .slice .l{flex:none;transition:background-color .35s}
+  .slice .sp{height:21%;background-color:var(--sp);background-image:radial-gradient(circle at 20% 35%,rgba(0,0,0,.09) 0 1.6px,transparent 2.4px),radial-gradient(circle at 70% 70%,rgba(0,0,0,.07) 0 1.4px,transparent 2.2px),linear-gradient(180deg,rgba(255,255,255,.12),rgba(0,0,0,.06));background-size:17px 12px,13px 15px,100% 100%}
+  .slice .fi{height:10%;background-color:var(--fi);background-image:radial-gradient(circle at 30% 50%,rgba(255,255,255,.25) 0 2px,transparent 3px),radial-gradient(circle at 75% 40%,rgba(0,0,0,.12) 0 2px,transparent 3px);background-size:22px 100%,19px 100%}
+  .slice .cr{height:6%;background-color:var(--cr)}
+  .slice .tp{height:5%;background-color:var(--cr);box-shadow:inset 0 -3px 4px -2px rgba(0,0,0,.08)}
+  .berries{position:absolute;left:0;right:0;top:-24px;display:flex;justify-content:center;gap:10px;z-index:2}
+  .berries i{width:34px;height:30px;border-radius:50% 50% 46% 46%/58% 58% 42% 42%;background:radial-gradient(circle at 35% 30%,#ff8a9f 0 12%,transparent 30%),radial-gradient(circle at 50% 55%,#E0294F,#A3122F);position:relative;box-shadow:0 4px 6px -3px rgba(60,10,20,.5)}
+  .berries i::after{content:"";position:absolute;left:30%;right:30%;top:-5px;height:8px;border-radius:50%;background:#3C8A57}
+  .berries i:nth-child(2){width:26px;height:24px;margin-top:8px;background:radial-gradient(circle at 40% 35%,#9a8fe6 0 14%,transparent 32%),radial-gradient(circle,#4B3F8C,#2C2260)}
+  .berries i:nth-child(2)::after{display:none}
+  .plate{width:118%;margin:-6px 0 0 -9%;height:24px;border-radius:50%;background:linear-gradient(180deg,#fff,#EEE9F3);box-shadow:0 12px 18px -10px rgba(40,20,70,.5)}
+  .summary{margin-top:22px;background:#fff;border-radius:20px;padding:16px 18px;font-size:15.5px}
+  .summary b{font-weight:700}
+  .summary .btn{margin-top:12px;width:100%}
+  .grp+.grp{margin-top:24px}
+  .grp h3{font-family:"Golos Text",sans-serif;font-weight:700;font-size:17px;letter-spacing:0;margin:0 0 10px}
+  .fdesc{font-size:14.5px;color:var(--muted);margin:10px 0 0;min-height:22px}
+
+  /* reviews */
+  .reviews{background:#fff}
+  .rev-grid{display:grid;gap:22px}
+  @media(min-width:980px){.rev-grid{grid-template-columns:350px 1fr;gap:40px;align-items:start}.fw{position:sticky;top:90px}}
+  .fw{background:var(--ink);color:#fff;border-radius:30px;padding:26px}
+  .fw .row{display:flex;align-items:center;gap:16px}
+  .fw .big{font-family:var(--disp);font-size:62px;font-weight:600;line-height:1}
+  .stars{position:relative;display:inline-block;font-size:21px;letter-spacing:3px;color:rgba(255,255,255,.22);line-height:1}
+  .stars::before{content:"★★★★★";position:absolute;left:0;top:0;width:var(--p,100%);overflow:hidden;color:#F5B83D;white-space:nowrap}
+  .fw small{display:block;color:#CDBFE2;font-size:14px;margin-top:6px}
+  .bars{display:grid;gap:12px;margin:24px 0}
+  .bar{display:grid;grid-template-columns:1fr auto;gap:5px 10px;font-size:14px;color:#E4DAF2}
+  .bar i{grid-column:1/-1;height:6px;border-radius:6px;background:rgba(255,255,255,.14);overflow:hidden}
+  .bar i::before{content:"";display:block;height:100%;width:var(--w);border-radius:6px;background:linear-gradient(90deg,#CDB9EE,#F4A3B7)}
+  .fw .q{font-family:var(--hand);font-size:24px;line-height:1.15;color:#fff;margin:0 0 18px}
+  .fw .btn{width:100%;background:#fff;color:var(--ink)}
+  .rev-list{columns:1;column-gap:18px}
+  @media(min-width:700px){.rev-list{columns:2}}
+  .rev{break-inside:avoid;background:var(--bg);border-radius:24px;padding:20px;margin:0 0 18px;display:inline-block;width:100%}
+  .rev header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+  .ava{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-family:var(--disp);font-weight:600;color:#fff;background:var(--violet);flex:none}
+  .rev h3{font-family:"Golos Text",sans-serif;font-size:16px;font-weight:700;letter-spacing:0}
+  .rev .src{display:block;font-size:13px;color:var(--muted);line-height:1.3}
+  .rev .s5{color:#E9A32B;letter-spacing:2px;font-size:14px;margin-left:auto;flex:none}
+  .rev p{margin:0;font-size:15.5px}
+  .rev img{margin-top:14px;width:118px;height:148px;object-fit:cover;border-radius:14px}
+  .rev-more{display:none}
+  @media(max-width:699px){.rev-list.cut .rev:nth-child(n+4){display:none}.rev-more{display:flex;justify-content:center;margin-top:4px}}
+
+  /* delivery */
+  .steps{display:grid;gap:12px;counter-reset:s;margin:0 0 30px;padding:0;list-style:none}
+  @media(min-width:860px){.steps{grid-template-columns:repeat(4,1fr);gap:18px}}
+  .steps li{background:#fff;border-radius:24px;padding:20px;box-shadow:inset 0 0 0 1px var(--line);counter-increment:s}
+  .steps li::before{content:counter(s);display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:var(--lilac);font-family:var(--disp);font-weight:600;color:var(--violet-2);margin-bottom:12px}
+  .steps b{display:block;margin-bottom:4px;font-size:16.5px}
+  .steps span{display:block;font-size:15px;color:var(--muted)}
+  .get{display:grid;gap:18px}
+  @media(min-width:900px){.get{grid-template-columns:1.25fr 1fr}}
+  .map{position:relative;border-radius:30px;overflow:hidden;min-height:320px;background:#E5DCF6}
+  .map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .pin{position:absolute;left:50%;top:50%;width:42px;height:54px;transform:translate(-50%,-100%);filter:drop-shadow(0 6px 6px rgba(40,10,30,.35))}
+  .tag{position:absolute;left:50%;top:50%;transform:translate(-50%,10px);background:#fff;border-radius:12px;padding:6px 12px;font-weight:600;font-size:14px;white-space:nowrap;box-shadow:0 8px 18px -10px rgba(40,20,70,.6)}
+  .osm{position:absolute;right:8px;top:8px;font-size:11px;background:rgba(255,255,255,.85);padding:2px 7px;border-radius:7px;color:#4a3d5c}
+  .map .mb{position:absolute;left:12px;bottom:12px;right:12px;display:flex;gap:8px;flex-wrap:wrap}
+  .map .mb .btn{padding:10px 15px;font-size:14px}
+  .gc-list{display:grid;gap:12px}
+  .gc{background:#fff;border-radius:24px;padding:20px;box-shadow:inset 0 0 0 1px var(--line)}
+  .gc h3{font-size:18px;margin-bottom:8px}
+  .gc p{margin:0;color:var(--muted);font-size:15.5px}
+  .gc p+p{margin-top:6px}
+  .gc b{color:var(--ink)}
+
+  /* faq */
+  .faq-list{display:grid;gap:10px;max-width:880px}
+  .qa{background:#fff;border-radius:20px;box-shadow:inset 0 0 0 1px var(--line)}
+  .qa summary{list-style:none;cursor:pointer;padding:18px 56px 18px 20px;font-weight:600;position:relative;font-size:16.5px}
+  .qa summary::-webkit-details-marker{display:none}
+  .qa summary::after{content:"+";position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:26px;font-weight:400;color:var(--violet)}
+  .qa[open] summary::after{content:"−"}
+  .qa p{margin:0;padding:0 20px 18px;color:var(--muted)}
+
+  /* order */
+  .order{background:linear-gradient(180deg,#F2EBFB,var(--bg))}
+  .order-grid{display:grid;gap:22px}
+  @media(min-width:980px){.order-grid{grid-template-columns:1.4fr 1fr;gap:36px;align-items:start}}
+  form.f{background:#fff;border-radius:30px;padding:22px 18px;box-shadow:var(--shadow);display:grid;gap:18px;min-width:0}
+  @media(min-width:720px){form.f{padding:32px}}
+  .row2{display:grid;gap:18px}
+  @media(min-width:600px){.row2{grid-template-columns:1fr 1fr;gap:14px}}
+  .seg{display:flex;flex-wrap:wrap;gap:8px}
+  .seg input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+  .seg label{border-radius:999px;padding:10px 15px;background:var(--bg);box-shadow:inset 0 0 0 1.5px var(--line);cursor:pointer;font-size:15px;line-height:1.2}
+  .seg input:checked+label{background:var(--ink);color:#fff;box-shadow:none}
+  .seg input:focus-visible+label{outline:2px solid var(--violet);outline-offset:2px}
+  .opt{font-weight:400;color:var(--muted)}
+  .picks{display:flex;flex-wrap:wrap;gap:8px}
+  .picks .empty{font-size:14px;color:var(--muted)}
+  .pk{display:inline-flex;align-items:center;gap:8px;background:var(--lilac);border-radius:999px;padding:4px 5px 4px 4px;font-size:14px;max-width:100%}
+  .pk img{width:30px;height:30px;border-radius:50%;object-fit:cover;flex:none}
+  .pk span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .pk button{flex:none;border:0;background:#fff;width:26px;height:26px;border-radius:50%;cursor:pointer;font-size:16px;line-height:1}
+  .consent{display:flex;gap:10px;font-size:14px;color:var(--muted);align-items:flex-start;line-height:1.45}
+  .consent input{width:20px;height:20px;flex:none;margin:1px 0 0;accent-color:var(--berry)}
+  .err{color:var(--berry-2);font-weight:600;margin:0;min-height:0}
+  .err:empty{display:none}
+  .sent{background:#E8F5EC;color:#1E5B36;border-radius:18px;padding:16px;font-weight:600}
+  .fallback{background:#FFF0F3;border-radius:18px;padding:16px;display:grid;gap:10px}
+  .fallback p{margin:0}
+  .fallback .chips .btn{padding:11px 16px;font-size:15px}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+  .contacts{display:grid;gap:12px}
+  .ct{display:flex;align-items:center;gap:14px;background:#fff;border-radius:22px;padding:16px;text-decoration:none;box-shadow:inset 0 0 0 1px var(--line);transition:box-shadow .2s}
+  a.ct:hover{box-shadow:inset 0 0 0 1.5px var(--violet)}
+  .ct .ic{width:48px;height:48px;border-radius:15px;display:grid;place-items:center;flex:none;color:#fff}
+  .ct .ic svg{width:24px;height:24px}
+  .ct b{display:block;font-size:16px}
+  .ct span{display:block;font-size:14px;color:var(--muted);line-height:1.35}
+  .aside-note{font-family:var(--hand);font-size:24px;line-height:1.15;color:var(--violet);margin:6px 4px 0;transform:rotate(-1.5deg)}
+
+  /* footer, bar, dialog, toast */
+  footer{background:var(--ink);color:#D8CCEA;padding:44px 0 120px;font-size:14.5px}
+  @media(min-width:1040px){footer{padding-bottom:44px}}
+  footer .wrap{display:grid;gap:24px}
+  @media(min-width:860px){footer .wrap{grid-template-columns:1.3fr 1fr 1fr}}
+  footer a{color:#fff;text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  footer p{margin:0 0 6px}
+  footer .logo b{color:#fff}
+  footer .logo small{color:#CBBEDF}
+  .mbar{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom));z-index:50;display:grid;grid-template-columns:auto auto 1fr;gap:8px;background:rgba(38,20,58,.95);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);padding:8px;border-radius:22px;box-shadow:0 18px 40px -14px rgba(20,8,40,.65)}
+  .mbar a{display:flex;align-items:center;justify-content:center;gap:7px;height:48px;border-radius:16px;text-decoration:none;font-weight:600;color:#fff;padding:0 14px;font-size:15px}
+  .mbar a svg{width:20px;height:20px;flex:none}
+  .mbar .s{background:rgba(255,255,255,.1)}
+  .mbar .go{background:var(--berry)}
+  @media(min-width:1040px){.mbar{display:none}}
+  dialog.lb{border:0;padding:0;border-radius:26px;width:min(520px,calc(100vw - 24px));max-height:calc(100vh - 24px);background:#fff;box-shadow:0 30px 80px -20px rgba(20,8,40,.6);overflow:auto;color:var(--ink)}
+  dialog.lb::backdrop{background:rgba(30,14,48,.62)}
+  .lb img{width:100%;aspect-ratio:4/5;max-height:62vh;object-fit:cover;background:var(--lilac)}
+  .lb .lb-b{padding:16px 18px 18px;display:grid;gap:10px}
+  .lb h3{font-size:18px}
+  .lb p{margin:0;color:var(--muted);font-size:15px}
+  .lb .x{position:absolute;right:10px;top:10px;width:42px;height:42px;border-radius:50%;border:0;background:rgba(255,255,255,.94);font-size:24px;line-height:1;cursor:pointer;box-shadow:0 6px 14px -8px rgba(0,0,0,.5)}
+  .toast{position:fixed;left:50%;bottom:calc(92px + env(safe-area-inset-bottom));transform:translate(-50%,16px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:16px;font-weight:500;font-size:15px;opacity:0;pointer-events:none;transition:.25s;z-index:60;width:max-content;max-width:calc(100vw - 32px);text-align:center;box-shadow:0 14px 30px -12px rgba(20,8,40,.6)}
+  .toast.show{opacity:1;transform:translate(-50%,0)}
+  @media(min-width:1040px){.toast{bottom:28px}}
+</style>
+</head>
+<body>
+<div class="mock">Макет сайта. После согласования подключим имя сайта и заявки вам в сообщения</div>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="Mikkitopt, на главную">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#EAE0F8"/><path d="M20 13c6.5 0 10.5 3.2 10.5 8 0 6.4-6 12.6-10.5 13.6C15.5 33.6 9.5 27.4 9.5 21c0-4.8 4-8 10.5-8z" fill="#D3264D"/><path d="M20 15.2c-1.4-2.6-4.4-4.1-7.4-3.6 1.6.8 2.8 1.8 3.5 2.9-2.4-.1-4.4.8-5.6 2.4 2.7-.4 5.3-.2 7.4.7-.9 1.1-1.2 2.6-1 4 1.6-.8 2.6-2.1 3.1-3.4.5 1.3 1.5 2.6 3.1 3.4.2-1.4-.1-2.9-1-4 2.1-.9 4.7-1.1 7.4-.7-1.2-1.6-3.2-2.5-5.6-2.4.7-1.1 1.9-2.1 3.5-2.9-3-.5-6 1-7.4 3.6z" fill="#3C8A57"/><g fill="#FFE2A8"><circle cx="15.5" cy="22" r=".95"/><circle cx="20" cy="21.2" r=".95"/><circle cx="24.5" cy="22" r=".95"/><circle cx="17.3" cy="26.2" r=".95"/><circle cx="22.7" cy="26.2" r=".95"/><circle cx="20" cy="30.2" r=".95"/></g></svg>
+      <span><b>Mikkitopt</b><small>торты и съедобные букеты</small></span>
+    </a>
+    <nav class="nav" aria-label="Разделы">
+      <a href="#cakes">Торты</a><a href="#bento">Бенто</a><a href="#bouquets">Букеты</a><a href="#fillings">Начинки</a><a href="#reviews">Отзывы</a><a href="#delivery">Самовывоз</a>
+    </nav>
+    <a class="top-tel" href="tel:+79967893814">8 996 789-38-14</a>
+    <a class="btn btn-berry btn-sm top-cta" href="#order">Заказать</a>
+    <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false"><span></span></button>
+  </div>
+  <nav class="menu" id="menu" hidden aria-label="Меню">
+    <a href="#cakes">Торты</a><a href="#bento">Бенто с надписью</a><a href="#bouquets">Съедобные букеты</a><a href="#fillings">Начинки</a><a href="#reviews">Отзывы</a><a href="#delivery">Самовывоз и доставка</a><a href="#order">Оставить заявку</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap hero-in">
+    <p class="eyebrow"><i></i>Домашняя кондитерская в Невском районе</p>
+    <h1>Торты, бенто и букеты <em>из&nbsp;клубники</em></h1>
+    <p class="note">сделаю к вашему празднику
+      <svg viewBox="0 0 46 30" fill="none" aria-hidden="true"><path d="M2 6c10 1 22 4 30 12 3 3 5 6 6 9" stroke="#7650B5" stroke-width="2.4" stroke-linecap="round"/><path d="M31 22l7 5 1-9" stroke="#7650B5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </p>
+    <p class="lead">Всё делаю вручную, без маргарина и растительных сливок. Принимаю заказы минимум за 2 дня, самовывоз в Невском районе или доставка по Петербургу.</p>
+    <div class="cta">
+      <a class="btn btn-berry" href="#order">Оставить заявку</a>
+      <a class="btn btn-ghost" href="#cakes">Смотреть работы</a>
+    </div>
+    <ul class="trust">
+      <li><span class="st">★</span><b>4,65</b> на Flowwow, 884 оценки</li>
+      <li><b>542</b> покупки только через Flowwow</li>
+      <li><b>каждый день</b> с 10:00 до 21:00</li>
+    </ul>
+  </div>
+  <div class="wrap shelf">
+    <a class="item" href="#cakes"><img src="img/h242064.jpg" alt="Ягодный торт с шоколадными подтёками" width="800" height="1000"><span class="nm">Торты</span><span class="pr">от 2 300 ₽/кг <i>→</i></span></a>
+    <a class="item" href="#bento"><img src="img/h241895.jpg" alt="Бенто-торт с надписью «Делай мир ярче!»" width="800" height="1000"><span class="nm">Бенто с надписью</span><span class="pr">2 000 ₽ <i>→</i></span></a>
+    <a class="item" href="#bouquets" data-bq="straw"><img src="img/hf-buket-iz-klubniki-lyubov.jpg" alt="Букет из клубники и красных роз" width="800" height="1000"><span class="nm">Букеты из клубники</span><span class="pr">от 4 000 ₽ <i>→</i></span></a>
+    <a class="item" href="#bouquets" data-bq="raki"><img src="img/hf-buket-s-rakami-i-limonom.jpg" alt="Мужской букет с раками и лимоном" width="800" height="1000"><span class="nm">Букеты с раками</span><span class="pr">от 4 300 ₽ <i>→</i></span></a>
+  </div>
+</section>
+
+<section class="without" aria-labelledby="wo-h">
+  <div class="wrap">
+    <div>
+      <h2 id="wo-h">Чего нет в моих тортах</h2>
+      <ul class="strikes" id="strikes">
+        <li>маргарин</li><li style="--d:.12s">растительные сливки</li><li style="--d:.24s">пальмовое масло</li><li style="--d:.36s">ароматизаторы</li><li style="--d:.48s">загустители</li>
+      </ul>
+      <p class="txt">Крем на сливках и творожном сыре, свежие ягоды и домашние конфи из малины, клубники и вишни. Каждый торт, бенто и букет собираю сама, руками.</p>
+    </div>
+    <div class="facts">
+      <div><b>4,65 ★</b><span>средняя оценка на Flowwow</span></div>
+      <div><b>542</b><span>покупки на Flowwow с 2022 года</span></div>
+      <div><b>за 2 дня</b><span>минимальный срок заказа</span></div>
+      <div><b>10:00–21:00</b><span>каждый день, самовывоз в Невском районе</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="cakes" aria-labelledby="c-h">
+  <div class="wrap">
+    <div class="head">
+      <span class="kick">торты</span>
+      <h2 id="c-h">Торты на любой праздник</h2>
+      <p>Свежие работы из группы ВКонтакте. Нажмите на фото, чтобы рассмотреть торт и добавить его в заявку как пример.</p>
+    </div>
+    <div class="prices">
+      <div class="price"><span>Торт с кремом</span><b>от 2 300 ₽/кг</b></div>
+      <div class="price hot"><span>Со свежими ягодами</span><b>2 700 ₽/кг</b></div>
+      <div class="price"><span>3D-торты</span><b>от 3 000 ₽</b></div>
+      <div class="price"><span>Бенто с надписью</span><b>2 000 ₽</b></div>
+    </div>
+    <p class="pnote">Точная цена зависит от веса и сложности декора: назову её, когда согласуем дизайн.</p>
+    <div class="tabs" role="tablist" aria-label="Категории тортов" id="ctabs"></div>
+    <div class="grid" id="cgrid"></div>
+    <div class="more"><button class="btn btn-ghost" type="button" id="cmore">Показать ещё</button></div>
+  </div>
+</section>
+
+<section class="sec bento" id="bento" aria-labelledby="b-h">
+  <div class="wrap">
+    <div class="bento-grid">
+      <div class="head">
+        <span class="kick">бенто</span>
+        <h2 id="b-h">Бенто с вашей надписью</h2>
+        <p>Маленький торт 500–600 г на 1–2 человек в ланч-боксе. Напишите свою надпись и посмотрите, как она будет выглядеть.</p>
+      </div>
+      <div class="b-scene">
+        <div class="scene" aria-hidden="true">
+          <div class="box">
+            <div class="lid"></div>
+            <div class="tray">
+              <div class="paper"></div><div class="paper p2"></div>
+              <div class="cake" id="bcake"><div class="deco" id="bdeco"></div><p class="ins" id="bins">С днём рождения!</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="ctl">
+          <div>
+            <label class="fl" for="btext">Надпись</label>
+            <input class="inp" id="btext" maxlength="60" value="С днём рождения!" autocomplete="off">
+            <div class="count" id="bcount">16 / 60</div>
+            <div class="chips quick" id="bquick" style="margin-top:6px"></div>
+          </div>
+          <div>
+            <span class="fl">Цвет крема</span>
+            <div class="chips" id="bcream"></div>
+          </div>
+          <div>
+            <span class="fl">Декор</span>
+            <div class="chips" id="bdecor"></div>
+          </div>
+          <div class="buy">
+            <div><b>2 000 ₽</b><span>можно добавить рисунок: котика, лису, сердечки</span></div>
+            <button class="btn btn-berry" type="button" id="bbuy">Заказать такой бенто</button>
+          </div>
+        </div>
+    </div>
+    <div class="rail-h">
+      <h3>Бенто, которые уже подарили</h3>
+      <div class="arrows"><button type="button" data-rail="brail" data-dir="-1" aria-label="Назад">←</button><button type="button" data-rail="brail" data-dir="1" aria-label="Вперёд">→</button></div>
+    </div>
+    <div class="rail" id="brail"></div>
+  </div>
+</section>
+
+<section class="sec" id="bouquets" aria-labelledby="q-h">
+  <div class="wrap">
+    <div class="head">
+      <span class="kick">букеты</span>
+      <h2 id="q-h">Съедобные букеты</h2>
+      <p>Клубника в шоколаде, мужские букеты из колбасок и сыра, раки с лимоном и сладкие букеты. В карточках указаны состав и размер.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Виды букетов" id="qtabs"></div>
+    <div class="bq-top"><p id="qdesc"></p><b id="qfrom"></b></div>
+    <div class="bq-grid" id="qgrid"></div>
+    <div class="more" hidden><button class="btn btn-ghost" type="button" id="qmore">Показать все букеты</button></div>
+    <p class="bq-note">Нужен другой состав, размер или упаковка? Напишите повод и бюджет, соберу букет под вас.</p>
+  </div>
+</section>
+
+<section class="sec" id="fillings" aria-labelledby="f-h" style="background:linear-gradient(180deg,var(--bg),#F3ECFB)">
+  <div class="wrap">
+    <div class="fill-grid">
+      <div class="slice-card">
+        <span class="kick" style="margin:0">так будет выглядеть разрез</span>
+        <div class="slice-wrap" aria-hidden="true">
+          <div class="berries"><i></i><i></i><i></i></div>
+          <div class="slice" id="slice">
+            <div class="l tp"></div><div class="l sp"></div><div class="l fi"></div><div class="l cr"></div><div class="l sp"></div><div class="l fi"></div><div class="l cr"></div><div class="l sp"></div>
+          </div>
+          <div class="plate"></div>
+        </div>
+        <div class="summary"><span id="ssum"></span><button class="btn btn-berry" type="button" id="sadd">Добавить начинку в заявку</button></div>
+      </div>
+      <div>
+        <div class="head">
+          <span class="kick">начинки</span>
+          <h2 id="f-h">Соберите свой разрез</h2>
+          <p>Выберите корж, начинку и крем. Если сомневаетесь, подскажу сочетание под ваш праздник.</p>
+        </div>
+        <div class="grp"><h3>Коржи</h3><div class="chips" id="gsp"></div></div>
+        <div class="grp"><h3>Начинка</h3><div class="chips" id="gfi"></div><p class="fdesc" id="fdesc"></p></div>
+        <div class="grp"><h3>Крем</h3><div class="chips" id="gcr"></div></div>
+        <div class="grp"><h3>Классика без конструктора</h3><p style="margin:0;color:var(--muted)">Медовик, «Наполеон», «Птичье молоко», чизкейк «Нью-Йорк» и морковный торт на кокосовых сливках. Фото и состав в разделе <a href="#cakes" data-cat="classic">«Классика»</a>.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec reviews" id="reviews" aria-labelledby="r-h">
+  <div class="wrap">
+    <div class="head">
+      <span class="kick">отзывы</span>
+      <h2 id="r-h">Что пишут после праздника</h2>
+    </div>
+    <div class="rev-grid">
+      <aside class="fw">
+        <div class="row"><div class="big">4,65</div><div><span class="stars" style="--p:93%" aria-label="4,65 из 5">★★★★★</span><small>884 оценки и 542 покупки на Flowwow</small></div></div>
+        <div class="bars">
+          <div class="bar">Соответствие фото<b>4,7</b><i style="--w:94%"></i></div>
+          <div class="bar">Цена и качество<b>4,6</b><i style="--w:92%"></i></div>
+          <div class="bar">Сервис магазина<b>4,8</b><i style="--w:96%"></i></div>
+          <div class="bar">Доставка<b>4,8</b><i style="--w:96%"></i></div>
+        </div>
+        <p class="q">«Очень вкусный тортик! Спасибо огромное!»</p>
+        <a class="btn" href="https://flowwow.com/shop/mikkitopt/" target="_blank" rel="noopener">Магазин на Flowwow</a>
+      </aside>
+      <div>
+        <div class="rev-list cut" id="revs">
+          <article class="rev"><header><span class="ava" style="background:#7650B5">Е</span><div><h3>Елена</h3><span class="src">Свадебный торт и чизкейк · Профи.ру</span></div><span class="s5">★★★★★</span></header><p>Екатерина, большое спасибо вам за работу! Чизкейк был потрясающий, мы заказали ягоды отдельно, чтобы украсить им торт как шоу. Было очень вкусно, гости просили с собой домой остатки торта. И ягоды свежайшие!</p><img src="img/w241955.jpg" alt="Чизкейк и свежие ягоды к нему" loading="lazy"></article>
+          <article class="rev"><header><span class="ava" style="background:#D3264D">Н</span><div><h3>Надежда</h3><span class="src">Торт на заказ · Профи.ру</span></div><span class="s5">★★★★★</span></header><p>Огромное спасибо за божественный торт! Это что-то бесподобное! Такой вкусный торт не пробовали! Ребёнок придумал заморочённый дизайн, Екатерина всё повторила, как и хотели! За тортами только к Екатерине!</p><img src="img/w241629.jpg" alt="Торт с лабрадором по задумке ребёнка" loading="lazy"></article>
+          <article class="rev"><header><span class="ava" style="background:#3C8A57">М</span><div><h3>Марина</h3><span class="src">Чизкейк · Профи.ру</span></div><span class="s5">★★★★★</span></header><p>Это самый вкусный чизкейк, который пробовала я и гости на празднике, за всю жизнь. Спасибо огромное за это кондитерское совершенство. Вы волшебница в своём деле! Продолжайте радовать своих заказчиков, уверена, они точно останутся довольны и благодарны.</p></article>
+          <article class="rev"><header><span class="ava" style="background:#56358F">♡</span><div><h3>Торт для аллергика</h3><span class="src">Безглютеновый торт · Профи.ру</span></div><span class="s5">★★★★★</span></header><p>Заказывали веганский торт на 3-летие ребёнка. Именинница аллергик, поэтому задача со звёздочкой: никакого молока, яиц, глютена и ещё немалый список продуктов. Екатерина помогла подобрать замены, скинула составы кокосовых сливок для спокойствия. Тортик вкусный, идеальный по сладости, сделано всё в срок. Упакован в коробку для тортов с ручками, доставка до места праздника прошла с комфортом.</p><img src="img/w241991.jpg" alt="Веганский торт с бабочками на 3 года" loading="lazy"></article>
+          <article class="rev"><header><span class="ava" style="background:#E08A2C">М</span><div><h3>Мария</h3><span class="src">Торт на день рождения · Профи.ру</span></div><span class="s5">★★★★★</span></header><p>Замечательный кондитер и такой же замечательный торт! Торт максимально приближен к референсу. Очень вкусный, в меру сладкий и очень шоколадный! Имениннице очень-очень понравился! Ещё раз большое спасибо!</p></article>
+          <article class="rev"><header><span class="ava" style="background:#B01C3E">Д</span><div><h3>Дарина</h3><span class="src">Торт на день рождения · Профи.ру</span></div><span class="s5">★★★★★</span></header><p>Екатерина, профессионал своего дела! Тортик безумно вкусный и очень нежный! Все в восторге! Сама Екатерина очень приятный человек в общении. Ещё раз спасибо!</p></article>
+          <article class="rev"><header><span class="ava" style="background:#7650B5">Е</span><div><h3>Екатерина</h3><span class="src">Детский торт · Профи.ру</span></div><span class="s5">★★★★★</span></header><p>Торт просто пушка-бомба, превзошёл все ожидания, все в восторге. Спасибо большое, вы супер-профи, от души. Будем заказывать ещё, ещё и ещё!</p></article>
+        </div>
+        <div class="rev-more"><button class="btn btn-ghost" type="button" id="revmore">Показать все отзывы</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="delivery" aria-labelledby="d-h">
+  <div class="wrap">
+    <div class="head">
+      <span class="kick">как заказать</span>
+      <h2 id="d-h">Заказ, самовывоз и доставка</h2>
+    </div>
+    <ol class="steps">
+      <li><b>Выберите</b><span>Торт, бенто или букет на сайте. Можно прислать свою картинку-пример.</span></li>
+      <li><b>Напишите</b><span>Оставьте заявку или напишите в Telegram и MAX: дата, повод, вес, начинка.</span></li>
+      <li><b>Согласуем</b><span>Обсудим дизайн и начинку, назову точную цену. Заказ минимум за 2 дня.</span></li>
+      <li><b>Получите</b><span>Заберите сами в Невском районе или закажите доставку к празднику.</span></li>
+    </ol>
+    <div class="get">
+      <div class="map">
+        <img src="img/map.jpg" alt="Карта: улица Латышских Стрелков, 15к1" loading="lazy" width="1000" height="640">
+        <svg class="pin" viewBox="0 0 42 54" aria-hidden="true"><path d="M21 53C21 53 40 32 40 20A19 19 0 1 0 2 20c0 12 19 33 19 33z" fill="#D3264D" stroke="#fff" stroke-width="2.5"/><circle cx="21" cy="20" r="7.5" fill="#fff"/></svg>
+        <span class="tag">Mikkitopt</span>
+        <div class="mb"><a class="btn btn-ghost" href="https://yandex.ru/maps/?pt=30.4595026,59.9296993&amp;z=17&amp;l=map" target="_blank" rel="noopener">Яндекс Карты</a><a class="btn btn-ghost" href="https://yandex.ru/maps/?rtext=~59.9296993,30.4595026&amp;rtt=auto" target="_blank" rel="noopener">Маршрут</a></div>
+        <span class="osm">© участники OpenStreetMap</span>
+      </div>
+      <div class="gc-list">
+        <div class="gc"><h3>Самовывоз</h3><p><b>ул. Латышских Стрелков, 15к1</b></p><p>Между метро «Ладожская» и «Проспект Большевиков». Каждый день с 10:00 до 21:00, время забора согласуем заранее.</p></div>
+        <div class="gc"><h3>Доставка по Петербургу</h3><p>Доставка или Яндекс Доставка до места праздника. Её оплачивает заказчик, стоимость зависит от адреса.</p></div>
+        <div class="gc"><h3>Упаковка</h3><p>Торты упаковываю в коробку для тортов с ручками, бенто в ланч-бокс, букеты в дизайнерскую упаковку.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" aria-labelledby="qa-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><span class="kick">вопросы</span><h2 id="qa-h">Частые вопросы</h2></div>
+    <div class="faq-list">
+      <details class="qa"><summary>За сколько дней нужно заказывать?</summary><p>Минимум за 2 дня. Если дата важная, например свадьба или юбилей, лучше напишите заранее, чтобы я забронировала её за вами.</p></details>
+      <details class="qa"><summary>Можно повторить торт по картинке?</summary><p>Да, пришлите фото-пример. Многие так и заказывают: в отзывах пишут, что торт получился максимально близким к референсу. Если что-то в дизайне можно сделать проще или вкуснее, подскажу.</p></details>
+      <details class="qa"><summary>Делаете торты для аллергиков?</summary><p>Да. Делала веганский торт без молока, яиц и глютена на кокосовых сливках. Напишите, какие продукты нельзя, подберу замены и пришлю составы.</p></details>
+      <details class="qa"><summary>Сколько весит бенто и на сколько человек?</summary><p>500–600 г, это небольшой торт на 1–2 человек. Надпись любая, можно добавить простой рисунок.</p></details>
+      <details class="qa"><summary>Можно букет из клубники с живыми цветами?</summary><p>Да: с розами, лилией или хризантемой, в корзине или шляпной коробке. Напишите повод и бюджет, соберу вариант.</p></details>
+      <details class="qa"><summary>Сколько стоит доставка?</summary><p>Доставку или Яндекс Доставку оплачивает заказчик, цена зависит от адреса. Можно забрать заказ самим с ул. Латышских Стрелков, 15к1.</p></details>
+      <details class="qa"><summary>Сколько стоит торт?</summary><p>Торт с кремом от 2 300 ₽ за кг, со свежими ягодами 2 700 ₽ за кг, 3D-торты от 3 000 ₽. Цена зависит от веса и сложности декора, точную назову, когда согласуем дизайн.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec order" id="order" aria-labelledby="o-h">
+  <div class="wrap">
+    <div class="head"><span class="kick">заявка</span><h2 id="o-h">Оставьте заявку</h2><p>Расскажите о празднике: свяжусь с вами, уточню детали и назову цену.</p></div>
+    <div class="order-grid">
+      <form class="f" id="form" novalidate>
+        <div>
+          <span class="fl">Что хотите заказать</span>
+          <div class="seg">
+            <input type="radio" name="type" id="t1" value="cake" checked><label for="t1">Торт</label>
+            <input type="radio" name="type" id="t2" value="bento"><label for="t2">Бенто</label>
+            <input type="radio" name="type" id="t3" value="bouquet"><label for="t3">Букет</label>
+            <input type="radio" name="type" id="t4" value="other"><label for="t4">Капкейки или другое</label>
+          </div>
+        </div>
+        <div>
+          <span class="fl">Пример из каталога <span class="opt">(необязательно)</span></span>
+          <div class="picks" id="picks"></div>
+        </div>
+        <div class="row2">
+          <div><label class="fl" for="date">Дата праздника</label><input class="inp" type="date" id="date" name="date"></div>
+          <div>
+            <span class="fl">Как получить</span>
+            <div class="seg">
+              <input type="radio" name="get" id="g1" value="pickup" checked><label for="g1">Самовывоз</label>
+              <input type="radio" name="get" id="g2" value="delivery"><label for="g2">Доставка</label>
+            </div>
+          </div>
+        </div>
+        <div id="addr-row" hidden><label class="fl" for="address">Адрес доставки</label><input class="inp" id="address" name="address" autocomplete="street-address" placeholder="Улица, дом, подъезд"></div>
+        <div class="row2">
+          <div><label class="fl" for="ins">Надпись <span class="opt">(если нужна)</span></label><input class="inp" id="ins" name="ins" maxlength="80" placeholder="С днём рождения!"></div>
+          <div><label class="fl" for="filling">Начинка <span class="opt">(если выбрали)</span></label><input class="inp" id="filling" name="filling" maxlength="120" placeholder="Например, малина и крем-чиз"></div>
+        </div>
+        <div><label class="fl" for="comment">Пожелания</label><textarea class="inp" id="comment" name="comment" maxlength="800" placeholder="Повод, вес или количество гостей, аллергии, ссылка на картинку"></textarea></div>
+        <div class="row2">
+          <div><label class="fl" for="name">Имя</label><input class="inp" id="name" name="name" autocomplete="given-name" maxlength="60"></div>
+          <div><label class="fl" for="phone">Телефон</label><input class="inp" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__"></div>
+        </div>
+        <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="consent"><input type="checkbox" name="consent" id="consent"><span>Согласна(ен) на обработку персональных данных по <a href="privacy.html">политике</a></span></label>
+        <p class="err" id="err" role="alert"></p>
+        <button class="btn btn-berry" type="submit" id="submit">Отправить заявку</button>
+        <div class="sent" id="sent" hidden>Спасибо, заявка принята! Скоро свяжусь с вами.</div>
+        <div class="fallback" id="fallback" hidden>
+          <p><b>Не получилось отправить заявку.</b> Напишите или позвоните, текст заявки я подготовила:</p>
+          <div class="chips"><a class="btn btn-berry" href="tel:+79967893814">Позвонить</a><button class="btn btn-ghost" type="button" id="fb-tg">Написать в Telegram</button><button class="btn btn-ghost" type="button" id="fb-vk">Написать ВКонтакте</button></div>
+        </div>
+      </form>
+      <aside class="contacts" aria-label="Контакты">
+        <a class="ct" href="tel:+79967893814"><span class="ic" style="background:#D3264D"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span><span><b>8 996 789-38-14</b><span>Позвонить, каждый день с 10:00 до 21:00</span></span></a>
+        <a class="ct" href="https://t.me/+79967893814" target="_blank" rel="noopener"><span class="ic" style="background:#2AABEE"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.4 3.6 2.9 10.7c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.8.8s.6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.4-1.6zM9.6 14.1l8.7-7.9c.4-.3-.1-.5-.6-.2L7.9 12.8"/></svg></span><span><b>Telegram</b><span>Написать по номеру 8 996 789-38-14</span></span></a>
+        <div class="ct"><span class="ic" style="background:linear-gradient(135deg,#4A6CF7,#9B4BF0)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.9-.9L3 20l1.1-4.6A8.4 8.4 0 0 1 12 3a8.5 8.5 0 0 1 9 8.5z"/></svg></span><span><b>MAX</b><span>Найдите по номеру 8 996 789-38-14</span></span></div>
+        <a class="ct" href="https://vk.me/mikkitopt" target="_blank" rel="noopener"><span class="ic" style="background:#0077FF"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.8 17.3c-5.5 0-8.6-3.8-8.8-10h2.8c.1 4.6 2.1 6.5 3.7 6.9V7.3h2.6v3.9c1.6-.2 3.3-2 3.8-3.9h2.6a7.7 7.7 0 0 1-3.5 5 7.9 7.9 0 0 1 4.1 5h-2.9a5 5 0 0 0-4.1-3.6v3.6z"/></svg></span><span><b>ВКонтакте</b><span>Сообщения группы vk.ru/mikkitopt</span></span></a>
+        <a class="ct" href="https://flowwow.com/shop/mikkitopt/" target="_blank" rel="noopener"><span class="ic" style="background:#26143A"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></span><span><b>Магазин на Flowwow</b><span>Если удобнее заказать через приложение</span></span></a>
+        <p class="aside-note">Отвечу, уточню детали и назову цену ♡</p>
+      </aside>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="logo" href="#"><svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="20" fill="#3A2557"/><path d="M20 13c6.5 0 10.5 3.2 10.5 8 0 6.4-6 12.6-10.5 13.6C15.5 33.6 9.5 27.4 9.5 21c0-4.8 4-8 10.5-8z" fill="#D3264D"/><path d="M20 15.2c-1.4-2.6-4.4-4.1-7.4-3.6 1.6.8 2.8 1.8 3.5 2.9-2.4-.1-4.4.8-5.6 2.4 2.7-.4 5.3-.2 7.4.7-.9 1.1-1.2 2.6-1 4 1.6-.8 2.6-2.1 3.1-3.4.5 1.3 1.5 2.6 3.1 3.4.2-1.4-.1-2.9-1-4 2.1-.9 4.7-1.1 7.4-.7-1.2-1.6-3.2-2.5-5.6-2.4.7-1.1 1.9-2.1 3.5-2.9-3-.5-6 1-7.4 3.6z" fill="#3C8A57"/></svg><span><b>Mikkitopt</b><small>торты, бенто и съедобные букеты</small></span></a>
+      <p style="margin-top:14px">Домашняя кондитерская в Невском районе Санкт-Петербурга.</p>
+    </div>
+    <div>
+      <p><a href="tel:+79967893814">8 996 789-38-14</a></p>
+      <p>Telegram и MAX по номеру</p>
+      <p><a href="https://vk.ru/mikkitopt" target="_blank" rel="noopener">vk.ru/mikkitopt</a></p>
+    </div>
+    <div>
+      <p>ул. Латышских Стрелков, 15к1</p>
+      <p>Каждый день с 10:00 до 21:00</p>
+      <p><a href="privacy.html">Политика обработки данных</a></p>
+    </div>
+  </div>
+</footer>
+
+<nav class="mbar" id="mbar" aria-label="Быстрые действия">
+  <a class="s" href="tel:+79967893814" aria-label="Позвонить"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg>Звонок</a>
+  <a class="s" href="https://t.me/+79967893814" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.4 3.6 2.9 10.7c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.8.8s.6-.2.9-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.7c.3-1.3-.5-1.9-1.4-1.6z"/></svg>Telegram</a>
+  <a class="go" href="#order">Заказать</a>
+</nav>
+
+<dialog class="lb" id="lb" aria-labelledby="lb-t">
+  <button class="x" type="button" id="lb-x" aria-label="Закрыть">×</button>
+  <img id="lb-img" alt="">
+  <div class="lb-b"><h3 id="lb-t"></h3><p id="lb-d"></p><button class="btn btn-berry" type="button" id="lb-add">Хочу такой, добавить в заявку</button></div>
+</dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  const LEAD_URL = "https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec";
+  const TG = "https://t.me/+79967893814", VK_CHAT = "https://vk.me/mikkitopt";
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+  const form = $("form");
+
+  // header + menu
+  const top = $("top");
+  addEventListener("scroll", () => top.classList.toggle("sc", scrollY > 8), {passive: true});
+  const burger = $("burger"), menu = $("menu");
+  burger.onclick = () => { const open = menu.hidden; menu.hidden = !open; burger.setAttribute("aria-expanded", open); };
+  menu.addEventListener("click", e => { if (e.target.closest("a")) { menu.hidden = true; burger.setAttribute("aria-expanded", false); } });
+
+  let toastT;
+  const toast = msg => { const t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("show"), 2600); };
+  const setType = v => { const r = form.querySelector(`input[name=type][value=${v}]`); if (r) r.checked = true; };
+
+  // strike-through animation
+  const strikes = $("strikes");
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { strikes.classList.add("on"); io.disconnect(); } }), {threshold: .5});
+    io.observe(strikes);
+  } else strikes.classList.add("on");
+
+  // picks (examples added to the order)
+  let picks = [];
+  const renderPicks = () => {
+    $("picks").innerHTML = picks.length
+      ? picks.map((p, i) => `<span class="pk"><img src="${p.img}" alt=""><span>${esc(p.label)}</span><button type="button" data-i="${i}" aria-label="Убрать ${esc(p.label)}">×</button></span>`).join("")
+      : `<span class="empty">Нажмите «Хочу такой» у торта или букета, и он появится здесь</span>`;
+  };
+  $("picks").addEventListener("click", e => { const b = e.target.closest("button[data-i]"); if (b) { picks.splice(+b.dataset.i, 1); renderPicks(); syncBq(); } });
+  const addPick = (p, type) => {
+    if (!picks.some(x => x.key === p.key)) picks.push(p);
+    renderPicks(); if (type) setType(type);
+    toast(`Добавлено в заявку: ${p.label}`);
+  };
+  renderPicks();
+
+  // cakes
+  const CATS = [["all", "Все"], ["berry", "Ягодные"], ["kids", "Детские"], ["wed", "Свадебные и нежные"], ["choc", "Шоколадные"], ["classic", "Классика"], ["cup", "Капкейки и чизкейки"], ["ny", "Новогодние"]];
+  const C = (i, c, t, d) => ({i, c, t, d});
+  const CAKES = [
+    C("w242064", "berry", "Ягодный с шоколадными подтёками"), C("w242060", "kids", "Мишка и кубики"), C("w241907", "wed", "Белая роза"), C("w241678", "berry", "Сердце из клубники"),
+    C("w242066", "kids", "Зайка"), C("w241979", "berry", "Малина, клубника и мята"), C("w241919", "wed", "Монограмма"), C("w241889", "choc", "Шоколадный «Золотой кран»"),
+    C("w241600", "berry", "Голубика и ромашки"), C("w242038", "kids", "Мишка с кремовой шёрсткой"), C("w241745", "wed", "Двухъярусный с кольцами"), C("w241842", "berry", "Большой ягодный для компании"),
+    C("w242026", "kids", "Акула"), C("w241701", "berry", "Шоколадная корзинка с клубникой"), C("w241981", "wed", "Трёхъярусный с розами"), C("w241743", "choc", "Шоколадный с цветами"),
+    C("w241844", "berry", "Ягодное сердце"), C("w241834", "kids", "Бурёнка"), C("w241942", "wed", "Монограмма и ягоды"), C("w241749", "berry", "Фруктовая корзина"),
+    C("w241893", "kids", "Экскаватор"), C("w241627", "wed", "Корона"), C("w241617", "choc", "Шоколадный купол"), C("w241961", "berry", "Венок из ягод и инжира"),
+    C("w241737", "kids", "Зверята на первый день рождения"), C("w241891", "wed", "Облака из безе"), C("w241828", "berry", "Двухъярусный ягодный"), C("w241653", "choc", "Шоколадный с клубникой и надписью"),
+    C("w241991", "kids", "Веганский торт с бабочками", "Без молока, яиц и глютена, крем на кокосовых сливках. Торт на 3-летие из отзыва на Профи.ру."),
+    C("w241625", "wed", "Кремовые розы"), C("w241651", "berry", "Подтёки, ягоды и мята"), C("w241885", "choc", "Шоколадный бисквит и сливочный крем"),
+    C("w241645", "kids", "Розовый с цифрой 7"), C("w241935", "wed", "Белый с цветами из безе"), C("w241619", "berry", "Happy Birthday в ягодах"), C("w241606", "kids", "Звёзды"),
+    C("w241629", "kids", "Лабрадор: дизайн придумал ребёнок", "Ребёнок придумал дизайн, торт сделали точно, как хотели. Отзыв об этом торте есть ниже."),
+    C("w241608", "wed", "Мишка и золотые шары"), C("w241713", "berry", "Клубничный венок"), C("w241643", "berry", "Ягодный венок с надписью"),
+    C("f-tort-medovik-3346", "classic", "Медовик", "Медовые коржи, крем на сливках и сметане, голубика. Можно с ванильным крем-чизом."),
+    C("f-tort-napoleon-5017", "classic", "«Наполеон»", "Слоёные коржи на сливочном масле, крем со сгущённым молоком, сверху слоёная крошка."),
+    C("f-tort-ptiche-moloko-6340", "classic", "«Птичье молоко»", "Нежное белковое суфле на тонком корже, шоколадная глазурь и клубника."),
+    C("f-tort-chizkeyk-nyu-york-6466", "classic", "Чизкейк «Нью-Йорк»", "Песочное печенье, крем на маскарпоне и творожном сыре, свежие ягоды."),
+    C("f-tort-morkovniy-vegetarianskiy", "classic", "Морковный на кокосовых сливках", "Цельнозерновая мука, морковь, курага, грецкий орех и чернослив, крем на кокосовых сливках."),
+    C("w242070", "cup", "Капкейки с бантиками"), C("w241657", "cup", "Капкейки с ягодами"), C("f-kapkeyki-s-yagodami-6911", "cup", "Шоколадные капкейки с ягодами", "Шоколадные капкейки с карамелью, крем-чиз, клубника, голубика, малина и мята."),
+    C("w242003", "cup", "Классический чизкейк"), C("w241878", "cup", "Чизкейк с маракуйей"), C("w241955", "cup", "Свадебный чизкейк и ягоды к нему", "Ягоды заказали отдельно, чтобы украсить торт прямо на празднике. Отзыв Елены ниже."),
+    C("w241604", "cup", "Капкейки в коробке"), C("f-kapkeyki-dlya-mamy-9569", "cup", "Капкейки для мамы"), C("w242019", "cup", "Капкейки к празднику"),
+    C("f-tort-elochka", "ny", "Ёлочка"), C("f-tort-noviy-god", "ny", "Ягоды и шишки"), C("f-tort-rozhdestvo-1036", "ny", "Рождественский с золотыми шарами"),
+    C("f-tort-belochka", "ny", "Белочка"), C("f-tort-elka", "ny", "Ёлка из крема"), C("f-tort-elochki", "ny", "Ёлочки"), C("f-tort-na-rozhdestvo-5324", "ny", "На Рождество")
+  ];
+  const mob = matchMedia("(max-width:719px)").matches;
+  let ccat = "all", cshow = mob ? 8 : 12;
+  $("ctabs").innerHTML = CATS.map(([id, n]) => `<button class="tab" role="tab" type="button" data-c="${id}" aria-selected="${id === "all"}">${n}</button>`).join("");
+  const renderCakes = () => {
+    const list = CAKES.filter(x => ccat === "all" || x.c === ccat);
+    const lim = ccat === "all" ? cshow : list.length;
+    $("cgrid").innerHTML = list.slice(0, lim).map(x => `<button class="card" type="button" data-k="${x.i}"><span class="ph"><img src="img/${x.i}.jpg" alt="${esc(x.t)}" loading="lazy" width="640" height="800"></span><span class="plus" aria-hidden="true">+</span><span class="cap">${esc(x.t)}</span></button>`).join("");
+    $("cmore").parentElement.hidden = lim >= list.length;
+  };
+  const pickCat = c => { ccat = c; cshow = mob ? 8 : 12; document.querySelectorAll("#ctabs .tab").forEach(t => t.setAttribute("aria-selected", t.dataset.c === c)); renderCakes(); };
+  $("ctabs").addEventListener("click", e => { const t = e.target.closest(".tab"); if (t) pickCat(t.dataset.c); });
+  $("cmore").onclick = () => { cshow += mob ? 8 : 12; renderCakes(); };
+  document.querySelectorAll("[data-cat]").forEach(a => a.addEventListener("click", () => pickCat(a.dataset.cat)));
+  renderCakes();
+
+  // lightbox
+  const lb = $("lb"); let lbItem = null;
+  $("cgrid").addEventListener("click", e => {
+    const b = e.target.closest(".card"); if (!b) return;
+    lbItem = CAKES.find(x => x.i === b.dataset.k);
+    $("lb-img").src = `img/${lbItem.i}.jpg`; $("lb-img").alt = lbItem.t; $("lb-t").textContent = lbItem.t;
+    $("lb-d").textContent = lbItem.d || (lbItem.c === "cup" ? "Капкейки и чизкейки делаю наборами, цену назову по количеству." : "Повторю дизайн под ваш повод и вес, надпись и цвета можно поменять.");
+    if (lb.showModal) lb.showModal(); else lb.setAttribute("open", "");
+  });
+  const closeLb = () => { if (lb.close) lb.close(); else lb.removeAttribute("open"); };
+  $("lb-x").onclick = closeLb;
+  lb.addEventListener("click", e => { if (e.target === lb) closeLb(); });
+  $("lb-add").onclick = () => { addPick({key: lbItem.i, label: lbItem.t, img: `img/${lbItem.i}.jpg`}, lbItem.c === "cup" ? "other" : "cake"); closeLb(); };
+
+  // bento builder
+  const BC = [
+    {n: "Белый", c: "#FFFDF8", p: "#E9DFD6", i: "#4A2A22", h: "#D3264D"}, {n: "Розовый", c: "#F7C9D5", p: "#FCE6EC", i: "#5A2333", h: "#D3264D"},
+    {n: "Красный", c: "#D3264D", p: "#EA6A84", i: "#FFFFFF", h: "#FFFFFF"}, {n: "Сиреневый", c: "#D2C0F1", p: "#EBE2FA", i: "#3A2160", h: "#7650B5"},
+    {n: "Голубой", c: "#C3DFF3", p: "#E3F0FA", i: "#21405A", h: "#D3264D"}, {n: "Шоколадный", c: "#5A3426", p: "#7E5242", i: "#FFF2E2", h: "#F7C9D5"}
+  ];
+  const BD = [["none", "Без декора"], ["hearts", "Сердечки"], ["berries", "Клубника"]];
+  const QUICK = ["С днём рождения!", "Любимой мамочке", "Я так тебя люблю!", "С юбилеем!", "Семья, я уже в пути. Буду весной"];
+  let bc = 0, bd = "hearts";
+  const btext = $("btext"), bins = $("bins"), bcake = $("bcake");
+  $("bcream").innerHTML = BC.map((x, k) => `<button class="chip" type="button" data-k="${k}" aria-pressed="${k === bc}"><span class="sw" style="background:${x.c}"></span>${x.n}</button>`).join("");
+  $("bdecor").innerHTML = BD.map(([id, n]) => `<button class="chip" type="button" data-d="${id}" aria-pressed="${id === bd}">${n}</button>`).join("");
+  $("bquick").innerHTML = QUICK.map(q => `<button class="chip" type="button">${esc(q)}</button>`).join("");
+  const fit = () => {
+    const w = bcake.clientWidth; if (!w) return;
+    let fs = w * .19; bins.style.fontSize = fs + "px";
+    for (let k = 0; k < 60 && (bins.scrollHeight > w * .58 || bins.scrollWidth > bins.clientWidth + 1) && fs > 11; k++) { fs -= w * .005; bins.style.fontSize = fs + "px"; }
+  };
+  const drawDeco = () => {
+    const x = BC[bc], el = $("bdeco"); let html = "";
+    if (bd === "hearts") { for (let k = 0; k < 9; k++) { const a = (k / 9) * Math.PI * 2 + .35, r = 38; html += `<span class="h" style="left:${50 + r * Math.cos(a)}%;top:${50 + r * Math.sin(a)}%">♥</span>`; } }
+    if (bd === "berries") { for (let k = 0; k < 6; k++) { const a = Math.PI * .15 + (k / 5) * Math.PI * .7, r = 35; html += `<span class="b" style="left:${50 + r * Math.cos(a)}%;top:${50 + r * Math.sin(a)}%"></span>`; } }
+    el.innerHTML = html; el.style.setProperty("--hc", x.h);
+  };
+  const drawBento = () => {
+    const x = BC[bc], t = btext.value.trim();
+    bcake.style.setProperty("--cc", x.c); bcake.style.setProperty("--pipe", x.p); bcake.style.setProperty("--ic", x.i);
+    bins.textContent = t || "Ваша надпись"; bins.classList.toggle("ph", !t);
+    $("bcount").textContent = `${btext.value.length} / 60`;
+    drawDeco(); fit();
+  };
+  btext.addEventListener("input", drawBento);
+  $("bquick").addEventListener("click", e => { const b = e.target.closest(".chip"); if (b) { btext.value = b.textContent; drawBento(); } });
+  $("bcream").addEventListener("click", e => { const b = e.target.closest(".chip"); if (!b) return; bc = +b.dataset.k; document.querySelectorAll("#bcream .chip").forEach(c => c.setAttribute("aria-pressed", c === b)); drawBento(); });
+  $("bdecor").addEventListener("click", e => { const b = e.target.closest(".chip"); if (!b) return; bd = b.dataset.d; document.querySelectorAll("#bdecor .chip").forEach(c => c.setAttribute("aria-pressed", c === b)); drawBento(); });
+  addEventListener("resize", fit);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  $("bbuy").onclick = () => {
+    const t = btext.value.trim(), x = BC[bc], dec = BD.find(d => d[0] === bd)[1].toLowerCase();
+    setType("bento"); form.ins.value = t;
+    addPick({key: "bento-" + bc + bd, label: `Бенто: ${x.n.toLowerCase()} крем, ${dec}`, img: "img/b241895.jpg"}, "bento");
+    $("order").scrollIntoView({behavior: "smooth"});
+  };
+  drawBento();
+  const BR = [["242080", "Семья, я уже в пути. Буду весной"], ["241895", "Делай мир ярче!"], ["241993", "Бенто с лисой"], ["241971", "Красный бенто с котиками"], ["241949", "Любимому папе"], ["241818", "Сакура"], ["241699", "Я так тебя люблю!"], ["241870", "С юбилеем!"], ["241861", "Happy Birthday с клубникой"], ["241856", "Котик с надписью"], ["241822", "Бенто с корги"], ["241727", "Любимой мамочке"], ["241719", "6 months in love"], ["241689", "Hello 17"], ["241662", "Love you с фотографиями"], ["242076", "Бенто с надписью"]];
+  $("brail").innerHTML = BR.map(([i, a]) => `<img src="img/b${i}.jpg" alt="${esc(a)}" loading="lazy" width="600" height="600">`).join("");
+  document.querySelectorAll("[data-rail]").forEach(b => b.onclick = () => { const r = $(b.dataset.rail); r.scrollBy({left: +b.dataset.dir * r.clientWidth * .8, behavior: "smooth"}); });
+
+  // bouquets
+  const Q = (i, t, d, s) => ({i, t, d, s});
+  const BQ = {
+    straw: {n: "Из клубники", from: "4 000", d: "Клубника в шоколаде, свежая клубника, розы и хризантемы", items: [
+      Q("f-buket-s-klubnikoy-rozovoe-obla", "«Розовое облако»", "19 клубник в шоколаде и белая кустовая хризантема", "20 × 40 см"),
+      Q("f-buket-iz-klubniki-lyubov", "«Любовь»", "40 клубник, 13 из них в шоколаде, и 7 красных роз", "35 × 45 см"),
+      Q("f-buket-iz-klubniki-flamingo", "«Фламинго»", "18 свежих клубник и 40 клубник в шоколаде", "35 × 40 см"),
+      Q("f-buket-dlya-lyubimoy-6661", "«Для любимой»", "33 клубники, 8 в шоколаде, кустовые розы, голубика и мята", "30 × 40 см"),
+      Q("f-buket-iz-klubniki-berlin", "«Берлин»", "Клубника, маршмеллоу в шоколаде и 13 кустовых роз", "25 × 40 см"),
+      Q("f-buket-iz-klubniki-s-rozami-911", "С розами и макарон", "23 клубники, макарон, печенье орео и кустовые розы", "25 × 45 см"),
+      Q("f-buket-iz-klubniki-strast", "«Страсть»", "9 свежих клубник и 21 клубника в шоколаде", "30 × 40 см"),
+      Q("f-buket-s-klubnikoy-ray", "«Рай»", "31 крупная клубника в дизайнерской упаковке", "20 × 40 см"),
+      Q("f-buket-iz-klubniki-s-liliyami", "С белой лилией", "45 клубник, лилия, голубика и розмарин", "30 × 45 см"),
+      Q("f-buket-iz-klubniki-v-korzine", "В корзине", "60 клубник, голубика, розы и рускус в плетёной корзине", "30 × 25 см"),
+      Q("f-buket-iz-klubniki-avangard", "«Авангард»", "7 свежих клубник, 18 в шоколаде и кустовые розы", "25 × 40 см"),
+      Q("f-buket-klubnika-v-shokolade-468", "Клубника в шоколаде", "33 клубники в шоколаде и 3 свежие", "20 × 45 см")]},
+    men: {n: "Мужские", from: "4 100", d: "Колбаски, сыр, хлеб и овощи, можно с пивной кружкой", items: [
+      Q("f-buket-muzhskoy-vegas", "«Вегас»", "Охотничьи колбаски, копчёная колбаса, сыр, черри и грецкий орех", "30 × 45 см"),
+      Q("f-muzhskoy-buket-bryuss", "«Брюсс»", "Болгарский перец, чили, черри, сыр косичка, копчёный сыр и колбаски", "30 × 40 см"),
+      Q("f-buket-muzhskoy-burger", "Бургер", "Ржаной хлеб, охотничьи колбаски, салями, сливочный сыр и черри", "20 × 45 см"),
+      Q("f-buket-muzhskoy-bogatyr", "«Богатырь»", "Багеты, сырокопчёная колбаса, сыр косичка, колбаски и черри", "30 × 45 см"),
+      Q("f-buket-syr-kolbaski", "«Сыр и колбаски»", "Охотничьи колбаски, мраморный и сливочный сыр, оливки, розмарин", "30 × 30 см"),
+      Q("f-muzhskoy-buket-6362", "Мужской классический", "Сыр косичка, копчёный сыр, охотничьи колбаски и салями", "25 × 45 см"),
+      Q("f-buket-muzhskaya-kruzhka", "«Мужская кружка»", "Кружка, сыр косичка, охотничьи колбаски, черри, чеснок и зелень", ""),
+      Q("f-muzhskoy-buket-monako", "«Монако»", "Сыр косичка, охотничьи колбаски, копчёный сыр и черри", "")]},
+    raki: {n: "С раками", from: "4 300", d: "Варёные раки и лангустины с лимоном и укропом", items: [
+      Q("f-buket-s-rakami-i-limonom", "С раками и лимоном", "21 варёный рак и лимон", "20 × 45 см"),
+      Q("f-buket-s-rakami-21", "Раки с укропом", "21 варёный рак, лимон и укроп", "20 × 30 см"),
+      Q("f-raki-v-korobke", "Раки в шляпной коробке", "1 кг варёных раков, лимоны и зелень", ""),
+      Q("f-buket-s-rakami-i-langustinami", "Раки и лангустины", "15 раков, 9 лангустинов, сыр косичка, чечил, колбаски и укроп", "30 × 30 см"),
+      Q("f-buket-iz-rakov-111", "«111»", "17 варёных раков, лимон и зелень", "15 × 30 см"),
+      Q("f-buket-s-rakimi-mini", "Мини с раками", "11 варёных раков, лимон и укроп", "15 × 45 см")]},
+    sweet: {n: "Сладкие и фруктовые", from: "4 200", d: "Зефир, маршмеллоу, конфеты, фрукты и ягоды", items: [
+      Q("f-sladkiy-buket-6826", "Сладкий с клубникой", "Зефир, маршмеллоу, клубника, голубика, вафельные трубочки и роза", "30 × 40 см"),
+      Q("f-sladkiy-buket-rio", "«Рио»", "Маршмеллоу, орео, тоффифи, ванильный зефир, мини-сникерс и баунти", "30 × 40 см"),
+      Q("f-buket-sladkiy-s-rozami", "Сладкий с розами", "Рафаэлло, ванильный зефир, маршмеллоу и кустовые розы", "30 × 45 см"),
+      Q("f-buket-megashok", "«Мегашок»", "Риттер спорт, баунти и шоколадные конфеты", "25 × 45 см"),
+      Q("f-buket-iz-konfet-9852", "Из конфет", "Рафаэлло, Коркунов и Ферреро Роше", "25 × 30 см"),
+      Q("f-buket-iz-fruktov-assorti", "Фруктовый «Ассорти»", "Клубника, виноград, киви, голубика, хурма, гранат и мята", "30 × 45 см"),
+      Q("f-buket-sladkiy-3568", "Сладкий", "Зефир, тоффифи, баунти, маршмеллоу, шоколадные палочки и орео", "25 × 45 см")]},
+    box: {n: "В коробке", from: "6 200", d: "Клубника, цветы и сладости в шляпной коробке или сердце", items: [
+      Q("f-klubnika-v-shokolade-s-ya-8589", "Клубника в шоколаде в сердце", "Клубника в шоколаде, голубика, ежевика, малина и грецкий орех, 1 кг", ""),
+      Q("f-cvety-v-korobke-love-4301", "«LOVE»", "35 клубник, маршмеллоу и фисташковые веточки в шляпной коробке", ""),
+      Q("f-buket-iz-klubniki-v-korobke-ve", "«Венеция»", "35 клубник, ежевика, кустовые розы и гипсофила", ""),
+      Q("f-cvety-v-korobke-s-klubnikoy-94", "Цветы с клубникой", "11 клубник в шоколаде, маршмеллоу и гипсофила", ""),
+      Q("f-cvety-v-korobke-lyubimoy-1210", "«Любимой»", "Коробка-сердце с 8 макарон и кустовыми розами", "")]}
+  };
+  let qcat = "straw", qall = !mob;
+  $("qtabs").innerHTML = Object.entries(BQ).map(([id, x]) => `<button class="tab" role="tab" type="button" data-q="${id}" aria-selected="${id === qcat}">${x.n}</button>`).join("");
+  const syncBq = () => document.querySelectorAll("#qgrid .add").forEach(b => { const on = picks.some(p => p.key === b.dataset.k); b.classList.toggle("on", on); b.textContent = on ? "В заявке ✓" : "Хочу такой"; });
+  const renderBq = () => {
+    const x = BQ[qcat];
+    $("qdesc").textContent = x.d; $("qfrom").textContent = `от ${x.from} ₽`;
+    const shown = qall ? x.items : x.items.slice(0, 6);
+    $("qmore").parentElement.hidden = shown.length >= x.items.length;
+    $("qgrid").innerHTML = shown.map(q => `<article class="bq"><img src="img/${q.i}.jpg" alt="${esc(q.t.replace(/[«»]/g, ""))}" loading="lazy" width="640" height="640"><h3>${esc(q.t)}</h3><p>${esc(q.d)}</p>${q.s ? `<span class="sz">${q.s}</span>` : ""}<button class="add" type="button" data-k="${q.i}">Хочу такой</button></article>`).join("");
+    syncBq();
+  };
+  $("qmore").onclick = () => { qall = true; renderBq(); };
+  const pickBq = id => { qcat = id; qall = !mob; document.querySelectorAll("#qtabs .tab").forEach(t => t.setAttribute("aria-selected", t.dataset.q === id)); renderBq(); };
+  $("qtabs").addEventListener("click", e => { const t = e.target.closest(".tab"); if (t) pickBq(t.dataset.q); });
+  $("qgrid").addEventListener("click", e => {
+    const b = e.target.closest(".add"); if (!b) return;
+    const q = BQ[qcat].items.find(x => x.i === b.dataset.k), label = q.t.startsWith("«") ? `Букет ${q.t}` : q.t;
+    const k = picks.findIndex(p => p.key === q.i);
+    if (k >= 0) { picks.splice(k, 1); renderPicks(); } else addPick({key: q.i, label, img: `img/${q.i}.jpg`}, "bouquet");
+    syncBq();
+  });
+  document.querySelectorAll("[data-bq]").forEach(a => a.addEventListener("click", () => pickBq(a.dataset.bq)));
+  renderBq();
+
+  // slice builder
+  const SP = [["Ванильный", "#F1DBA0"], ["Шоколадный", "#5B3526"], ["Красный бархат", "#A3263C"], ["Фисташковый", "#BCC98B"], ["Медовый", "#D49A50"]];
+  const FI = [["Клубника со сливками", "#EE8796", "Свежая клубника и сливки"], ["Малина", "#C8264B", "Конфи из свежей малины"], ["Вишня-шоколад", "#6A1B2C", "Вишня и шоколадный ганаш"], ["Сникерс", "#B97A3E", "Арахис и карамель"],
+    ["Малина-фисташка", "#D2557A", "Малиновое конфи и фисташка"], ["Манго", "#F4A62A", ""], ["Малина-манго", "#EF7148", ""], ["Персик", "#F6B27C", ""], ["Черника", "#4B3F8C", ""],
+    ["Груша-карамель", "#D6A65E", ""], ["Банан", "#F0D578", ""], ["Клубничное конфи", "#D73E58", ""], ["Ягодная", "#8E1F45", "Малина, клубника, вишня и чёрная смородина"]];
+  const CR = [["Крем-чиз", "#FFF7EA", "Сливки и творожный сыр", "крем-чиз"], ["Сливочный", "#FFF1D6", "", "сливочный крем"], ["Сметанный", "#FFFAF1", "", "сметанный крем"], ["Кокосовые сливки", "#FFFFFF", "Без молока, подходит для веганского торта", "крем на кокосовых сливках"]];
+  let sp = 0, fi = 1, cr = 0;
+  const chipList = (arr, cur, sw) => arr.map((x, k) => `<button class="chip" type="button" data-k="${k}" aria-pressed="${k === cur}">${sw ? `<span class="sw" style="background:${x[1]}"></span>` : ""}${x[0]}</button>`).join("");
+  $("gsp").innerHTML = chipList(SP, sp, true); $("gfi").innerHTML = chipList(FI, fi, true); $("gcr").innerHTML = chipList(CR, cr, true);
+  const drawSlice = () => {
+    const s = $("slice"); s.style.setProperty("--sp", SP[sp][1]); s.style.setProperty("--fi", FI[fi][1]); s.style.setProperty("--cr", CR[cr][1]);
+    $("fdesc").textContent = [FI[fi][2], CR[cr][2] && `Крем: ${CR[cr][2].toLowerCase()}`].filter(Boolean).join(". ");
+    $("ssum").innerHTML = `Ваш торт: <b>${SP[sp][0].toLowerCase()} корж</b>, начинка <b>${FI[fi][0].toLowerCase()}</b>, <b>${CR[cr][3]}</b>`;
+  };
+  const bindChips = (id, set) => $(id).addEventListener("click", e => { const b = e.target.closest(".chip"); if (!b) return; set(+b.dataset.k); $(id).querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c === b)); drawSlice(); });
+  bindChips("gsp", k => sp = k); bindChips("gfi", k => fi = k); bindChips("gcr", k => cr = k);
+  $("sadd").onclick = () => { form.filling.value = `${SP[sp][0]} корж, ${FI[fi][0].toLowerCase()}, ${CR[cr][3]}`; toast("Начинка добавлена в заявку"); };
+  drawSlice();
+
+  // reviews (mobile: show 3 first)
+  $("revmore").onclick = () => { $("revs").classList.remove("cut"); $("revmore").parentElement.hidden = true; };
+
+  // order form
+  const d0 = new Date(); d0.setDate(d0.getDate() + 2);
+  form.date.min = d0.toISOString().slice(0, 10);
+  form.addEventListener("change", e => { if (e.target.name === "get") $("addr-row").hidden = form.get.value !== "delivery"; });
+  form.phone.addEventListener("input", e => {
+    let d = e.target.value.replace(/\D/g, "").replace(/^8/, "7"); if (d && d[0] !== "7") d = "7" + d;
+    d = d.slice(0, 11); const p = [d.slice(1, 4), d.slice(4, 7), d.slice(7, 9), d.slice(9, 11)];
+    e.target.value = d ? `+7 (${p[0]}${p[0].length === 3 ? ") " : ""}${p[1]}${p[1].length === 3 ? "-" : ""}${p[2]}${p[2].length === 2 ? "-" : ""}${p[3]}` : "";
+  });
+  const TYPES = {cake: "торт", bento: "бенто", bouquet: "букет", other: "капкейки или другое"};
+  const orderDetails = () => {
+    const date = form.date.value ? new Date(form.date.value + "T12:00").toLocaleDateString("ru-RU", {day: "numeric", month: "long"}) : "не указана";
+    return [
+      `Заказ: ${TYPES[form.type.value]}`,
+      `Дата: ${date}`,
+      `Получение: ${form.get.value === "delivery" ? `доставка${form.address.value.trim() ? `, ${form.address.value.trim()}` : ""}` : "самовывоз"}`,
+      picks.length && `Пример: ${picks.map(p => p.label).join("; ")}`,
+      form.ins.value.trim() && `Надпись: ${form.ins.value.trim()}`,
+      form.filling.value.trim() && `Начинка: ${form.filling.value.trim()}`
+    ].filter(Boolean);
+  };
+  const submitBtn = $("submit");
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const err = $("err");
+    if (!form.date.value) { form.date.focus(); return err.textContent = "Укажите дату праздника"; }
+    if (form.name.value.trim().length < 2) { form.name.focus(); return err.textContent = "Укажите имя"; }
+    if (form.phone.value.replace(/\D/g, "").length !== 11) { form.phone.focus(); return err.textContent = "Проверьте номер телефона"; }
+    if (!form.consent.checked) return err.textContent = "Отметьте согласие на обработку данных";
+    err.textContent = ""; $("fallback").hidden = true;
+    submitBtn.disabled = true; submitBtn.textContent = "Отправляем...";
+    let ok = false;
+    try {
+      const res = await fetch(LEAD_URL, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, signal: AbortSignal.timeout(20000),
+        body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: ["Макет mikkitopt", ...orderDetails()].join(", "), comment: form.comment.value.trim(), website: form.website.value})});
+      ok = (await res.json()).ok === true;
+    } catch (e) {}
+    submitBtn.disabled = false; submitBtn.textContent = "Отправить заявку";
+    if (ok) { submitBtn.hidden = true; $("sent").hidden = false; }
+    else { $("fallback").hidden = false; $("fallback").scrollIntoView({block: "center", behavior: "smooth"}); }
+  });
+  const orderText = () => ["Здравствуйте! Хочу заказать.", ...orderDetails(), form.comment.value.trim() && `Пожелания: ${form.comment.value.trim()}`, form.name.value.trim() && `Имя: ${form.name.value.trim()}${form.phone.value ? `, тел. ${form.phone.value}` : ""}`].filter(Boolean).join("\n");
+  const copyNow = text => {
+    const ta = document.createElement("textarea"); ta.value = text; ta.setAttribute("readonly", ""); ta.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+    document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, text.length);
+    let ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+    ta.remove(); return ok;
+  };
+  const sendVia = url => { if (copyNow(orderText())) toast("Текст заявки скопирован, вставьте его в чат"); window.open(url, "_blank"); };
+  $("fb-tg").onclick = () => sendVia(TG);
+  $("fb-vk").onclick = () => sendVia(VK_CHAT);
+
+  // the bottom bar must not cover fields above the phone keyboard
+  const mbar = $("mbar");
+  form.addEventListener("focusin", e => { if (e.target.matches("input:not([type=radio]):not([type=checkbox]), textarea")) mbar.style.visibility = "hidden"; });
+  form.addEventListener("focusout", () => { mbar.style.visibility = ""; });
+})();
+</script>
+</body>
+</html>
