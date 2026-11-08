@@ -463,3 +463,46 @@ body.noscroll{overflow:hidden}
 }
 .mbox .btn-oak{background:var(--sand);color:var(--graph)}.mbox .btn-oak:hover{background:var(--sand2)}
 .mbox .btn-oak:disabled{opacity:.7;cursor:wait}
+/* фото кухонь: открываются на весь экран */
+.kc .im{position:relative;display:block;width:100%;padding:0;border:0;background:#eee;cursor:zoom-in}
+.kc .nph{position:absolute;right:10px;bottom:10px;background:rgba(15,22,31,.72);color:#fff;font:600 12.5px Inter;border-radius:999px;padding:5px 10px;backdrop-filter:blur(4px)}
+.revband .pics img{cursor:zoom-in}
+/* превью каталога в блоке «Не только кухни» */
+.also .agi{position:relative;display:block;padding:0;border:0;background:#e9e4dc;border-radius:18px;overflow:hidden;cursor:zoom-in;aspect-ratio:1/1}
+.also .agi img{transition:.5s}.also .agi:hover img{transform:scale(1.04)}
+.agmore{position:absolute;inset:0;background:rgba(15,22,31,.62);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font:800 26px Manrope;border-radius:18px}
+.agmore small{font:600 13px Inter;color:var(--sand);margin-top:4px;letter-spacing:.04em}
+.abtns{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.btn-ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.35)}.btn-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--sand);color:var(--sand)}
+/* полноэкранный каталог */
+.cview{position:fixed;inset:0;z-index:90;background:var(--bg);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.cview[hidden]{display:none}
+.chead{position:sticky;top:0;z-index:2;background:rgba(245,242,237,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);padding:16px 0 12px}
+.chin{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.chead .kicker{margin-bottom:2px}
+.chead h3{font:800 28px Manrope;line-height:1.15}
+.cclose{flex:none;width:46px;height:46px;border-radius:50%;border:0;background:var(--graph);color:#fff;font-size:28px;line-height:1;cursor:pointer}
+.ctabs{display:flex;gap:8px;margin-top:12px;overflow-x:auto;scrollbar-width:none}
+.ctabs a{flex:none;font:600 14px Inter;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;color:var(--ink)}
+.ctabs a small{color:var(--muted);font-size:12.5px;margin-left:2px}
+.ctabs a.on{background:var(--graph);border-color:var(--graph);color:#fff}.ctabs a.on small{color:var(--sand)}
+.cgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding:22px 0}
+.cgi{display:block;padding:0;border:0;background:#e9e4dc;border-radius:16px;overflow:hidden;aspect-ratio:4/5;cursor:zoom-in}
+.cgi img{width:100%;height:100%;object-fit:cover;transition:.5s}.cgi:hover img{transform:scale(1.04)}
+.cfoot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;background:var(--graph);color:#fff;border-radius:22px;padding:24px 28px;margin:6px 0 40px}
+.cfoot p{font:700 18px Manrope}
+@media(max-width:900px){.cgrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:620px){.cgrid{grid-template-columns:repeat(2,1fr);gap:8px;padding:14px 0}.cgi{border-radius:12px}.chead h3{font-size:22px}.cclose{width:42px;height:42px}.cfoot{padding:20px}.cfoot .btn{width:100%}.agmore{font-size:22px}}
+/* просмотр фото */
+.lb{position:fixed;inset:0;z-index:110;background:#0a0d12;display:flex;align-items:center;justify-content:center;touch-action:pan-y}
+.lb[hidden]{display:none}
+.lbstage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:56px 76px 64px}
+.lbstage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:6px;box-shadow:0 20px 60px rgba(0,0,0,.5);user-select:none;-webkit-user-drag:none}
+.lbx{position:absolute;top:12px;right:12px;width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;font-size:30px;line-height:1;cursor:pointer;z-index:2}
+.lba{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;font-size:34px;line-height:1;cursor:pointer;z-index:2}
+.lba:hover,.lbx:hover{background:rgba(255,255,255,.24)}
+.lbp{left:14px}.lbn{right:14px}
+.lb.one .lba{display:none}
+.lbbar{position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;gap:12px;padding:16px 20px;color:#c6cdd6;font-size:14px}
+.lbbar #lbc{font-weight:600;color:#fff;flex:none}
+@media(max-width:620px){.lbstage{padding:60px 0 56px}.lbstage img{border-radius:0}.lba{top:auto;bottom:8px;transform:none;width:44px;height:44px;font-size:28px}.lbp{left:auto;right:64px}.lbn{right:12px}.lbbar{padding:18px 16px;padding-right:124px;font-size:13px}}

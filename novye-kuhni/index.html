@@ -30,7 +30,7 @@
       <i class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Написать</i>
     </a>
   </div>
-  <div class="hero-ph"><img src="img/h1.jpg" alt="Кухня «Новые Кухни»: графит и дерево"><div class="hbadge"><b>4,9 ★</b><span>122 отзыва<br>во ВКонтакте</span></div><div class="hbadge2"><b>от 72 000 ₽</b><span>готовые проекты</span></div></div>
+  <div class="hero-ph"><img src="img/hero.jpg" alt="Кухня «Изумруд» от фабрики «Новые Кухни»: белый глянец и изумрудная эмаль" fetchpriority="high"><div class="hbadge"><b>4,9 ★</b><span>138 отзывов<br>во ВКонтакте</span></div><div class="hbadge2"><b>от 72 000 ₽</b><span>готовые проекты</span></div></div>
 </div></section>
 
 <section class="facts"><div class="wrap">
@@ -92,7 +92,7 @@
 
 <section id="furn" style="padding-top:0"><div class="wrap">
   <div class="furn2">
-    <div class="fph"><img src="img/h3.jpg" alt="Кухня без ручек с профилем Gola, работа фабрики «Новые Кухни»" loading="lazy"><span>Профиль Gola · фасады МДФ</span></div>
+    <div class="fph"><img src="img/gola.jpg" alt="Кухня «Нео» без ручек с профилем Gola, работа фабрики «Новые Кухни»" loading="lazy"><span>Профиль Gola · фасады МДФ</span></div>
     <div>
       <span class="kicker">Материалы и фурнитура</span>
       <h2>Европейская фурнитура, фасады из МДФ</h2>
@@ -146,10 +146,10 @@
     <div>
       <span class="kicker" style="color:#e9d2b3">Отзывы</span>
       <h2>Нам доверяют</h2>
-      <div class="rating"><div><b>4,9</b><span>средняя оценка</span></div><div><b>122</b><span>отзыва во ВКонтакте</span></div></div>
+      <div class="rating"><div><b>4,9</b><span>средняя оценка</span></div><div><b>138</b><span>отзывов во ВКонтакте</span></div></div>
       <a class="btn btn-oak" href="https://vk.com/club226075997" target="_blank" rel="noopener">Читать отзывы во ВК</a>
     </div>
-    <div class="pics"><img src="img/k16.jpg" alt=""><img src="img/k23.jpg" alt=""><img src="img/k19.jpg" alt=""><img src="img/k10.jpg" alt=""><img src="img/k21.jpg" alt=""><img src="img/k14.jpg" alt=""></div>
+    <div class="pics"><img src="img/k/16_t.jpg" alt="Кухня фабрики «Новые Кухни»" loading="lazy" data-k="16"><img src="img/k/23_t.jpg" alt="Кухня фабрики «Новые Кухни»" loading="lazy" data-k="23"><img src="img/k/19_t.jpg" alt="Кухня фабрики «Новые Кухни»" loading="lazy" data-k="19"><img src="img/k/10_t.jpg" alt="Кухня фабрики «Новые Кухни»" loading="lazy" data-k="10"><img src="img/k/21_t.jpg" alt="Кухня фабрики «Новые Кухни»" loading="lazy" data-k="21"><img src="img/k/14_t.jpg" alt="Кухня фабрики «Новые Кухни»" loading="lazy" data-k="14"></div>
   </div>
 </div></section>
 
@@ -201,17 +201,30 @@
     <div class="sent" id="fallback" hidden><h3>Не получилось отправить заявку</h3><p>Позвоните или напишите нам, ответим сразу:</p><div class="mways"><a href="tel:+79956306030">+7 (995) 630-60-30</a><a class="maxlink" href="#" target="_blank" rel="noopener">MAX</a><a href="https://wa.me/79956306030" target="_blank" rel="noopener">WhatsApp</a></div></div>
   </div>
 </div>
+<div class="cview" id="cview" role="dialog" aria-modal="true" aria-labelledby="ctitle" hidden>
+  <div class="chead"><div class="wrap chin"><div><span class="kicker">Каталог работ</span><h3 id="ctitle"></h3></div><button type="button" class="cclose" id="cclose" aria-label="Закрыть каталог">×</button></div>
+  <div class="wrap"><div class="ctabs" id="ctabs"></div></div></div>
+  <div class="wrap"><div class="cgrid" id="cgrid"></div><div class="cfoot"><p>Понравилось что-то из каталога? Сделаем по вашим размерам</p><a class="btn btn-oak" href="#lead" id="cbtn">Рассчитать стоимость</a></div></div>
+</div>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Просмотр фото" hidden>
+  <div class="lbstage" id="lbstage"><img id="lbimg" alt=""></div>
+  <button type="button" class="lbx" id="lbx" aria-label="Закрыть">×</button>
+  <button type="button" class="lba lbp" id="lbp" aria-label="Предыдущее фото">‹</button>
+  <button type="button" class="lba lbn" id="lbn" aria-label="Следующее фото">›</button>
+  <div class="lbbar"><span id="lbcap"></span><span id="lbc"></span></div>
+</div>
 <div class="mbar" id="mbar"><a class="calc" href="#calc"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M12 11h2M16 11h0M8 15h2M12 15h2M8 18h2M12 18h4"/></svg>Рассчитать</a><a class="max maxlink" href="#" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Написать</a></div>
 <div class="fab"><a class="wa" href="https://wa.me/79956306030" target="_blank" rel="noopener" aria-label="WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M3 21l1.6-4.6A9 9 0 1 1 8 19.5z"/></svg></a><a class="tl" href="tel:+79956306030" aria-label="Позвонить"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></a></div>
 
+<script src="catalog.js"></script>
 <script>
-const K=[[0,'Серый Мрамор',72100],[1,'Мэри',75200],[2,'Чикаго 2',115200],[3,'Блэк Найт',78800],[4,'Белая Эстетика',151200],[5,'Застенчивая Невеста',78200],[6,'Кашемир',73500],[9,'Флоренция',98000],[10,'Глянцевый Сканди',119800],[11,'Лайт',77000],[12,'Альпийское Озеро',75000],[13,'Сканди-П',103000],[14,'Нео',161300],[15,'Муссон',142700],[16,'Black and White',212100],[17,'Сильвер',158000],[18,'Венеция',195300],[19,'Изумруд',197200],[20,'Графит-2',119900],[21,'Жёлтый Ламборгини',158000],[23,'Лувр',227500],[24,'Графит',89000],[25,'Уайт',128800],[26,'Какао',77000],[27,'Сканди',118200],[28,'Икеа',157000],[29,'Чикаго',118800]];
-const M={0: "До потолка · МДФ в плёнке · BOYARD", 1: "Без ручек · МДФ AGT · профиль Schuco", 2: "Минимализм · белый глянец и тёмный камень", 3: "Без ручек · графит · гранитная мойка", 4: "Без ручек · МДФ Белый Софт · петли Blum", 9: "Белый верх, тёмно-синий низ, дерево", 10: "Белый глянец и канадский дуб · Hettich", 11: "Небольшая · МДФ · фурнитура Hettich", 12: "Маленькая кухня в стиле сканди · Hettich", 13: "Сканди с барной стойкой вместо стола", 14: "Профиль Gola · сложное помещение", 15: "Просторная, светло-зелёная · Hettich", 16: "Белый глянец и чёрный · классика", 17: "Холодные тона · огромная рабочая зона", 18: "Классика для дома · витрины с подсветкой", 19: "Глянцевая эмаль · Blum · искусственный камень", 20: "Графит и светлое дерево · подсветка", 21: "Яркая жёлтая кухня · Hettich", 23: "Глянцевая эмаль · Blum · натуральный камень", 24: "Радиусные фасады · графит · Hettich", 25: "Сканди с полуостровом · Hettich", 26: "Современный сканди · Hettich", 27: "Сканди с островом · Hettich", 28: "Угловая · стеклянные фасады · Hettich", 29: "МДФ + HPL-пластик · столешница 38 мм"};
+const K=[[0,'Серый Мрамор',72100],[1,'Мэри',75200],[2,'Чикаго 2',115200],[3,'Блэк Найт',78800],[4,'Белая Эстетика',151200],[5,'Застенчивая Невеста',78200],[6,'Кашемир',73500],[7,'Романс',172000],[8,'Кофе с молоком',88200],[9,'Флоренция',98000],[10,'Глянцевый Сканди',119800],[11,'Лайт',77000],[12,'Альпийское Озеро',75000],[13,'Сканди-П',103000],[14,'Нео',161300],[15,'Муссон',142700],[16,'Black and White',212100],[17,'Сильвер',158000],[18,'Венеция',195300],[19,'Изумруд',197200],[20,'Графит-2',119900],[21,'Жёлтый Ламборгини',158000],[22,'Лофт',115800],[23,'Лувр',227500],[24,'Графит',89000],[25,'Уайт',128800],[26,'Какао',77000],[27,'Сканди',118200],[28,'Икеа',157000],[29,'Чикаго',118800]];
+const M={7: "Классика · фрезерованные фасады · витрины", 8: "Светлая кухня · столешница под мрамор", 22: "Лофт · тёмные фасады и дерево · подсветка", 0: "До потолка · МДФ в плёнке · BOYARD", 1: "Без ручек · МДФ AGT · профиль Schuco", 2: "Минимализм · белый глянец и тёмный камень", 3: "Без ручек · графит · гранитная мойка", 4: "Без ручек · МДФ Белый Софт · петли Blum", 9: "Белый верх, тёмно-синий низ, дерево", 10: "Белый глянец и канадский дуб · Hettich", 11: "Небольшая · МДФ · фурнитура Hettich", 12: "Маленькая кухня в стиле сканди · Hettich", 13: "Сканди с барной стойкой вместо стола", 14: "Профиль Gola · сложное помещение", 15: "Просторная, светло-зелёная · Hettich", 16: "Белый глянец и чёрный · классика", 17: "Холодные тона · огромная рабочая зона", 18: "Классика для дома · витрины с подсветкой", 19: "Глянцевая эмаль · Blum · искусственный камень", 20: "Графит и светлое дерево · подсветка", 21: "Яркая жёлтая кухня · Hettich", 23: "Глянцевая эмаль · Blum · натуральный камень", 24: "Радиусные фасады · графит · Hettich", 25: "Сканди с полуостровом · Hettich", 26: "Современный сканди · Hettich", 27: "Сканди с островом · Hettich", 28: "Угловая · стеклянные фасады · Hettich", 29: "МДФ + HPL-пластик · столешница 38 мм"};
 const fmt=n=>n.toLocaleString('ru-RU')+' ₽';
 const band=p=>p<90000?'a':(p<150000?'b':'c');
 let f='all',shown=8;
 const cat=document.getElementById('cat'),more=document.getElementById('more');
-function render(){const list=K.filter(k=>f==='all'||band(k[2])===f);cat.innerHTML=list.slice(0,shown).map(k=>`<div class="kc"><div class="im"><img src="img/k${String(k[0]).padStart(2,'0')}.jpg" alt="Кухня «${k[1]}»" loading="lazy"></div><div class="b"><h3>Кухня «${k[1]}»</h3><div class="mt">${M[k[0]]||""}</div><div class="pr">${fmt(k[2])}</div><button data-n="${k[1]}">Хочу такую</button></div></div>`).join('');more.style.display=list.length>shown?'':'none'}
+function render(){const list=K.filter(k=>f==='all'||band(k[2])===f);cat.innerHTML=list.slice(0,shown).map(k=>`<div class="kc"><button type="button" class="im" data-k="${k[0]}" aria-label="Смотреть фото кухни «${k[1]}»"><img src="img/k/${String(k[0]).padStart(2,'0')}_t.jpg" alt="Кухня «${k[1]}»" loading="lazy"><span class="nph">${KPH[k[0]]} фото</span></button><div class="b"><h3>Кухня «${k[1]}»</h3><div class="mt">${M[k[0]]||""}</div><div class="pr">${fmt(k[2])}</div><button data-n="${k[1]}">Хочу такую</button></div></div>`).join('');more.style.display=list.length>shown?'':'none'}
 document.querySelectorAll('#pf button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#pf button').forEach(x=>x.classList.toggle('on',x===b));f=b.dataset.f;shown=8;render()});
 more.onclick=()=>{shown+=8;render()};
 cat.addEventListener('click',e=>{const b=e.target.closest('button[data-n]');if(!b)return;openLead('Кухня «'+b.dataset.n+'»')});
@@ -244,11 +257,11 @@ document.querySelectorAll('.ktype').forEach(b=>b.onclick=()=>{document.querySele
 sides();
 document.getElementById('calcbtn').dataset.w='';document.getElementById('calcbtn').onclick=e=>{e.preventDefault();e.stopPropagation();openLead('Кухня: '+T[kt].n.toLowerCase()+', '+V[kt].map(x=>String(x).replace('.',',')).join(' + ')+' м, ориентир '+sum.textContent)};
 // не только кухни
-const AL={sh:{img:['sh1','sh2','sh3','sh4'],h:'Шкафы на заказ',p:'Распашные и купе, до потолка и в нишу. Наполнение продумываем под ваши вещи.',li:['Любые размеры, от узкой ниши до всей стены','Штанги, полки, выдвижные ящики','Петли и направляющие с доводчиками','Подсветка внутри и над шкафом']},
- pr:{img:['pr1','pr2','pr3','sh1'],h:'Прихожие',p:'Шкаф, банкетка, вешалки и место для обуви в одном решении, даже в узком коридоре.',li:['Шкафы до потолка без пыльных антресолей','Открытые ниши и мягкие панели','Зеркала и подсветка','Отдельные полки для обуви']},
- dt:{img:['dt1','dt2','sh4','sh3'],h:'Детские',p:'Шкафы, рабочее место и хранение игрушек. Для мальчиков и девочек, в любых расцветках.',li:['Рабочий стол с подсветкой','Вместительные шкафы и комоды','Безопасная фурнитура с доводчиками','Растёт вместе с ребёнком']}};
+const AL={sh:{h:'Шкафы на заказ',p:'Распашные и купе, до потолка и в нишу. Наполнение продумываем под ваши вещи.',li:['Любые размеры, от узкой ниши до всей стены','Штанги, полки, выдвижные ящики','Петли и направляющие с доводчиками','Подсветка внутри и над шкафом']},
+ pr:{h:'Прихожие',p:'Шкаф, банкетка, вешалки и место для обуви в одном решении, даже в узком коридоре.',li:['Шкафы до потолка без пыльных антресолей','Открытые ниши и мягкие панели','Зеркала и подсветка','Отдельные полки для обуви']},
+ dt:{h:'Детские',p:'Шкафы, рабочее место и хранение игрушек. Для мальчиков и девочек, в любых расцветках.',li:['Рабочий стол с подсветкой','Вместительные шкафы и комоды','Безопасная фурнитура с доводчиками','Растёт вместе с ребёнком']}};
 const ag=document.getElementById('alsogal'),at=document.getElementById('alsotxt');
-function also(k){const a=AL[k];ag.innerHTML=a.img.map(i=>`<img src="img/${i}.jpg" alt="${a.h}, работа фабрики «Новые Кухни»" loading="lazy">`).join('');at.innerHTML=`<h3>${a.h}</h3><p>${a.p}</p><ul>${a.li.map(x=>`<li>${x}</li>`).join('')}</ul><a class="btn btn-sand" href="#lead" data-w="${a.h}">Рассчитать ${a.h==='Шкафы на заказ'?'шкаф':a.h.toLowerCase()}</a>`}
+function also(k){const a=AL[k],c=CATALOG[k],f=c.f.slice(0,4);ag.innerHTML=f.map((n,i)=>{const im=`<img src="img/${k}/t/${n}.jpg" alt="${a.h}, работа фабрики «Новые Кухни»" loading="lazy">`;return i===3&&c.f.length>4?`<a class="agi" href="#${c.slug}" aria-label="Открыть каталог: ${c.t}, ${c.f.length} фото">${im}<span class="agmore">+${c.f.length-3} фото<small>весь каталог</small></span></a>`:`<button type="button" class="agi" data-c="${k}" data-i="${i}" aria-label="Открыть фото ${i+1}">${im}</button>`}).join('');at.innerHTML=`<h3>${a.h}</h3><p>${a.p}</p><ul>${a.li.map(x=>`<li>${x}</li>`).join('')}</ul><div class="abtns"><a class="btn btn-sand" href="#lead" data-w="${a.h}">Рассчитать ${a.h==='Шкафы на заказ'?'шкаф':a.h.toLowerCase()}</a><a class="btn btn-ghost" href="#${c.slug}">Все ${c.f.length} фото</a></div>`}
 document.querySelectorAll('#alsotabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#alsotabs button').forEach(x=>x.classList.toggle('on',x===b));also(b.dataset.a)});
 also('sh');
 // акции и подарки: чтобы изменить, поправьте этот список
@@ -263,7 +276,7 @@ const LEAD_URL="https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnm
 const modal=document.getElementById('lead'),form=document.getElementById('form'),err=document.getElementById('err'),sbtn=document.getElementById('submit');
 let lastFocus=null;
 function openLead(w){lastFocus=document.activeElement;form.what.value=w||'';form.hidden=false;document.getElementById('sent').hidden=true;document.getElementById('fallback').hidden=true;err.textContent='';modal.hidden=false;document.body.classList.add('noscroll');if(matchMedia('(pointer:fine)').matches)setTimeout(()=>form.name.focus(),50)}
-function closeLead(){modal.hidden=true;document.body.classList.remove('noscroll');if(lastFocus)lastFocus.focus()}
+function closeLead(){modal.hidden=true;if(cview.hidden)document.body.classList.remove('noscroll');if(lastFocus)lastFocus.focus()}
 document.addEventListener('click',e=>{const a=e.target.closest('a[href="#lead"]');if(!a)return;e.preventDefault();openLead(a.dataset.w||'')});
 modal.addEventListener('click',e=>{if(e.target===modal||e.target.closest('.mclose'))closeLead()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!modal.hidden)closeLead()});
@@ -275,6 +288,31 @@ form.addEventListener('submit',async e=>{e.preventDefault();
  err.textContent='';sbtn.disabled=true;sbtn.textContent='Отправляем...';let ok=false;
  try{const r=await fetch(LEAD_URL,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},signal:AbortSignal.timeout(20000),body:JSON.stringify({site:location.hostname,name:form.name.value.trim(),phone:form.phone.value,details:['Макет novye-kuhni',form.what.value.trim(),form.via.value].filter(Boolean).join(', '),comment:form.comment.value.trim(),website:form.website.value})});ok=(await r.json()).ok===true}catch(x){}
  sbtn.disabled=false;sbtn.textContent='Получить расчёт';form.hidden=true;document.getElementById(ok?'sent':'fallback').hidden=false});
+// просмотр фото на весь экран
+const lb=document.getElementById('lb'),lbimg=document.getElementById('lbimg'),lbc=document.getElementById('lbc'),lbcap=document.getElementById('lbcap');
+let LS=[],LI=0,lbFocus=null;
+function lbShow(){lbimg.src=LS[LI].src;lbimg.alt=LS[LI].cap;lbcap.textContent=LS[LI].cap;lbc.textContent=(LI+1)+' / '+LS.length;[1,-1].forEach(d=>{const n=LS[(LI+d+LS.length)%LS.length];if(n)new Image().src=n.src});lb.classList.toggle('one',LS.length<2)}
+function lbOpen(list,i){LS=list;LI=i;lbFocus=document.activeElement;lb.hidden=false;document.body.classList.add('noscroll');lbShow();document.getElementById('lbx').focus()}
+function lbClose(){lb.hidden=true;lbimg.removeAttribute('src');if(cview.hidden)document.body.classList.remove('noscroll');if(lbFocus)lbFocus.focus()}
+function lbGo(d){LI=(LI+d+LS.length)%LS.length;lbShow()}
+document.getElementById('lbp').onclick=()=>lbGo(-1);document.getElementById('lbn').onclick=()=>lbGo(1);document.getElementById('lbx').onclick=lbClose;
+lb.addEventListener('click',e=>{if(e.target===lb||e.target.id==='lbstage')lbClose()});
+let tx=null,ty=null;lb.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
+lb.addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;tx=null;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy))lbGo(dx<0?1:-1);else if(dy>90&&Math.abs(dy)>Math.abs(dx))lbClose()});
+const catList=k=>CATALOG[k].f.map((n,i)=>({src:`img/${k}/${n}.jpg`,cap:CATALOG[k].t+', работа фабрики «Новые Кухни»'}));
+const kList=n=>{const k=K.find(x=>x[0]==n);return Array.from({length:KPH[n]},(_,j)=>({src:`img/k/${String(n).padStart(2,'0')}_${j}.jpg`,cap:'Кухня «'+k[1]+'» · '+fmt(k[2])}))};
+// каталоги шкафов, прихожих и детских
+const cview=document.getElementById('cview'),cgrid=document.getElementById('cgrid'),ctabs=document.getElementById('ctabs');
+let cKey=null,cPushed=false,cFocus=null;
+ctabs.innerHTML=Object.keys(CATALOG).map(k=>`<a href="#${CATALOG[k].slug}" data-c="${k}">${CATALOG[k].t} <small>${CATALOG[k].f.length}</small></a>`).join('');
+function cRender(k){cKey=k;const c=CATALOG[k];document.getElementById('ctitle').textContent=c.t+' на заказ';ctabs.querySelectorAll('a').forEach(a=>a.classList.toggle('on',a.dataset.c===k));cgrid.innerHTML=c.f.map((n,i)=>`<button type="button" class="cgi" data-c="${k}" data-i="${i}" aria-label="Открыть фото ${i+1}"><img src="img/${k}/t/${n}.jpg" alt="${c.t}, работа фабрики «Новые Кухни»" loading="lazy"></button>`).join('');document.getElementById('cbtn').dataset.w=c.t;cview.scrollTop=0}
+function cSync(){const k=Object.keys(CATALOG).find(k=>'#'+CATALOG[k].slug===location.hash);if(k){if(cview.hidden){cFocus=document.activeElement;cview.hidden=false;document.body.classList.add('noscroll')}cRender(k);document.getElementById('cclose').focus()}else if(!cview.hidden){cview.hidden=true;cPushed=false;if(lb.hidden)document.body.classList.remove('noscroll');if(cFocus)cFocus.focus()}}
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(a&&Object.values(CATALOG).some(c=>a.getAttribute('href')==='#'+c.slug)){e.preventDefault();const h=a.getAttribute('href');if(location.hash===h)return;if(cview.hidden){cPushed=true;history.pushState(null,'',h)}else history.replaceState(null,'',h);cSync()}});
+function cClose(){if(cPushed)history.back();else{history.replaceState(null,'',location.pathname+location.search);cSync()}}
+document.getElementById('cclose').onclick=cClose;
+window.addEventListener('popstate',cSync);window.addEventListener('hashchange',cSync);cSync();
+document.addEventListener('click',e=>{const b=e.target.closest('button.cgi,button.agi');if(b){lbOpen(catList(b.dataset.c),+b.dataset.i);return}const k=e.target.closest('[data-k]');if(k&&!e.target.closest('#lb')){lbOpen(kList(+k.dataset.k),0)}});
+document.addEventListener('keydown',e=>{if(!lb.hidden){if(e.key==='Escape'){e.stopImmediatePropagation();lbClose()}else if(e.key==='ArrowRight')lbGo(1);else if(e.key==='ArrowLeft')lbGo(-1)}else if(!cview.hidden&&e.key==='Escape'&&modal.hidden)cClose()},true);
 // нижняя панель: прячем у блока с контактами
 const mb=document.getElementById('mbar');if('IntersectionObserver' in window){new IntersectionObserver(es=>es.forEach(e=>mb.classList.toggle('hide',e.isIntersecting)),{threshold:.25}).observe(document.getElementById('price'))}
 </script>
