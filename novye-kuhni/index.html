@@ -30,7 +30,7 @@
       <i class="go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Написать</i>
     </a>
   </div>
-  <div class="hero-ph"><img src="img/hero.jpg" alt="Кухня «Изумруд» от фабрики «Новые Кухни»: белый глянец и изумрудная эмаль" fetchpriority="high"><div class="hbadge"><b>4,9 ★</b><span>138 отзывов<br>во ВКонтакте</span></div><div class="hbadge2"><b>от 72 000 ₽</b><span>готовые проекты</span></div></div>
+  <div class="hero-ph"><img src="img/hero.jpg" alt="Кухня «Изумруд» от фабрики «Новые Кухни»: белый глянец и изумрудная эмаль" fetchpriority="high"><div class="hbadge"><b id="hrat">4,9 ★</b><span id="hrev">138 отзывов<br>во ВКонтакте</span></div><div class="hbadge2"><b>от 72 000 ₽</b><span>готовые проекты</span></div></div>
 </div></section>
 
 <section class="facts"><div class="wrap">
@@ -146,7 +146,7 @@
     <div>
       <span class="kicker" style="color:#e9d2b3">Отзывы</span>
       <h2>Нам доверяют</h2>
-      <div class="rating"><div><b>4,9</b><span>средняя оценка</span></div><div><b>138</b><span>отзывов во ВКонтакте</span></div></div>
+      <div class="rating"><div><b id="rrat">4,9</b><span>средняя оценка</span></div><div><b id="rnum">138</b><span id="rrev">отзывов во ВКонтакте</span></div></div>
       <a class="btn btn-oak" href="https://vk.com/club226075997" target="_blank" rel="noopener">Читать отзывы во ВК</a>
     </div>
     <div class="pics"><img src="img/k/16_t.jpg" alt="Кухня фабрики «Новые Кухни»" loading="lazy" data-k="16"><img src="img/k/23_t.jpg" alt="Кухня фабрики «Новые Кухни»" loading="lazy" data-k="23"><img src="img/k/19_t.jpg" alt="Кухня фабрики «Новые Кухни»" loading="lazy" data-k="19"><img src="img/k/10_t.jpg" alt="Кухня фабрики «Новые Кухни»" loading="lazy" data-k="10"><img src="img/k/21_t.jpg" alt="Кухня фабрики «Новые Кухни»" loading="lazy" data-k="21"><img src="img/k/14_t.jpg" alt="Кухня фабрики «Новые Кухни»" loading="lazy" data-k="14"></div>
@@ -261,16 +261,21 @@ const AL={sh:{h:'Шкафы на заказ',p:'Распашные и купе, 
  pr:{h:'Прихожие',p:'Шкаф, банкетка, вешалки и место для обуви в одном решении, даже в узком коридоре.',li:['Шкафы до потолка без пыльных антресолей','Открытые ниши и мягкие панели','Зеркала и подсветка','Отдельные полки для обуви']},
  dt:{h:'Детские',p:'Шкафы, рабочее место и хранение игрушек. Для мальчиков и девочек, в любых расцветках.',li:['Рабочий стол с подсветкой','Вместительные шкафы и комоды','Безопасная фурнитура с доводчиками','Растёт вместе с ребёнком']}};
 const ag=document.getElementById('alsogal'),at=document.getElementById('alsotxt');
-function also(k){const a=AL[k],c=CATALOG[k],f=c.f.slice(0,4);ag.innerHTML=f.map((n,i)=>{const im=`<img src="img/${k}/t/${n}.jpg" alt="${a.h}, работа фабрики «Новые Кухни»" loading="lazy">`;return i===3&&c.f.length>4?`<a class="agi" href="#${c.slug}" aria-label="Открыть каталог: ${c.t}, ${c.f.length} фото">${im}<span class="agmore">+${c.f.length-3} фото<small>весь каталог</small></span></a>`:`<button type="button" class="agi" data-c="${k}" data-i="${i}" aria-label="Открыть фото ${i+1}">${im}</button>`}).join('');at.innerHTML=`<h3>${a.h}</h3><p>${a.p}</p><ul>${a.li.map(x=>`<li>${x}</li>`).join('')}</ul><div class="abtns"><a class="btn btn-sand" href="#lead" data-w="${a.h}">Рассчитать ${a.h==='Шкафы на заказ'?'шкаф':a.h.toLowerCase()}</a><a class="btn btn-ghost" href="#${c.slug}">Все ${c.f.length} фото</a></div>`}
+// фото каталогов: сначала копии с сайта, потом свежие из альбомов ВК (applyContent ниже)
+for(const k in CATALOG)CATALOG[k].items=CATALOG[k].f.map(n=>({t:`img/${k}/t/${n}.jpg`,f:`img/${k}/${n}.jpg`}));
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let curAlso='sh';
+function also(k){curAlso=k;const a=AL[k],c=CATALOG[k],f=c.items.slice(0,4);ag.innerHTML=f.map((it,i)=>{const im=`<img src="${esc(it.t)}" alt="${a.h}, работа фабрики «Новые Кухни»" loading="lazy">`;return i===3&&c.items.length>4?`<a class="agi" href="#${c.slug}" aria-label="Открыть каталог: ${c.t}, ${c.items.length} фото">${im}<span class="agmore">+${c.items.length-3} фото<small>весь каталог</small></span></a>`:`<button type="button" class="agi" data-c="${k}" data-i="${i}" aria-label="Открыть фото ${i+1}">${im}</button>`}).join('');at.innerHTML=`<h3>${a.h}</h3><p>${a.p}</p><ul>${a.li.map(x=>`<li>${x}</li>`).join('')}</ul><div class="abtns"><a class="btn btn-sand" href="#lead" data-w="${a.h}">Рассчитать ${a.h==='Шкафы на заказ'?'шкаф':a.h.toLowerCase()}</a><a class="btn btn-ghost" href="#${c.slug}">Все ${c.items.length} фото</a></div>`}
 document.querySelectorAll('#alsotabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#alsotabs button').forEach(x=>x.classList.toggle('on',x===b));also(b.dataset.a)});
 also('sh');
-// акции и подарки: чтобы изменить, поправьте этот список
+// акции и подарки по умолчанию; актуальные Антон ведёт в Google Таблице (applyContent ниже)
 const PROMOS=[
  {t:'Замер бесплатно',p:'Замерщик приедет в удобное время, проверит стены и углы и подскажет, как лучше разместить кухню.',tag:'Подарок',w:'Бесплатный замер'},
  {t:'3D-проект в подарок',p:'Покажем вашу кухню в 3D до начала изготовления: цвета, фасады, технику и наполнение шкафов.',tag:'Подарок',w:'3D-проект кухни'},
  {t:'Рассрочка 0-0-24',p:'Кухня сейчас, оплата частями без переплат. Есть варианты на 3, 6, 12 и 24 месяца.',tag:'Без переплат',w:'Кухня в рассрочку'}
 ];
-document.getElementById('promos').innerHTML=PROMOS.map(x=>`<div class="promo"><span class="ptag">${x.tag}</span><h3>${x.t}</h3><p>${x.p}</p><a class="btn btn-sand" href="#lead" data-w="${x.w}">Получить</a></div>`).join('');
+function renderPromos(list){document.getElementById('promo').hidden=!list.length;document.getElementById('promos').innerHTML=list.map(x=>`<div class="promo">${x.tag?`<span class="ptag">${esc(x.tag)}</span>`:''}<h3>${esc(x.t)}</h3>${x.p?`<p>${esc(x.p)}</p>`:'<p></p>'}<a class="btn btn-sand" href="#lead" data-w="${esc(x.w||x.t)}">Получить</a></div>`).join('')}
+renderPromos(PROMOS);
 // всплывающая форма заявки
 const LEAD_URL="https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec";
 const modal=document.getElementById('lead'),form=document.getElementById('form'),err=document.getElementById('err'),sbtn=document.getElementById('submit');
@@ -299,13 +304,14 @@ document.getElementById('lbp').onclick=()=>lbGo(-1);document.getElementById('lbn
 lb.addEventListener('click',e=>{if(e.target===lb||e.target.id==='lbstage')lbClose()});
 let tx=null,ty=null;lb.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;ty=e.touches[0].clientY},{passive:true});
 lb.addEventListener('touchend',e=>{if(tx===null)return;const dx=e.changedTouches[0].clientX-tx,dy=e.changedTouches[0].clientY-ty;tx=null;if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy))lbGo(dx<0?1:-1);else if(dy>90&&Math.abs(dy)>Math.abs(dx))lbClose()});
-const catList=k=>CATALOG[k].f.map((n,i)=>({src:`img/${k}/${n}.jpg`,cap:CATALOG[k].t+', работа фабрики «Новые Кухни»'}));
+const catList=k=>CATALOG[k].items.map(it=>({src:it.f,cap:it.c||CATALOG[k].t+', работа фабрики «Новые Кухни»'}));
 const kList=n=>{const k=K.find(x=>x[0]==n);return Array.from({length:KPH[n]},(_,j)=>({src:`img/k/${String(n).padStart(2,'0')}_${j}.jpg`,cap:'Кухня «'+k[1]+'» · '+fmt(k[2])}))};
 // каталоги шкафов, прихожих и детских
 const cview=document.getElementById('cview'),cgrid=document.getElementById('cgrid'),ctabs=document.getElementById('ctabs');
 let cKey=null,cPushed=false,cFocus=null;
-ctabs.innerHTML=Object.keys(CATALOG).map(k=>`<a href="#${CATALOG[k].slug}" data-c="${k}">${CATALOG[k].t} <small>${CATALOG[k].f.length}</small></a>`).join('');
-function cRender(k){cKey=k;const c=CATALOG[k];document.getElementById('ctitle').textContent=c.t+' на заказ';ctabs.querySelectorAll('a').forEach(a=>a.classList.toggle('on',a.dataset.c===k));cgrid.innerHTML=c.f.map((n,i)=>`<button type="button" class="cgi" data-c="${k}" data-i="${i}" aria-label="Открыть фото ${i+1}"><img src="img/${k}/t/${n}.jpg" alt="${c.t}, работа фабрики «Новые Кухни»" loading="lazy"></button>`).join('');document.getElementById('cbtn').dataset.w=c.t;cview.scrollTop=0}
+function cTabs(){ctabs.innerHTML=Object.keys(CATALOG).map(k=>`<a href="#${CATALOG[k].slug}" data-c="${k}"${k===cKey?' class="on"':''}>${CATALOG[k].t} <small>${CATALOG[k].items.length}</small></a>`).join('')}
+cTabs();
+function cRender(k){cKey=k;const c=CATALOG[k];document.getElementById('ctitle').textContent=c.t+' на заказ';ctabs.querySelectorAll('a').forEach(a=>a.classList.toggle('on',a.dataset.c===k));cgrid.innerHTML=c.items.map((it,i)=>`<button type="button" class="cgi" data-c="${k}" data-i="${i}" aria-label="Открыть фото ${i+1}"><img src="${esc(it.t)}" alt="${c.t}, работа фабрики «Новые Кухни»" loading="lazy"></button>`).join('');document.getElementById('cbtn').dataset.w=c.t;cview.scrollTop=0}
 function cSync(){const k=Object.keys(CATALOG).find(k=>'#'+CATALOG[k].slug===location.hash);if(k){if(cview.hidden){cFocus=document.activeElement;cview.hidden=false;document.body.classList.add('noscroll')}cRender(k);document.getElementById('cclose').focus()}else if(!cview.hidden){cview.hidden=true;cPushed=false;if(lb.hidden)document.body.classList.remove('noscroll');if(cFocus)cFocus.focus()}}
 document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(a&&Object.values(CATALOG).some(c=>a.getAttribute('href')==='#'+c.slug)){e.preventDefault();const h=a.getAttribute('href');if(location.hash===h)return;if(cview.hidden){cPushed=true;history.pushState(null,'',h)}else history.replaceState(null,'',h);cSync()}});
 function cClose(){if(cPushed)history.back();else{history.replaceState(null,'',location.pathname+location.search);cSync()}}
@@ -313,6 +319,20 @@ document.getElementById('cclose').onclick=cClose;
 window.addEventListener('popstate',cSync);window.addEventListener('hashchange',cSync);cSync();
 document.addEventListener('click',e=>{const b=e.target.closest('button.cgi,button.agi');if(b){lbOpen(catList(b.dataset.c),+b.dataset.i);return}const k=e.target.closest('[data-k]');if(k&&!e.target.closest('#lb')){lbOpen(kList(+k.dataset.k),0)}});
 document.addEventListener('keydown',e=>{if(!lb.hidden){if(e.key==='Escape'){e.stopImmediatePropagation();lbClose()}else if(e.key==='ArrowRight')lbGo(1);else if(e.key==='ArrowLeft')lbGo(-1)}else if(!cview.hidden&&e.key==='Escape'&&modal.hidden)cClose()},true);
+// Антон меняет сам: фото из альбомов группы ВК, рейтинг, отзывы и акции из Google Таблицы
+const CONTENT_URL="https://script.google.com/macros/s/AKfycby3ui9fxMJbboUbsFOMM-lEuUfqrv1s9ETt6ltFkXZs9bmc2bW-mT4TUwrL82XE1sQI/exec";
+const plural=(n,a,b,c)=>{const m=n%100,d=n%10;return m>10&&m<20?c:d===1?a:d>1&&d<5?b:c};
+function applyContent(d){
+ if(!d||!d.ok)return;
+ let fresh=false;
+ for(const k in CATALOG){const a=d.albums&&d.albums[k];if(Array.isArray(a)){const items=a.filter(x=>x&&typeof x.t==='string'&&typeof x.f==='string');if(items.length){CATALOG[k].items=items;fresh=true}}}
+ if(fresh){cTabs();also(curAlso);if(!cview.hidden&&lb.hidden&&cKey)cRender(cKey)}
+ const i=d.info||{};
+ if(typeof i.rating==='string'&&/^[1-5],\d$/.test(i.rating)){document.getElementById('hrat').textContent=i.rating+' ★';document.getElementById('rrat').textContent=i.rating}
+ if(Number.isInteger(i.reviews)&&i.reviews>=0){const w=plural(i.reviews,'отзыв','отзыва','отзывов');document.getElementById('hrev').innerHTML=i.reviews+' '+w+'<br>во ВКонтакте';document.getElementById('rnum').textContent=i.reviews;document.getElementById('rrev').textContent=w+' во ВКонтакте'}
+ if(Array.isArray(d.promos))renderPromos(d.promos.filter(x=>x&&x.t).slice(0,6));
+}
+if(CONTENT_URL)fetch(CONTENT_URL).then(r=>r.json()).then(applyContent).catch(()=>{});
 // нижняя панель: прячем у блока с контактами
 const mb=document.getElementById('mbar');if('IntersectionObserver' in window){new IntersectionObserver(es=>es.forEach(e=>mb.classList.toggle('hide',e.isIntersecting)),{threshold:.25}).observe(document.getElementById('price'))}
 </script>
