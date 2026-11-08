@@ -1353,7 +1353,7 @@
   tabs.innerHTML = Object.entries(MENU).map(([k, g], n) => `<button class="chip${n ? "" : " on"}" type="button" role="tab" aria-selected="${!n}" data-k="${k}">${esc(g.name)}<i>${g.items.length}</i></button>`).join("");
   function setTab(k){
     if (!MENU[k]) return;
-    tabs.querySelectorAll(".chip").forEach(b => { const on = b.dataset.k === k; b.classList.toggle("on", on); b.setAttribute("aria-selected", on); if (on) b.scrollIntoView({block: "nearest", inline: "center"}); });
+    tabs.querySelectorAll(".chip").forEach(b => { const on = b.dataset.k === k; b.classList.toggle("on", on); b.setAttribute("aria-selected", on); if (on) tabs.scrollLeft = b.offsetLeft - (tabs.clientWidth - b.offsetWidth) / 2; });
     grid.innerHTML = cutList("menu-" + k, MENU[k].items, 8, "menuMore", () => setTab(k)).map(i => card(i)).join("");
     syncAll();
   }
