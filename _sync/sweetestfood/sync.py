@@ -25,6 +25,10 @@ MON = ['января', 'февраля', 'марта', 'апреля', 'мая',
 UA = {'User-Agent': 'Mozilla/5.0 (sweetestfood site sync)'}
 
 
+class VKError(Exception):
+    pass
+
+
 def api(method, **params):
     token = os.environ.get('VK_TOKEN', '')
     if not token:
@@ -33,7 +37,7 @@ def api(method, **params):
     req = urllib.request.Request('https://api.vk.com/method/' + method, data=urllib.parse.urlencode(params).encode(), headers=UA)
     data = json.loads(urllib.request.urlopen(req, timeout=30).read())
     if 'error' in data:  # never print the request: it contains the token
-        e = data['error']; sys.exit(f"VK {method} error {e.get('error_code')}: {e.get('error_msg')}")
+        e = data['error']; raise VKError(f"VK {method} error {e.get('error_code')}: {e.get('error_msg')}")
     return data
 
 
@@ -76,10 +80,15 @@ def dstr(ts):
 
 
 def main():
+    market_live = False
     if OFFLINE:
         market, wall, group = load('market.json'), load('wall.json'), load('group.json')
     else:
-        market = api('market.get', owner_id=-GID, count=200, extended=1)
+        try:
+            market = api('market.get', owner_id=-GID, count=200, extended=1)
+            market_live = True
+        except VKError as e:  # a service token can't read the market: keep the last saved menu
+            print(e, '-> menu kept from data/market.json'); market = load('market.json'); market_live = False
         wall = api('wall.get', owner_id=-GID, count=100)
         group = api('groups.getById', group_ids=GID, fields='counters')
     items = market['response']['items']
@@ -161,6 +170,8 @@ def main():
     tpl = open(os.path.join(HERE, 'index.src.html'), encoding='utf-8').read()
     open(os.path.join(SITE, 'index.html'), 'w', encoding='utf-8').write(tpl.replace('__DATA__', json.dumps(data, ensure_ascii=False, separators=(',', ':'))))
     man['hash'] = h
+    if market_live:
+        dump('market.json', market)
     json.dump(man, open(MAN, 'w'), ensure_ascii=False)
     print('rebuilt:', len(cat['items']), 'items,', len(posts), 'posts,', len(cl), 'clips')
 
