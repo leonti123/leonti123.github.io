@@ -1,0 +1,32 @@
+name: sweetestfood sync from VK
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: sweetestfood-sync
+  cancel-in-progress: false
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install --quiet pillow==11.1.0
+      - name: Pull VK market and rebuild the page
+        env:
+          VK_TOKEN: ${{ secrets.VK_TOKEN }}
+        run: |
+          if [ -z "$VK_TOKEN" ]; then echo "VK_TOKEN secret is not set yet, skipping"; exit 0; fi
+          python _sync/sweetestfood/sync.py
+      - name: Commit if something changed
+        run: |
+          git add sweetestfood _sync/sweetestfood/data/manifest.json
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git -c user.name="sweetestfood-sync" -c user.email="actions@users.noreply.github.com" commit -m "sweetestfood: sync menu from VK"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 5; done
