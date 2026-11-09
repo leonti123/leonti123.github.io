@@ -501,8 +501,11 @@ input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;bac
   .wrap{padding:0 22px}
   .nav,.hdr .btn{display:none}
   .burger{display:flex}
-  .mnav{display:block;position:fixed;top:0;left:0;right:0;bottom:0;z-index:45;background:var(--paper);padding:110px 28px 40px;transform:translateY(-100%);transition:transform .35s;overflow:auto}
+  .mnav{display:block;position:fixed;top:0;left:0;right:0;bottom:0;z-index:45;background:var(--paper);padding:96px 28px 40px;transform:translateY(-100%);transition:transform .35s;overflow:auto}
   .menu-open .mnav{transform:none}
+  .menu-open{overflow:hidden}
+  .menu-open .mbar{transform:translateY(140%);opacity:0;pointer-events:none}
+  .menu-open .hdr{position:fixed;left:0;right:0;top:0}
   .mnav a{display:block;font:400 30px/1.2 var(--serif);color:var(--plum);text-decoration:none;padding:12px 0;border-bottom:1px solid var(--line)}
   .mnav .btn{margin-top:26px;font:600 16px/1 var(--sans);color:#fff;border:0;display:flex}
   .hero-g{grid-template-columns:1fr;gap:10px}
