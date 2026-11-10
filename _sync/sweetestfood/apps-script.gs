@@ -60,3 +60,9 @@ function doPost(e) {
 }
 
 function doGet() { return reply({ ok: true, service: "sweetestfood menu update" }); }
+
+// Run by hand to check the GitHub token: logs whether it can push to the repo
+function checkGitHub() {
+  const r = gh("get", "");
+  console.log("GitHub " + r.code + " push=" + (r.body.permissions && r.body.permissions.push));
+}
