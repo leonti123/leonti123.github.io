@@ -1,7 +1,8 @@
 name: sweetestfood sync from VK
 on:
   schedule:
-    - cron: "*/30 * * * *"
+    # GitHub starts scheduled jobs late and skips them at busy minutes (:00, :30), so use off-peak minutes
+    - cron: "7,37 * * * *"
   workflow_dispatch:
 permissions:
   contents: write
