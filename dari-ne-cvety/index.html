@@ -250,6 +250,26 @@ input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;bac
 .bb.em p{background:var(--em-d);color:#EEE9E0;border-color:transparent}
 .bb span{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink3);margin:9px 0 0 8px}
 .bb span::before{content:"";width:22px;height:22px;border-radius:50%;background:var(--em-l) url(img/mark.png) center/14px no-repeat}
+/* avito */
+.avito{margin-top:70px;padding-top:56px;border-top:1px solid var(--line)}
+.avito-head{display:grid;grid-template-columns:auto 1fr auto;gap:40px;align-items:end}
+.avito-t{font:400 clamp(28px,3vw,38px)/1.12 var(--disp);color:var(--em-dd);margin-top:12px}
+.avito-s{font-size:15px;color:var(--ink2);max-width:430px}
+.avito-nav{display:flex;gap:10px}
+.avito-nav button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--em-dd);font-size:26px;line-height:1;cursor:pointer;transition:background .2s}
+.avito-nav button:hover{background:var(--li-l)}
+.av-row{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:34px;padding:4px 2px 18px;scrollbar-width:thin;scrollbar-color:var(--li) transparent}
+.av{flex:0 0 330px;scroll-snap-align:start;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px 22px 24px;display:flex;flex-direction:column}
+.av:nth-child(3n+2){background:var(--li-l);border-color:transparent}
+.av header{display:flex;align-items:center;gap:12px}
+.av header i{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--em);color:#F7F3EC;font:400 19px/1 var(--disp);font-style:normal;flex:none}
+.av:nth-child(3n+2) header i{background:var(--li-d)}
+.av b{display:block;font:500 15.5px/1.25 var(--sans);color:var(--em-dd)}
+.av small{display:block;font-size:12.5px;color:var(--ink3);margin-top:2px}
+.av-st{margin-top:14px;color:#E9A93B;letter-spacing:2px;font-size:15px}
+.av-st span{letter-spacing:0;color:var(--ink3);font-size:12.5px;margin-left:4px}
+.av-what{font-size:13px;color:var(--li-d);font-weight:500;margin-top:4px}
+.av-t{font-size:15px;line-height:1.55;color:var(--ink);margin-top:12px}
 /* about */
 .about{padding:20px 0 110px}
 .about-in{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
@@ -381,6 +401,9 @@ details p{color:var(--ink2);padding:0 50px 22px 0}
   .hero-art{width:min(86%,420px)}
   .ny-top,.calc,.rev-top,.about-in,.faq-in,.order-in{grid-template-columns:1fr}
   .rate{justify-self:start}
+  .avito-head{grid-template-columns:1fr;gap:16px}
+  .avito-nav{display:none}
+  .av{flex-basis:84%}
   .mbox{grid-template-columns:1fr}
   .mgal img{max-height:58vh}
   .pack-grid{grid-template-columns:repeat(2,1fr)}
@@ -543,7 +566,7 @@ details p{color:var(--ink2);padding:0 50px 22px 0}
       <button class="ft" data-fill="fruit"><img src="img/f-fruit.jpg" width="620" height="589" alt="Фруктовый букет" loading="lazy"><span class="tag" data-min="fruit"></span><div><b>Фрукты и ягоды</b><span>226 работ</span></div></button>
       <button class="ft" data-fill="dry"><img src="img/f-dry.jpg" width="620" height="567" alt="Букет из орехов и сухофруктов в шоколадной упаковке" loading="lazy"><span class="tag" data-min="dry"></span><div><b>Сухофрукты и орехи</b><span>168 работ</span></div></button>
       <button class="ft" data-fill="meat"><img src="img/f-meat.jpg" width="495" height="620" alt="Колбасно‑сырный букет" loading="lazy"><span class="tag" data-min="meat"></span><div><b>Мясо и сыр</b><span>71 работа</span></div></button>
-      <button class="ft" data-fill="sweet"><img src="img/f-sweet.jpg" width="465" height="620" alt="Сладкий букет из Рафаэлло, Ферреро и макарони" loading="lazy"><span class="tag" data-min="sweet"></span><div><b>Сладкое и конфеты</b><span>89 работ</span></div></button>
+      <button class="ft" data-fill="sweet"><img src="img/f-sweet.jpg" width="620" height="620" alt="Сладкий букет из Рафаэлло, Ферреро и макарони" loading="lazy"><span class="tag" data-min="sweet"></span><div><b>Сладкое и конфеты</b><span>89 работ</span></div></button>
       <button class="ft" data-fill="fish"><img src="img/f-fish.jpg" width="508" height="620" alt="Букет из крабовых палочек и закусок" loading="lazy"><span class="tag" data-min="fish"></span><div><b>Рыбка и снеки</b><span>14 работ</span></div></button>
       <button class="ft" data-fill="veg"><img src="img/f-veg.jpg" width="465" height="620" alt="Овощной букет" loading="lazy"><span class="tag" data-min="veg"></span><div><b>Овощи</b><span>8 работ</span></div></button>
     </div>
@@ -701,6 +724,31 @@ details p{color:var(--ink2);padding:0 50px 22px 0}
       <div class="bb em"><p>Дарья сделала шикарнейшие корзины, в реальности даже лучше, чем на фото! Быстро отвечает на все вопросы, предлагает разные варианты. Содержимое корзин наисвежайшее, не экономит на продукции. Рекомендую на все 100!</p><span>отзыв на Авито</span></div>
       <div class="bb"><p>Приехало всё в целости и сохранности) Завтра эта корзина уедет со мной в Великий Новгород на соревнования и будет дариться организаторам конкурса. Спасибо ещё раз огромное)</p><span>из переписки</span></div>
     </div>
+    <div class="avito">
+      <div class="avito-head">
+        <div><span class="kick">Авито</span><p class="avito-t">Больше 70 отзывов<br>с 2023 года</p></div>
+        <p class="avito-s">Все отзывы оставлены после сделки на Авито: букеты учителям и воспитателям, корзины партнёрам, срочные заказы за ночь</p>
+        <div class="avito-nav"><button type="button" data-av="-1" aria-label="Назад">‹</button><button type="button" data-av="1" aria-label="Дальше">›</button></div>
+      </div>
+      <div class="av-row" id="av-row">
+      <article class="av"><header><i>В</i><div><b>Виктория</b><small>3 сентября 2025</small></div></header><p class="av-st">★★★★★ <span>Сделка состоялась</span></p><p class="av-what">Букеты на 1 сентября</p><p class="av-t">Заказываем у Дарьи букеты уже второй год на 1 сентября и в большом количестве, в этом году 10 штук. Букеты чудесные, выглядят потрясающе. Обратимся ещё и не раз точно</p></article>
+      <article class="av"><header><i>А</i><div><b>Артём</b><small>6 марта 2026</small></div></header><p class="av-st">★★★★★ <span>Сделка состоялась</span></p><p class="av-what">Мясной букет</p><p class="av-t">Брал мясной букет в подарок, получилось очень круто. Выглядит необычно и сразу привлекает внимание, пахнет просто потрясающе. Мясо свежее, всё вкусное, особенно фисташки. Имениннику понравилось</p></article>
+      <article class="av"><header><i>В</i><div><b>Валерия</b><small>17 сентября 2024</small></div></header><p class="av-st">★★★★★ <span>Сделка состоялась</span></p><p class="av-what">Букет из фруктов</p><p class="av-t">Заказала букет на подарок подруге менее чем за сутки. Дарья согласилась к раннему утру за вечер собрать букет, была очень внимательна к деталям. Всё собрано очень красиво и крепко. Дарья настоящий профессионал</p></article>
+      <article class="av"><header><i>И</i><div><b>Ирина</b><small>14 сентября 2026</small></div></header><p class="av-st">★★★★★ <span>Сделка состоялась</span></p><p class="av-what">Фруктовая корзина</p><p class="av-t">Спасибо огромное Дарье! Она не только сделала яркую и красивую корзину с фруктами, а ещё и помогла отправить с курьером дочке. Дарья отвечала быстро, учла все просьбы. Дочь в полном восторге!</p></article>
+      <article class="av"><header><i>Н</i><div><b>Наталья</b><small>8 марта 2025</small></div></header><p class="av-st">★★★★★ <span>Сделка состоялась</span></p><p class="av-what">Букеты из сухофруктов</p><p class="av-t">Выше всяких похвал! Заказала 3 набора. Приемлемые цены с отличным качеством и очень красиво оформлены. Отдельное огромное спасибо Дарье за скорость изготовления. Однозначно рекомендую и вернусь ещё</p></article>
+      <article class="av"><header><i>С</i><div><b>Светлана</b><small>5 марта 2024</small></div></header><p class="av-st">★★★★★ <span>Сделка состоялась</span></p><p class="av-what">Букеты из рыбы и снеков на 23 февраля</p><p class="av-t">Всё отлично! Букеты классные, очень красиво оформлены. Вкусные. Дарили на работе нашим мужчинам, таких довольных и счастливых лиц мы ещё не видели</p></article>
+      <article class="av"><header><i>К</i><div><b>Ксения</b><small>2 октября 2025</small></div></header><p class="av-st">★★★★★ <span>Сделка состоялась</span></p><p class="av-what">Букет учителю</p><p class="av-t">Помогла подобрать фруктовый букет в указанный бюджет на день учителя. Букет шикарный, я в полном восторге! Всё вовремя, в указанные сроки</p></article>
+      <article class="av"><header><i>К</i><div><b>Ксения</b><small>7 октября 2023</small></div></header><p class="av-st">★★★★★ <span>Сделка состоялась</span></p><p class="av-what">Букет из фруктов</p><p class="av-t">Очень благодарна Дарье! В ночи она откликнулась, сделала, и уже днём букет был подарен, начальница счастлива. Рекомендую на 1000%</p></article>
+      <article class="av"><header><i>А</i><div><b>Анюта</b><small>25 сентября 2025</small></div></header><p class="av-st">★★★★★ <span>Сделка состоялась</span></p><p class="av-what">Корзина с сухофруктами и орехами</p><p class="av-t">Довольна покупками. Заказала 2 раза и буду дальше заказывать у неё. Активно на связи и быстро отвечает, мелочи от а до я спрашивает и дала советы о заказе</p></article>
+      <article class="av"><header><i>Е</i><div><b>Елизавета</b><small>24 мая 2026</small></div></header><p class="av-st">★★★★★ <span>Сделка состоялась</span></p><p class="av-what">Букеты с фруктами и ягодами</p><p class="av-t">Заказывала 4 букета из сухофруктов на подарки! Получила очаровательные букеты, которые очень понравились, кому дарили. Предлагала варианты разные. Заказ был готов точно в срок</p></article>
+      <article class="av"><header><i>М</i><div><b>Мария</b><small>24 декабря 2025</small></div></header><p class="av-st">★★★★★ <span>Сделка состоялась</span></p><p class="av-what">Новогодние букеты</p><p class="av-t">Делала 2 заказа у Дарьи! Один из которых день в день выполнили. Очень красивые букеты получились! Поздравили и учителей, и тренеров, и воспитателей. Однозначно рекомендую</p></article>
+      <article class="av"><header><i>О</i><div><b>Ольга</b><small>28 сентября 2023</small></div></header><p class="av-st">★★★★★ <span>Сделка состоялась</span></p><p class="av-what">Фруктовые корзины</p><p class="av-t">Дарья мастер со вкусом и понимает желания заказчика. На один праздник нужно было объединить подарок и букет, получилось очень хорошо, во втором фруктовый намёк на мечту и исполнение желаний, тоже получилось</p></article>
+      <article class="av"><header><i>О</i><div><b>Ольга</b><small>16 сентября 2026</small></div></header><p class="av-st">★★★★★ <span>Сделка состоялась</span></p><p class="av-what">Букет из конфет</p><p class="av-t">Чётко и быстро обговорили заказ. Выполнен был в срок. Букет красивый, большой, нарядный. Спасибо Дарье за творческую работу!</p></article>
+      <article class="av"><header><i>Д</i><div><b>Денис</b><small>11 марта 2025</small></div></header><p class="av-st">★★★★★ <span>Сделка состоялась</span></p><p class="av-what">Фруктовая корзина</p><p class="av-t">Просто замечательная девушка! Весь промежуток времени, который занял подготовку корзины, держала в курсе всего. Также огромное спасибо за срочность!</p></article>
+      <article class="av"><header><i>А</i><div><b>Анастасия</b><small>27 октября 2023</small></div></header><p class="av-st">★★★★★ <span>Сделка состоялась</span></p><p class="av-what">Букет из сухофруктов</p><p class="av-t">Он был просто великолепен! Моя подруга в восторге. У вас потрясающий вкус в создании композиции, в сочетании цвета, фактуры и продуктов. Были букеты ближе к моему дому, но я всё равно выбрала ваш, и это было правильно!</p></article>
+      <article class="av"><header><i>А</i><div><b>Али</b><small>26 июня 2024</small></div></header><p class="av-st">★★★★★ <span>Сделка состоялась</span></p><p class="av-what">Букет из фруктов и ягод</p><p class="av-t">Всё прошло отлично, оперативно, быстро и качественно с доставкой. Я был за границей, мобильная связь плохая, но Дарья, как сказала, ко времени всё сделала и всегда на связи. Всё довезли в целости и сохранности, жене понравилось</p></article>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -760,7 +808,7 @@ details p{color:var(--ink2);padding:0 50px 22px 0}
           <label class="fl"><span>Дата получения</span><input type="date" name="date"></label>
           <label class="fl"><span>Бюджет</span><input type="text" name="budget" placeholder="Например, до 3 000 ₽"></label>
           <div class="fl"><span>Получение</span><div class="opts"><label><input type="radio" name="get" value="Самовывоз" checked><span>Самовывоз</span></label><label><input type="radio" name="get" value="Доставка"><span>Доставка</span></label></div></div>
-          <div class="fl full"><span>Что положить в букет</span><div class="opts">
+          <div class="fl full"><span>Состав букета</span><div class="opts">
             <label><input type="checkbox" name="taste" value="Фрукты и ягоды"><span>Фрукты и ягоды</span></label>
             <label><input type="checkbox" name="taste" value="Сухофрукты и орехи"><span>Сухофрукты и орехи</span></label>
             <label><input type="checkbox" name="taste" value="Мясо и сыр"><span>Мясо и сыр</span></label>
@@ -1004,14 +1052,14 @@ details p{color:var(--ink2);padding:0 50px 22px 0}
       form.occasion.value && `Повод: ${form.occasion.value}`,
       form.date.value && `Дата: ${fmtDate(form.date.value)}`,
       form.budget.value.trim() && `Бюджет: ${form.budget.value.trim()}`,
-      checked("taste").length && `Начинка: ${checked("taste").join(", ")}`,
+      checked("taste").length && `Состав букета: ${checked("taste").join(", ")}`,
       `Получение: ${checked("get")[0] || "Самовывоз"}`
     ].filter(Boolean);
   }
   const submitBtn = $("submit"), err = $("err");
   form.addEventListener("submit", async e => {
     e.preventDefault();
-    if (!picked.length && !checked("taste").length && !form.comment.value.trim() && !form.occasion.value) { form.occasion.focus(); return err.textContent = "Выберите букет в каталоге, повод или начинку, либо опишите заказ в пожеланиях"; }
+    if (!picked.length && !checked("taste").length && !form.comment.value.trim() && !form.occasion.value) { form.occasion.focus(); return err.textContent = "Выберите букет в каталоге, повод или состав букета, либо опишите заказ в пожеланиях"; }
     if (form.date.value && form.date.value < form.date.min) { form.date.focus(); return err.textContent = "Выберите дату не раньше завтрашней"; }
     if (form.name.value.trim().length < 2) { form.name.focus(); return err.textContent = "Укажите имя"; }
     if (phone.value.replace(/\D/g, "").length !== 11) { phone.focus(); return err.textContent = "Проверьте номер телефона"; }
@@ -1039,6 +1087,7 @@ details p{color:var(--ink2);padding:0 50px 22px 0}
 
   setBudget(11000);
 })();
+document.querySelectorAll("[data-av]").forEach(b=>b.addEventListener("click",()=>{const r=document.getElementById("av-row");r.scrollBy({left:(+b.dataset.av)*(r.querySelector(".av").offsetWidth+18)*2,behavior:"smooth"})}));
 </script>
 </body>
 </html>
