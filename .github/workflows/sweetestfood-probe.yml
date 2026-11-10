@@ -1,0 +1,23 @@
+name: sweetestfood probe (public page without a token)
+on:
+  push:
+    paths:
+      - ".github/workflows/sweetestfood-probe.yml"
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Read the public market page with headless Chrome
+        run: |
+          google-chrome --version
+          python3 _sync/sweetestfood/vkpage.py 241272766 _sync/sweetestfood/data/probe.json
+      - name: Save the result
+        run: |
+          git add _sync/sweetestfood/data/probe.json
+          git -c user.name="sweetestfood-sync" -c user.email="actions@users.noreply.github.com" commit -m "sweetestfood: probe result"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 5; done
