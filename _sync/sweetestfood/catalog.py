@@ -45,7 +45,7 @@ def parse(it):
     m = re.search(r'упаковк[аи]\s*[-–—]?\s*(\d+)\s*шт', low) or re.search(r'упаковк[аи]\s*[-–—]?\s*(\d+)\s*шт', desc.lower())
     pack = int(m.group(1)) if m else None
     name = re.sub(r'\s*[-–—]?\s*\(?\s*1\s*(кг|шт)\.?\s*\)?.*$', '', title).strip()
-    name = quotes(name)
+    name = re.sub(r'\s+', ' ', quotes(name)).strip()
     short = re.sub(r'\s+(фаршированные|творожные)\b', '', name)
     price = round(int(it['price']['amount']) / 100)
 
