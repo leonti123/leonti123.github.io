@@ -1,6 +1,7 @@
 # Pulls SweetestFood's VK market, wall and clips and rebuilds sweetestfood/index.html.
 # Runs in GitHub Actions (see .github/workflows/sweetestfood-sync.yml).
-#   VK_TOKEN  user access token with the "market" scope (market.get accepts only user tokens)
+#   VK_TOKEN  service token (wall, clips). market.get needs a user token, so the menu comes from
+#             data/market.json, which the VK mini app button (sweetestfood-vk/) saves through Apps Script
 # Offline test: python3 sync.py --offline  (uses data/*.json, no network for the API)
 import datetime, hashlib, io, json, os, re, sys, urllib.parse, urllib.request
 from zoneinfo import ZoneInfo

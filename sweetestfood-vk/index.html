@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Обновить сайт · SweetestFood</title>
+<link rel="icon" href="../sweetestfood/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500;700&family=Alegreya+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0D1120;--navy:#141C33;--navy2:#1D2948;--gold:#D3AD63;--gold2:#EED7A0;--gold3:#9A722E;--paper:#FFFDF9;--dough:#F6EFE3;--txt:#1E1B16;--mut:#6F675B;--line:#E4D8C4;--ok:#2E7D4F;--bad:#B3261E}
+*{box-sizing:border-box;margin:0}
+html,body{background:var(--navy);min-height:100%}
+body{font:16px/1.45 "Alegreya Sans",system-ui,sans-serif;color:var(--txt);padding:0 0 32px;-webkit-text-size-adjust:100%}
+.top{background:linear-gradient(180deg,rgba(13,17,32,.55),rgba(20,28,51,.95)),url(../sweetestfood/img/marble.jpg) center/cover;color:#fff;padding:22px 16px 26px;text-align:center}
+.logo{width:64px;height:64px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;display:block;margin:0 auto 10px}
+h1{font:700 26px/1.15 Alegreya,serif;color:var(--gold2)}
+.top p{color:#D9DCE6;margin-top:6px;font-size:15px}
+.wrap{max-width:520px;margin:-12px auto 0;padding:0 16px}
+.card{background:var(--paper);border-radius:16px;padding:18px 16px;box-shadow:0 8px 28px rgba(0,0,0,.28);margin-bottom:14px}
+.card h2{font:700 19px/1.2 Alegreya,serif;margin-bottom:8px}
+.how{padding-left:20px;color:var(--mut);font-size:15px}
+.how li{margin:3px 0}
+.btn{display:block;width:100%;border:0;border-radius:12px;padding:15px 16px;font:700 17px "Alegreya Sans",sans-serif;cursor:pointer;background:linear-gradient(180deg,var(--gold2),var(--gold));color:var(--ink);box-shadow:0 3px 0 var(--gold3);margin-top:14px;-webkit-tap-highlight-color:transparent}
+.btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--gold3)}
+.btn[disabled]{opacity:.55;cursor:default}
+.btn.ghost{background:transparent;border:1.5px solid var(--line);box-shadow:none;color:var(--txt);font-weight:500;text-align:center;text-decoration:none}
+.steps{list-style:none;padding:0}
+.steps li{display:flex;gap:10px;align-items:flex-start;padding:7px 0;color:var(--mut)}
+.steps li.on{color:var(--txt)}
+.steps li.done{color:var(--txt)}
+.steps li.err{color:var(--bad)}
+.dot{flex:0 0 22px;height:22px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:13px;font-weight:700;margin-top:1px}
+.on .dot{border-color:var(--gold);border-top-color:transparent;animation:spin .9s linear infinite}
+.done .dot{background:var(--ok);border-color:var(--ok);color:#fff}
+.err .dot{background:var(--bad);border-color:var(--bad);color:#fff}
+@keyframes spin{to{transform:rotate(360deg)}}
+.sub{display:block;font-size:13px;color:var(--mut)}
+.chg{list-style:none;padding:0;font-size:15px}
+.chg li{padding:8px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px}
+.chg li:first-child{border-top:0}
+.chg b{font-weight:500}
+.chg s{color:var(--mut)}
+.chg .new{color:var(--ok);font-weight:700;white-space:nowrap}
+.chg .gone{color:var(--bad);white-space:nowrap}
+.price{white-space:nowrap;text-align:right}
+.note{font-size:14px;color:var(--mut);margin-top:8px}
+.result{font:700 18px/1.3 Alegreya,serif}
+.result.ok{color:var(--ok)}
+.result.bad{color:var(--bad)}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<header class="top">
+  <img class="logo" src="../sweetestfood/img/logo.jpg" alt="">
+  <h1>Обновить сайт</h1>
+  <p>Меню на сайте берётся из товаров группы</p>
+</header>
+<main class="wrap">
+  <section class="card" id="intro">
+    <h2>Как это работает</h2>
+    <ol class="how">
+      <li>Меняете цену, фото или описание в товарах группы, добавляете новый товар</li>
+      <li>Открываете это приложение и нажимаете кнопку</li>
+      <li>Через 2-3 минуты сайт показывает то же, что в группе</li>
+    </ol>
+    <button class="btn" id="go">Обновить сайт</button>
+    <p class="note" id="first">В первый раз ВКонтакте спросит разрешение на доступ к товарам. Оно нужно, чтобы прочитать цены</p>
+  </section>
+
+  <section class="card" id="prog" hidden>
+    <h2>Обновление</h2>
+    <ul class="steps">
+      <li id="s1"><span class="dot"></span><span>Читаю товары группы<span class="sub"></span></span></li>
+      <li id="s2"><span class="dot"></span><span>Отправляю на сайт<span class="sub"></span></span></li>
+      <li id="s3"><span class="dot"></span><span>Сайт обновляется<span class="sub"></span></span></li>
+    </ul>
+    <p class="result" id="res" hidden></p>
+    <a class="btn ghost" id="open" href="https://leonti123.github.io/sweetestfood/" target="_blank" rel="noopener" hidden>Открыть сайт</a>
+    <button class="btn" id="again" hidden>Попробовать ещё раз</button>
+  </section>
+
+  <section class="card" id="diff" hidden>
+    <h2>Что поменяется на сайте</h2>
+    <ul class="chg" id="chg"></ul>
+    <p class="note">Фото и описания товаров тоже обновятся</p>
+  </section>
+</main>
+
+<script src="https://unpkg.com/@vkontakte/vk-bridge@2.15.12/dist/browser.min.js"></script>
+<script>
+(() => {
+  "use strict";
+  const GID = 241272766;
+  const SCRIPT = "__SCRIPT_URL__";
+  const bridge = window.vkBridge;
+  const $ = id => document.getElementById(id);
+  const qs = new URLSearchParams(location.search);
+  const APP_ID = Number(qs.get("vk_app_id") || 0);
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const rub = a => (Math.round(Number(a) / 100)).toLocaleString("ru-RU").replace(/ /g, " ") + " ₽";
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  if (bridge) bridge.send("VKWebAppInit").catch(() => {});
+  if (!APP_ID) {
+    $("go").disabled = true;
+    $("first").textContent = "Откройте это приложение из группы ВКонтакте: кнопка работает только там";
+  }
+
+  function step(n, state, sub) {
+    const li = $("s" + n);
+    li.className = state;
+    li.querySelector(".dot").textContent = state === "done" ? "✓" : state === "err" ? "!" : "";
+    if (sub !== undefined) li.querySelector(".sub").textContent = sub;
+  }
+  function finish(ok, text) {
+    const r = $("res"); r.hidden = false; r.className = "result " + (ok ? "ok" : "bad"); r.textContent = text;
+    $("open").hidden = !ok; $("again").hidden = ok;
+    if (bridge) bridge.send("VKWebAppTapticNotificationOccurred", { type: ok ? "success" : "error" }).catch(() => {});
+  }
+  // The data the site page was built from: {items:[{id, price, avail, ...}]}
+  async function siteMenu() {
+    const r = await fetch("../sweetestfood/index.html?t=" + Date.now(), { cache: "no-store" });
+    const m = (await r.text()).match(/const D = (\{.*?\});\n/s);
+    return new Map(JSON.parse(m[1]).items.map(i => [i.id, i]));
+  }
+  const same = (it, s) => s && s.price === Math.round(Number(it.price.amount) / 100) && s.avail === (it.availability === 0);
+
+  // What will change on the site compared with the group
+  function showDiff(live, site) {
+    const left = new Map(site), rows = [];
+    for (const it of live) {
+      const s = left.get(it.id); left.delete(it.id);
+      const p = it.price.amount;
+      if (!s) { rows.push(`<li><b>${esc(it.title)}</b><span class="new">новый · ${rub(p)}</span></li>`); continue; }
+      if (s.price !== Math.round(p / 100)) rows.push(`<li><b>${esc(it.title)}</b><span class="price"><s>${rub(s.price * 100)}</s> → ${rub(p)}</span></li>`);
+      if (s.avail !== (it.availability === 0)) rows.push(`<li><b>${esc(it.title)}</b><span class="${it.availability === 0 ? "new" : "gone"}">${it.availability === 0 ? "снова в наличии" : "нет в наличии"}</span></li>`);
+    }
+    for (const s of left.values()) rows.push(`<li><b>${esc(s.name)}</b><span class="gone">убран</span></li>`);
+    $("chg").innerHTML = rows.join("") || "<li>Цены на сайте уже совпадают с группой</li>";
+    $("diff").hidden = false;
+  }
+
+  async function run() {
+    $("intro").hidden = true; $("prog").hidden = false; $("diff").hidden = true;
+    $("res").hidden = true; $("open").hidden = true; $("again").hidden = true;
+    [1, 2, 3].forEach(n => step(n, "", ""));
+
+    // 1. token with the "market" right, then read the group's goods
+    step(1, "on");
+    let token, live;
+    try {
+      const auth = await bridge.send("VKWebAppGetAuthToken", { app_id: APP_ID, scope: "market" });
+      if (!String(auth.scope || "").split(",").includes("market")) throw { mine: "ВКонтакте не дал доступ к товарам" };
+      token = auth.access_token;
+      const res = await bridge.send("VKWebAppCallAPIMethod", { method: "market.get", params: { owner_id: -GID, count: 200, v: "5.199", access_token: token } });
+      live = res.response.items;
+    } catch (e) {
+      const denied = e && e.error_data && /denied|cancel/i.test(JSON.stringify(e.error_data));
+      step(1, "err", denied ? "Без разрешения на товары приложение не видит цены" : (e && e.mine) || "Не получилось прочитать товары");
+      return finish(false, "Сайт не обновлён");
+    }
+    step(1, "done", `Товаров в группе: ${live.length}`);
+    let changed = true;
+    try { const site = await siteMenu(); showDiff(live, site); changed = live.length !== site.size || live.some(it => !same(it, site.get(it.id))); }
+    catch (e) { /* the comparison is only for information */ }
+
+    // 2. the script reads the goods itself and saves them for the site build
+    step(2, "on");
+    try {
+      const r = await fetch(SCRIPT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ token }) });
+      const d = await r.json();
+      if (!d.ok) throw new Error(d.error === "busy" ? "busy" : (d.error || "fail"));
+    } catch (e) {
+      step(2, "err", e.message === "busy" ? "Обновление уже идёт, подождите минуту" : "Не получилось отправить, попробуйте через минуту");
+      return finish(false, "Сайт не обновлён");
+    }
+    step(2, "done", "Меню сохранено");
+
+    // 3. GitHub rebuilds and publishes the page: watch the live page until it shows the group's prices
+    step(3, "on", "Обычно 2-3 минуты, можно не ждать");
+    if (!changed) {
+      step(3, "done", "Фото и описания обновятся через пару минут");
+      return finish(true, "Готово. Цены на сайте уже совпадают с группой");
+    }
+    for (let i = 0; i < 48; i++) {
+      await sleep(10000);
+      try {
+        const site = await siteMenu();
+        if (live.length === site.size && live.every(it => same(it, site.get(it.id)))) {
+          step(3, "done", "Опубликовано"); return finish(true, "Готово, сайт обновлён");
+        }
+      } catch (e) {}
+    }
+    step(3, "done", "GitHub ещё публикует");
+    finish(true, "Меню отправлено. Сайт обновится в ближайшие 10-15 минут");
+  }
+
+  $("go").addEventListener("click", run);
+  $("again").addEventListener("click", run);
+})();
+</script>
+</body>
+</html>

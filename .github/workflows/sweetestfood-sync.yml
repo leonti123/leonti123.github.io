@@ -4,6 +4,10 @@ on:
     # GitHub starts scheduled jobs late and skips them at busy minutes (:00, :30), so use off-peak minutes
     - cron: "7,37 * * * *"
   workflow_dispatch:
+  # the "Обновить сайт" button in the VK mini app saves a fresh market.json through Apps Script
+  push:
+    branches: [main]
+    paths: [_sync/sweetestfood/data/market.json]
 permissions:
   contents: write
 concurrency:
