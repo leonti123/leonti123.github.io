@@ -151,13 +151,13 @@ h1{font:700 26px/1.15 Alegreya,serif;color:var(--gold2)}
 
     // 1. token with the "market" right, then read the group's goods
     step(1, "on");
-    let token, live;
+    let token, live, market;
     try {
       const auth = await bridge.send("VKWebAppGetAuthToken", { app_id: APP_ID, scope: "market" });
       if (!String(auth.scope || "").split(",").includes("market")) throw { mine: "ВКонтакте не дал доступ к товарам" };
       token = auth.access_token;
-      const res = await bridge.send("VKWebAppCallAPIMethod", { method: "market.get", params: { owner_id: -GID, count: 200, v: "5.199", access_token: token } });
-      live = res.response.items;
+      market = await bridge.send("VKWebAppCallAPIMethod", { method: "market.get", params: { owner_id: -GID, count: 200, extended: 1, v: "5.199", access_token: token } });
+      live = market.response.items;
     } catch (e) {
       const denied = e && e.error_data && /denied|cancel/i.test(JSON.stringify(e.error_data));
       step(1, "err", denied ? "Без разрешения на товары приложение не видит цены" : (e && e.mine) || "Не получилось прочитать товары");
@@ -168,14 +168,15 @@ h1{font:700 26px/1.15 Alegreya,serif;color:var(--gold2)}
     try { const site = await siteMenu(); showDiff(live, site); changed = live.length !== site.size || live.some(it => !same(it, site.get(it.id))); }
     catch (e) { /* the comparison is only for information */ }
 
-    // 2. the script reads the goods itself and saves them for the site build
+    // 2. the VK token only works inside VK, so send the goods; the script checks the VK launch signature
     step(2, "on");
     try {
-      const r = await fetch(SCRIPT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ token }) });
+      const r = await fetch(SCRIPT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ launch: location.search, market: { response: { count: live.length, items: live } } }) });
       const d = await r.json();
       if (!d.ok) throw new Error(d.error === "busy" ? "busy" : [d.error || "fail", d.code].filter(Boolean).join(" "));
     } catch (e) {
-      step(2, "err", e.message === "busy" ? "Обновление уже идёт, подождите минуту" : `Не получилось отправить, попробуйте через минуту (${e.message})`);
+      const why = { busy: "Обновление уже идёт, подождите минуту", not_allowed: "Обновлять сайт может только хозяйка группы" }[e.message.split(" ")[0]];
+      step(2, "err", why || `Не получилось отправить, попробуйте через минуту (${e.message})`);
       return finish(false, "Сайт не обновлён");
     }
     step(2, "done", "Меню сохранено");
