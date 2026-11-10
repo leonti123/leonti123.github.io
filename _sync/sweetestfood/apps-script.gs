@@ -27,13 +27,13 @@ function gh(method, url, payload) {
 
 function doPost(e) {
   let body;
-  try { body = JSON.parse(e.postData.contents); } catch (err) { return reply({ ok: false, error: "bad_json" }); }
+  try { body = JSON.parse(e.postData.contents); } catch (err) { console.log("bad json"); return reply({ ok: false, error: "bad_json" }); }
   const token = String(body.token || "");
-  if (!/^[\w.\-]{20,400}$/.test(token)) return reply({ ok: false, error: "bad_token" });
+  if (token.length < 20 || token.length > 4000 || /\s/.test(token)) { console.log("bad token, length " + token.length); return reply({ ok: false, error: "bad_token" }); }
 
   // One update at a time is plenty: the button is pressed by hand
   const cache = CacheService.getScriptCache();
-  if (cache.get("busy")) return reply({ ok: false, error: "busy" });
+  if (cache.get("busy")) { console.log("busy"); return reply({ ok: false, error: "busy" }); }
   cache.put("busy", "1", 20);
 
   const market = vk("market.get", { access_token: token, owner_id: -GID, count: 200, extended: 1 });
@@ -43,7 +43,8 @@ function doPost(e) {
     return reply({ ok: false, error: "vk", code: market.error.error_code, msg: market.error.error_msg });
   }
   const items = (market.response && market.response.items) || [];
-  if (!items.length || items.some(it => it.owner_id !== -GID)) return reply({ ok: false, error: "empty" });
+  if (!items.length || items.some(it => it.owner_id !== -GID)) { console.log("unexpected market answer, items " + items.length); return reply({ ok: false, error: "empty" }); }
+  console.log("market items " + items.length);
 
   const content = Utilities.base64Encode(Utilities.newBlob(JSON.stringify(market)).getBytes());
   for (let attempt = 0; attempt < 3; attempt++) {

@@ -173,9 +173,9 @@ h1{font:700 26px/1.15 Alegreya,serif;color:var(--gold2)}
     try {
       const r = await fetch(SCRIPT, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify({ token }) });
       const d = await r.json();
-      if (!d.ok) throw new Error(d.error === "busy" ? "busy" : (d.error || "fail"));
+      if (!d.ok) throw new Error(d.error === "busy" ? "busy" : [d.error || "fail", d.code].filter(Boolean).join(" "));
     } catch (e) {
-      step(2, "err", e.message === "busy" ? "Обновление уже идёт, подождите минуту" : "Не получилось отправить, попробуйте через минуту");
+      step(2, "err", e.message === "busy" ? "Обновление уже идёт, подождите минуту" : `Не получилось отправить, попробуйте через минуту (${e.message})`);
       return finish(false, "Сайт не обновлён");
     }
     step(2, "done", "Меню сохранено");
