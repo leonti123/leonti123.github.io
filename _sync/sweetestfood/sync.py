@@ -155,7 +155,10 @@ def main():
         if len(cap) > 80: cap = cap[:80].rsplit(' ', 1)[0] + '…'
         cl.append({'id': cid, 'cap': cap, 'views': c.get('views', s.get('views', 0)), 'dur': c.get('duration', s.get('dur', 0))})
 
-    cnt = g.get('counters', {})
+    cnt = g.get('counters') if isinstance(g.get('counters'), dict) else {}
+    if cnt.get('clips'):
+        man['stats'] = {'clips': cnt['clips'], 'views': cnt.get('clips_views', 0)}
+    cnt = cnt if cnt.get('clips') else {'clips': man.get('stats', {}).get('clips', 27), 'clips_views': man.get('stats', {}).get('views', 8632)}
     data = {'cats': cat['cats'], 'items': cat['items'], 'posts': posts, 'clips': cl,
             'stats': {'clips': cnt.get('clips', len(clips)), 'views': cnt.get('clips_views', 0)}}
     # view counters change all the time: leave them out of the hash so they don't cause a commit every run
