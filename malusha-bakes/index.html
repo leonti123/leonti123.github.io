@@ -9,7 +9,7 @@
 <meta name="theme-color" content="#FBF7F3">
 <meta property="og:type" content="website">
 <meta property="og:title" content="AM bakes — трайфлы, бенто и десерты в Колпино">
-<meta property="og:description" content="Трайфлы 350 ₽, мини-чизкейки 450 ₽, бенто от 950 ₽. Сладкие наборы к любому празднику">
+<meta property="og:description" content="Домашняя кондитерская в Колпино: трайфлы 350 ₽, мини-чизкейки 450 ₽, бенто-торты от 950 ₽. Соберите коробочку десертов в подарок и оставьте заявку.">
 <meta property="og:image" content="https://leonti123.github.io/malusha-bakes/img/c-luna.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23FBF7F3' stroke='%23B58A5D' stroke-width='3'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Georgia,serif' font-size='25' fill='%233D2B25'%3EAM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -327,6 +327,20 @@
   .copybox>div{background:var(--paper);border-radius:22px;padding:22px;max-width:460px;width:100%;display:grid;gap:12px}
   .copybox textarea{min-height:150px;font-size:14px}
 
+  /* menu and sets come from the VK group */
+  .mg-sub{margin:-2px 0 4px;color:var(--ink3);font-size:13.5px}
+  .mg-sub a{color:var(--rose-d);font-weight:700}
+  .mi-new{display:inline-block;margin-left:8px;padding:1px 9px;border-radius:999px;background:var(--rose);color:#fff;font:800 10.5px/1.7 var(--sans);letter-spacing:.08em;text-transform:uppercase;vertical-align:4px}
+  .mi-unit{font-weight:600;color:var(--ink3);font-size:13px;margin-left:3px}
+  .mi p .link{font-size:13px;margin-left:4px}
+  .sync{display:flex;align-items:flex-start;justify-content:center;gap:9px;margin:28px auto 0;max-width:560px;color:var(--ink2);font-size:14px;line-height:1.5;text-align:left}
+  .sync svg{width:20px;height:20px;color:var(--rose-d);flex:none;margin-top:1px}
+  .sync a{color:var(--rose-d);font-weight:700}
+  .sync small{display:block;color:var(--ink3);font-size:13px;margin-top:2px}
+  .lb-nav{position:absolute;top:50%;width:50px;height:50px;margin-top:-25px;border-radius:50%;border:0;background:rgba(255,255,255,.16);color:#fff;font-size:30px;line-height:1;display:grid;place-items:center}
+  .lb-prev{left:12px}.lb-next{right:12px}
+  .lb-n{color:#CDB9AE;font-size:13px;margin:0;min-height:18px}
+
   @media (max-width:1020px){
     .nav{display:none}
     .burger{display:grid}
@@ -451,11 +465,12 @@
     <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></g></symbol>
     <symbol id="i-roll" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20 20.5c0-1.4 1.1-2.5 2.5-2.5s2.7 1.3 2.7 3c0 2.6-2.2 4.6-5 4.6-3.3 0-5.8-2.7-5.8-6 0-3.9 3.2-7 7.2-7 4.6 0 8.2 3.6 8.2 8.2 0 5-4.2 9.2-9.6 9.2-5.8 0-10.4-4.6-10.4-10.6"/></g></symbol>
     <symbol id="i-pop" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="20" cy="15" r="8"/><path d="M14 12.5c3-2 7-2.4 12 0M20 23v13"/><path d="M17.5 9.5l1 1M23 10l-.6 1"/></g></symbol>
+    <symbol id="i-sync" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 9A8 8 0 0 0 5.2 7.4M4.5 15a8 8 0 0 0 14.3 1.6"/><path d="M19.8 4.2V9h-4.8M4.2 19.8V15H9"/></g></symbol>
     <symbol id="i-moti" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 26c0-7.5 5.4-13 12-13s12 5.5 12 13c0 3-2.4 5-5 5H13c-2.6 0-5-2-5-5z"/><path d="M14 20c1.5-2 3.5-3 6-3"/></g></symbol>
   </defs>
 </svg>
 
-<div class="mock">Макет сайта. После согласования подключим имя сайта и заявки вам в сообщения</div>
+<div class="mock">Макет сайта. Меню, цены и фото подтягиваются из вашей группы VK. После согласования подключим имя сайта и заявки вам в сообщения</div>
 
 <header class="top" id="top">
   <div class="wrap">
@@ -492,19 +507,8 @@
       <a class="btn btn-main" href="#box">Собрать коробочку</a>
       <a class="btn btn-line" href="#menu">Меню и цены</a>
     </div>
-    <ul class="flav-row" aria-label="Любимые вкусы">
-      <li><button type="button" data-hero="rv"><span class="ring"><img src="img/f-krasnyi-barhat.jpg" alt="Трайфл красный бархат" width="560" height="560"></span><span class="nm">красный бархат</span></button></li>
-      <li><button type="button" data-hero="sn"><span class="ring"><img src="img/f-snikers.jpg" alt="Трайфл сникерс с арахисом" width="560" height="560"></span><span class="nm">сникерс</span></button></li>
-      <li><button type="button" data-hero="ks"><span class="ring"><img src="img/f-klubnika-slivki.jpg" alt="Трайфл клубника-сливки" width="560" height="560"></span><span class="nm">клубника-сливки</span></button></li>
-      <li><button type="button" data-hero="kb"><span class="ring"><img src="img/f-klubnika-banan.jpg" alt="Трайфл клубника-банан" width="560" height="560"></span><span class="nm">клубника-банан</span></button></li>
-      <li><button type="button" data-hero="bk"><span class="ring"><img src="img/f-banan-karamel.jpg" alt="Трайфл-бокс банан-карамель" width="560" height="560"></span><span class="nm">банан-карамель</span></button></li>
-    </ul>
-    <ul class="prices">
-      <li><b>350 ₽</b><span>трайфл в стаканчике</span></li>
-      <li><b>450 ₽</b><span>мини-чизкейк</span></li>
-      <li><b>750 ₽</b><span>трайфл-бокс</span></li>
-      <li><b>от 950 ₽</b><span>бенто-торт</span></li>
-    </ul>
+    <ul class="flav-row" id="flav-row" aria-label="Любимые вкусы"></ul>
+    <ul class="prices" id="prices"></ul>
   </div>
 </section>
 
@@ -531,18 +535,15 @@
       </div>
       <div class="b-panel">
         <div class="b-step">
-          <span class="lbl">1 · Четыре вкуса, по 350 ₽</span>
+          <span class="lbl" id="b-lbl">1 · Четыре вкуса</span>
           <div class="flavs" id="flavs"></div>
           <button class="link b-clear" id="b-clear" type="button">Очистить коробочку</button>
         </div>
         <div class="b-step">
           <span class="lbl">2 · К подарку</span>
-          <label class="addon"><input type="checkbox" id="b-bento"><span><b>Бенто-торт к набору</b><br>от 950 ₽, цена зависит от веса</span></label>
+          <label class="addon"><input type="checkbox" id="b-bento"><span><b>Бенто-торт к набору</b><br><span id="b-bento-pr">цена зависит от веса</span></span></label>
           <div class="bento-opts" id="bento-opts" hidden>
-            <div class="seg seg-sm" id="b-bf" role="group" aria-label="Вкус бенто">
-              <button type="button" data-bf="вишня-шоколад" aria-pressed="true">вишня-шоколад</button>
-              <button type="button" data-bf="клубника-сливки" aria-pressed="false">клубника-сливки</button>
-            </div>
+            <div class="seg seg-sm" id="b-bf" role="group" aria-label="Вкус бенто"></div>
             <input type="text" id="b-text" maxlength="60" placeholder="Надпись, например: Любим тебя до Луны и обратно" aria-label="Надпись на бенто">
           </div>
         </div>
@@ -563,105 +564,8 @@
         <h2 id="menu-h">Меню</h2>
         <p class="kicker">вкусные сочетания и любимые вкусы</p>
       </div>
-      <div class="menu-cols">
-        <div>
-          <h3 class="mg-h">Трайфлы</h3>
-          <article class="mi" id="mi-trifle">
-            <button class="mi-ph" type="button" data-full="img/m-trifly-ruka.jpg" data-cap="Трайфлы клубника-банан"><img src="img/m-trifly-ruka.jpg" alt="Трайфлы клубника-банан в руке" loading="lazy" width="900" height="1124"></button>
-            <div>
-              <div class="mi-top"><h4>Трайфл в стаканчике</h4><span class="dots"></span><span class="pr">350 ₽</span></div>
-              <p>Красный бархат · сникерс с мягкой карамелью и жареным солёным арахисом · клубника-сливки · клубника-банан</p>
-              <div class="mi-act" data-act="trifle"></div>
-            </div>
-          </article>
-          <article class="mi" id="mi-trbox">
-            <button class="mi-ph" type="button" data-full="img/m-trifl-boks.jpg" data-cap="Трайфл-боксы банан-карамель"><img src="img/m-trifl-boks.jpg" alt="Трайфл-боксы банан-карамель" loading="lazy" width="900" height="1125"></button>
-            <div>
-              <div class="mi-top"><h4>Трайфл-бокс</h4><span class="dots"></span><span class="pr">750 ₽</span></div>
-              <p>Порция побольше в круглом боксе: банан-карамель или банан-клубника</p>
-              <div class="mi-act" data-act="trbox"></div>
-            </div>
-          </article>
-          <h3 class="mg-h">Чизкейки</h3>
-          <article class="mi">
-            <button class="mi-ph" type="button" data-full="img/m-mini-malina.jpg" data-cap="Мини-чизкейки малина-кокос"><img src="img/m-mini-malina.jpg" alt="Мини-чизкейки малина-кокос в разрезе" loading="lazy" width="900" height="1128"></button>
-            <div>
-              <div class="mi-top"><h4>Мини-чизкейк</h4><span class="dots"></span><span class="pr">450 ₽</span></div>
-              <p>Банан-карамель или малина-кокос. <button class="link" type="button" data-full="img/m-mini-banan.jpg" data-cap="Мини-чизкейки банан-карамель">Посмотреть банан-карамель</button></p>
-              <div class="mi-act" data-act="mini"></div>
-            </div>
-          </article>
-          <article class="mi">
-            <button class="mi-ph" type="button" data-full="img/m-chizkeik.jpg" data-cap="Классический чизкейк на шоколадной основе"><img src="img/m-chizkeik.jpg" alt="Классический чизкейк с клубникой" loading="lazy" width="900" height="1125"></button>
-            <div>
-              <div class="mi-top"><h4>Классический чизкейк</h4><span class="dots"></span><span class="pr q">по запросу</span></div>
-              <p>На шоколадном сабле. Можно украсить ягодами и надписью</p>
-              <div class="mi-act" data-act="cheese"></div>
-            </div>
-          </article>
-        </div>
-        <div>
-          <h3 class="mg-h">Тортики</h3>
-          <article class="mi">
-            <button class="mi-ph" type="button" data-full="img/m-bento-serdtsa.jpg" data-cap="Бенто вишня-шоколад с сердечками"><img src="img/m-bento-serdtsa.jpg" alt="Бенто-торт с сердечками" loading="lazy" width="900" height="1125"></button>
-            <div>
-              <div class="mi-top"><h4>Бенто-торт</h4><span class="dots"></span><span class="pr">от 950 ₽</span></div>
-              <p>Цена зависит от веса. Вишня-шоколад или клубника-сливки, надпись или картинка</p>
-              <div class="mi-act" data-act="bento"></div>
-            </div>
-          </article>
-          <article class="mi">
-            <button class="mi-ph" type="button" data-full="img/c-zaika.jpg" data-cap="Тортик «Сникерс» с зайкой"><img src="img/c-zaika.jpg" alt="Розовый тортик с зайкой" loading="lazy" width="880" height="1100"></button>
-            <div>
-              <div class="mi-top"><h4>Тортик «макс»</h4><span class="dots"></span><span class="pr q">по запросу</span></div>
-              <p>Домашний торт побольше, например нежный «Сникерс» с зайкой</p>
-              <div class="mi-act" data-act="maxi"></div>
-            </div>
-          </article>
-          <article class="mi">
-            <button class="mi-ph" type="button" data-full="img/m-medovik.jpg" data-cap="Домашний медовик с заварным кремом"><img src="img/m-medovik.jpg" alt="Медовик с заварным кремом" loading="lazy" width="900" height="1125"></button>
-            <div>
-              <div class="mi-top"><h4>Домашний медовик</h4><span class="dots"></span><span class="pr q">по запросу</span></div>
-              <p>С нежнейшим заварным кремом</p>
-              <div class="mi-act" data-act="medovik"></div>
-            </div>
-          </article>
-          <h3 class="mg-h">Ещё вкусное</h3>
-          <article class="mi">
-            <button class="mi-ph" type="button" data-full="img/m-korpusnye.jpg" data-cap="Корпусные десерты манго"><img src="img/m-korpusnye.jpg" alt="Корпусные десерты манго" loading="lazy" width="412" height="515"></button>
-            <div>
-              <div class="mi-top"><h4>Корпусные десерты</h4><span class="dots"></span><span class="pr q">по запросу</span></div>
-              <p>Например, манго. Иногда бывают в наличии</p>
-              <div class="mi-act" data-act="korpus"></div>
-            </div>
-          </article>
-          <article class="mi">
-            <span class="mi-ic" aria-hidden="true"><svg><use href="#i-roll"/></svg></span>
-            <div>
-              <div class="mi-top"><h4>Синнабоны</h4><span class="dots"></span><span class="pr q">по запросу</span></div>
-              <p>Корица, сливочный, пекан, тирамису</p>
-              <div class="mi-act" data-act="cinna"></div>
-            </div>
-          </article>
-          <article class="mi">
-            <span class="mi-ic" aria-hidden="true"><svg><use href="#i-pop"/></svg></span>
-            <div>
-              <div class="mi-top"><h4>Кейкпопсы</h4><span class="dots"></span><span class="pr q">по запросу</span></div>
-              <p>Пирожные на палочке</p>
-              <div class="mi-act" data-act="pops"></div>
-            </div>
-          </article>
-          <article class="mi">
-            <span class="mi-ic" aria-hidden="true"><svg><use href="#i-moti"/></svg></span>
-            <div>
-              <div class="mi-top"><h4>Моти</h4><span class="dots"></span><span class="pr q">по запросу</span></div>
-              <p>Нежный вкус</p>
-              <div class="mi-act" data-act="moti"></div>
-            </div>
-          </article>
-        </div>
-      </div>
-      <p class="menu-note">Цену позиций «по запросу» назову в сообщениях</p>
+      <div class="menu-cols" id="menu-cols"></div>
+      <p class="sync"><svg aria-hidden="true"><use href="#i-sync"/></svg><span>Меню, цены и фото берутся из <a href="https://vk.com/club242334404" target="_blank" rel="noopener">группы VK</a> автоматически<span id="upd"></span><small>Цену позиций «по запросу» назову в сообщениях</small></span></p>
     </div>
   </div>
 </section>
@@ -673,48 +577,7 @@
       <h2 id="gifts-h">Уже уехали в подарок</h2>
       <p>Наборы и тортики из моей группы: каждый собран под свой праздник и своего человека</p>
     </div>
-    <div class="g-grid">
-      <figure class="g g-big">
-        <div class="g-ph">
-          <button type="button" data-full="img/c-luna.jpg" data-cap="Набор ко Дню отца: бенто вишня-шоколад и трайфлы"><img src="img/c-luna.jpg" alt="Бенто с сердечками и коробочка трайфлов" loading="lazy" width="1000" height="1250"></button>
-          <span class="tagw"><span class="tag">До Луны и обратно</span></span>
-        </div>
-        <figcaption><b>Подарок ко Дню отца</b>Бенто вишня-шоколад с сердечками и трайфлы с пряниками «Любим тебя до Луны и обратно»
-          <div class="g-thumbs">
-            <button type="button" data-full="img/c-luna-trifly.jpg" data-cap="Трайфлы с пряниками-сердечками"><img src="img/c-luna-trifly.jpg" alt="Трайфлы с пряниками-сердечками" loading="lazy" width="900" height="1125"></button>
-            <button type="button" data-full="img/c-luna-stakan.jpg" data-cap="Трайфл с пряником «Любим тебя до Луны и обратно»"><img src="img/c-luna-stakan.jpg" alt="Трайфл с пряником в руке" loading="lazy" width="900" height="1125"></button>
-          </div>
-        </figcaption>
-      </figure>
-      <figure class="g">
-        <div class="g-ph">
-          <button type="button" data-full="img/c-lev.jpg" data-cap="Львиный набор: бенто клубника-сливки и трайфлы"><img src="img/c-lev.jpg" alt="Бенто со львом и трайфлы" loading="lazy" width="1000" height="1250"></button>
-          <span class="tagw"><span class="tag">Львиный набор</span></span>
-        </div>
-        <figcaption><b>Любимому папе</b>Бенто клубника-сливки с картинкой «Мы тебя любим» и трайфлы с топперами</figcaption>
-      </figure>
-      <figure class="g">
-        <div class="g-ph">
-          <button type="button" data-full="img/c-papa.jpg" data-cap="Классический чизкейк на шоколадном сабле"><img src="img/c-papa.jpg" alt="Чизкейк с орео, голубикой и топпером" loading="lazy" width="900" height="1125"></button>
-          <span class="tagw"><span class="tag">Мужу и папе</span></span>
-        </div>
-        <figcaption><b>Чизкейк на шоколадном сабле</b>С орео, голубикой и топпером «Любимому мужу и папе»</figcaption>
-      </figure>
-      <figure class="g">
-        <div class="g-ph">
-          <button type="button" data-full="img/c-zaika.jpg" data-cap="Нежный «Сникерс» с зайкой"><img src="img/c-zaika.jpg" alt="Розовый тортик с лентами и зайкой" loading="lazy" width="880" height="1100"></button>
-          <span class="tagw"><span class="tag">Нежный сникерс</span></span>
-        </div>
-        <figcaption><b>Тортик с зайкой</b>Розовые ленты, жемчужины и фигурка зайки</figcaption>
-      </figure>
-      <figure class="g">
-        <div class="g-ph">
-          <button type="button" data-full="img/c-spasibo.jpg" data-cap="Трайфлы клубника-сливки с топперами"><img src="img/c-spasibo.jpg" alt="Трайфлы с топперами-пожеланиями" loading="lazy" width="900" height="1125"></button>
-          <span class="tagw"><span class="tag">Спасибо, что ты есть</span></span>
-        </div>
-        <figcaption><b>Трайфлы с пожеланиями</b>Клубника-сливки и топперы «Спасибо, что ты у нас есть»</figcaption>
-      </figure>
-    </div>
+    <div class="g-grid" id="g-grid"></div>
   </div>
 </section>
 
@@ -783,8 +646,8 @@
       <h2 id="faq-h">Перед заказом</h2>
     </div>
     <div class="faq-list">
-      <details><summary>Сколько стоит бенто-торт?</summary><p>От 950 ₽. Цена зависит от веса: точную назову, когда выберем вкус и надпись.</p></details>
-      <details><summary>Какие вкусы трайфлов есть?</summary><p>В стаканчиках по 350 ₽: красный бархат, сникерс с мягкой карамелью и жареным солёным арахисом, клубника-сливки, клубника-банан. В трайфл-боксах по 750 ₽: банан-карамель и банан-клубника.</p></details>
+      <details><summary>Сколько стоит бенто-торт?</summary><p id="faq-bento">Цена зависит от веса: точную назову, когда выберем вкус и надпись.</p></details>
+      <details><summary>Какие вкусы трайфлов есть?</summary><p id="faq-tr">Все вкусы с ценами есть в меню выше.</p></details>
       <details><summary>Можно сделать надпись или картинку?</summary><p>Да. Надпись на бенто, топпере или пряничке, как в наборах ко Дню отца. Картинку тоже можно, например как на «Львином наборе».</p></details>
       <details><summary>Можно собрать подарочный набор?</summary><p>Да: бенто и трайфлы к нему, каждый в своей коробочке. Соберите коробочку на сайте или просто напишите, что хотите подарить.</p></details>
       <details><summary>Бывают десерты в наличии?</summary><p>Иногда да, например корпусные десерты. О наличии пишу в группе VK.</p></details>
@@ -858,8 +721,11 @@
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Фото">
   <button class="lb-x" type="button" aria-label="Закрыть">×</button>
+  <button class="lb-nav lb-prev" type="button" aria-label="Предыдущее фото" hidden>‹</button>
   <img src="" alt="">
+  <button class="lb-nav lb-next" type="button" aria-label="Следующее фото" hidden>›</button>
   <p></p>
+  <p class="lb-n"></p>
 </div>
 
 <div class="copybox" id="copybox" role="dialog" aria-modal="true" aria-label="Текст заявки">
@@ -883,26 +749,19 @@
     set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
   };
 
-  const TRIFLE = 350, BENTO_FROM = 950;
-  const FLAV = [
-    {id: "rv", name: "Красный бархат", note: "праздничный, с жемчужной посыпкой", img: "f-krasnyi-barhat.jpg"},
-    {id: "sn", name: "Сникерс", note: "мягкая карамель и жареный солёный арахис", img: "f-snikers.jpg"},
-    {id: "ks", name: "Клубника-сливки", note: "нежный сливочный крем и клубника", img: "f-klubnika-slivki.jpg"},
-    {id: "kb", name: "Клубника-банан", note: "для любителей нежной и воздушной текстуры", img: "f-klubnika-banan.jpg"}
-  ];
-  const ITEMS = {
-    trifle: {name: "Трайфл в стаканчике", price: 350},
-    trbox: {name: "Трайфл-бокс", price: 750},
-    mini: {name: "Мини-чизкейк", price: 450},
-    cheese: {name: "Классический чизкейк", price: null},
-    bento: {name: "Бенто-торт", price: 950, from: true},
-    maxi: {name: "Тортик «макс»", price: null},
-    medovik: {name: "Домашний медовик", price: null},
-    korpus: {name: "Корпусные десерты", price: null},
-    cinna: {name: "Синнабоны", price: null},
-    pops: {name: "Кейкпопсы", price: null},
-    moti: {name: "Моти", price: null}
-  };
+  // Menu, prices and photos are built from the posts of the VK group (_sync/malusha-bakes/sync.py)
+  const D = {"cats":[["tr","Трайфлы"],["ch","Чизкейки"],["ck","Тортики"],["more","Ещё вкусное"]],"items":[{"id":"rv","cat":"tr","kind":"cup","name":"Красный бархат","price":350,"frm":false,"unit":"шт","desc":"Праздничный, с жемчужной посыпкой","sq":"img/f-krasnyi-barhat.jpg","gal":["img/p-lenta.jpg"],"post":3,"icon":null,"new":false},{"id":"sn","cat":"tr","kind":"cup","name":"Сникерс","price":350,"frm":false,"unit":"шт","desc":"Мягкая карамель с добавлением жареного солёного арахиса","sq":"img/f-snikers.jpg","gal":["img/m-snikers-boks.jpg","img/p-kraft.jpg"],"post":2,"icon":null,"new":false},{"id":"ks","cat":"tr","kind":"cup","name":"Клубника-сливки","price":350,"frm":false,"unit":"шт","desc":"Нежный сливочный крем и клубника","sq":"img/f-klubnika-slivki.jpg","gal":["img/c-spasibo.jpg"],"post":17,"icon":null,"new":false},{"id":"kb","cat":"tr","kind":"cup","name":"Клубника-банан","price":350,"frm":false,"unit":"шт","desc":"Для любителей нежной и воздушной текстуры","sq":"img/f-klubnika-banan.jpg","gal":["img/m-trifly-ruka.jpg","img/m-trifly-6.jpg"],"post":22,"icon":null,"new":false},{"id":"trbox","cat":"tr","kind":null,"name":"Трайфл-бокс","price":750,"frm":false,"unit":"шт","desc":"Банан-карамель и банан-клубника","sq":"img/f-banan-karamel.jpg","gal":["img/m-trifl-boks.jpg"],"post":6,"icon":null,"new":false},{"id":"mini","cat":"ch","kind":null,"name":"Мини-чизкейк","price":450,"frm":false,"unit":"шт","desc":"Банан-карамель или малина-кокос","sq":"img/m-mini-malina.jpg","gal":["img/m-mini-malina.jpg","img/m-mini-banan.jpg"],"post":1,"icon":null,"new":false},{"id":"cheese","cat":"ch","kind":null,"name":"Классический чизкейк","price":null,"frm":false,"unit":"","desc":"На шоколадном сабле. Можно украсить ягодами и надписью","sq":"img/m-chizkeik.jpg","gal":["img/m-chizkeik.jpg","img/c-papa.jpg"],"post":null,"icon":null,"new":false},{"id":"bento","cat":"ck","kind":null,"name":"Бенто-торт","price":950,"frm":true,"unit":"","desc":"Цена зависит от веса. Вишня-шоколад или клубника-сливки, надпись или картинка","sq":"img/m-bento-serdtsa.jpg","gal":["img/c-luna.jpg","img/vk/photo456239033.jpg"],"post":15,"icon":null,"new":false},{"id":"maxi","cat":"ck","kind":null,"name":"Тортик «макс»","price":null,"frm":false,"unit":"","desc":"Домашний торт побольше, например нежный «Сникерс» с зайкой","sq":"img/c-zaika.jpg","gal":["img/c-zaika.jpg"],"post":null,"icon":null,"new":false},{"id":"medovik","cat":"ck","kind":null,"name":"Домашний медовик","price":null,"frm":false,"unit":"","desc":"С нежнейшим заварным кремом","sq":"img/m-medovik.jpg","gal":["img/m-medovik.jpg"],"post":null,"icon":null,"new":false},{"id":"korpus","cat":"more","kind":null,"name":"Корпусные десерты","price":null,"frm":false,"unit":"","desc":"Например, манго. Иногда бывают в наличии","sq":"img/m-korpusnye.jpg","gal":["img/m-korpusnye.jpg","img/vk/video456239020.jpg"],"post":null,"icon":null,"new":false},{"id":"cinna","cat":"more","kind":null,"name":"Синнабоны","price":null,"frm":false,"unit":"","desc":"Корица, сливочный, пекан, тирамису","sq":null,"gal":[],"post":null,"icon":"roll","new":false},{"id":"pops","cat":"more","kind":null,"name":"Кейкпопсы","price":null,"frm":false,"unit":"","desc":"Пирожные на палочке","sq":null,"gal":[],"post":null,"icon":"pop","new":false},{"id":"moti","cat":"more","kind":null,"name":"Моти","price":null,"frm":false,"unit":"","desc":"Нежный вкус","sq":null,"gal":[],"post":null,"icon":"moti","new":false}],"gifts":[{"post":15,"tag":"До Луны и обратно","title":"Подарок ко Дню отца","text":"Бенто вишня-шоколад с сердечками и трайфлы с пряниками «Любим тебя до Луны и обратно»","imgs":["img/c-luna.jpg","img/c-luna-trifly.jpg","img/c-luna-stakan.jpg"]},{"post":18,"tag":"Львиный набор","title":"Любимому папе","text":"Бенто клубника-сливки с картинкой «Мы тебя любим» и трайфлы с топперами","imgs":["img/c-lev.jpg","img/vk/photo456239033.jpg"]},{"post":26,"tag":"Мужу и папе","title":"Чизкейк на шоколадном сабле","text":"С орео, голубикой и топпером «Любимому мужу и папе»","imgs":["img/c-papa.jpg"]},{"post":25,"tag":"Нежный сникерс","title":"Тортик с зайкой","text":"Розовые ленты, жемчужины и фигурка зайки","imgs":["img/c-zaika.jpg"]},{"post":17,"tag":"Спасибо, что ты есть","title":"Трайфлы с пожеланиями","text":"Клубника-сливки и топперы «Спасибо, что ты у нас есть»","imgs":["img/c-spasibo.jpg"]}],"bento":{"price":950,"frm":true,"flav":["вишня-шоколад","клубника-сливки"]},"upd":"12 ноября"};
+  const BY = Object.fromEntries(D.items.map(i => [i.id, i]));
+  const NOPH = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23F3DDD9'/%3E%3Cpath d='M50 70S28 56 28 41a11 11 0 0 1 22-3 11 11 0 0 1 22 3c0 15-22 29-22 29z' fill='%23C9868D'/%3E%3C/svg%3E";
+  const CUPS = D.items.filter(i => i.kind === "cup" && i.price);
+  const FLAV = CUPS.map(i => ({id: i.id, name: i.name, note: i.desc, img: i.sq || NOPH, price: i.price}));
+  const samePrice = FLAV.length && FLAV.every(f => f.price === FLAV[0].price) ? FLAV[0].price : null;
+  const BENTO = D.bento || {};
+  const unitText = i => i.unit === "кг" ? "/кг" : /\d/.test(i.unit || "") ? ` за ${i.unit}` : "";
+  const ITEMS = Object.fromEntries(D.items.map(i => [i.id, {
+    name: i.kind === "cup" ? `Трайфл «${i.name}»` : i.name,
+    price: i.price ?? null, from: !!i.frm || i.unit === "кг", unit: i.unit === "кг" ? "цена за кг" : /\d/.test(i.unit || "") ? i.unit : ""
+  }]));
 
   // Order list, kept in this browser only
   let cart = store.get("amb_cart", []);
@@ -913,7 +772,7 @@
   function addItem(k){
     const it = ITEMS[k]; if (!it) return;
     const l = line(k);
-    if (l) l.q = Math.min(99, l.q + 1); else cart.push({k, t: it.name, d: "", p: it.price, q: 1, f: !!it.from});
+    if (l) l.q = Math.min(99, l.q + 1); else cart.push({k, t: it.name, d: it.unit, p: it.price, q: 1, f: !!it.from});
     save(); renderCart(); renderMenu();
   }
   function setQty(k, q){
@@ -930,11 +789,31 @@
   const priceText = l => l.p === null ? "по запросу" : (l.f ? "от " : "") + rub(l.p * l.q);
   const stepper = (k, q) => `<span class="step" data-k="${esc(k)}"><button type="button" data-d="-1" aria-label="Меньше">−</button><output>${q}</output><button type="button" data-d="1" aria-label="Больше">+</button></span>`;
 
+  const ICONS = {roll: "i-roll", pop: "i-pop", moti: "i-moti"};
+  function priceHtml(i){
+    if (i.price === null || i.price === undefined) return `<span class="pr q">по запросу</span>`;
+    const u = unitText(i);
+    return `<span class="pr">${i.frm ? "от " : ""}${rub(i.price)}${u ? `<span class="mi-unit">${esc(u)}</span>` : ""}</span>`;
+  }
+  function itemHtml(i){
+    const ph = i.sq ? `<button class="mi-ph" type="button" data-gal="${esc(i.id)}" aria-label="Фото: ${esc(i.name)}"><img src="${esc(i.sq)}" alt="${esc(i.name)}" loading="lazy" width="160" height="160"></button>`
+      : `<span class="mi-ic" aria-hidden="true"><svg><use href="#${ICONS[i.icon] || "i-heart"}"/></svg></span>`;
+    const more = i.gal.length > 1 ? `<button class="link" type="button" data-gal="${esc(i.id)}">Ещё фото: ${i.gal.length}</button>` : "";
+    return `<article class="mi" id="mi-${esc(i.id)}">${ph}<div><div class="mi-top"><h4>${esc(i.name)}${i.new ? '<span class="mi-new">новинка</span>' : ""}</h4><span class="dots"></span>${priceHtml(i)}</div>${i.desc || more ? `<p>${esc(i.desc)} ${more}</p>` : ""}<div class="mi-act" data-act="${esc(i.id)}"></div></div></article>`;
+  }
+  function buildMenu(){
+    const groups = D.cats.map(([id, title]) => [id, title, D.items.filter(i => i.cat === id)]).filter(g => g[2].length);
+    const half = Math.ceil(D.items.length / 2);
+    const cols = [[], []]; let left = 0;
+    for (const g of groups) { const c = cols[0].length && left + g[2].length > half + 1 ? 1 : 0; if (!c) left += g[2].length; cols[c].push(g); }
+    const sub = id => id === "tr" && FLAV.length ? `<p class="mg-sub">в стаканчиках${samePrice ? `, по ${rub(samePrice)}` : ""} · <a href="#box">собрать коробочку</a></p>` : "";
+    $("menu-cols").innerHTML = cols.map(col => `<div>${col.map(([id, title, list]) => `<h3 class="mg-h">${esc(title)}</h3>${sub(id)}${list.map(itemHtml).join("")}`).join("")}</div>`).join("");
+    $("upd").textContent = D.upd ? `, обновлено ${D.upd}` : "";
+  }
   function renderMenu(){
     document.querySelectorAll("[data-act]").forEach(el => {
       const k = el.dataset.act, l = line(k);
-      const extra = k === "trifle" ? `<a class="link" href="#box">Собрать коробочку</a>` : "";
-      el.innerHTML = (l ? stepper(k, l.q) : `<button class="add" type="button" data-add="${k}">+ В заявку</button>`) + extra;
+      el.innerHTML = l ? stepper(k, l.q) : `<button class="add" type="button" data-add="${esc(k)}">+ В заявку</button>`;
     });
   }
   function renderCart(){
@@ -952,21 +831,26 @@
   }
   document.addEventListener("click", e => {
     const a = e.target.closest("[data-add]");
-    if (a) { addItem(a.dataset.add); toast(`${ITEMS[a.dataset.add].name} в заявке`, true); return; }
+    if (a) { if (!ITEMS[a.dataset.add]) return; addItem(a.dataset.add); toast(`${ITEMS[a.dataset.add].name} в заявке`, true); return; }
     const s = e.target.closest(".step button");
     if (s) { const k = s.closest(".step").dataset.k, l = line(k); if (l) setQty(k, l.q + Number(s.dataset.d)); }
   });
 
   // Box builder
   const bn = 4;
-  let slots = [], bentoOn = false, bentoFlav = "вишня-шоколад";
-  $("flavs").innerHTML = FLAV.map(f => `<button class="fl" type="button" data-f="${f.id}"><img src="img/${f.img}" alt="" width="560" height="560" loading="lazy"><span><b>${f.name}</b><small>${f.note}</small></span><span class="cnt"></span></button>`).join("");
+  let slots = [], bentoOn = false;
+  $("flavs").innerHTML = FLAV.map(f => `<button class="fl" type="button" data-f="${esc(f.id)}"><img src="${esc(f.img)}" alt="" width="560" height="560" loading="lazy"><span><b>${esc(f.name)}</b><small>${esc(f.note)}</small></span><span class="cnt"></span></button>`).join("");
+  $("b-lbl").textContent = samePrice ? `1 · Четыре вкуса, по ${rub(samePrice)}` : "1 · Четыре вкуса";
+  $("b-bento-pr").textContent = BENTO.price ? `${BENTO.frm ? "от " : ""}${rub(BENTO.price)}, цена зависит от веса` : "цена зависит от веса, назову в сообщениях";
+  let bentoFlav = (BENTO.flav || [])[0] || "";
+  $("b-bf").innerHTML = (BENTO.flav || []).map((f, n) => `<button type="button" data-bf="${esc(f)}" aria-pressed="${n === 0}">${esc(f)}</button>`).join("");
+  const boxSum = () => slots.filter(Boolean).reduce((a, id) => a + (FLAV.find(f => f.id === id) || {price: 0}).price, 0);
   function filled(){ return slots.filter(Boolean).length; }
   function renderBox(){
     $("kbox").dataset.n = bn;
     $("cells").innerHTML = Array.from({length: bn}, (_, i) => {
       const f = FLAV.find(x => x.id === slots[i]);
-      return f ? `<button type="button" class="cell full" data-i="${i}" aria-label="Убрать трайфл ${esc(f.name)}"><img src="img/${f.img}" alt=""></button>` : `<span class="cell"></span>`;
+      return f ? `<button type="button" class="cell full" data-i="${i}" aria-label="Убрать трайфл ${esc(f.name)}"><img src="${esc(f.img)}" alt=""></button>` : `<span class="cell"></span>`;
     }).join("");
     document.querySelectorAll("#flavs [data-f]").forEach(b => {
       const c = slots.filter(s => s === b.dataset.f).length;
@@ -975,8 +859,9 @@
     });
     const n = filled(), left = bn - n;
     $("b-status").textContent = n === 0 ? "Нажмите на вкус, и трайфл ляжет в коробочку" : left > 0 ? `Осталось выбрать ${left} ${plural(left, "вкус", "вкуса", "вкусов")}` : "Коробочка собрана! Нажмите на трайфл, чтобы заменить его";
-    $("b-line").textContent = `${bn} ${plural(bn, "трайфл", "трайфла", "трайфлов")} × 350 ₽${bentoOn ? " + бенто" : ""}`;
-    $("b-total").textContent = (bentoOn ? "от " : "") + rub(bn * TRIFLE + (bentoOn ? BENTO_FROM : 0));
+    $("b-line").textContent = `${bn} ${plural(bn, "трайфл", "трайфла", "трайфлов")}${samePrice ? ` × ${rub(samePrice)}` : ""}${bentoOn ? " + бенто" : ""}`;
+    const est = (n === bn ? boxSum() : bn * (samePrice || Math.min(...FLAV.map(f => f.price)))) + (bentoOn ? (BENTO.price || 0) : 0);
+    $("b-total").textContent = (bentoOn || (n < bn && !samePrice) ? "от " : "") + rub(est);
     $("b-add").disabled = left > 0;
     $("b-add").textContent = left > 0 ? `Выберите ещё ${left}` : "Добавить в заявку";
   }
@@ -998,24 +883,43 @@
     if (filled() < bn) return;
     const parts = FLAV.map(f => [f.name.toLowerCase(), slots.filter(s => s === f.id).length]).filter(x => x[1]).map(([nm, c]) => c > 1 ? `${nm} ×${c}` : nm);
     const stamp = Date.now().toString(36);
-    cart.push({k: "box-" + stamp, t: `Коробочка на ${bn} ${plural(bn, "трайфл", "трайфла", "трайфлов")}`, d: parts.join(", "), p: bn * TRIFLE, q: 1, f: false});
+    cart.push({k: "box-" + stamp, t: `Коробочка на ${bn} ${plural(bn, "трайфл", "трайфла", "трайфлов")}`, d: parts.join(", "), p: boxSum(), q: 1, f: false});
     if (bentoOn) {
       const tx = $("b-text").value.trim();
-      cart.push({k: "bento-" + stamp, t: "Бенто-торт к набору", d: [bentoFlav, tx && `надпись «${tx}»`].filter(Boolean).join(", "), p: BENTO_FROM, q: 1, f: true});
+      cart.push({k: "bento-" + stamp, t: "Бенто-торт к набору", d: [bentoFlav, tx && `надпись «${tx}»`].filter(Boolean).join(", "), p: BENTO.price || null, q: 1, f: true});
     }
     save(); renderCart();
     slots = []; bentoOn = false; $("b-bento").checked = false; $("bento-opts").hidden = true; $("b-text").value = "";
     renderBox();
     toast("Коробочка в заявке", true);
   };
-  // Flavours in the first screen start a box
-  document.querySelector(".flav-row").addEventListener("click", e => {
+  // First screen: trifle flavours start a box, the price strip comes from the menu
+  const rings = CUPS.filter(i => i.sq).slice(0, 5);
+  if (rings.length < 5 && BY.trbox && BY.trbox.sq) rings.push(BY.trbox);
+  $("flav-row").innerHTML = rings.map(i => `<li><button type="button" data-hero="${esc(i.id)}"><span class="ring"><img src="${esc(i.sq)}" alt="${esc(i.kind === "cup" ? "Трайфл " + i.name.toLowerCase() : i.name)}" width="560" height="560"></span><span class="nm">${esc(i.name.toLowerCase())}</span></button></li>`).join("");
+  const tiles = [];
+  if (CUPS.length) { const ps = CUPS.map(i => i.price), mn = Math.min(...ps); tiles.push([(Math.max(...ps) > mn ? "от " : "") + rub(mn), "трайфл в стаканчике"]); }
+  for (const [id, label] of [["mini", "мини-чизкейк"], ["trbox", "трайфл-бокс"], ["bento", "бенто-торт"]]) { const i = BY[id]; if (i && i.price) tiles.push([(i.frm ? "от " : "") + rub(i.price) + unitText(i), label]); }
+  $("prices").innerHTML = tiles.slice(0, 4).map(([b, t]) => `<li><b>${esc(b)}</b><span>${esc(t)}</span></li>`).join("");
+  $("prices").style.gridTemplateColumns = tiles.length && tiles.length < 4 ? `repeat(${tiles.length},1fr)` : "";
+  $("flav-row").addEventListener("click", e => {
     const b = e.target.closest("[data-hero]"); if (!b) return;
     const id = b.dataset.hero;
-    if (id === "bk") { $("mi-trbox").scrollIntoView({behavior: "smooth", block: "center"}); return; }
+    if (!FLAV.some(f => f.id === id)) { const m = document.getElementById("mi-" + id); if (m) m.scrollIntoView({behavior: "smooth", block: "center"}); return; }
     putFlavour(id);
     $("box").scrollIntoView({behavior: "smooth"});
   });
+
+  // Sets from the group, newest first
+  $("g-grid").innerHTML = (D.gifts || []).map((g, n) => {
+    const big = n === 0 && g.imgs.length > 1;
+    const thumbs = big ? `<div class="g-thumbs">${g.imgs.slice(1).map((src, k) => `<button type="button" data-gift="${n}" data-i="${k + 1}" aria-label="Фото ${k + 2}"><img src="${esc(src)}" alt="" loading="lazy" width="900" height="1125"></button>`).join("")}</div>` : "";
+    return `<figure class="g${big ? " g-big" : ""}"><div class="g-ph"><button type="button" data-gift="${n}" data-i="0"><img src="${esc(g.imgs[0])}" alt="${esc(g.title)}" loading="lazy" width="900" height="1125"></button><span class="tagw"><span class="tag">${esc(g.tag)}</span></span></div><figcaption><b>${esc(g.title)}</b>${esc(g.text)}${thumbs}</figcaption></figure>`;
+  }).join("");
+
+  // FAQ answers that depend on the menu
+  if (FLAV.length) $("faq-tr").textContent = `В стаканчиках${samePrice ? ` по ${rub(samePrice)}` : ""}: ${FLAV.map(f => f.name.toLowerCase()).join(", ")}.` + (BY.trbox && BY.trbox.price ? ` Трайфл-бокс за ${rub(BY.trbox.price)}: ${BY.trbox.desc.toLowerCase()}.` : "") + " Вкусы и цены в меню обновляются из моей группы VK.";
+  if (BENTO.price) $("faq-bento").textContent = `${BENTO.frm ? "От " : ""}${rub(BENTO.price)}. Цена зависит от веса: точную назову, когда выберем вкус и надпись.`;
 
   // Toast
   let tt;
@@ -1099,15 +1003,38 @@
   $("b-text").addEventListener("focus", () => { mbar.style.visibility = "hidden"; });
   $("b-text").addEventListener("blur", () => { mbar.style.visibility = ""; });
 
-  // Lightbox
-  const lb = $("lb");
+  // Lightbox with arrows and swipe for several photos
+  const lb = $("lb"), lbImg = lb.querySelector("img");
+  let gal = [], gi = 0, gcap = "";
+  function showLb(){
+    lbImg.src = gal[gi]; lbImg.alt = gcap;
+    lb.querySelector("p").textContent = gcap;
+    lb.querySelector(".lb-n").textContent = gal.length > 1 ? `${gi + 1} из ${gal.length}` : "";
+    lb.querySelectorAll(".lb-nav").forEach(b => { b.hidden = gal.length < 2; });
+  }
+  function openLb(list, i, cap){ if (!list || !list.length) return; gal = list; gi = i || 0; gcap = cap || ""; showLb(); lb.classList.add("show"); }
+  const stepLb = d => { if (gal.length > 1) { gi = (gi + d + gal.length) % gal.length; showLb(); } };
   document.addEventListener("click", e => {
+    const g = e.target.closest("[data-gal]");
+    if (g) { const it = BY[g.dataset.gal]; if (it) openLb(it.gal, 0, it.name); return; }
+    const gf = e.target.closest("[data-gift]");
+    if (gf) { const x = (D.gifts || [])[Number(gf.dataset.gift)]; if (x) openLb(x.imgs, Number(gf.dataset.i) || 0, x.title); return; }
     const b = e.target.closest("[data-full]"); if (!b) return;
-    lb.querySelector("img").src = b.dataset.full; lb.querySelector("img").alt = b.dataset.cap || ""; lb.querySelector("p").textContent = b.dataset.cap || "";
-    lb.classList.add("show");
+    openLb([b.dataset.full], 0, b.dataset.cap);
   });
-  lb.addEventListener("click", e => { if (e.target === lb || e.target.closest(".lb-x")) lb.classList.remove("show"); });
-  document.addEventListener("keydown", e => { if (e.key === "Escape") { lb.classList.remove("show"); copybox.classList.remove("show"); } });
+  lb.addEventListener("click", e => {
+    if (e.target.closest(".lb-prev")) return stepLb(-1);
+    if (e.target.closest(".lb-next")) return stepLb(1);
+    if (e.target === lb || e.target.closest(".lb-x")) lb.classList.remove("show");
+  });
+  let tx0 = null;
+  lb.addEventListener("touchstart", e => { tx0 = e.touches[0].clientX; }, {passive: true});
+  lb.addEventListener("touchend", e => { if (tx0 === null) return; const dx = e.changedTouches[0].clientX - tx0; tx0 = null; if (Math.abs(dx) > 45) stepLb(dx < 0 ? 1 : -1); });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") { lb.classList.remove("show"); copybox.classList.remove("show"); }
+    if (lb.classList.contains("show") && e.key === "ArrowLeft") stepLb(-1);
+    if (lb.classList.contains("show") && e.key === "ArrowRight") stepLb(1);
+  });
 
   // Header and mobile menu
   const header = $("top");
@@ -1115,7 +1042,8 @@
   $("burger").onclick = () => { const o = document.body.classList.toggle("menu-open"); $("burger").setAttribute("aria-expanded", o); };
   $("nav").addEventListener("click", e => { if (e.target.tagName === "A") { document.body.classList.remove("menu-open"); $("burger").setAttribute("aria-expanded", false); } });
 
-  renderBox(); renderMenu(); renderCart();
+  if (!FLAV.length) { $("box").hidden = true; document.querySelectorAll('a[href="#box"]').forEach(x => { x.closest("li") ? x.closest("li").remove() : x.remove(); }); }
+  buildMenu(); renderBox(); renderMenu(); renderCart();
 </script>
 </body>
 </html>

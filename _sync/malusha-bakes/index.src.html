@@ -1,0 +1,1049 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>AM bakes — трайфлы, бенто-торты и десерты на заказ в Колпино</title>
+<meta name="description" content="__META_DESC__">
+<meta name="theme-color" content="#FBF7F3">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AM bakes — трайфлы, бенто и десерты в Колпино">
+<meta property="og:description" content="__META_DESC__">
+<meta property="og:image" content="https://leonti123.github.io/malusha-bakes/img/c-luna.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23FBF7F3' stroke='%23B58A5D' stroke-width='3'/%3E%3Ctext x='32' y='41' text-anchor='middle' font-family='Georgia,serif' font-size='25' fill='%233D2B25'%3EAM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bad+Script&family=Noto+Serif+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBF7F3; --bg2:#F4EBE3; --paper:#FFFDFB; --line:#EADFD4; --line2:#DCCBBD;
+    --ink:#3D2B25; --ink2:#6B5750; --ink3:#958076;
+    --rose:#C9868D; --rose-d:#A65F68; --blush:#F3DDD9; --blush2:#FBF0EE;
+    --gold:#B58A5D; --kraft:#D7BF9F; --kraft-in:#F1E6D8;
+    --cocoa:#5A3D33; --cocoa-d:#46302A;
+    --ribbon:#EBBCC2; --ribbon-d:#CF939B;
+    --shadow:0 24px 50px -30px rgba(74,48,41,.45);
+    --serif:"Noto Serif Display", Georgia, "Times New Roman", serif;
+    --script:"Bad Script", "Segoe Script", cursive;
+    --sans:"Nunito Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:84px}
+  body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 var(--sans);overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  button{font:inherit;color:inherit;cursor:pointer}
+  :focus-visible{outline:2px solid var(--rose-d);outline-offset:3px}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+  h1,h2,h3,h4{font-family:var(--serif);font-weight:400;letter-spacing:-.01em;margin:0}
+  h2{font-size:clamp(31px,4.3vw,48px);line-height:1.12}
+  h2 em,h1 em{font-style:italic;font-weight:300;color:var(--rose-d)}
+  .kicker{font-family:var(--script);color:var(--rose-d);font-size:22px;line-height:1.25;margin:0 0 10px}
+  .lbl{display:block;font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);font-weight:800}
+  .sec{padding:clamp(64px,9vw,112px) 0}
+  .sec-h{text-align:center;max-width:660px;margin:0 auto clamp(34px,5vw,54px)}
+  .sec-h p:not(.kicker){color:var(--ink2);margin:16px 0 0;font-size:17px}
+  .link{background:none;border:0;padding:0;color:var(--rose-d);font-weight:700;text-decoration:underline;text-underline-offset:3px;font-size:14px}
+
+  .mock{background:var(--cocoa);color:#F7EAE3;text-align:center;font-size:13px;font-weight:600;padding:8px 16px}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:50px;padding:0 26px;border-radius:999px;border:1.5px solid transparent;font-weight:800;font-size:15px;text-decoration:none;transition:transform .15s,background .2s,border-color .2s,box-shadow .2s;white-space:nowrap}
+  .btn:active{transform:scale(.97)}
+  .btn-main{background:var(--cocoa);color:#FCF3EE;box-shadow:0 14px 26px -16px rgba(70,48,42,.9)}
+  .btn-main:hover{background:var(--cocoa-d)}
+  .btn-main:disabled{background:#B9A8A0;box-shadow:none;cursor:not-allowed}
+  .btn-line{border-color:var(--line2);background:var(--paper)}
+  .btn-line:hover{border-color:var(--ink2)}
+  .btn-sm{min-height:42px;padding:0 20px;font-size:14px}
+  .ico{width:20px;height:20px;flex:none}
+
+  /* header */
+  .top{position:sticky;top:0;z-index:50;background:rgba(251,247,243,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .2s,box-shadow .2s}
+  .top.scrolled{border-color:var(--line);box-shadow:0 10px 26px -22px rgba(74,48,41,.5)}
+  .top .wrap{display:flex;align-items:center;gap:28px;height:74px}
+  .logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex:none}
+  .logo svg{width:48px;height:48px}
+  .logo b{display:block;font-family:var(--serif);font-weight:400;font-size:23px;line-height:1;letter-spacing:.01em}
+  .logo small{display:block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink3);margin-top:5px;font-weight:700}
+  .nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+  .nav a{text-decoration:none;font-size:15px;color:var(--ink2);font-weight:600}
+  .nav a:hover{color:var(--ink)}
+  .top-r{margin-left:auto;display:flex;align-items:center;gap:18px}
+  .top-r .phone{text-decoration:none;font-weight:800;white-space:nowrap;font-size:15px}
+  .burger{display:none;width:44px;height:44px;border:1.5px solid var(--line2);border-radius:50%;background:var(--paper);place-items:center;padding:0}
+  .burger span,.burger span::before,.burger span::after{display:block;width:18px;height:1.8px;background:var(--ink);border-radius:2px;position:relative;transition:transform .2s}
+  .burger span::before,.burger span::after{content:"";position:absolute;left:0}
+  .burger span::before{top:-6px}.burger span::after{top:6px}
+  .menu-open .burger span{background:transparent}
+  .menu-open .burger span::before{transform:translateY(6px) rotate(45deg)}
+  .menu-open .burger span::after{transform:translateY(-6px) rotate(-45deg)}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;padding:clamp(34px,6vw,70px) 0 clamp(54px,7vw,84px);text-align:center;background:
+    radial-gradient(60% 55% at 12% 18%,rgba(243,221,217,.85),transparent 70%),
+    radial-gradient(50% 50% at 92% 30%,rgba(241,230,216,.95),transparent 70%),
+    radial-gradient(70% 60% at 50% 110%,rgba(243,221,217,.6),transparent 70%),var(--bg)}
+  .hero-ring{position:absolute;left:50%;top:clamp(-120px,-8vw,-60px);width:min(900px,150vw);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;border:1.5px solid rgba(181,138,93,.28);pointer-events:none}
+  .hero-ring::after{content:"";position:absolute;inset:16px;border-radius:50%;border:1px solid rgba(181,138,93,.2)}
+  .hero-in{position:relative}
+  .bow{width:96px;height:58px;margin:0 auto 6px;display:block;filter:drop-shadow(0 6px 8px rgba(165,95,104,.25))}
+  .hero .kicker{font-size:clamp(23px,2.6vw,30px);margin-bottom:12px}
+  .hero h1{font-size:clamp(35px,5.6vw,68px);line-height:1.06;max-width:900px;margin:0 auto;font-weight:400}
+  .hero-sub{max-width:620px;margin:20px auto 0;font-size:clamp(16px,1.6vw,18.5px);color:var(--ink2)}
+  .hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+  .flav-row{--c:clamp(96px,11.2vw,146px);display:flex;justify-content:center;gap:clamp(14px,2.4vw,34px);list-style:none;padding:0;margin:clamp(40px,5vw,56px) auto 0;position:relative;max-width:1000px}
+  .flav-row::before{content:"";position:absolute;left:-30vw;right:-30vw;top:calc(var(--c)/2);height:10px;transform:translateY(-50%);background:linear-gradient(180deg,var(--ribbon),#F6D3D8 45%,var(--ribbon));box-shadow:0 1px 0 rgba(207,147,155,.5),0 -1px 0 rgba(255,255,255,.5)}
+  .flav-row li{position:relative}
+  .flav-row li:nth-child(odd) button{transform:rotate(-3deg)}
+  .flav-row li:nth-child(even) button{transform:rotate(3deg) translateY(10px)}
+  .flav-row button{display:flex;flex-direction:column;align-items:center;gap:10px;background:none;border:0;padding:0;transition:transform .25s}
+  .flav-row button:hover{transform:translateY(-4px) rotate(0)}
+  .ring{display:block;width:var(--c);height:var(--c);border-radius:50%;padding:5px;background:var(--paper);box-shadow:0 0 0 1.5px var(--gold),0 0 0 6px var(--paper),0 0 0 7px rgba(181,138,93,.55),0 18px 30px -16px rgba(74,48,41,.6)}
+  .ring img{width:100%;height:100%;border-radius:50%;object-fit:cover}
+  .flav-row .nm{font-family:var(--script);font-size:18px;line-height:1.15;color:var(--ink);max-width:calc(var(--c) + 30px)}
+  .prices{display:grid;grid-template-columns:repeat(4,1fr);max-width:860px;margin:clamp(40px,5vw,56px) auto 0;padding:0;list-style:none;background:rgba(255,253,251,.75);border:1px solid var(--line);border-radius:22px}
+  .prices li{padding:16px 12px;display:flex;flex-direction:column;gap:2px}
+  .prices li+li{border-left:1px solid var(--line)}
+  .prices b{font-family:var(--serif);font-weight:400;font-size:clamp(22px,2.4vw,28px);white-space:nowrap}
+  .prices span{font-size:13.5px;color:var(--ink2);line-height:1.3}
+
+  /* builder */
+  .builder{background:linear-gradient(180deg,var(--bg),var(--paper) 30%,var(--paper))}
+  .b-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(30px,5vw,70px);align-items:center}
+  .b-stage{position:relative;padding:34px 10px 0}
+  .kbox{--k:var(--kraft);position:relative;width:min(100%,430px);margin:0 auto;aspect-ratio:1;border-radius:24px;padding:7%;background:
+    radial-gradient(120% 90% at 25% 15%,rgba(255,255,255,.28),transparent 60%),
+    repeating-linear-gradient(118deg,rgba(120,85,50,.045) 0 2px,transparent 2px 6px),var(--k);
+    box-shadow:0 46px 60px -40px rgba(74,48,41,.7),inset 0 0 0 1px rgba(255,255,255,.35),inset 0 -12px 26px -16px rgba(90,60,40,.4);transition:width .35s}
+  .kbox[data-n="6"]{aspect-ratio:3/2;width:min(100%,560px);padding:5.5%}
+  .kbox-in{height:100%;border-radius:15px;background:linear-gradient(180deg,#F5ECE0,var(--kraft-in));box-shadow:inset 0 8px 18px -10px rgba(90,60,40,.55),inset 0 0 0 1px rgba(150,115,80,.25);padding:clamp(12px,3.4vw,26px)}
+  .cells{display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(2,1fr);gap:clamp(10px,2.6vw,22px);height:100%}
+  .kbox[data-n="6"] .cells{grid-template-columns:repeat(3,1fr)}
+  .cell{position:relative;place-self:center;height:100%;max-width:100%;aspect-ratio:1;border-radius:50%;border:0;padding:0;background:radial-gradient(circle at 50% 42%,#E6D7C5 0 52%,#D3BDA2 68%,#E9DCCC 71%);box-shadow:inset 0 5px 12px rgba(110,80,50,.35)}
+  .cell:not(.full)::after{content:"+";position:absolute;inset:0;display:grid;place-items:center;color:rgba(110,80,50,.42);font-size:clamp(20px,3vw,30px);font-weight:300}
+  .cell.full{background:none;box-shadow:0 12px 18px -10px rgba(60,35,25,.65);animation:pop .38s cubic-bezier(.3,1.6,.5,1)}
+  .cell.full img{width:100%;height:100%;object-fit:cover;border-radius:50%;border:3px solid rgba(255,255,255,.8)}
+  .cell.full:hover img{filter:brightness(.92)}
+  @keyframes pop{from{transform:scale(.55);opacity:0}to{transform:none;opacity:1}}
+  .kbox-bow{position:absolute;right:-14px;top:-30px;width:110px;transform:rotate(14deg);filter:drop-shadow(0 8px 10px rgba(120,60,70,.3));pointer-events:none}
+  .kbox-tag{position:absolute;left:-12px;bottom:18%;transform:rotate(-8deg);pointer-events:none}
+  .tag{display:inline-block;position:relative;background:var(--kraft);color:var(--ink);font-family:var(--script);font-size:18px;line-height:1.1;padding:9px 16px 9px 30px;clip-path:polygon(14px 0,100% 0,100% 100%,14px 100%,0 50%);filter:drop-shadow(0 6px 8px rgba(74,48,41,.25))}
+  .tag::before{content:"";position:absolute;left:12px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--paper);box-shadow:inset 0 1px 2px rgba(0,0,0,.25)}
+  .tagw{filter:drop-shadow(0 6px 8px rgba(74,48,41,.22))}
+  .b-status{text-align:center;margin:22px auto 0;color:var(--ink2);font-size:15px;min-height:24px;max-width:420px}
+  .b-real{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:14px;font-size:14px;color:var(--ink3)}
+  .b-real button{width:64px;height:64px;border-radius:14px;overflow:hidden;border:0;padding:0;flex:none;box-shadow:0 0 0 3px var(--paper),0 0 0 4px var(--line2)}
+  .b-real img{width:100%;height:100%;object-fit:cover}
+  .b-real span{max-width:150px;line-height:1.35;text-align:right}
+  .b-panel{display:grid;gap:26px}
+  .b-step .lbl{margin-bottom:10px}
+  .seg{display:inline-flex;background:var(--bg2);border-radius:999px;padding:4px;gap:4px}
+  .seg button{border:0;background:none;border-radius:999px;padding:9px 20px;font-weight:800;font-size:14.5px;color:var(--ink2)}
+  .seg button[aria-pressed="true"]{background:var(--paper);color:var(--ink);box-shadow:0 4px 12px -6px rgba(74,48,41,.45)}
+  .flavs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .fl{position:relative;display:flex;align-items:center;gap:12px;text-align:left;background:var(--paper);border:1.5px solid var(--line);border-radius:18px;padding:10px 12px;transition:border-color .2s,background .2s,transform .15s}
+  .fl:hover{border-color:var(--rose)}
+  .fl:active{transform:scale(.98)}
+  .fl img{width:58px;height:58px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 0 0 2px var(--paper),0 0 0 3px rgba(181,138,93,.7)}
+  .fl b{display:block;font-size:15px;line-height:1.25}
+  .fl small{display:block;color:var(--ink3);font-size:12.5px;line-height:1.35;margin-top:2px}
+  .fl .cnt{position:absolute;top:7px;right:10px;font-weight:800;color:var(--rose-d);font-size:13px}
+  .fl.on{border-color:var(--rose);background:var(--blush2)}
+  .b-clear{margin-top:10px}
+  .addon{display:flex;gap:12px;align-items:flex-start;background:var(--blush2);border:1.5px solid var(--blush);border-radius:18px;padding:13px 14px;cursor:pointer}
+  .addon input{width:20px;height:20px;accent-color:var(--cocoa);margin:2px 0 0;flex:none}
+  .addon span{font-size:14.5px;color:var(--ink2)}
+  .addon b{color:var(--ink);font-size:15.5px}
+  .bento-opts{display:grid;gap:10px;margin-top:10px}
+  .bento-opts[hidden]{display:none}
+  .seg-sm button{padding:7px 14px;font-size:13.5px}
+  input[type=text],input[type=tel],input[type=date],input[type=time],textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1.5px solid var(--line2);border-radius:14px;padding:12px 14px;min-height:50px;transition:border-color .2s;-webkit-appearance:none;appearance:none}
+  input:focus,textarea:focus{outline:none;border-color:var(--rose)}
+  textarea{resize:vertical;min-height:92px}
+  .b-sum{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px dashed var(--line2);padding-top:20px}
+  .b-sum span{display:block;font-size:14px;color:var(--ink2)}
+  .b-sum b{font-family:var(--serif);font-weight:400;font-size:30px;white-space:nowrap}
+
+  /* menu */
+  .menu{background:var(--bg2)}
+  .menu-card{position:relative;max-width:1100px;margin:0 auto;background:var(--paper);border-radius:30px;padding:clamp(30px,5.5vw,68px) clamp(20px,5.5vw,68px);box-shadow:var(--shadow)}
+  .menu-card::before{content:"";position:absolute;inset:12px;border:1px solid var(--line);border-radius:22px;pointer-events:none}
+  .menu-head{text-align:center;margin-bottom:clamp(20px,3vw,34px)}
+  .menu-head svg{width:64px;height:40px;margin:0 auto 4px;display:block}
+  .menu-head h2{font-size:clamp(44px,6.5vw,72px);font-weight:300;letter-spacing:.06em;line-height:1}
+  .menu-head .kicker{margin:10px 0 0;font-size:21px}
+  .menu-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(30px,5vw,64px)}
+  .mg-h{font-family:var(--script);font-size:25px;color:var(--rose-d);margin:22px 0 4px;display:flex;align-items:center;gap:14px;font-weight:400}
+  .mg-h::after{content:"";flex:1;height:1px;background:var(--line)}
+  .mi{display:grid;grid-template-columns:78px 1fr;gap:16px;padding:16px 0;border-bottom:1px dashed var(--line)}
+  .mi:last-child{border-bottom:0}
+  .mi-ph{width:78px;height:78px;border-radius:50%;overflow:hidden;border:0;padding:0;background:var(--bg2);box-shadow:0 0 0 3px var(--paper),0 0 0 4px var(--line2)}
+  .mi-ph img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+  .mi-ph:hover img{transform:scale(1.07)}
+  .mi-ic{width:78px;height:78px;border-radius:50%;display:grid;place-items:center;background:var(--blush2);color:var(--rose-d);box-shadow:0 0 0 3px var(--paper),0 0 0 4px var(--line2)}
+  .mi-ic svg{width:36px;height:36px}
+  .mi-top{display:flex;align-items:baseline;gap:8px}
+  .mi-top h4{font-size:19.5px;line-height:1.25}
+  .mi-top .dots{flex:1;min-width:14px;border-bottom:2px dotted var(--line2);transform:translateY(-5px)}
+  .mi-top .pr{font-weight:800;white-space:nowrap;font-size:16.5px}
+  .mi-top .pr.q{font-weight:600;color:var(--ink3);font-size:13.5px}
+  .mi p{margin:4px 0 10px;color:var(--ink2);font-size:14.5px;line-height:1.5}
+  .mi-act{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .add{border:1.5px solid var(--line2);background:var(--paper);border-radius:999px;padding:6px 15px;font-size:13.5px;font-weight:800;min-height:36px}
+  .add:hover{border-color:var(--rose);color:var(--rose-d)}
+  .step{display:inline-flex;align-items:center;border:1.5px solid var(--rose);border-radius:999px;background:var(--paper)}
+  .step button{width:36px;height:34px;border:0;background:none;font-size:19px;line-height:1;color:var(--rose-d);border-radius:999px}
+  .step output{min-width:24px;text-align:center;font-weight:800;font-size:15px}
+  .menu-note{text-align:center;color:var(--ink3);font-size:14px;margin:26px 0 0}
+
+  /* gifts */
+  .g-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.4vw,30px);align-items:start}
+  .g{margin:0}
+  .g-big{grid-column:span 2;grid-row:span 2}
+  .g-ph{position:relative}
+  .g-ph>button{display:block;width:100%;border:0;padding:0;border-radius:22px;overflow:hidden;aspect-ratio:4/5;background:var(--bg2)}
+  .g-ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .g-ph>button:hover img{transform:scale(1.035)}
+  .g-ph .tagw{position:absolute;left:14px;bottom:-15px;max-width:calc(100% - 20px)}
+  .g-ph .tag{font-size:17px}
+  .g-big .tag{font-size:21px}
+  .g figcaption{padding:28px 4px 0;color:var(--ink2);font-size:14.5px;line-height:1.5}
+  .g figcaption b{display:block;color:var(--ink);font-family:var(--serif);font-weight:400;font-size:19px;line-height:1.25;margin-bottom:5px}
+  .g-big figcaption b{font-size:24px}
+  .g-thumbs{display:flex;gap:12px;margin-top:16px}
+  .g-thumbs button{width:84px;height:84px;border-radius:16px;overflow:hidden;border:0;padding:0;flex:none}
+  .g-thumbs img{width:100%;height:100%;object-fit:cover}
+
+  /* why */
+  .why{background:var(--bg2)}
+  .why-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(36px,6vw,80px);align-items:center}
+  .why-ph{position:relative;padding:0 16% 18% 0}
+  .why-ph .a{border-radius:26px;overflow:hidden;aspect-ratio:1;box-shadow:var(--shadow)}
+  .why-ph .b{position:absolute;right:0;bottom:0;width:48%;aspect-ratio:4/5;border-radius:20px;overflow:hidden;border:7px solid var(--paper);transform:rotate(4deg);box-shadow:var(--shadow)}
+  .why-ph img{width:100%;height:100%;object-fit:cover}
+  .why-ph .tagw{position:absolute;left:-8px;top:24px;transform:rotate(-6deg)}
+  .why-list{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:20px}
+  .why-list li{display:grid;grid-template-columns:50px 1fr;gap:14px;align-items:start}
+  .why-list .ic{width:50px;height:50px;border-radius:50%;display:grid;place-items:center;background:var(--paper);color:var(--rose-d);box-shadow:0 0 0 1px var(--line)}
+  .why-list .ic svg{width:24px;height:24px}
+  .why-list b{display:block;font-size:17px;margin-bottom:2px}
+  .why-list span{color:var(--ink2);font-size:15px}
+
+  /* how */
+  .steps{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2.5vw,30px);position:relative}
+  .steps::before{content:"";position:absolute;left:12%;right:12%;top:31px;height:8px;border-radius:8px;background:linear-gradient(180deg,var(--ribbon),#F6D3D8 45%,var(--ribbon));opacity:.75}
+  .steps li{position:relative;text-align:center;padding:0 6px}
+  .st-n{display:grid;place-items:center;width:62px;height:62px;margin:0 auto 18px;border-radius:50%;background:var(--paper);font-family:var(--serif);font-size:26px;box-shadow:0 0 0 1.5px var(--gold),0 0 0 6px var(--bg),0 0 0 7px rgba(181,138,93,.45);position:relative}
+  .steps b{display:block;font-family:var(--serif);font-weight:400;font-size:21px;margin-bottom:6px}
+  .steps p{margin:0;color:var(--ink2);font-size:15px}
+
+  /* contacts */
+  .ct-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,4vw,46px);align-items:stretch}
+  .ct-grid>*,.b-grid>*,.why-grid>*,.order-card>*,.menu-cols>*{min-width:0}
+  .map{position:relative;border-radius:26px;overflow:hidden;min-height:360px;background:var(--bg2);box-shadow:var(--shadow)}
+  .map img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .pin{position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-44px 0 0 -22px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--rose-d);box-shadow:0 10px 18px -6px rgba(74,48,41,.6)}
+  .pin::after{content:"";position:absolute;inset:12px;border-radius:50%;background:var(--paper)}
+  .map-lbl{position:absolute;left:50%;top:50%;transform:translate(-50%,14px);background:var(--paper);border-radius:999px;padding:6px 14px;font-weight:800;font-size:13.5px;white-space:nowrap;box-shadow:0 8px 18px -10px rgba(74,48,41,.6)}
+  .map-open{position:absolute;right:14px;top:14px;background:var(--paper);border-radius:999px;padding:8px 16px;font-weight:800;font-size:13.5px;text-decoration:none;box-shadow:0 8px 18px -10px rgba(74,48,41,.6)}
+  .osm{position:absolute;right:10px;bottom:8px;font-size:11px;color:var(--ink2);background:rgba(255,253,251,.8);padding:1px 6px;border-radius:6px}
+  .ct-card{background:var(--paper);border-radius:26px;padding:clamp(26px,4vw,40px);box-shadow:0 0 0 1px var(--line)}
+  .addr{font-family:var(--serif);font-size:24px;line-height:1.3;margin:16px 0 22px}
+  .addr span{display:block;font-family:var(--sans);font-size:15px;color:var(--ink2);margin-top:4px}
+  .ct-row{padding:14px 0;border-top:1px solid var(--line)}
+  .ct-row .big{font-family:var(--serif);font-size:26px;text-decoration:none;display:inline-block;margin-top:2px}
+  .ct-row p{margin:4px 0 0;color:var(--ink2);font-size:15px}
+  .ct-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+
+  /* faq */
+  .faq-list{max-width:840px;margin:0 auto;display:grid;gap:12px}
+  .faq-list details{background:var(--paper);border-radius:20px;box-shadow:0 0 0 1px var(--line);transition:box-shadow .2s}
+  .faq-list details[open]{box-shadow:0 0 0 1.5px var(--rose)}
+  .faq-list summary{list-style:none;cursor:pointer;padding:20px 60px 20px 24px;font-family:var(--serif);font-size:19px;line-height:1.35;position:relative}
+  .faq-list summary::-webkit-details-marker{display:none}
+  .faq-list summary::after{content:"";position:absolute;right:24px;top:50%;width:12px;height:12px;margin-top:-9px;border-right:2px solid var(--rose-d);border-bottom:2px solid var(--rose-d);transform:rotate(45deg);transition:transform .2s}
+  .faq-list details[open] summary::after{transform:rotate(225deg);margin-top:-3px}
+  .faq-list details p{margin:0;padding:0 24px 22px;color:var(--ink2)}
+
+  /* order */
+  .order{background:linear-gradient(180deg,var(--bg),var(--blush2))}
+  .order-card{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(26px,4vw,56px);background:var(--paper);border-radius:32px;padding:clamp(26px,5vw,56px);box-shadow:var(--shadow);position:relative}
+  .o-left p.o-sub{color:var(--ink2);margin:14px 0 22px}
+  .cart{display:grid;gap:0}
+  .cart-empty{margin:0;padding:18px;border:1.5px dashed var(--line2);border-radius:18px;color:var(--ink2);font-size:15px}
+  .cart-empty a{color:var(--rose-d);font-weight:700}
+  .cl{display:grid;grid-template-columns:1fr auto;gap:6px 14px;align-items:center;padding:14px 0;border-bottom:1px dashed var(--line)}
+  .cl-tx b{display:block;font-size:15.5px;line-height:1.3}
+  .cl-tx span{display:block;font-size:13.5px;color:var(--ink2);line-height:1.4;margin-top:2px}
+  .cl-pr{grid-column:2;grid-row:1;font-weight:800;white-space:nowrap;text-align:right;font-size:15px}
+  .cl-pr.q{font-weight:600;color:var(--ink3);font-size:13px}
+  .cl .step{grid-column:1;justify-self:start}
+  .cart-total{margin-top:16px;font-size:16px}
+  .cart-total b{font-family:var(--serif);font-weight:400;font-size:28px;margin-left:6px}
+  .cart-total small{display:block;color:var(--ink3);font-size:13px}
+  .o-form{display:grid;gap:14px;align-content:start}
+  .o-form label.f{display:grid;gap:6px;font-size:14px;font-weight:700;color:var(--ink2)}
+  .row2{display:grid;grid-template-columns:1.3fr 1fr;gap:12px}
+  .consent{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;color:var(--ink2);cursor:pointer}
+  .consent input{width:19px;height:19px;accent-color:var(--cocoa);margin:1px 0 0;flex:none}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+  .err{margin:0;color:#B3261E;font-weight:700;font-size:14px;min-height:0}
+  .err:empty{display:none}
+  .o-btns{display:grid;gap:10px}
+  .o-btns .btn{white-space:normal;text-align:center;padding:8px 20px}
+  .ok-box,.fb-box{border-radius:16px;padding:16px 18px;font-size:15px}
+  .ok-box{background:#EEF6EC;color:#24502A}
+  .ok-box b{display:block;font-size:17px;margin-bottom:2px}
+  .fb-box{background:var(--blush2);color:var(--ink)}
+  .fb-box a{color:var(--rose-d);font-weight:800}
+  [hidden]{display:none!important}
+
+  /* footer */
+  .foot{background:var(--cocoa-d);color:#EBDCD3;padding:54px 0 40px}
+  .foot .wrap{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:30px}
+  .foot .logo b{color:#FBF3EE}
+  .foot .logo small{color:#C9B2A6}
+  .foot p{margin:14px 0 0;font-size:14.5px;color:#C9B2A6;max-width:320px}
+  .foot ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;font-size:15px}
+  .foot a{text-decoration:none}
+  .foot a:hover{text-decoration:underline}
+  .foot .copy{grid-column:1/-1;border-top:1px solid rgba(235,220,211,.15);padding-top:20px;font-size:13px;color:#A99389}
+
+  /* mobile bar, toast, lightbox, copybox */
+  .mbar{display:none}
+  .toast{position:fixed;left:50%;bottom:24px;z-index:80;transform:translate(-50%,30px);opacity:0;pointer-events:none;background:var(--ink);color:#FCF3EE;border-radius:999px;padding:12px 14px 12px 20px;font-size:14.5px;font-weight:700;display:flex;align-items:center;gap:12px;transition:transform .25s,opacity .25s;box-shadow:0 16px 30px -14px rgba(0,0,0,.5);max-width:calc(100vw - 32px)}
+  .toast.show{transform:translate(-50%,0);opacity:1;pointer-events:auto}
+  .toast a{background:var(--rose);color:#fff;text-decoration:none;border-radius:999px;padding:6px 12px;white-space:nowrap}
+  .toast a:empty{display:none}
+  .lb{position:fixed;inset:0;z-index:90;background:rgba(35,24,20,.88);display:none;align-items:center;justify-content:center;flex-direction:column;padding:20px;gap:12px}
+  .lb.show{display:flex}
+  .lb img{max-width:min(92vw,900px);max-height:80vh;border-radius:14px;object-fit:contain}
+  .lb p{color:#F2E4DC;margin:0;text-align:center;font-size:15px;max-width:600px}
+  .lb-x{position:absolute;top:14px;right:14px;width:46px;height:46px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;font-size:26px;line-height:1}
+  .copybox{position:fixed;inset:0;z-index:95;background:rgba(35,24,20,.6);display:none;align-items:center;justify-content:center;padding:16px}
+  .copybox.show{display:flex}
+  .copybox>div{background:var(--paper);border-radius:22px;padding:22px;max-width:460px;width:100%;display:grid;gap:12px}
+  .copybox textarea{min-height:150px;font-size:14px}
+
+  /* menu and sets come from the VK group */
+  .mg-sub{margin:-2px 0 4px;color:var(--ink3);font-size:13.5px}
+  .mg-sub a{color:var(--rose-d);font-weight:700}
+  .mi-new{display:inline-block;margin-left:8px;padding:1px 9px;border-radius:999px;background:var(--rose);color:#fff;font:800 10.5px/1.7 var(--sans);letter-spacing:.08em;text-transform:uppercase;vertical-align:4px}
+  .mi-unit{font-weight:600;color:var(--ink3);font-size:13px;margin-left:3px}
+  .mi p .link{font-size:13px;margin-left:4px}
+  .sync{display:flex;align-items:flex-start;justify-content:center;gap:9px;margin:28px auto 0;max-width:560px;color:var(--ink2);font-size:14px;line-height:1.5;text-align:left}
+  .sync svg{width:20px;height:20px;color:var(--rose-d);flex:none;margin-top:1px}
+  .sync a{color:var(--rose-d);font-weight:700}
+  .sync small{display:block;color:var(--ink3);font-size:13px;margin-top:2px}
+  .lb-nav{position:absolute;top:50%;width:50px;height:50px;margin-top:-25px;border-radius:50%;border:0;background:rgba(255,255,255,.16);color:#fff;font-size:30px;line-height:1;display:grid;place-items:center}
+  .lb-prev{left:12px}.lb-next{right:12px}
+  .lb-n{color:#CDB9AE;font-size:13px;margin:0;min-height:18px}
+
+  @media (max-width:1020px){
+    .nav{display:none}
+    .burger{display:grid}
+    .menu-open .nav{display:block;position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 20px 30px -20px rgba(74,48,41,.4)}
+    .menu-open .nav ul{flex-direction:column;gap:0;padding:8px 24px 16px}
+    .menu-open .nav a{display:block;padding:12px 0;font-size:17px;border-bottom:1px solid var(--line)}
+    .g-grid{grid-template-columns:1fr 1fr}
+    .g-big{grid-row:auto}
+  }
+  @media (max-width:900px){
+    .b-grid,.why-grid,.ct-grid,.order-card{grid-template-columns:1fr}
+    .menu-cols{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr 1fr;row-gap:34px}
+    .steps::before{display:none}
+    .foot .wrap{grid-template-columns:1fr 1fr}
+    .foot .wrap>div:first-child{grid-column:1/-1}
+    .why-ph{max-width:520px;margin:0 auto;width:100%}
+  }
+  @media (max-width:640px){
+    .wrap{padding:0 16px}
+    .top .wrap{height:64px;gap:12px}
+    .logo svg{width:42px;height:42px}
+    .logo b{font-size:20px}
+    .top-r .phone{display:none}
+    .top-r .btn{display:none}
+    .hero-cta .btn{padding:0 22px}
+    .flav-row{--c:clamp(84px,25vw,104px);flex-wrap:wrap;gap:18px 14px;max-width:390px}
+    .flav-row::before{display:none}
+    .flav-row li{width:calc(33.333% - 10px);display:flex;justify-content:center}
+    .flav-row li:nth-child(even) button{transform:rotate(3deg)}
+    .flav-row .nm{font-size:16px}
+    .prices{grid-template-columns:1fr 1fr}
+    .prices li:nth-child(3){border-left:0}
+    .prices li:nth-child(n+3){border-top:1px solid var(--line)}
+    .kbox-bow{width:86px;right:-6px;top:-26px}
+    .kbox-tag{left:6px;bottom:-16px}
+    .kbox-tag .tag{font-size:15px}
+    .addr{font-size:21px}
+    .flavs{grid-template-columns:1fr}
+    .fl img{width:52px;height:52px}
+    .mi{grid-template-columns:64px 1fr;gap:14px}
+    .mi-ph,.mi-ic{width:64px;height:64px}
+    .mi-top{display:block}
+    .mi-top .dots{display:none}
+    .mi-top .pr{display:block;margin-top:1px}
+    .mi-top h4{font-size:18px}
+    .g-grid{gap:30px 12px}
+    .g-big{grid-column:1/-1}
+    .g figcaption{font-size:13.5px;padding-top:24px}
+    .g figcaption b{font-size:16.5px}
+    .g-big figcaption b{font-size:21px}
+    .g-ph .tag{font-size:14.5px;padding:7px 12px 7px 26px}
+    .g-big .tag{font-size:18px}
+    .g-ph .tagw{left:8px;bottom:-13px}
+    .g-thumbs button{width:72px;height:72px}
+    .steps{grid-template-columns:1fr;row-gap:24px}
+    .steps li{display:grid;grid-template-columns:62px 1fr;gap:16px;text-align:left;align-items:start}
+    .st-n{margin:0}
+    .row2{grid-template-columns:1fr 1fr}
+    .foot .wrap{grid-template-columns:1fr}
+    .faq-list summary{font-size:17.5px;padding:18px 52px 18px 18px}
+    .faq-list details p{padding:0 18px 20px}
+    .map{min-height:300px}
+    .order-card{border-radius:24px}
+    body{padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+    .mbar{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,253,251,.96);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:1px solid var(--line)}
+    .mbar a{display:flex;align-items:center;justify-content:center;gap:6px;min-height:48px;border-radius:999px;text-decoration:none;font-weight:800;font-size:14.5px;border:1.5px solid var(--line2);background:var(--paper)}
+    .mbar a.mb-main{background:var(--cocoa);border-color:var(--cocoa);color:#FCF3EE}
+    .mbar .ico{width:18px;height:18px}
+    #mb-count{background:var(--rose);color:#fff;border-radius:999px;font-size:12px;min-width:22px;height:22px;display:inline-grid;place-items:center;padding:0 6px}
+    #mb-count:empty{display:none}
+    .toast{bottom:calc(84px + env(safe-area-inset-bottom))}
+  }
+  @media (max-width:420px){
+    .row2{grid-template-columns:1fr}
+    .order-card{padding:24px 18px}
+    .o-form>*,.o-form input{min-width:0}
+  }
+  @media (max-width:370px){
+    .flav-row{--c:80px;gap:16px 8px}
+    .hero h1{font-size:32px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-bow" viewBox="0 0 120 72">
+      <g fill="#EBBCC2" stroke="#C98D96" stroke-width="1.6" stroke-linejoin="round">
+        <path d="M57 31C45 12 19 6 13 19c-6 13 9 24 44 15z"/>
+        <path d="M63 31c12-19 38-25 44-12 6 13-9 24-44 15z"/>
+        <path d="M55 36 40 68l10-4 5 8 7-35z"/>
+        <path d="M65 36l15 32-10-4-5 8-7-35z"/>
+        <rect x="52" y="25" width="16" height="14" rx="6"/>
+      </g>
+      <path d="M23 21c9 2 19 6 29 12M97 21c-9 2-19 6-29 12" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="1.4" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-logo" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="47" fill="#FFFDFB" stroke="#B58A5D" stroke-width="1.8"/>
+      <circle cx="50" cy="50" r="42.5" fill="none" stroke="#B58A5D" stroke-width=".8"/>
+      <g fill="none" stroke="#B58A5D" stroke-width=".9" stroke-linecap="round">
+        <path d="M14 46c2-12 9-22 20-28"/><path d="M86 54c-2 12-9 22-20 28"/>
+      </g>
+      <g fill="#D9BE9C">
+        <ellipse cx="17" cy="36" rx="4.2" ry="1.7" transform="rotate(-62 17 36)"/>
+        <ellipse cx="23" cy="26" rx="4.2" ry="1.7" transform="rotate(-42 23 26)"/>
+        <ellipse cx="83" cy="64" rx="4.2" ry="1.7" transform="rotate(-62 83 64)"/>
+        <ellipse cx="77" cy="74" rx="4.2" ry="1.7" transform="rotate(-42 77 74)"/>
+      </g>
+      <text x="50" y="58" text-anchor="middle" font-family="Noto Serif Display, Georgia, serif" font-size="29" fill="#3D2B25">AM</text>
+      <text x="50" y="72" text-anchor="middle" font-family="Nunito Sans, Arial, sans-serif" font-size="8.6" font-weight="700" letter-spacing="1.4" fill="#6B5750">bakes</text>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4 5h16v11H9l-5 4z"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3.5" y="8" width="17" height="12.5" rx="1.5"/><path d="M2.5 8h19M12 8v12.5"/><path d="M12 8C10 4 6.5 3.6 6.5 5.6S10 8 12 8c2 0 5.5-.4 5.5-2.4S14 4 12 8z"/></g></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21c-2-3-1-6 1-8m7 8c2-3 1-6-1-8"/><circle cx="12" cy="8.5" r="4.5"/><path d="M10 7.5c.6-.8 1.4-1.2 2-1.2"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 21s-6.5-6.2-6.5-11a6.5 6.5 0 0 1 13 0c0 4.8-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></g></symbol>
+    <symbol id="i-roll" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M20 20.5c0-1.4 1.1-2.5 2.5-2.5s2.7 1.3 2.7 3c0 2.6-2.2 4.6-5 4.6-3.3 0-5.8-2.7-5.8-6 0-3.9 3.2-7 7.2-7 4.6 0 8.2 3.6 8.2 8.2 0 5-4.2 9.2-9.6 9.2-5.8 0-10.4-4.6-10.4-10.6"/></g></symbol>
+    <symbol id="i-pop" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="20" cy="15" r="8"/><path d="M14 12.5c3-2 7-2.4 12 0M20 23v13"/><path d="M17.5 9.5l1 1M23 10l-.6 1"/></g></symbol>
+    <symbol id="i-sync" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 9A8 8 0 0 0 5.2 7.4M4.5 15a8 8 0 0 0 14.3 1.6"/><path d="M19.8 4.2V9h-4.8M4.2 19.8V15H9"/></g></symbol>
+    <symbol id="i-moti" viewBox="0 0 40 40"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 26c0-7.5 5.4-13 12-13s12 5.5 12 13c0 3-2.4 5-5 5H13c-2.6 0-5-2-5-5z"/><path d="M14 20c1.5-2 3.5-3 6-3"/></g></symbol>
+  </defs>
+</svg>
+
+<div class="mock">Макет сайта. Меню, цены и фото подтягиваются из вашей группы VK. После согласования подключим имя сайта и заявки вам в сообщения</div>
+
+<header class="top" id="top">
+  <div class="wrap">
+    <a class="logo" href="#" aria-label="AM bakes, на главную">
+      <svg aria-hidden="true"><use href="#i-logo"/></svg>
+      <span><b>AM bakes</b><small>десерты · Колпино</small></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Разделы">
+      <ul>
+        <li><a href="#box">Коробочка</a></li>
+        <li><a href="#menu">Меню</a></li>
+        <li><a href="#gifts">Подарки</a></li>
+        <li><a href="#how">Как заказать</a></li>
+        <li><a href="#contacts">Самовывоз</a></li>
+      </ul>
+    </nav>
+    <div class="top-r">
+      <a class="phone" href="tel:+79643989844">+7 964 398-98-44</a>
+      <a class="btn btn-main btn-sm" href="#order">Заказать</a>
+      <button class="burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="hero-ring" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <svg class="bow" aria-hidden="true"><use href="#i-bow"/></svg>
+    <p class="kicker">Сладость в каждом моменте</p>
+    <h1>Трайфлы, бенто-торты и&nbsp;десерты <em>в&nbsp;коробочках</em></h1>
+    <p class="hero-sub">Домашняя кондитерская в Колпино. Соберу сладкий подарок к любому празднику: трайфлы в стаканчиках, мини-чизкейки и бенто с надписью</p>
+    <div class="hero-cta">
+      <a class="btn btn-main" href="#box">Собрать коробочку</a>
+      <a class="btn btn-line" href="#menu">Меню и цены</a>
+    </div>
+    <ul class="flav-row" id="flav-row" aria-label="Любимые вкусы"></ul>
+    <ul class="prices" id="prices"></ul>
+  </div>
+</section>
+
+<section class="sec builder" id="box" aria-labelledby="box-h">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="kicker">маленькие радости</p>
+      <h2 id="box-h">Соберите коробочку трайфлов</h2>
+      <p>Выберите четыре вкуса, и коробочка соберётся прямо на экране. Добавьте бенто с надписью, и получится готовый подарок</p>
+    </div>
+    <div class="b-grid">
+      <div class="b-stage">
+        <div class="kbox" id="kbox" data-n="4">
+          <div class="kbox-in"><div class="cells" id="cells"></div></div>
+          <svg class="kbox-bow" viewBox="0 0 120 72" aria-hidden="true"><use href="#i-bow"/></svg>
+          <span class="kbox-tag tagw"><span class="tag">маленькие радости</span></span>
+        </div>
+        <p class="b-status" id="b-status" aria-live="polite"></p>
+        <div class="b-real">
+          <span>Так коробочки выглядят вживую:</span>
+          <button type="button" data-full="img/p-lenta.jpg" data-cap="Коробочка трайфлов красный бархат с лентой"><img src="img/p-lenta.jpg" alt="Коробочка с окошком и лентой" loading="lazy" width="1000" height="1000"></button>
+          <button type="button" data-full="img/m-snikers-boks.jpg" data-cap="Коробочка трайфлов сникерс"><img src="img/m-snikers-boks.jpg" alt="Открытая коробочка с четырьмя трайфлами" loading="lazy" width="900" height="1125"></button>
+        </div>
+      </div>
+      <div class="b-panel">
+        <div class="b-step">
+          <span class="lbl" id="b-lbl">1 · Четыре вкуса</span>
+          <div class="flavs" id="flavs"></div>
+          <button class="link b-clear" id="b-clear" type="button">Очистить коробочку</button>
+        </div>
+        <div class="b-step">
+          <span class="lbl">2 · К подарку</span>
+          <label class="addon"><input type="checkbox" id="b-bento"><span><b>Бенто-торт к набору</b><br><span id="b-bento-pr">цена зависит от веса</span></span></label>
+          <div class="bento-opts" id="bento-opts" hidden>
+            <div class="seg seg-sm" id="b-bf" role="group" aria-label="Вкус бенто"></div>
+            <input type="text" id="b-text" maxlength="60" placeholder="Надпись, например: Любим тебя до Луны и обратно" aria-label="Надпись на бенто">
+          </div>
+        </div>
+        <div class="b-sum">
+          <div><span id="b-line"></span><b id="b-total"></b></div>
+          <button class="btn btn-main" id="b-add" type="button">Добавить в заявку</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec menu" id="menu" aria-labelledby="menu-h">
+  <div class="wrap">
+    <div class="menu-card">
+      <div class="menu-head">
+        <svg viewBox="0 0 120 72" aria-hidden="true"><use href="#i-bow"/></svg>
+        <h2 id="menu-h">Меню</h2>
+        <p class="kicker">вкусные сочетания и любимые вкусы</p>
+      </div>
+      <div class="menu-cols" id="menu-cols"></div>
+      <p class="sync"><svg aria-hidden="true"><use href="#i-sync"/></svg><span>Меню, цены и фото берутся из <a href="https://vk.com/club242334404" target="_blank" rel="noopener">группы VK</a> автоматически<span id="upd"></span><small>Цену позиций «по запросу» назову в сообщениях</small></span></p>
+    </div>
+  </div>
+</section>
+
+<section class="sec gifts" id="gifts" aria-labelledby="gifts-h">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="kicker">с любовью</p>
+      <h2 id="gifts-h">Уже уехали в подарок</h2>
+      <p>Наборы и тортики из моей группы: каждый собран под свой праздник и своего человека</p>
+    </div>
+    <div class="g-grid" id="g-grid"></div>
+  </div>
+</section>
+
+<section class="sec why" aria-labelledby="why-h">
+  <div class="wrap why-grid">
+    <div class="why-ph">
+      <div class="a"><img src="img/p-lenta.jpg" alt="Коробочка трайфлов с окошком и лентой" loading="lazy" width="1000" height="1000"></div>
+      <div class="b"><img src="img/p-kraft.jpg" alt="Крафтовые коробочки с трайфлами сникерс" loading="lazy" width="1000" height="1250"></div>
+      <span class="tagw"><span class="tag">AM bakes</span></span>
+    </div>
+    <div>
+      <p class="kicker">подарок без хлопот</p>
+      <h2 id="why-h">Десерты уже в коробочке, остаётся <em>вручить</em></h2>
+      <ul class="why-list">
+        <li><span class="ic"><svg aria-hidden="true"><use href="#i-box"/></svg></span><div><b>Коробочки с окошком и лентой</b><span>Трайфлы стоят в ячейках, начинку видно через окошко</span></div></li>
+        <li><span class="ic"><svg aria-hidden="true"><use href="#i-heart"/></svg></span><div><b>Надпись и картинка</b><span>На бенто, топпере или пряничке: «Мы тебя любим», «Любим тебя до Луны и обратно»</span></div></li>
+        <li><span class="ic"><svg aria-hidden="true"><use href="#i-gift"/></svg></span><div><b>Наборы к любому празднику</b><span>Бенто и трайфлы к нему: на день рождения, День отца или просто так</span></div></li>
+        <li><span class="ic"><svg aria-hidden="true"><use href="#i-pin"/></svg></span><div><b>Самовывоз в Колпино</b><span>Ул. Машиностроителей, 6, рядом со станцией Колпино</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec how" id="how" aria-labelledby="how-h">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="kicker">всё просто</p>
+      <h2 id="how-h">Как заказать</h2>
+    </div>
+    <ol class="steps">
+      <li><span class="st-n">1</span><div><b>Выберите десерты</b><p>В меню или в конструкторе коробочки</p></div></li>
+      <li><span class="st-n">2</span><div><b>Отправьте заявку</b><p>Она сразу придёт мне в сообщения VK. Можно написать и самим</p></div></li>
+      <li><span class="st-n">3</span><div><b>Обсудим детали</b><p>Подтвержу вкусы, надпись, итоговую цену и время</p></div></li>
+      <li><span class="st-n">4</span><div><b>Заберите заказ</b><p>Самовывоз в Колпино в согласованное время</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="sec" id="contacts" aria-labelledby="ct-h" style="padding-top:0">
+  <div class="wrap ct-grid">
+    <div class="map">
+      <img src="img/map.jpg" alt="Карта: Колпино, улица Машиностроителей, 6" loading="lazy" width="1000" height="620">
+      <span class="pin" aria-hidden="true"></span>
+      <span class="map-lbl">AM bakes</span>
+      <a class="map-open" href="https://yandex.ru/maps/?pt=30.571632,59.733740&amp;z=17&amp;l=map" target="_blank" rel="noopener">Открыть в Яндекс Картах</a>
+      <small class="osm">© участники OpenStreetMap</small>
+    </div>
+    <div class="ct-card">
+      <p class="kicker">за сладким сюда</p>
+      <h2 id="ct-h">Самовывоз в Колпино</h2>
+      <p class="addr">ул. Машиностроителей,&nbsp;6<span>район Вертолёт, рядом с ж/д станцией Колпино</span></p>
+      <div class="ct-row"><span class="lbl">Телефон</span><a class="big" href="tel:+79643989844">+7 964 398-98-44</a></div>
+      <div class="ct-row"><span class="lbl">Заказы</span><p>Принимаю в сообщениях группы VK и через заявку на сайте</p></div>
+      <div class="ct-btns">
+        <a class="btn btn-main btn-sm" href="https://vk.me/club242334404" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Написать в VK</a>
+        <a class="btn btn-line btn-sm" href="https://yandex.ru/maps/?rtext=~59.733740%2C30.571632&amp;rtt=auto" target="_blank" rel="noopener">Построить маршрут</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" aria-labelledby="faq-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-h">
+      <p class="kicker">частые вопросы</p>
+      <h2 id="faq-h">Перед заказом</h2>
+    </div>
+    <div class="faq-list">
+      <details><summary>Сколько стоит бенто-торт?</summary><p id="faq-bento">Цена зависит от веса: точную назову, когда выберем вкус и надпись.</p></details>
+      <details><summary>Какие вкусы трайфлов есть?</summary><p id="faq-tr">Все вкусы с ценами есть в меню выше.</p></details>
+      <details><summary>Можно сделать надпись или картинку?</summary><p>Да. Надпись на бенто, топпере или пряничке, как в наборах ко Дню отца. Картинку тоже можно, например как на «Львином наборе».</p></details>
+      <details><summary>Можно собрать подарочный набор?</summary><p>Да: бенто и трайфлы к нему, каждый в своей коробочке. Соберите коробочку на сайте или просто напишите, что хотите подарить.</p></details>
+      <details><summary>Бывают десерты в наличии?</summary><p>Иногда да, например корпусные десерты. О наличии пишу в группе VK.</p></details>
+      <details><summary>Где забрать заказ?</summary><p>Самовывоз в Колпино: ул. Машиностроителей, 6, рядом с ж/д станцией. Время согласуем в сообщениях.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec order" id="order" aria-labelledby="order-h">
+  <div class="wrap">
+    <div class="order-card">
+      <div class="o-left">
+        <p class="kicker">заявка</p>
+        <h2 id="order-h">Что приготовить?</h2>
+        <p class="o-sub">Заявка придёт мне в сообщения VK. Я свяжусь с вами и подтвержу заказ</p>
+        <div class="cart" id="cart"></div>
+        <div class="cart-total" id="cart-total" hidden></div>
+      </div>
+      <form class="o-form" id="form" novalidate>
+        <label class="f">Ваше имя<input type="text" name="name" autocomplete="name" required></label>
+        <label class="f">Телефон<input type="tel" name="phone" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required></label>
+        <div class="row2">
+          <label class="f">Дата<input type="date" name="date" required></label>
+          <label class="f">Время<input type="time" name="time"></label>
+        </div>
+        <label class="f">Пожелания<textarea name="comment" rows="3" placeholder="Повод, вкусы, надпись, сколько нужно"></textarea></label>
+        <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label class="consent"><input type="checkbox" name="consent" checked><span>Согласен(на) на обработку персональных данных по <a href="privacy.html">политике</a></span></label>
+        <p class="err" id="err" role="alert"></p>
+        <div class="o-btns">
+          <button class="btn btn-main" id="submit" type="submit">Отправить заявку</button>
+          <button class="btn btn-line" id="send-vk" type="button"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Отправить в сообщения VK</button>
+        </div>
+        <div class="ok-box" id="sent" hidden><b>Спасибо, заявка принята!</b>Скоро свяжусь с вами, чтобы подтвердить заказ.</div>
+        <div class="fb-box" id="fallback" hidden>Не получилось отправить заявку. Напишите в <a href="https://vk.me/club242334404" target="_blank" rel="noopener">сообщения группы VK</a> или позвоните: <a href="tel:+79643989844">+7 964 398-98-44</a></div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <a class="logo" href="#" aria-label="AM bakes, наверх"><svg aria-hidden="true"><use href="#i-logo"/></svg><span><b>AM bakes</b><small>десерты · Колпино</small></span></a>
+      <p>Трайфлы, мини-чизкейки, бенто и домашние тортики к любому празднику</p>
+    </div>
+    <ul>
+      <li><a href="#box">Собрать коробочку</a></li>
+      <li><a href="#menu">Меню и цены</a></li>
+      <li><a href="#gifts">Подарки</a></li>
+      <li><a href="#faq">Вопросы</a></li>
+    </ul>
+    <ul>
+      <li><a href="tel:+79643989844">+7 964 398-98-44</a></li>
+      <li><a href="https://vk.me/club242334404" target="_blank" rel="noopener">Сообщения группы VK</a></li>
+      <li>Колпино, ул. Машиностроителей, 6</li>
+      <li><a href="privacy.html">Политика обработки данных</a></li>
+    </ul>
+    <div class="copy">© 2026 AM bakes, Колпино</div>
+  </div>
+</footer>
+
+<nav class="mbar" id="mbar" aria-label="Быстрые действия">
+  <a href="tel:+79643989844"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>Звонок</a>
+  <a href="https://vk.me/club242334404" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>VK</a>
+  <a class="mb-main" href="#order">Заявка <span id="mb-count"></span></a>
+</nav>
+
+<div class="toast" id="toast" role="status"><span></span><a href="#order"></a></div>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Фото">
+  <button class="lb-x" type="button" aria-label="Закрыть">×</button>
+  <button class="lb-nav lb-prev" type="button" aria-label="Предыдущее фото" hidden>‹</button>
+  <img src="" alt="">
+  <button class="lb-nav lb-next" type="button" aria-label="Следующее фото" hidden>›</button>
+  <p></p>
+  <p class="lb-n"></p>
+</div>
+
+<div class="copybox" id="copybox" role="dialog" aria-modal="true" aria-label="Текст заявки">
+  <div>
+    <b>Скопируйте заявку и вставьте её в чат</b>
+    <textarea readonly></textarea>
+    <button class="btn btn-main" id="copy-open" type="button">Скопировать и открыть VK</button>
+    <button class="btn btn-line" id="copy-close" type="button">Закрыть</button>
+  </div>
+</div>
+
+<script>
+  const LEAD_URL = "https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec";
+  const VK_CHAT = "https://vk.me/club242334404";
+  const $ = id => document.getElementById(id);
+  const rub = n => Math.round(n).toLocaleString("ru-RU").replace(/\s/g, " ") + " ₽";
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+  const plural = (n, a, b, c) => { const m10 = n % 10, m100 = n % 100; return m10 === 1 && m100 !== 11 ? a : m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14) ? b : c; };
+  const store = {
+    get(k, d){ try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+    set(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  };
+
+  // Menu, prices and photos are built from the posts of the VK group (_sync/malusha-bakes/sync.py)
+  const D = /*__DATA__*/{};
+  const BY = Object.fromEntries(D.items.map(i => [i.id, i]));
+  const NOPH = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23F3DDD9'/%3E%3Cpath d='M50 70S28 56 28 41a11 11 0 0 1 22-3 11 11 0 0 1 22 3c0 15-22 29-22 29z' fill='%23C9868D'/%3E%3C/svg%3E";
+  const CUPS = D.items.filter(i => i.kind === "cup" && i.price);
+  const FLAV = CUPS.map(i => ({id: i.id, name: i.name, note: i.desc, img: i.sq || NOPH, price: i.price}));
+  const samePrice = FLAV.length && FLAV.every(f => f.price === FLAV[0].price) ? FLAV[0].price : null;
+  const BENTO = D.bento || {};
+  const unitText = i => i.unit === "кг" ? "/кг" : /\d/.test(i.unit || "") ? ` за ${i.unit}` : "";
+  const ITEMS = Object.fromEntries(D.items.map(i => [i.id, {
+    name: i.kind === "cup" ? `Трайфл «${i.name}»` : i.name,
+    price: i.price ?? null, from: !!i.frm || i.unit === "кг", unit: i.unit === "кг" ? "цена за кг" : /\d/.test(i.unit || "") ? i.unit : ""
+  }]));
+
+  // Order list, kept in this browser only
+  let cart = store.get("amb_cart", []);
+  if (!Array.isArray(cart)) cart = [];
+  cart = cart.filter(l => l && typeof l.k === "string" && typeof l.t === "string" && Number.isInteger(l.q) && l.q > 0 && (l.p === null || Number.isFinite(l.p)));
+  const save = () => store.set("amb_cart", cart);
+  const line = k => cart.find(l => l.k === k);
+  function addItem(k){
+    const it = ITEMS[k]; if (!it) return;
+    const l = line(k);
+    if (l) l.q = Math.min(99, l.q + 1); else cart.push({k, t: it.name, d: it.unit, p: it.price, q: 1, f: !!it.from});
+    save(); renderCart(); renderMenu();
+  }
+  function setQty(k, q){
+    const l = line(k); if (!l) return;
+    l.q = Math.max(0, Math.min(99, q));
+    if (!l.q) cart = cart.filter(x => x !== l);
+    save(); renderCart(); renderMenu();
+  }
+  function totals(){
+    let sum = 0, from = false, unknown = false;
+    for (const l of cart) { if (l.p === null) unknown = true; else { sum += l.p * l.q; if (l.f) from = true; } }
+    return {sum, from: from || unknown, unknown};
+  }
+  const priceText = l => l.p === null ? "по запросу" : (l.f ? "от " : "") + rub(l.p * l.q);
+  const stepper = (k, q) => `<span class="step" data-k="${esc(k)}"><button type="button" data-d="-1" aria-label="Меньше">−</button><output>${q}</output><button type="button" data-d="1" aria-label="Больше">+</button></span>`;
+
+  const ICONS = {roll: "i-roll", pop: "i-pop", moti: "i-moti"};
+  function priceHtml(i){
+    if (i.price === null || i.price === undefined) return `<span class="pr q">по запросу</span>`;
+    const u = unitText(i);
+    return `<span class="pr">${i.frm ? "от " : ""}${rub(i.price)}${u ? `<span class="mi-unit">${esc(u)}</span>` : ""}</span>`;
+  }
+  function itemHtml(i){
+    const ph = i.sq ? `<button class="mi-ph" type="button" data-gal="${esc(i.id)}" aria-label="Фото: ${esc(i.name)}"><img src="${esc(i.sq)}" alt="${esc(i.name)}" loading="lazy" width="160" height="160"></button>`
+      : `<span class="mi-ic" aria-hidden="true"><svg><use href="#${ICONS[i.icon] || "i-heart"}"/></svg></span>`;
+    const more = i.gal.length > 1 ? `<button class="link" type="button" data-gal="${esc(i.id)}">Ещё фото: ${i.gal.length}</button>` : "";
+    return `<article class="mi" id="mi-${esc(i.id)}">${ph}<div><div class="mi-top"><h4>${esc(i.name)}${i.new ? '<span class="mi-new">новинка</span>' : ""}</h4><span class="dots"></span>${priceHtml(i)}</div>${i.desc || more ? `<p>${esc(i.desc)} ${more}</p>` : ""}<div class="mi-act" data-act="${esc(i.id)}"></div></div></article>`;
+  }
+  function buildMenu(){
+    const groups = D.cats.map(([id, title]) => [id, title, D.items.filter(i => i.cat === id)]).filter(g => g[2].length);
+    const half = Math.ceil(D.items.length / 2);
+    const cols = [[], []]; let left = 0;
+    for (const g of groups) { const c = cols[0].length && left + g[2].length > half + 1 ? 1 : 0; if (!c) left += g[2].length; cols[c].push(g); }
+    const sub = id => id === "tr" && FLAV.length ? `<p class="mg-sub">в стаканчиках${samePrice ? `, по ${rub(samePrice)}` : ""} · <a href="#box">собрать коробочку</a></p>` : "";
+    $("menu-cols").innerHTML = cols.map(col => `<div>${col.map(([id, title, list]) => `<h3 class="mg-h">${esc(title)}</h3>${sub(id)}${list.map(itemHtml).join("")}`).join("")}</div>`).join("");
+    $("upd").textContent = D.upd ? `, обновлено ${D.upd}` : "";
+  }
+  function renderMenu(){
+    document.querySelectorAll("[data-act]").forEach(el => {
+      const k = el.dataset.act, l = line(k);
+      el.innerHTML = l ? stepper(k, l.q) : `<button class="add" type="button" data-add="${esc(k)}">+ В заявку</button>`;
+    });
+  }
+  function renderCart(){
+    const el = $("cart"), tot = $("cart-total");
+    if (!cart.length) {
+      el.innerHTML = `<p class="cart-empty">Пока пусто. Добавьте десерты из <a href="#menu">меню</a> или <a href="#box">соберите коробочку</a>. Можно просто описать заказ в пожеланиях</p>`;
+      tot.hidden = true;
+    } else {
+      el.innerHTML = cart.map(l => `<div class="cl"><div class="cl-tx"><b>${esc(l.t)}</b>${l.d ? `<span>${esc(l.d)}</span>` : ""}</div><span class="cl-pr${l.p === null ? " q" : ""}">${priceText(l)}</span>${stepper(l.k, l.q)}</div>`).join("");
+      const t = totals();
+      tot.hidden = false;
+      tot.innerHTML = t.sum ? `Примерно:<b>${t.from ? "от " : ""}${rub(t.sum)}</b>${t.unknown ? "<small>и позиции по запросу, их цену назову в сообщениях</small>" : ""}` : `<small>Цену назову в сообщениях</small>`;
+    }
+    $("mb-count").textContent = cart.length ? cart.reduce((a, l) => a + l.q, 0) : "";
+  }
+  document.addEventListener("click", e => {
+    const a = e.target.closest("[data-add]");
+    if (a) { if (!ITEMS[a.dataset.add]) return; addItem(a.dataset.add); toast(`${ITEMS[a.dataset.add].name} в заявке`, true); return; }
+    const s = e.target.closest(".step button");
+    if (s) { const k = s.closest(".step").dataset.k, l = line(k); if (l) setQty(k, l.q + Number(s.dataset.d)); }
+  });
+
+  // Box builder
+  const bn = 4;
+  let slots = [], bentoOn = false;
+  $("flavs").innerHTML = FLAV.map(f => `<button class="fl" type="button" data-f="${esc(f.id)}"><img src="${esc(f.img)}" alt="" width="560" height="560" loading="lazy"><span><b>${esc(f.name)}</b><small>${esc(f.note)}</small></span><span class="cnt"></span></button>`).join("");
+  $("b-lbl").textContent = samePrice ? `1 · Четыре вкуса, по ${rub(samePrice)}` : "1 · Четыре вкуса";
+  $("b-bento-pr").textContent = BENTO.price ? `${BENTO.frm ? "от " : ""}${rub(BENTO.price)}, цена зависит от веса` : "цена зависит от веса, назову в сообщениях";
+  let bentoFlav = (BENTO.flav || [])[0] || "";
+  $("b-bf").innerHTML = (BENTO.flav || []).map((f, n) => `<button type="button" data-bf="${esc(f)}" aria-pressed="${n === 0}">${esc(f)}</button>`).join("");
+  const boxSum = () => slots.filter(Boolean).reduce((a, id) => a + (FLAV.find(f => f.id === id) || {price: 0}).price, 0);
+  function filled(){ return slots.filter(Boolean).length; }
+  function renderBox(){
+    $("kbox").dataset.n = bn;
+    $("cells").innerHTML = Array.from({length: bn}, (_, i) => {
+      const f = FLAV.find(x => x.id === slots[i]);
+      return f ? `<button type="button" class="cell full" data-i="${i}" aria-label="Убрать трайфл ${esc(f.name)}"><img src="${esc(f.img)}" alt=""></button>` : `<span class="cell"></span>`;
+    }).join("");
+    document.querySelectorAll("#flavs [data-f]").forEach(b => {
+      const c = slots.filter(s => s === b.dataset.f).length;
+      b.querySelector(".cnt").textContent = c ? "×" + c : "";
+      b.classList.toggle("on", c > 0);
+    });
+    const n = filled(), left = bn - n;
+    $("b-status").textContent = n === 0 ? "Нажмите на вкус, и трайфл ляжет в коробочку" : left > 0 ? `Осталось выбрать ${left} ${plural(left, "вкус", "вкуса", "вкусов")}` : "Коробочка собрана! Нажмите на трайфл, чтобы заменить его";
+    $("b-line").textContent = `${bn} ${plural(bn, "трайфл", "трайфла", "трайфлов")}${samePrice ? ` × ${rub(samePrice)}` : ""}${bentoOn ? " + бенто" : ""}`;
+    const est = (n === bn ? boxSum() : bn * (samePrice || Math.min(...FLAV.map(f => f.price)))) + (bentoOn ? (BENTO.price || 0) : 0);
+    $("b-total").textContent = (bentoOn || (n < bn && !samePrice) ? "от " : "") + rub(est);
+    $("b-add").disabled = left > 0;
+    $("b-add").textContent = left > 0 ? `Выберите ещё ${left}` : "Добавить в заявку";
+  }
+  function putFlavour(id){
+    const i = Array.from({length: bn}, (_, j) => j).find(j => !slots[j]);
+    if (i === undefined) { toast("Коробочка полная: нажмите на трайфл в ней, чтобы убрать его"); return false; }
+    slots[i] = id; renderBox(); return true;
+  }
+  $("flavs").addEventListener("click", e => { const b = e.target.closest("[data-f]"); if (b) putFlavour(b.dataset.f); });
+  $("cells").addEventListener("click", e => { const c = e.target.closest(".cell.full"); if (c) { slots[Number(c.dataset.i)] = null; renderBox(); } });
+  $("b-clear").onclick = () => { slots = []; renderBox(); };
+  $("b-bento").onchange = e => { bentoOn = e.target.checked; $("bento-opts").hidden = !bentoOn; renderBox(); };
+  $("b-bf").addEventListener("click", e => {
+    const b = e.target.closest("[data-bf]"); if (!b) return;
+    bentoFlav = b.dataset.bf;
+    $("b-bf").querySelectorAll("button").forEach(x => x.setAttribute("aria-pressed", x === b));
+  });
+  $("b-add").onclick = () => {
+    if (filled() < bn) return;
+    const parts = FLAV.map(f => [f.name.toLowerCase(), slots.filter(s => s === f.id).length]).filter(x => x[1]).map(([nm, c]) => c > 1 ? `${nm} ×${c}` : nm);
+    const stamp = Date.now().toString(36);
+    cart.push({k: "box-" + stamp, t: `Коробочка на ${bn} ${plural(bn, "трайфл", "трайфла", "трайфлов")}`, d: parts.join(", "), p: boxSum(), q: 1, f: false});
+    if (bentoOn) {
+      const tx = $("b-text").value.trim();
+      cart.push({k: "bento-" + stamp, t: "Бенто-торт к набору", d: [bentoFlav, tx && `надпись «${tx}»`].filter(Boolean).join(", "), p: BENTO.price || null, q: 1, f: true});
+    }
+    save(); renderCart();
+    slots = []; bentoOn = false; $("b-bento").checked = false; $("bento-opts").hidden = true; $("b-text").value = "";
+    renderBox();
+    toast("Коробочка в заявке", true);
+  };
+  // First screen: trifle flavours start a box, the price strip comes from the menu
+  const rings = CUPS.filter(i => i.sq).slice(0, 5);
+  if (rings.length < 5 && BY.trbox && BY.trbox.sq) rings.push(BY.trbox);
+  $("flav-row").innerHTML = rings.map(i => `<li><button type="button" data-hero="${esc(i.id)}"><span class="ring"><img src="${esc(i.sq)}" alt="${esc(i.kind === "cup" ? "Трайфл " + i.name.toLowerCase() : i.name)}" width="560" height="560"></span><span class="nm">${esc(i.name.toLowerCase())}</span></button></li>`).join("");
+  const tiles = [];
+  if (CUPS.length) { const ps = CUPS.map(i => i.price), mn = Math.min(...ps); tiles.push([(Math.max(...ps) > mn ? "от " : "") + rub(mn), "трайфл в стаканчике"]); }
+  for (const [id, label] of [["mini", "мини-чизкейк"], ["trbox", "трайфл-бокс"], ["bento", "бенто-торт"]]) { const i = BY[id]; if (i && i.price) tiles.push([(i.frm ? "от " : "") + rub(i.price) + unitText(i), label]); }
+  $("prices").innerHTML = tiles.slice(0, 4).map(([b, t]) => `<li><b>${esc(b)}</b><span>${esc(t)}</span></li>`).join("");
+  $("prices").style.gridTemplateColumns = tiles.length && tiles.length < 4 ? `repeat(${tiles.length},1fr)` : "";
+  $("flav-row").addEventListener("click", e => {
+    const b = e.target.closest("[data-hero]"); if (!b) return;
+    const id = b.dataset.hero;
+    if (!FLAV.some(f => f.id === id)) { const m = document.getElementById("mi-" + id); if (m) m.scrollIntoView({behavior: "smooth", block: "center"}); return; }
+    putFlavour(id);
+    $("box").scrollIntoView({behavior: "smooth"});
+  });
+
+  // Sets from the group, newest first
+  $("g-grid").innerHTML = (D.gifts || []).map((g, n) => {
+    const big = n === 0 && g.imgs.length > 1;
+    const thumbs = big ? `<div class="g-thumbs">${g.imgs.slice(1).map((src, k) => `<button type="button" data-gift="${n}" data-i="${k + 1}" aria-label="Фото ${k + 2}"><img src="${esc(src)}" alt="" loading="lazy" width="900" height="1125"></button>`).join("")}</div>` : "";
+    return `<figure class="g${big ? " g-big" : ""}"><div class="g-ph"><button type="button" data-gift="${n}" data-i="0"><img src="${esc(g.imgs[0])}" alt="${esc(g.title)}" loading="lazy" width="900" height="1125"></button><span class="tagw"><span class="tag">${esc(g.tag)}</span></span></div><figcaption><b>${esc(g.title)}</b>${esc(g.text)}${thumbs}</figcaption></figure>`;
+  }).join("");
+
+  // FAQ answers that depend on the menu
+  if (FLAV.length) $("faq-tr").textContent = `В стаканчиках${samePrice ? ` по ${rub(samePrice)}` : ""}: ${FLAV.map(f => f.name.toLowerCase()).join(", ")}.` + (BY.trbox && BY.trbox.price ? ` Трайфл-бокс за ${rub(BY.trbox.price)}: ${BY.trbox.desc.toLowerCase()}.` : "") + " Вкусы и цены в меню обновляются из моей группы VK.";
+  if (BENTO.price) $("faq-bento").textContent = `${BENTO.frm ? "От " : ""}${rub(BENTO.price)}. Цена зависит от веса: точную назову, когда выберем вкус и надпись.`;
+
+  // Toast
+  let tt;
+  function toast(text, withLink){
+    const t = $("toast");
+    t.querySelector("span").textContent = text;
+    t.querySelector("a").textContent = withLink ? "К заявке" : "";
+    t.classList.add("show");
+    clearTimeout(tt); tt = setTimeout(() => t.classList.remove("show"), 3200);
+  }
+
+  // Form
+  const form = $("form");
+  const pad = n => String(n).padStart(2, "0");
+  const today = new Date();
+  form.date.min = `${today.getFullYear()}-${pad(today.getMonth() + 1)}-${pad(today.getDate())}`;
+  const fmtDate = v => v ? v.split("-").reverse().join(".") : "";
+  form.phone.addEventListener("input", () => {
+    let d = form.phone.value.replace(/\D/g, "");
+    if (!d) { form.phone.value = ""; return; }
+    if (d[0] === "8") d = "7" + d.slice(1);
+    if (d[0] !== "7") d = "7" + d;
+    d = d.slice(0, 11);
+    let v = "+7";
+    if (d.length > 1) v += " (" + d.slice(1, 4);
+    if (d.length >= 4) v += ")";
+    if (d.length > 4) v += " " + d.slice(4, 7);
+    if (d.length > 7) v += "-" + d.slice(7, 9);
+    if (d.length > 9) v += "-" + d.slice(9, 11);
+    form.phone.value = v;
+  });
+  function orderDetails(){
+    const t = totals();
+    return [
+      ...cart.map(l => `${l.t}${l.d ? ` (${l.d})` : ""}${l.q > 1 ? ` ×${l.q}` : ""}: ${l.p === null ? "цена по запросу" : (l.f ? "от " : "") + rub(l.p * l.q)}`),
+      form.date.value && `Дата: ${fmtDate(form.date.value)}${form.time.value ? `, ${form.time.value}` : ""}`,
+      t.sum && `Примерно: ${t.from ? "от " : ""}${rub(t.sum)}`
+    ].filter(Boolean);
+  }
+  const submitBtn = $("submit");
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    const err = $("err");
+    if (form.name.value.trim().length < 2) { form.name.focus(); return err.textContent = "Укажите имя"; }
+    if (form.phone.value.replace(/\D/g, "").length !== 11) { form.phone.focus(); return err.textContent = "Проверьте номер телефона"; }
+    if (!form.date.value) { form.date.focus(); return err.textContent = "Укажите дату"; }
+    if (!cart.length && !form.comment.value.trim()) { form.comment.focus(); return err.textContent = "Добавьте десерты из меню или напишите, что хотите заказать"; }
+    if (!form.consent.checked) return err.textContent = "Отметьте согласие на обработку данных";
+    err.textContent = ""; $("fallback").hidden = true;
+    submitBtn.disabled = true; submitBtn.textContent = "Отправляем...";
+    let ok = false;
+    try {
+      const res = await fetch(LEAD_URL, {method: "POST", headers: {"Content-Type": "text/plain;charset=utf-8"}, signal: AbortSignal.timeout(20000),
+        body: JSON.stringify({site: location.hostname, name: form.name.value.trim(), phone: form.phone.value, details: ["Макет malusha-bakes", ...orderDetails()].join("; "), comment: form.comment.value.trim(), website: form.website.value})});
+      ok = (await res.json()).ok === true;
+    } catch (e) {}
+    submitBtn.disabled = false; submitBtn.textContent = "Отправить заявку";
+    if (ok) { submitBtn.hidden = true; $("sent").hidden = false; cart = []; save(); renderCart(); renderMenu(); }
+    else { $("fallback").hidden = false; $("fallback").scrollIntoView({block: "center"}); }
+  });
+  function copyNow(text){
+    const ta = document.createElement("textarea");
+    ta.value = text; ta.setAttribute("readonly", ""); ta.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+    document.body.appendChild(ta); ta.select(); ta.setSelectionRange(0, text.length);
+    let ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+    ta.remove(); return ok;
+  }
+  const copybox = $("copybox");
+  $("copy-close").onclick = () => copybox.classList.remove("show");
+  $("copy-open").onclick = () => { copybox.querySelector("textarea").select(); try { document.execCommand("copy"); } catch (e) {} copybox.classList.remove("show"); window.open(VK_CHAT, "_blank"); };
+  $("send-vk").onclick = () => {
+    const text = ["Здравствуйте! Хочу заказать.", ...orderDetails(), form.name.value.trim() && `Имя: ${form.name.value.trim()}${form.phone.value ? `, тел. ${form.phone.value}` : ""}`, form.comment.value.trim() && `Пожелания: ${form.comment.value.trim()}`].filter(Boolean).join("\n");
+    // VK can't prefill a message: copy while the page still has focus, then open the chat
+    if (copyNow(text)) { toast("Заявка скопирована, вставьте её в чат"); window.open(VK_CHAT, "_blank"); return; }
+    copybox.querySelector("textarea").value = text; copybox.classList.add("show"); copybox.querySelector("textarea").select();
+  };
+  // The bottom bar must not cover fields above the phone keyboard
+  const mbar = $("mbar");
+  form.addEventListener("focusin", e => { if (e.target.matches("input:not([type=checkbox]), textarea")) mbar.style.visibility = "hidden"; });
+  form.addEventListener("focusout", () => { mbar.style.visibility = ""; });
+  $("b-text").addEventListener("focus", () => { mbar.style.visibility = "hidden"; });
+  $("b-text").addEventListener("blur", () => { mbar.style.visibility = ""; });
+
+  // Lightbox with arrows and swipe for several photos
+  const lb = $("lb"), lbImg = lb.querySelector("img");
+  let gal = [], gi = 0, gcap = "";
+  function showLb(){
+    lbImg.src = gal[gi]; lbImg.alt = gcap;
+    lb.querySelector("p").textContent = gcap;
+    lb.querySelector(".lb-n").textContent = gal.length > 1 ? `${gi + 1} из ${gal.length}` : "";
+    lb.querySelectorAll(".lb-nav").forEach(b => { b.hidden = gal.length < 2; });
+  }
+  function openLb(list, i, cap){ if (!list || !list.length) return; gal = list; gi = i || 0; gcap = cap || ""; showLb(); lb.classList.add("show"); }
+  const stepLb = d => { if (gal.length > 1) { gi = (gi + d + gal.length) % gal.length; showLb(); } };
+  document.addEventListener("click", e => {
+    const g = e.target.closest("[data-gal]");
+    if (g) { const it = BY[g.dataset.gal]; if (it) openLb(it.gal, 0, it.name); return; }
+    const gf = e.target.closest("[data-gift]");
+    if (gf) { const x = (D.gifts || [])[Number(gf.dataset.gift)]; if (x) openLb(x.imgs, Number(gf.dataset.i) || 0, x.title); return; }
+    const b = e.target.closest("[data-full]"); if (!b) return;
+    openLb([b.dataset.full], 0, b.dataset.cap);
+  });
+  lb.addEventListener("click", e => {
+    if (e.target.closest(".lb-prev")) return stepLb(-1);
+    if (e.target.closest(".lb-next")) return stepLb(1);
+    if (e.target === lb || e.target.closest(".lb-x")) lb.classList.remove("show");
+  });
+  let tx0 = null;
+  lb.addEventListener("touchstart", e => { tx0 = e.touches[0].clientX; }, {passive: true});
+  lb.addEventListener("touchend", e => { if (tx0 === null) return; const dx = e.changedTouches[0].clientX - tx0; tx0 = null; if (Math.abs(dx) > 45) stepLb(dx < 0 ? 1 : -1); });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") { lb.classList.remove("show"); copybox.classList.remove("show"); }
+    if (lb.classList.contains("show") && e.key === "ArrowLeft") stepLb(-1);
+    if (lb.classList.contains("show") && e.key === "ArrowRight") stepLb(1);
+  });
+
+  // Header and mobile menu
+  const header = $("top");
+  addEventListener("scroll", () => header.classList.toggle("scrolled", scrollY > 8), {passive: true});
+  $("burger").onclick = () => { const o = document.body.classList.toggle("menu-open"); $("burger").setAttribute("aria-expanded", o); };
+  $("nav").addEventListener("click", e => { if (e.target.tagName === "A") { document.body.classList.remove("menu-open"); $("burger").setAttribute("aria-expanded", false); } });
+
+  if (!FLAV.length) { $("box").hidden = true; document.querySelectorAll('a[href="#box"]').forEach(x => { x.closest("li") ? x.closest("li").remove() : x.remove(); }); }
+  buildMenu(); renderBox(); renderMenu(); renderCart();
+</script>
+</body>
+</html>
