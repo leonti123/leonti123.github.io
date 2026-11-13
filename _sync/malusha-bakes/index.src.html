@@ -159,9 +159,11 @@
   .bento-opts{display:grid;gap:10px;margin-top:10px}
   .bento-opts[hidden]{display:none}
   .seg-sm button{padding:7px 14px;font-size:13.5px}
-  input[type=text],input[type=tel],input[type=date],input[type=time],textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1.5px solid var(--line2);border-radius:14px;padding:12px 14px;min-height:50px;transition:border-color .2s;-webkit-appearance:none;appearance:none}
+  input[type=text],input[type=tel],input[type=date],input[type=time],textarea,.o-form select{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1.5px solid var(--line2);border-radius:14px;padding:12px 14px;min-height:50px;transition:border-color .2s;-webkit-appearance:none;appearance:none}
   input:focus,textarea:focus{outline:none;border-color:var(--rose)}
   textarea{resize:vertical;min-height:92px}
+  .o-form select{background:var(--paper) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%237A5A4E' stroke-width='1.8'/%3E%3C/svg%3E") no-repeat right 14px center;padding-right:36px}
+  .f-note{margin:-6px 0 0;font-size:13.5px;color:var(--ink3)}
   .b-sum{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px dashed var(--line2);padding-top:20px}
   .b-sum span{display:block;font-size:14px;color:var(--ink2)}
   .b-sum b{font-family:var(--serif);font-weight:400;font-size:30px;white-space:nowrap}
@@ -458,6 +460,7 @@
       <text x="50" y="72" text-anchor="middle" font-family="Nunito Sans, Arial, sans-serif" font-size="8.6" font-weight="700" letter-spacing="1.4" fill="#6B5750">bakes</text>
     </symbol>
     <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+    <symbol id="i-wa" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 20l1.2-3.8A8 8 0 1 1 8 19z"/><path stroke-linecap="round" d="M9 9.5c.3 2 2 4 4.5 4.8l1.2-1.2"/></g></symbol>
     <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4 5h16v11H9l-5 4z"/></symbol>
     <symbol id="i-box" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><rect x="3.5" y="8" width="17" height="12.5" rx="1.5"/><path d="M2.5 8h19M12 8v12.5"/><path d="M12 8C10 4 6.5 3.6 6.5 5.6S10 8 12 8c2 0 5.5-.4 5.5-2.4S14 4 12 8z"/></g></symbol>
     <symbol id="i-heart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/></symbol>
@@ -484,7 +487,7 @@
         <li><a href="#menu">Меню</a></li>
         <li><a href="#gifts">Подарки</a></li>
         <li><a href="#how">Как заказать</a></li>
-        <li><a href="#contacts">Самовывоз</a></li>
+        <li><a href="#contacts">Доставка</a></li>
       </ul>
     </nav>
     <div class="top-r">
@@ -595,7 +598,7 @@
         <li><span class="ic"><svg aria-hidden="true"><use href="#i-box"/></svg></span><div><b>Коробочки с окошком и лентой</b><span>Трайфлы стоят в ячейках, начинку видно через окошко</span></div></li>
         <li><span class="ic"><svg aria-hidden="true"><use href="#i-heart"/></svg></span><div><b>Надпись и картинка</b><span>На бенто, топпере или пряничке: «Мы тебя любим», «Любим тебя до Луны и обратно»</span></div></li>
         <li><span class="ic"><svg aria-hidden="true"><use href="#i-gift"/></svg></span><div><b>Наборы к любому празднику</b><span>Бенто и трайфлы к нему: на день рождения, День отца или просто так</span></div></li>
-        <li><span class="ic"><svg aria-hidden="true"><use href="#i-pin"/></svg></span><div><b>Самовывоз в Колпино</b><span>Ул. Машиностроителей, 6, рядом со станцией Колпино</span></div></li>
+        <li><span class="ic"><svg aria-hidden="true"><use href="#i-pin"/></svg></span><div><b>Доставка по Колпино бесплатно</b><span>Или самовывоз: ул. Машиностроителей, 8</span></div></li>
       </ul>
     </div>
   </div>
@@ -611,7 +614,7 @@
       <li><span class="st-n">1</span><div><b>Выберите десерты</b><p>В меню или в конструкторе коробочки</p></div></li>
       <li><span class="st-n">2</span><div><b>Отправьте заявку</b><p>Она сразу придёт мне в сообщения VK. Можно написать и самим</p></div></li>
       <li><span class="st-n">3</span><div><b>Обсудим детали</b><p>Подтвержу вкусы, надпись, итоговую цену и время</p></div></li>
-      <li><span class="st-n">4</span><div><b>Заберите заказ</b><p>Самовывоз в Колпино в согласованное время</p></div></li>
+      <li><span class="st-n">4</span><div><b>Получите заказ</b><p>Бесплатная доставка по Колпино или самовывоз в согласованное время</p></div></li>
     </ol>
   </div>
 </section>
@@ -619,21 +622,24 @@
 <section class="sec" id="contacts" aria-labelledby="ct-h" style="padding-top:0">
   <div class="wrap ct-grid">
     <div class="map">
-      <img src="img/map.jpg" alt="Карта: Колпино, улица Машиностроителей, 6" loading="lazy" width="1000" height="620">
+      <img src="img/map.jpg" alt="Карта: Колпино, улица Машиностроителей, 8" loading="lazy" width="1000" height="620">
       <span class="pin" aria-hidden="true"></span>
       <span class="map-lbl">AM bakes</span>
-      <a class="map-open" href="https://yandex.ru/maps/?pt=30.571632,59.733740&amp;z=17&amp;l=map" target="_blank" rel="noopener">Открыть в Яндекс Картах</a>
+      <a class="map-open" href="https://yandex.ru/maps/?pt=30.569487,59.734437&amp;z=17&amp;l=map" target="_blank" rel="noopener">Открыть в Яндекс Картах</a>
       <small class="osm">© участники OpenStreetMap</small>
     </div>
     <div class="ct-card">
       <p class="kicker">за сладким сюда</p>
-      <h2 id="ct-h">Самовывоз в Колпино</h2>
-      <p class="addr">ул. Машиностроителей,&nbsp;6<span>район Вертолёт, рядом с ж/д станцией Колпино</span></p>
+      <h2 id="ct-h">Доставка и самовывоз</h2>
+      <p class="addr">ул. Машиностроителей,&nbsp;8<span>Колпино, район Вертолёт. Самовывоз отсюда</span></p>
       <div class="ct-row"><span class="lbl">Телефон</span><a class="big" href="tel:+79643989844">+7 964 398-98-44</a></div>
-      <div class="ct-row"><span class="lbl">Заказы</span><p>Принимаю в сообщениях группы VK и через заявку на сайте</p></div>
+      <div class="ct-row"><span class="lbl">Доставка</span><p>По Колпино бесплатно</p></div>
+      <div class="ct-row"><span class="lbl">Сроки</span><p>Заказ лучше оформить за 2-4 дня. Срочные заказы принимаю за 1 день</p></div>
+      <div class="ct-row"><span class="lbl">Заказы</span><p>В WhatsApp, в сообщениях группы VK и через заявку на сайте</p></div>
       <div class="ct-btns">
         <a class="btn btn-main btn-sm" href="https://vk.me/club242334404" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-chat"/></svg>Написать в VK</a>
-        <a class="btn btn-line btn-sm" href="https://yandex.ru/maps/?rtext=~59.733740%2C30.571632&amp;rtt=auto" target="_blank" rel="noopener">Построить маршрут</a>
+        <a class="btn btn-main btn-sm" href="https://wa.me/79643989844" target="_blank" rel="noopener"><svg class="ico" aria-hidden="true"><use href="#i-wa"/></svg>WhatsApp</a>
+        <a class="btn btn-line btn-sm" href="https://yandex.ru/maps/?rtext=~59.734437%2C30.569487&amp;rtt=auto" target="_blank" rel="noopener">Построить маршрут</a>
       </div>
     </div>
   </div>
@@ -651,7 +657,8 @@
       <details><summary>Можно сделать надпись или картинку?</summary><p>Да. Надпись на бенто, топпере или пряничке, как в наборах ко Дню отца. Картинку тоже можно, например как на «Львином наборе».</p></details>
       <details><summary>Можно собрать подарочный набор?</summary><p>Да: бенто и трайфлы к нему, каждый в своей коробочке. Соберите коробочку на сайте или просто напишите, что хотите подарить.</p></details>
       <details><summary>Бывают десерты в наличии?</summary><p>Иногда да, например корпусные десерты. О наличии пишу в группе VK.</p></details>
-      <details><summary>Где забрать заказ?</summary><p>Самовывоз в Колпино: ул. Машиностроителей, 6, рядом с ж/д станцией. Время согласуем в сообщениях.</p></details>
+      <details><summary>Есть доставка?</summary><p>Да, по Колпино доставка бесплатная. Или самовывоз: ул. Машиностроителей, 8. Время согласуем в сообщениях.</p></details>
+      <details><summary>За сколько дней заказывать?</summary><p>Лучше за 2-4 дня. Срочные заказы тоже принимаю, за 1 день.</p></details>
     </div>
   </div>
 </section>
@@ -673,6 +680,8 @@
           <label class="f">Дата<input type="date" name="date" required></label>
           <label class="f">Время<input type="time" name="time"></label>
         </div>
+        <label class="f">Получение<select name="get"><option>Доставка по Колпино (бесплатно)</option><option>Самовывоз, ул. Машиностроителей, 8</option></select></label>
+        <p class="f-note">Заказ лучше оформить за 2-4 дня, срочный за 1 день</p>
         <label class="f">Пожелания<textarea name="comment" rows="3" placeholder="Повод, вкусы, надпись, сколько нужно"></textarea></label>
         <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
         <label class="consent"><input type="checkbox" name="consent" checked><span>Согласен(на) на обработку персональных данных по <a href="privacy.html">политике</a></span></label>
@@ -704,7 +713,8 @@
     <ul>
       <li><a href="tel:+79643989844">+7 964 398-98-44</a></li>
       <li><a href="https://vk.me/club242334404" target="_blank" rel="noopener">Сообщения группы VK</a></li>
-      <li>Колпино, ул. Машиностроителей, 6</li>
+      <li><a href="https://wa.me/79643989844" target="_blank" rel="noopener">WhatsApp</a></li>
+      <li>Колпино, ул. Машиностроителей, 8</li>
       <li><a href="privacy.html">Политика обработки данных</a></li>
     </ul>
     <div class="copy">© 2026 AM bakes, Колпино</div>
@@ -956,6 +966,7 @@
     return [
       ...cart.map(l => `${l.t}${l.d ? ` (${l.d})` : ""}${l.q > 1 ? ` ×${l.q}` : ""}: ${l.p === null ? "цена по запросу" : (l.f ? "от " : "") + rub(l.p * l.q)}`),
       form.date.value && `Дата: ${fmtDate(form.date.value)}${form.time.value ? `, ${form.time.value}` : ""}`,
+      `Получение: ${form.get.value}`,
       t.sum && `Примерно: ${t.from ? "от " : ""}${rub(t.sum)}`
     ].filter(Boolean);
   }
@@ -998,7 +1009,7 @@
   };
   // The bottom bar must not cover fields above the phone keyboard
   const mbar = $("mbar");
-  form.addEventListener("focusin", e => { if (e.target.matches("input:not([type=checkbox]), textarea")) mbar.style.visibility = "hidden"; });
+  form.addEventListener("focusin", e => { if (e.target.matches("input:not([type=checkbox]), textarea, select")) mbar.style.visibility = "hidden"; });
   form.addEventListener("focusout", () => { mbar.style.visibility = ""; });
   $("b-text").addEventListener("focus", () => { mbar.style.visibility = "hidden"; });
   $("b-text").addEventListener("blur", () => { mbar.style.visibility = ""; });
