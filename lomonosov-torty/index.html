@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>Торты и десерты на заказ в Ломоносове и Петергофе</title>
-<meta name="description" content="Торты, бенто, свадебные торты, капкейки и трайфлы на заказ в Ломоносове от сертифицированного кондитера. Торты от 1 900 ₽ за 1 кг, бенто от 1 900 ₽.">
+<title>Торты на заказ в Ломоносове</title>
+<meta name="description" content="Торты на заказ в Ломоносове с индивидуальным дизайном: по вашей картинке, к любому празднику. Бенто, капкейки и трайфлы. Торты от 1 900 ₽ за 1 кг.">
 <meta name="theme-color" content="#f9e8eb">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,6 +80,12 @@
   .ticker i{color:var(--sky);font-style:normal}
   @keyframes run{to{transform:translateX(-50%)}}
 
+  .gal{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:28px}
+  .gal button{padding:0;border:0;background:var(--sky-soft);border-radius:var(--radius);overflow:hidden;cursor:zoom-in;box-shadow:var(--shadow);transition:.25s}
+  .gal button:hover{transform:translateY(-4px)}
+  .gal img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+  @media (max-width:820px){.gal{grid-template-columns:repeat(3,1fr);gap:10px}}
+  @media (max-width:560px){.gal{grid-template-columns:1fr 1fr;gap:8px}.gal button{border-radius:12px}}
   .chips{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0}
   .chip{padding:9px 18px;border:2px solid var(--line);border-radius:999px;background:#fff;cursor:pointer;font-weight:700;font-size:14px;transition:.15s}
   .chip:hover{border-color:var(--sky)}
@@ -407,16 +413,16 @@
 <div class="mock">Макет сайта. После согласования подключим имя сайта и заявки вам в сообщения</div>
 <header>
   <div class="wrap nav">
-    <a href="#top" class="logo"><img class="heart" src="img/hero.jpg" alt=""><span><b>Десерты Анны</b><small>торты на заказ, Ломоносов</small></span></a>
+    <a href="#top" class="logo"><img class="heart" src="img/w28.jpg" alt=""><span><b>Торты на заказ</b><small>в Ломоносове</small></span></a>
     <nav class="menu" id="menu">
-      <a href="#catalog">Каталог</a>
+      <a href="#catalog">Мои работы</a>
       <a href="#prices">Начинки и цены</a>
       <a href="#bento">Бенто</a>
       <a href="#calc">Расчёт</a>
       <a href="#reviews">Отзывы</a>
     </nav>
     <div class="nav-right">
-      <a class="nav-phone" href="tel:+79219848653">+7 921 984-86-53</a>
+      <a class="nav-phone" href="https://max.ru/u/f9LHodD0cOJecnWVXFutGQJOiEYBQzuP0JClGL85ajBNPTbAoojZApjgb5k" target="_blank" rel="noopener">Написать в MAX</a>
       <a class="btn btn-primary" href="#order">Заказать</a>
       <button class="burger" id="burger" aria-label="Меню"><span></span><span></span><span></span></button>
     </div>
@@ -428,10 +434,10 @@
   <div class="wrap hero-in">
     <div class="hero-txt">
       <span class="tagline">Сертифицированный кондитер</span>
-      <h1>Торты и десерты на заказ <span class="sub">Ломоносов, Петергоф и Санкт-Петербург</span></h1>
-      <p>Пеку из продуктов высшего качества и подбираю декор под ваш праздник: ягоды, шоколад, надписи, цифры и детские торты с любимыми героями.</p>
+      <h1>Торты на заказ в Ломоносове <span class="sub">Петергоф и Санкт-Петербург</span></h1>
+      <p>Каждый торт делаю с индивидуальным дизайном. Пришлите картинку, которая нравится, и я сделаю похожий торт в своём исполнении под ваш праздник. Пеку из продуктов высшего качества.</p>
       <div class="actions">
-        <a class="btn btn-primary" href="#catalog">Выбрать торт</a>
+        <a class="btn btn-primary" href="#catalog">Посмотреть работы</a>
         <a class="btn btn-line" href="#calc">Рассчитать на гостей</a>
       </div>
       <div class="stats">
@@ -441,9 +447,9 @@
       </div>
     </div>
     <div class="hero-pic">
-      <img src="img/hero.jpg" alt="Торт с клубникой" width="900" height="1200">
-      <img src="img/dvuh.jpg" alt="Двухъярусный торт с ягодами" loading="lazy">
-      <img src="img/tri-shok.jpg" alt="Торт Три шоколада" loading="lazy">
+      <img src="img/w22.jpg" alt="Двухъярусный торт с живыми цветами" width="900" height="1389">
+      <img src="img/w28.jpg" alt="Торт с ягодами и шоколадом" loading="lazy">
+      <img src="img/w30.jpg" alt="Розовый торт с короной" loading="lazy">
       <div class="sticker">бенто<b>от 1 900 ₽</b>в коробке</div>
     </div>
   </div>
@@ -453,11 +459,10 @@
 <section id="catalog" style="padding-top:64px">
   <div class="wrap">
     <span class="kicker">мои работы</span>
-    <h2>Торт под ваш праздник</h2>
-    <p class="lead">Это торты, которые я уже делала. Выберите похожий или пришлите свою картинку, а начинку подберём вместе.</p>
-    <div class="chips" id="chips"></div>
-    <div class="grid" id="grid"></div>
-    <div class="more-row"><button class="btn btn-line" id="more-cakes" type="button" hidden></button></div>
+    <h2>Каждый торт с индивидуальным дизайном</h2>
+    <p class="lead">Это торты, которые я уже делала. Готовых тортов на выбор нет: пришлите картинку-референс или расскажите идею, и я сделаю торт специально для вас. Нажмите на фото, чтобы посмотреть крупнее.</p>
+    <div class="gal" id="gal"></div>
+    <div class="more-row"><a class="btn btn-primary" href="#order">Прислать свою идею</a></div>
     <p class="fine">Цена торта считается по весу и начинке. Декор в вес не входит и оплачивается отдельно, в среднем от 500 до 1 500 ₽. Коробка для торта 300 ₽.</p>
   </div>
 </section>
@@ -494,8 +499,8 @@
       <a class="btn btn-primary" href="#order" data-cake="Бенто 600-700 г">Заказать бенто</a>
     </div>
     <div class="bento-pics">
-      <img src="img/b-hello.jpg" alt="Бенто торт Hello 21" loading="lazy">
-      <img src="img/b-mama.jpg" alt="Бенто торт с надписью для мамы" loading="lazy">
+      <img src="img/w03.jpg" alt="Бенто торт с надписью для жены и мамы" loading="lazy">
+      <img src="img/w13.jpg" alt="Бенто торт с надписью" loading="lazy">
     </div>
   </div>
 </section>
@@ -507,7 +512,7 @@
       <span class="kicker">сколько торта нужно</span>
       <h2>Посчитайте вес и цену на гостей</h2>
       <p class="lead">Большие торты делаю от 2 кг, для маленькой компании подойдёт бенто. Это ориентир, точную сумму назову, когда обсудим декор.</p>
-      <div class="calc-photos"><img src="img/calc1.jpg" alt="Детский торт с единорогом и безе" loading="lazy"><img src="img/calc2.jpg" alt="Детский торт с леденцами" loading="lazy"></div>
+      <div class="calc-photos"><img src="img/w09.jpg" alt="Детский торт с мороженым и безе" loading="lazy"><img src="img/w25.jpg" alt="Детский торт Король Лев" loading="lazy"></div>
     </div>
     <div class="calc">
       <label><span class="val">Сколько будет гостей <b id="g-val">12</b></span><input type="range" id="guests" min="1" max="50" value="12"></label>
@@ -531,7 +536,7 @@
 
 <section id="about">
   <div class="wrap about-two">
-    <img src="img/yubiley.jpg" alt="Торт на юбилей 70 лет" loading="lazy">
+    <img src="img/w17.jpg" alt="Двухъярусный торт с орхидеями" loading="lazy">
     <div>
       <span class="kicker">о кондитере</span>
       <h2>Привет, я Анна</h2>
@@ -573,7 +578,7 @@
     <h2>Пять шагов до вашего торта</h2>
     <div class="steps">
       <div class="step"><i>1</i><b>Дата и время</b><span>Когда хотите забрать торт</span></div>
-      <div class="step"><i>2</i><b>Идея</b><span>Тематика или фото торта, который нравится</span></div>
+      <div class="step"><i>2</i><b>Идея</b><span>Картинка-референс или тематика, дизайн сделаю под вас</span></div>
       <div class="step"><i>3</i><b>Вес и начинка</b><span>Помогу посчитать на ваших гостей</span></div>
       <div class="step"><i>4</i><b>Надпись</b><span>Если нужна, напишите текст</span></div>
       <div class="step"><i>5</i><b>Подтверждение</b><span>Подтвердите заказ за 3 дня до праздника</span></div>
@@ -594,7 +599,7 @@
       <details open><summary>Как считается цена торта?</summary><p>Вес умножаем на цену начинки за 1 кг: 1 900, 2 100 или 2 300 ₽. Декор в вес не входит и считается отдельно, коробка 300 ₽.</p></details>
       <details><summary>Какой минимальный вес?</summary><p>Большие торты от 2 кг, авторские начинки от 2,5 кг. Если гостей мало, возьмите бенто 600-700 г или тортик 1-1,5 кг.</p></details>
       <details><summary>За сколько дней заказывать?</summary><p>Лучше заранее, чтобы дата точно была свободна. Заказ нужно подтвердить за 3 дня.</p></details>
-      <details><summary>Можно повторить торт с картинки?</summary><p>Да, пришлите фото или опишите тематику, подберём декор под ваш вкус.</p></details>
+      <details><summary>Можно сделать торт по картинке?</summary><p>Да, так я и работаю: пришлите картинку, которая нравится, и я сделаю похожий торт в своём исполнении. Один в один не копирую, каждый дизайн индивидуальный.</p></details>
       <details><summary>Как получить торт?</summary><p>Забрать в Ломоносове в согласованное время. Если нужна доставка, напишите при заказе, обсудим.</p></details>
       <details><summary>Какие десерты ещё можно заказать?</summary><p>Капкейки 300 ₽ (от 6 штук), трайфлы 450 ₽ (от 4), эскимо 350 ₽ (от 4), корзиночки 300 ₽ (от 6) и шоколадные бомбочки 130 ₽ (от 4). Ягоды, шоколад и съедобная печать оплачиваются отдельно.</p></details>
       <details><summary>Печёте куличи к Пасхе?</summary><p>Да, перед Пасхой открываю бронь в группе: творожные куличи, ванильная и карамельная пасха, тематические капкейки и тортик в виде кулича.</p></details>
@@ -608,11 +613,10 @@
     <div>
       <span class="kicker">оставьте заявку</span>
       <h2>Давайте обсудим ваш торт</h2>
-      <p class="lead">Заполните форму, я отвечу и рассчитаю стоимость. Или сразу напишите и позвоните, как вам удобнее.</p>
+      <p class="lead">Заполните форму, я отвечу и рассчитаю стоимость. Картинку-референс удобнее сразу прислать в MAX или ВКонтакте.</p>
       <div class="contacts">
-        <div><a href="tel:+79219848653"><b>+7 921 984-86-53</b></a><small>телефон</small></div>
-        <div><a href="https://vk.ru/anytkaa88" target="_blank" rel="noopener"><b>Написать Анне ВКонтакте</b></a><small>заказы принимаю лично</small></div>
-        <div><a href="https://vk.me/club208992700" target="_blank" rel="noopener"><b>Сообщения группы</b></a><small>Десерты, Торты на заказ Ломоносов</small></div>
+        <div><a href="https://max.ru/u/f9LHodD0cOJecnWVXFutGQJOiEYBQzuP0JClGL85ajBNPTbAoojZApjgb5k" target="_blank" rel="noopener"><b>Написать в MAX</b></a><small>заказы принимаю лично</small></div>
+        <div><a href="https://vk.me/club208992700" target="_blank" rel="noopener"><b>Написать в группу ВКонтакте</b></a><small>Десерты, Торты на заказ Ломоносов</small></div>
         <div><b>Ломоносов</b><small>Петергоф и Санкт-Петербург</small></div>
       </div>
     </div>
@@ -629,22 +633,23 @@
         <label>Ваше имя<input name="name" autocomplete="name" required></label>
         <label>Телефон<input name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" required></label>
       </div>
-      <label>Пожелания<textarea name="comment" rows="3" placeholder="Повод, надпись, цвета, время, ссылка на картинку"></textarea></label>
+      <label>Ваша идея<textarea name="comment" rows="3" placeholder="Повод, надпись, цвета, время. Картинку можно прислать в MAX или ВКонтакте"></textarea></label>
       <input class="hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
       <label class="consent"><input type="checkbox" name="consent"><span>Согласен на обработку имени и телефона для ответа на заявку, <a href="privacy.html" target="_blank" rel="noopener">политика</a></span></label>
       <p class="err" id="err"></p>
       <button class="btn btn-primary" type="submit" id="submit">Отправить заявку</button>
       <div class="sent" id="sent" hidden>
         <b>Спасибо, заявка принята!</b>
-        <span>Я отвечу и рассчитаю стоимость. Хотите приложить картинку с идеей? Напишите мне:</span>
+        <span>Я отвечу и рассчитаю стоимость. Пришлите картинку с идеей:</span>
+        <a class="btn btn-primary" href="https://max.ru/u/f9LHodD0cOJecnWVXFutGQJOiEYBQzuP0JClGL85ajBNPTbAoojZApjgb5k" target="_blank" rel="noopener">Написать в MAX</a>
         <a class="btn btn-vk" href="https://vk.me/club208992700" target="_blank" rel="noopener">Написать ВКонтакте</a>
       </div>
       <div class="fallback" id="fallback" hidden>
         <b>Не получилось отправить заявку автоматически</b>
-        <span>Отправьте её в сообщения группы или позвоните:</span>
+        <span>Отправьте её в сообщения группы или напишите в MAX:</span>
         <div class="send">
           <button class="btn btn-vk" type="button" id="send-vk">ВКонтакте</button>
-          <a class="btn btn-line" href="tel:+79219848653">Позвонить</a>
+          <a class="btn btn-line" href="https://max.ru/u/f9LHodD0cOJecnWVXFutGQJOiEYBQzuP0JClGL85ajBNPTbAoojZApjgb5k" target="_blank" rel="noopener">MAX</a>
         </div>
       </div>
     </form>
@@ -654,17 +659,17 @@
 
 <footer class="site-footer">
   <div class="wrap">
-    <span>Торты и десерты на заказ, Ломоносов · <a href="tel:+79219848653">+7 921 984-86-53</a></span>
+    <span>Торты на заказ в Ломоносове · <a href="https://max.ru/u/f9LHodD0cOJecnWVXFutGQJOiEYBQzuP0JClGL85ajBNPTbAoojZApjgb5k" target="_blank" rel="noopener">MAX</a></span>
     <a href="https://vk.ru/club208992700" target="_blank" rel="noopener">Группа ВКонтакте</a>
   </div>
 </footer>
 
 <div class="bar">
-  <a class="btn btn-line" href="tel:+79219848653">Позвонить</a>
+  <a class="btn btn-line" href="https://max.ru/u/f9LHodD0cOJecnWVXFutGQJOiEYBQzuP0JClGL85ajBNPTbAoojZApjgb5k" target="_blank" rel="noopener">MAX</a>
   <a class="btn btn-primary" href="#order">Заказать</a>
 </div>
 <div class="toast" id="toast" role="status"></div>
-<div class="lb" id="lb"><button class="lb-x" type="button" aria-label="Закрыть">×</button><img alt="Сертификат"></div>
+<div class="lb" id="lb"><button class="lb-x" type="button" aria-label="Закрыть">×</button><img alt=""></div>
 <div class="copybox" id="copybox">
   <div class="in">
     <b>Скопируйте текст заявки</b>
@@ -677,36 +682,7 @@
   const VK_CHAT = "https://vk.me/club208992700";
   // For now the leads go to the demo script (to Leonti); give the site its own script at launch
   const LEAD_URL = "https://script.google.com/macros/s/AKfycby3_mdaCfx-Kv0MWD1RiwXnmTO47GtAS9zrH0WZsPcyeEGYHIRrXQjAU_EtMCfIypOW/exec";
-  // [name, description, price, unit, photo, categories, true when the price is only a minimum]
-  const CAKES = [
-    ["Торт с клубникой", "Коржи в нежной крошке и гора свежей клубники", 1900, "/кг", "hero", ["cakes"], true],
-    ["Торт Три шоколада", "Шоколадный бисквит и три муссовых слоя: тёмный, молочный, белый", 2300, "/кг", "tri-shok", ["cakes"], false],
-    ["Торт Космос", "Планеты и ракета из пряника", 1900, "/кг", "det-kosmos", ["kids"], true],
-    ["Свадебный торт в два яруса", "Роспись, бабочки и инициалы молодожёнов", 1900, "/кг", "w-dva", ["wedding"], true],
-    ["Бенто сердце", "600-700 г, ваша фраза на торте", 1900, "", "b-heart", ["bento"], false],
-    ["Двухъярусный торт", "Для большого праздника, ягоды и шоколадные подтёки", 1900, "/кг", "dvuh", ["cakes"], true],
-    ["Торт с единорогом", "Нежные цвета, бабочки и единорог", 1900, "/кг", "det-edinorog", ["kids"], true],
-    ["Капкейки", "С надписями и цифрами, заказ от 6 штук", 300, "/шт", "kapkeyki", ["dess"], false],
-    ["Торт с надписью", "Ваше поздравление кремом и розы из крема", 1900, "/кг", "nadpis", ["cakes"], true],
-    ["Свадебный торт с цветами", "Нежный крем и много цветов", 1900, "/кг", "w-cvety", ["wedding"], true],
-    ["Торт с машинками", "Для маленьких строителей и водителей", 1900, "/кг", "det-mashiny", ["kids"], true],
-    ["Бенто с надписью", "600-700 г, начинка на выбор", 1900, "", "b-box", ["bento"], false],
-    ["Торт Бомба", "Шар около 2,5 кг, дизайн считаем отдельно", 7500, "", "bomba", ["cakes"], false],
-    ["Трайфлы", "Бисквит, крем и ягоды в стаканчике, от 4 штук", 450, "/шт", "trayfly", ["dess"], false],
-    ["Цифра с ягодами", "Медовые коржи, ягодная начинка, крем чиз, 1-1,5 кг", 2400, "", "med-cifra", ["cakes"], false],
-    ["Белый торт в два яруса", "Белые подтёки и цветы", 1900, "/кг", "w-belyy", ["wedding"], true],
-    ["Детский торт с героями", "Любимые персонажи, имя и возраст", 1900, "/кг", "det-petr", ["kids"], true],
-    ["Бенто Уже в пути", "Чтобы рассказать близким о малыше", 1900, "", "b-put", ["bento"], false],
-    ["Торт с вишней", "Вишня и ягоды, поздравление шоколадом на креме", 1900, "/кг", "yagody", ["cakes"], true],
-    ["Эскимо", "Шоколадный бисквит на тёмном шоколаде в бельгийском шоколаде, от 4 штук", 350, "/шт", "eskimo", ["dess"], false],
-    ["Торт на годовщину свадьбы", "Имена, цифра и золотые кольца", 1900, "/кг", "w-60", ["wedding"], true],
-    ["Бенто с шуткой", "Надпись, над которой посмеются все гости", 1900, "", "b-black", ["bento"], false],
-    ["Цифра с шоколадом", "Медовые коржи, крем чиз, декор на ваш выбор", 2400, "", "cifra8", ["cakes"], false],
-    ["Шоколадные бомбочки", "Опустите в горячее молоко: шоколад раскроется, внутри какао и маршмеллоу. От 4 штук", 130, "/шт", "bomb", ["dess"], false],
-    ["Капкейки с картинками", "Ваши картинки на съедобной печати, печать оплачивается отдельно", 300, "/шт", "kap-judo", ["dess"], true],
-    ["Новогодние капкейки", "С новогодними картинками, от 6 штук", 300, "/шт", "kap-ng", ["dess"], true]
-  ];
-  const CATS = [["all", "Все"], ["cakes", "Торты"], ["kids", "Детские"], ["wedding", "Свадебные"], ["bento", "Бенто"], ["dess", "Десерты"]];
+  const WORKS = 40;
   // [title, price per kg, note, [[name, composition]]]
   const TIERS = [
     ["Классика", 1900, "за 1 кг, от 2 кг", [["Ванильный с ягодами или карамелью", "Ванильный бисквит, ягодная или карамельная начинка"], ["Шоколадный с ягодами или карамелью", "Шоколадный бисквит, ягодная или карамельная начинка"], ["Красный бархат", "Нежный влажный бисквит с шоколадным послевкусием, ягодная начинка"]]],
@@ -718,36 +694,14 @@
   const rub = n => n.toLocaleString("ru-RU") + " ₽";
   const $ = id => document.getElementById(id);
   const form = $("form");
-
-  // Catalog
-  const grid = $("grid"), chips = $("chips");
-  let cat = "all";
-  const LIMIT = 8, opened = new Set(), moreBtn = $("more-cakes");
-  const works = n => n % 10 === 1 && n % 100 !== 11 ? "работу" : [2, 3, 4].includes(n % 10) && ![12, 13, 14].includes(n % 100) ? "работы" : "работ";
-  function renderChips(){ chips.innerHTML = CATS.map(([k, n]) => `<button class="chip ${k === cat ? "on" : ""}" data-c="${k}">${n}</button>`).join(""); }
-  function renderGrid(){
-    const list = CAKES.filter(c => cat === "all" || c[5].includes(cat));
-    const shown = opened.has(cat) ? list : list.slice(0, LIMIT), rest = list.length - shown.length;
-    moreBtn.hidden = rest <= 0;
-    moreBtn.textContent = `Показать ещё ${rest} ${works(rest)}`;
-    grid.innerHTML = shown.map(c =>
-      `<article class="item"><img src="img/${c[4]}.jpg" alt="${c[0]}" loading="lazy" width="540" height="675">
-        <span class="tagp">${c[6] ? "от " : ""}${rub(c[2])}<small>${c[3]}</small></span>
-        <div class="b"><h3>${c[0]}</h3><p>${c[1]}</p>
-          <button class="pick" data-n="${c[0]}">${c[5][0] === "dess" ? "Хочу такие" : "Хочу такой"}</button>
-        </div></article>`).join("");
-  }
-  chips.addEventListener("click", e => { const b = e.target.closest(".chip"); if (!b) return; cat = b.dataset.c; renderChips(); renderGrid(); });
-  grid.addEventListener("click", e => {
-    const b = e.target.closest(".pick"); if (!b) return;
-    $("f-cake").value = b.dataset.n;
-    $("order").scrollIntoView();
-  });
-  moreBtn.onclick = () => { opened.add(cat); renderGrid(); };
-  renderChips(); renderGrid();
-
-  // Certificates open full size
   const lb = $("lb");
+
+  // Gallery of her works: no ready cakes to pick, every design is individual
+  $("gal").innerHTML = Array.from({length: WORKS}, (_, i) => { const n = String(i + 1).padStart(2, "0");
+    return `<button type="button" data-full="img/w${n}.jpg" aria-label="Открыть фото торта"><img src="img/w${n}.jpg" alt="Торт на заказ, работа ${i + 1}" loading="lazy" width="540" height="675"></button>`; }).join("");
+  $("gal").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; lb.querySelector("img").src = b.dataset.full; lb.classList.add("show"); });
+
+  // Certificates and works open full size
   $("certs").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; lb.querySelector("img").src = b.dataset.full; lb.classList.add("show"); });
   lb.addEventListener("click", e => { if (e.target === lb || e.target.closest(".lb-x")) lb.classList.remove("show"); });
   document.addEventListener("keydown", e => { if (e.key === "Escape") lb.classList.remove("show"); });
@@ -789,7 +743,7 @@
   calc();
 
   // Order form: the lead goes to VK through Apps Script, the group chat is the fallback
-  $("f-cake").innerHTML = "<option>По моей идее</option><option>Бенто 600-700 г</option><option>Тортик 1,5 кг</option><option>Наполеон</option><option>Корзиночки</option>" + CAKES.map(c => `<option>${c[0]}</option>`).join("");
+  $("f-cake").innerHTML = ["Торт по моей картинке", "Торт, идею обсудим", "Бенто 600-700 г", "Тортик 1,5 кг", "Медовый торт цифра или сердце", "Наполеон", "Торт Бомба", "Капкейки", "Трайфлы", "Эскимо", "Корзиночки", "Шоколадные бомбочки"].map(x => `<option>${x}</option>`).join("");
   $("f-fill").innerHTML = "<option>Посоветуйте</option>" + FILL.map(f => `<option>${f}</option>`).join("");
   document.querySelectorAll("[data-cake]").forEach(a => a.addEventListener("click", () => { $("f-cake").value = a.dataset.cake; }));
   $("to-order").onclick = () => {
