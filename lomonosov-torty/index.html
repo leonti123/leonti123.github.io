@@ -447,7 +447,7 @@
       </div>
     </div>
     <div class="hero-pic">
-      <img src="img/w22.jpg" alt="Двухъярусный торт с живыми цветами" width="900" height="1389">
+      <img src="img/w17.jpg" alt="Двухъярусный фиолетовый торт с орхидеями">
       <img src="img/w28.jpg" alt="Торт с ягодами и шоколадом" loading="lazy">
       <img src="img/w30.jpg" alt="Розовый торт с короной" loading="lazy">
       <div class="sticker">бенто<b>от 1 900 ₽</b>в коробке</div>
@@ -472,7 +472,7 @@
   <div class="wrap">
     <span class="kicker">самое вкусное внутри</span>
     <h2>Начинки и цены</h2>
-    <p class="lead">Три уровня цены: классика, пломбирные и авторские торты. Нажмите на вкус, и он подставится в заявку.</p>
+    <p class="lead">Нажмите на вкус, и он подставится в заявку.</p>
     <div class="tiers" id="tiers"></div>
     <div class="extra">
       <div><b>Тортик 1,5 кг</b><span>Классические начинки, сметанник или молочная девочка, простая надпись</span><i>3 100 ₽</i></div>
@@ -518,8 +518,8 @@
       <label><span class="val">Сколько будет гостей <b id="g-val">12</b></span><input type="range" id="guests" min="1" max="50" value="12"></label>
       <div><span style="font-size:14px;font-weight:700;display:block;margin-bottom:8px">Начинка</span>
         <div class="seg" id="seg">
-          <button type="button" class="on" data-p="1900" data-min="2"><b>Классика</b>1 900 ₽ за кг</button>
-          <button type="button" data-p="2100" data-min="2"><b>Пломбирные, сметанник</b>2 100 ₽ за кг</button>
+          <button type="button" class="on" data-p="1900" data-min="2"><b>Ванильный, шоколадный, красный бархат</b>1 900 ₽ за кг</button>
+          <button type="button" data-p="2100" data-min="2"><b>Пломбир, сметанник, молочная девочка</b>2 100 ₽ за кг</button>
           <button type="button" class="wide" data-p="2300" data-min="2.5"><b>Латте, Роше, Три шоколада, Сникерс</b>2 300 ₽ за кг, от 2,5 кг</button>
         </div>
       </div>
@@ -536,7 +536,7 @@
 
 <section id="about">
   <div class="wrap about-two">
-    <img src="img/w17.jpg" alt="Двухъярусный торт с орхидеями" loading="lazy">
+    <img src="img/w22.jpg" alt="Двухъярусный торт с живыми цветами" loading="lazy">
     <div>
       <span class="kicker">о кондитере</span>
       <h2>Привет, я Анна</h2>
@@ -597,7 +597,7 @@
     <h2>Что спрашивают чаще всего</h2>
     <div class="faq">
       <details open><summary>Как считается цена торта?</summary><p>Вес умножаем на цену начинки за 1 кг: 1 900, 2 100 или 2 300 ₽. Декор в вес не входит и считается отдельно, коробка 300 ₽.</p></details>
-      <details><summary>Какой минимальный вес?</summary><p>Большие торты от 2 кг, авторские начинки от 2,5 кг. Если гостей мало, возьмите бенто 600-700 г или тортик 1-1,5 кг.</p></details>
+      <details><summary>Какой минимальный вес?</summary><p>Большие торты от 2 кг, латте, Роше, Три шоколада и Сникерс от 2,5 кг. Если гостей мало, возьмите бенто 600-700 г или тортик 1-1,5 кг.</p></details>
       <details><summary>За сколько дней заказывать?</summary><p>Лучше заранее, чтобы дата точно была свободна. Заказ нужно подтвердить за 3 дня.</p></details>
       <details><summary>Можно сделать торт по картинке?</summary><p>Да, так я и работаю: пришлите картинку, которая нравится, и я сделаю похожий торт в своём исполнении. Один в один не копирую, каждый дизайн индивидуальный.</p></details>
       <details><summary>Как получить торт?</summary><p>Забрать в Ломоносове в согласованное время. Если нужна доставка, напишите при заказе, обсудим.</p></details>
@@ -707,7 +707,7 @@
   document.addEventListener("keydown", e => { if (e.key === "Escape") lb.classList.remove("show"); });
 
   // Fillings and prices
-  $("tiers").innerHTML = TIERS.map(t => `<div class="tier"><h3>${t[0]}</h3><div class="pr">${rub(t[1])} <small>${t[2]}</small></div>
+  $("tiers").innerHTML = TIERS.map(t => `<div class="tier"><div class="pr">${rub(t[1])} <small>${t[2]}</small></div>
     <ul>${t[3].map(x => `<li data-f="${x[0]}"><b>${x[0]}</b><span>${x[1]}</span></li>`).join("")}</ul>
     <button class="pick" type="button">Заказать с этим вкусом</button></div>`).join("");
   $("tiers").addEventListener("click", e => {
