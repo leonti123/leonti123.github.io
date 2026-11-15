@@ -13,12 +13,20 @@ CATS = [
 
 # kind 'cup' = a trifle flavour: goes to the box builder and the first screen
 BASE = [
+    # her own descriptions (card of 15.11): kept even when a post describes the flavour differently
+    dict(id='sn', cat='tr', kind='cup', name='Сникерс', price=350, unit='шт', own=True,
+         desc='Шоко бисквит, солёная карамель, жареный арахис, нежный крем чиз', pat=r'сникерс'),
+    dict(id='ks', cat='tr', kind='cup', name='Клубника-сливки', price=350, unit='шт', own=True,
+         desc='Ванильный бисквит, крем с белым шоколадом, клубничное конфи', pat=r'клубник\w*\s+(?:и\s+)?сливк|сливк\w*\s+(?:и\s+)?клубник'),
+    # банан-карамель and вишня-шоколад also name a trifle box, mini cheesecake and bento: only «трайфл/стаканчик ...» counts
+    dict(id='bk', cat='tr', kind='cup', name='Банан-карамель', price=350, unit='шт', own=True,
+         desc='Бисквит на выбор, мягкая карамель, свежий банан, крем с белым шоколадом',
+         pat=r'(?:трайфл|стаканчик)\w*\s+(?:\w+\s+){0,3}?банан\w*\s+(?:и\s+)?карамел'),
+    dict(id='vsh', cat='tr', kind='cup', name='Вишня-шоколад', price=350, unit='шт', own=True,
+         desc='Шоко бисквит, шоколадный крем, вишнёвое конфи',
+         pat=r'(?:трайфл|стаканчик)\w*\s+(?:\w+\s+){0,3}?вишн\w*\s+(?:и\s+)?шоколад'),
     dict(id='rv', cat='tr', kind='cup', name='Красный бархат', price=350, unit='шт',
          desc='Праздничный, с жемчужной посыпкой', pat=r'красн\w*\s+бархат'),
-    dict(id='sn', cat='tr', kind='cup', name='Сникерс', price=350, unit='шт',
-         desc='Мягкая карамель с жареным солёным арахисом', pat=r'сникерс'),
-    dict(id='ks', cat='tr', kind='cup', name='Клубника-сливки', price=350, unit='шт',
-         desc='Нежный сливочный крем и клубника', pat=r'клубник\w*\s+(?:и\s+)?сливк|сливк\w*\s+(?:и\s+)?клубник'),
     dict(id='kb', cat='tr', kind='cup', name='Клубника-банан', price=350, unit='шт',
          desc='Для любителей нежной и воздушной текстуры', pat=r'клубник\w*\s+(?:и\s+)?банан|банан\w*\s+(?:и\s+)?клубник'),
     dict(id='trbox', cat='tr', name='Трайфл-бокс', price=750, unit='шт',
@@ -43,7 +51,7 @@ BASE = [
          desc='Нежный вкус', pat=r'\bмоти\b'),
 ]
 # mini cheesecakes and bento also match the plain words, so they are checked first
-ORDER = ['trbox', 'mini', 'rv', 'sn', 'ks', 'kb', 'cheese', 'bento', 'maxi', 'medovik', 'korpus', 'cinna', 'pops', 'moti']
+ORDER = ['trbox', 'mini', 'rv', 'sn', 'ks', 'kb', 'bk', 'vsh', 'cheese', 'bento', 'maxi', 'medovik', 'korpus', 'cinna', 'pops', 'moti']
 BOX_FIRST = re.compile(r'трайфл\w*\s*бокс|бокс\w*\s+трайфл')
 
 # photos whose post text doesn't say what is on them (gift posts, a clip without text)
@@ -201,7 +209,7 @@ def build(posts):
             if len(found) == 1 and ids:
                 it = items[ids[0]]
                 it.update(price=o['price'], frm=o['frm'], unit=o['unit'] or it.get('unit'), post=p['id'], date=p['date'])
-                if o['src'] == 'lines' and len(o['desc']) > 8:
+                if o['src'] == 'lines' and len(o['desc']) > 8 and not it.get('own'):
                     d = o['desc']
                     it['desc'] = cap(d)
                 touched.add(ids[0])

@@ -50,6 +50,8 @@ FEATURED = 15        # the big card until a newer set with several photos appear
 GIFT_COVER = {15: 'photo456239028'}  # main photo of a set when it isn't the first one in the post
 GIFT_ORDER = [15, 18, 26, 25, 17]  # order of the first mockup, newer posts go first
 BENTO_FLAVOURS = ['вишня-шоколад', 'клубника-сливки']
+# her photos of one cup per flavour (VK chat 15.11): first photo of the card and the round close-up
+OWN_PHOTO = {'sn': 't-snikers', 'ks': 't-klubnika-slivki', 'bk': 't-banan-karamel', 'vsh': 't-vishnya-shokolad', 'rv': 't-krasnyi-barhat'}
 
 
 class VKError(Exception):
@@ -152,10 +154,14 @@ def main():
             close = next((s for k, c, s in ph if k in CURATED and CURATED[k][1]), ph[0][2])
         else:
             close = ph[0][2] if ph else None
+        gal = [c for k, c, s in ph]
+        if it['id'] in OWN_PHOTO:
+            f = 'img/' + OWN_PHOTO[it['id']]
+            close, gal = f + '-s.jpg', [f + '.jpg'] + gal
         items.append({
             'id': it['id'], 'cat': it['cat'], 'kind': it.get('kind'), 'name': it['name'],
             'price': it.get('price'), 'frm': bool(it.get('frm')), 'unit': it.get('unit') or '',
-            'desc': it.get('desc') or '', 'sq': close, 'gal': [c for k, c, s in ph][:8],
+            'desc': it.get('desc') or '', 'sq': close, 'gal': gal[:8],
             'post': it.get('post'), 'icon': it.get('icon'),
             'new': bool(it.get('new') and it.get('date') and it['date'] > SNAPSHOT),
         })
