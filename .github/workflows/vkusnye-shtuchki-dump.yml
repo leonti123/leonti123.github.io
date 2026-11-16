@@ -1,0 +1,26 @@
+name: vkusnye-shtuchki dump from VK
+on:
+  workflow_dispatch:
+  push:
+    paths: ["_sync/vkusnye-shtuchki/dump.py", "_sync/vkusnye-shtuchki/run.txt"]
+permissions:
+  contents: write
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: _sync/vkusnye-shtuchki
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - env:
+          VK_TOKEN: ${{ secrets.VK_TOKEN }}
+        run: python _sync/vkusnye-shtuchki/dump.py
+      - run: |
+          git add _sync/vkusnye-shtuchki/data
+          if git diff --cached --quiet; then exit 0; fi
+          git -c user.name="vkusnye-shtuchki-dump" -c user.email="actions@users.noreply.github.com" commit -m "vkusnye-shtuchki: dump VK group data"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && break; sleep 5; done
